@@ -11,3 +11,36 @@
 /log/*
 !/log/.keep
 /tmp
+public/assets/
+current
+last_version
+releases/
+scm/
+shared/
+*.rbc
+capybara-*.html
+.rspec
+/log
+/tmp
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/public/system
+/coverage/
+/doc/
+/spec/tmp
+/config/database.yml
+**.orig
+rerun.txt
+pickle-email-*.html
+.DS_Store
+app/.DS_Store
+app/assets/.DS_Store
+app/assets/images/.DS_Store
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp

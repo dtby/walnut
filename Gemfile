@@ -1,10 +1,11 @@
-source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,3 +44,11 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'bootstrap-sass', '~> 3.3.4'
+
+gem 'devise', '~> 3.4.1'
+
+gem 'simple_form', '~> 3.1.0'
+
+#分页
+gem 'kaminari'
