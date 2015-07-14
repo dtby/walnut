@@ -1,0 +1,40 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :mobile, required: true, autofocus: true, input_html: {id: "userMobile"} %>
+    <%= f.input :password, required: true, hint: ("最少#{@minimum_password_length}个字符" if @validatable) %>
+    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :email, required: true %>
+    <%= f.input :nickname, required: true %>
+    <%= f.input :sms, required: true %>
+    <%= link_to("获取验证码", "javascript:void(0);" , class: "btn btn-info", id: "getSmsBtn") %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#getSmsBtn").click(function(){
+      var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+      if(!$("#userMobile").val().match(reg)){
+        alert("请输入正确的手机号");
+      }else{
+        $.ajax({
+          type: "POST",
+          url: "<%= sms_path %>.js",
+          data: "sms[mobile]=" + $("#userMobile").val()
+        });
+      }
+    });
+  });
+</script>
+
+
