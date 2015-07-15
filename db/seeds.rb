@@ -16,7 +16,7 @@ Degree.create!([{id: 1, name: "高中/中专", sort_no: 1},
 
 
 Iv_category.destroy_all
-Degree.create!([{id: 1, name: "通用材料", sort_no: 1},
+Iv_category.create!([{id: 1, name: "通用材料", sort_no: 1},
   {id: 2, name: "HR/雇主视角", sort_no: 2},
   {id: 3, name: "面试类型", sort_no: 3},
   {id: 4, name: "面试准备", sort_no: 4},

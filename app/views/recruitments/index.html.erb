@@ -1,4 +1,7 @@
-<div class="container waper">
+<% content_for :banner do %>
+<%= render partial: "/share/banner"%>
+<% end %>
+<div class="container">
   <div class="row recruit_title">
     <div class="col-md-5"><hr class="divider"></div>
     <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘分类</span></div>
@@ -56,14 +59,14 @@
         </thead>
         <tbody class="recruit_list_text">
         <tr>
-          <td>计算机web前端工程师</td>
+          <td><%=link_to "计算机web前端工程师", recruitment_path(1) %></td>
           <td></td>
           <td>大科电子（上海）有限公司</td>
           <td>上海</td>
           <td>2015-07-11</td>
           <td>1000</td>
           <td><span class="glyphicon glyphicon-star-empty iconstar" aria-hidden="true"></span></td>
-          <td><%=link_to"投递简历" , 'show' ,class:"deliver"%></td>
+          <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
         </tr>
         <tr>
           <td>计算机web前端工程师</td>
