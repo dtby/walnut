@@ -37,8 +37,11 @@
 	line-height: 60px;
 	font-size: 12px;
 }
-
+//global style
 .my-ul{
 	padding: 0;
 	list-style: none;
+}
+.gray-bg{
+	background-color: $gray-bg;
 }

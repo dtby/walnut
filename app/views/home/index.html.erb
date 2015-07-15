@@ -1,43 +1,9 @@
 <!--banner-->
 <% content_for :banner do %>
-	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-			<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-		</ol>
-
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner" role="listbox">
-			<div class="item active">
-				<%= image_tag "banner1.png", alt: "核桃在线教育平台"%>
-				<div class="carousel-caption"></div>
-			</div>
-			<div class="item">
-				<%= image_tag "banner1.png", alt: "核桃在线教育平台"%>
-				<div class="carousel-caption"></div>
-			</div>
-			<div class="item">
-				<%= image_tag "banner1.png", alt: "核桃在线教育平台"%>
-				<div class="carousel-caption"></div>
-			</div>
-		</div>
-
-		<!-- Controls -->
-		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
-		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
-	</div>
+<%= render partial: "/share/banner"%>
 <% end %>
-<!-- home content -->
+<!-- walnut online education platform -->
 <div class="container">
-	<!-- walnut online education platform -->
 	<div class="row platform">
 		<div class="col-md-6">
 			<%= image_tag "platform_img.png", class: "img-responsive" %>
@@ -63,16 +29,30 @@
 				<div class="express-icon"><%= image_tag "platform_icon.png" %></div>
 				<span>在线教育平台</span>
 			</div>
+			<div class="col-md-12 plat-content">
+				大唐邦彦在线教育平台是一个集在线学习、实习实训、项目管理和招聘信息于一体的大型教育及延伸服务综合性平台，服务的用户群体是：IT互联网相关专业的在校大学生。与众多在线互联网教育平台不同的是，邦彦教育不仅专注于IT互联网教育的内容挖掘和形式创新，还以毕业大学生的就业问题为出发点，提供多方向、全面而贴近市场的服务。满足了大学生掌握一门职业技能、获得项目经历的积累、适应企业工作节奏和管理的切实需求，为学生快速实现在校学生向社会人的成功转型提供一套系统科学的解决方案
+			</div>
 		</div>
 	</div>
-
 </div>
-<%= image_tag "home.jpg", width: "100%" %>
+<!-- study online -->
+<div class="row ">
+	<div class="col-md-6"></div>
+	<div class="col-md-6"></div>
+</div>
+<!-- train -->
+<div class="row">
+	<div class="col-md-6"></div>
+	<div class="col-md-6"></div>
+</div>
+<!-- recruid -->
+<div class="row">
+	<div class="col-md-6"></div>
+	<div class="col-md-6"></div>
+</div>
 
 
 
-
-
-<%= link_to destroy_user_session_path, :method => :delete, class: "navbar-link" do %>
-<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出
-<% end %>
+<%#= link_to destroy_user_session_path, :method => :delete, class: "navbar-link" do %>
+<!-- <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出-->
+<%# end %>
