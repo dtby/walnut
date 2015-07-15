@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Walnut</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>Walnut</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
 </head>
 
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>" >
 
-<%= yield %>
-
+	<%= render partial: 'share/header' %>
+	<%= yield :banner %>
+	<%= yield %>
+	<%= render partial: 'share/footer' %>
 </body>
 </html>

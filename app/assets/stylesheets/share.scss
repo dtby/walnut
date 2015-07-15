@@ -1,0 +1,11 @@
+@import "variables";
+//header
+.my-navbar{
+	font-weight: bold;
+	.sign{
+		font-size: 12px;
+		li > a{
+			color: $color-sign !important;
+		}
+	}
+}
