@@ -9,3 +9,36 @@
 		}
 	}
 }
+
+//footer
+.footer-top{
+	background-color: $footer-bg;
+	height: 190px;
+	padding-top: 20px;
+	.footer-link{
+		border-left: 1px solid $border-ul;
+		padding-left: 15px;
+		li > a{
+			color: $font-default;
+			text-decoration: none;
+			font-size: 12px;
+			&:hover{
+				color: $color-sign;
+			}
+		}
+	}
+	p{
+		padding-top: 10px;
+	}
+}
+.footer-bottom{
+	background-color: $footer-gray;
+	height: 60px;
+	line-height: 60px;
+	font-size: 12px;
+}
+
+.my-ul{
+	padding: 0;
+	list-style: none;
+}
