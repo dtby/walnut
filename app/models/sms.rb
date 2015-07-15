@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: sms
+#
+#  id         :integer          not null, primary key
+#  mobile     :string(255)      not null
+#  code       :string(255)      default("")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Sms < ActiveRecord::Base
 
   #发送短信验证码

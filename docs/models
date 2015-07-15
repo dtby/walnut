@@ -45,9 +45,11 @@ image 图片管理
   学历
   。。。
 
-学历
-  中专
-  高中/大专
+学历 degree
+  name 名字
+  sort_no 排序
+  高中/中专
+  大专
   本科
   硕士
   博士
@@ -55,42 +57,45 @@ image 图片管理
 
 
 公司 company
-  image logo
-  公司名称
-  公司介绍
-  公司地址
-  公司地图
-  网址
-  联系人
-  联系电话
+  image log 多态
+  公司名称 name
+  公司介绍 description
+  公司地址 address
+  网址 web_address
+  联系人 contact
+  联系电话 contact_phone
 
 
 实习招聘 recruitment
   名称 name
-  性别要求 
-  要求证书
-  学历要求
-  工作地点
-  薪酬范围
-  外语要求
-  其他要求
-  职位描述
-  HR邮箱
-  点击量
-  发布时间
+  性别要求 gender
+  要求证书 certificate
+  学历要求 references.degree
+  所属公司 references.company
+  职位类别 category
+  工作地点 city
+  薪酬范围 remuneration
+  外语要求 foreign_language
+  其他要求 others
+  职位描述 description
+  HR邮箱 hr_email
+  点击量 browse_count
+  发布时间 publish_time
 
+经验分类 iv_category
+  name 分类名
+  sort_no 排序
 
-面试经验
-  标题
-  内容
-  所属分类 
-  阅读量
-  点赞
+面试经验 Interview
+  标题 title
+  内容 content
+  所属分类  references.iv_category
+  阅读量 browse_count
+  点赞 
   收藏
   评论
 
 
-经验分类
-  name 分类名
+
 
 
