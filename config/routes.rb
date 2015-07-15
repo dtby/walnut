@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root "home#index"
-  get 'recruit/index'
-  get 'recruit/show'
+resources :recruitments
   resources :sms, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
