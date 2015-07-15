@@ -1,0 +1,36 @@
+学校 school
+  学校名字  name
+  学校LOGO logo
+
+分类 categroy
+  分类名 name
+
+主讲教师 teacher
+  name 名字
+  description 描述
+
+教师课程 teacher_courses
+  teacher_id
+  course_id
+
+课程 course
+  school_id [关联关系，表中不创建]
+  categroy_id [关联关系，表中不创建]
+  课程标题 title
+  课程描述 description
+  课程访问量  view_count
+
+附件 attachment
+  course_id  [关联关系，表中不创建]
+  content
+  content_file_name
+  content_content_type
+  content_file_size
+  attachmentable_id
+  attachmentable_type
+  file_url   [附件上传出现问题时存入固定url]
+
+image 图片管理
+  教师头像
+  课程展示图片
+  学校logo
