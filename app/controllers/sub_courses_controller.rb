@@ -1,0 +1,2 @@
+class SubCoursesController < ApplicationController
+end
