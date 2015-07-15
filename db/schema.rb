@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715060716) do
+ActiveRecord::Schema.define(version: 20150715090030) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150715060716) do
     t.string   "contact",       limit: 255
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.string   "logo_url",      limit: 255
   end
 
   create_table "degrees", force: :cascade do |t|
@@ -38,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150715060716) do
     t.integer  "browse_count",   limit: 4,   default: 0
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "public_time",    limit: 255
+    t.string   "image_url",      limit: 255
   end
 
   add_index "interviews", ["iv_category_id"], name: "index_interviews_on_iv_category_id", using: :btree
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150715060716) do
     t.string   "publish_time",     limit: 255
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.string   "industry",         limit: 255
   end
 
   create_table "sms", force: :cascade do |t|

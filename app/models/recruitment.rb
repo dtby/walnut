@@ -19,6 +19,7 @@
 #  publish_time     :string(255)
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
+#  industry         :string(255)
 #
 
 class Recruitment < ActiveRecord::Base

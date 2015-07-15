@@ -57,7 +57,7 @@ image 图片管理
 
 
 公司 company
-  image log 多态
+  logo logo_url
   公司名称 name
   公司介绍 description
   公司地址 address
@@ -68,6 +68,7 @@ image 图片管理
 
 实习招聘 recruitment
   名称 name
+
   性别要求 gender
   要求证书 certificate
   学历要求 references.degree

@@ -11,6 +11,7 @@
 #  contact       :string(255)
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  logo_url      :string(255)
 #
 
 class Company < ActiveRecord::Base

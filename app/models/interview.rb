@@ -9,6 +9,8 @@
 #  browse_count   :integer          default(0)
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  public_time    :string(255)
+#  image_url      :string(255)
 #
 
 class Interview < ActiveRecord::Base
