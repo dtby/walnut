@@ -22,16 +22,16 @@ Company.create!([{id:1,
   address:"上海市香港路53号",
   web_address:"www.dtbytec.com",
   contact:"叶小姐",
-  contact_phone:"13162787916",
-  sort_no:1}])
+  contact_phone:"13162787916",}])
 
 Recruitment.destroy_all
-Recruitment.create!([
-  {id:1, 
-    name:"John", 
+(1..36).each do |i|
+  Recruitment.create!([
+  { name:"John", 
     gender:"男", 
     certificate:"英语六级", 
     degree_id:3, 
+    number: "4"
     company_id:1, 
     city:"上海", 
     remuneration:"面议",
@@ -42,9 +42,11 @@ Recruitment.create!([
     publish_time:"2015-07-08",
     category:"软件工程师",
     industry:"互联网"}])
+  end
 
-Iv_category.destroy_all
-Iv_category.create!([{id: 1, name: "通用材料", sort_no: 1},
+
+IvCategory.destroy_all
+IvCategory.create!([{id: 1, name: "通用材料", sort_no: 1},
   {id: 2, name: "HR/雇主视角", sort_no: 2},
   {id: 3, name: "面试类型", sort_no: 3},
   {id: 4, name: "面试准备", sort_no: 4},

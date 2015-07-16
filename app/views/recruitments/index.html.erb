@@ -58,26 +58,18 @@
         </tr>
         </thead>
         <tbody class="recruit_list_text">
+        <% @recruitments.each do |recruitment| %>
         <tr>
-          <td><%=link_to "计算机web前端工程师", recruitment_path(1) %></td>
+          <td><%=link_to recruitment.name, recruitment_path(1) %></td>
           <td></td>
-          <td>大科电子（上海）有限公司</td>
-          <td>上海</td>
-          <td>2015-07-11</td>
+          <td><%=recruitment.company_id %></td>
+          <td><%=recruitment.city %></td>
+          <td><%=recruitment.publish_time %></td>
           <td>1000</td>
           <td><span class="glyphicon glyphicon-star-empty iconstar" aria-hidden="true"></span></td>
           <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
         </tr>
-        <tr>
-          <td>计算机web前端工程师</td>
-          <td></td>
-          <td>大科电子（上海）有限公司</td>
-          <td>上海</td>
-          <td>2015-07-11</td>
-          <td>1000</td>
-          <td><span class="glyphicon glyphicon-star-empty iconstar" aria-hidden="true"></span></td>
-          <td><%=link_to"投递简历" , 'show' ,class:"deliver"%></td>
-        </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
