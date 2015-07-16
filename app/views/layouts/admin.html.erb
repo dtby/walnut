@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>核桃网后台管理系统</title>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track' => true %>
+  <%= yield :script %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>" >
+  <%= render 'admin/common/header'%>
+  <%= render 'admin/common/left'%>
+  <div id="main-content">
+    <div class="col-sm-10 col-sm-offset-2">
+      <% if content_for? :nav %>
+          <ol class="breadcrumb">
+            <%= yield :nav%>
+          </ol>
+      <% end %>
+      <% if content_for? :toolbar %>
+        <%= yield :toolbar %>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+  <%= render 'admin/common/footer'%>
+</body>
+</html>

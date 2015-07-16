@@ -1,0 +1,14 @@
+<%= content_for :nav do%>
+  <li>
+    <a href="<%= admin_root_path%>">后台</a>
+  </li>
+  <li>
+    <a href="<%= admin_colleges_path%>">院校列表</a>
+  </li>
+  <li>
+    <a href="<%= admin_college_path(@college)%>"><%= @college.name %></a>
+  </li>
+  <li class="active">修改</li>
+  <hr></hr>
+  <%= render 'form' %>
+<%end%>

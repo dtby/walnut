@@ -1,0 +1,33 @@
+<%= content_for :nav do%>
+  <li>
+    <a href="#{admin_root_path}">后台</a>
+  </li>
+  <li class="active">院校列表</li>
+<%end%>
+
+<%= content_for :toolbar do %>
+  <div class="col-xs-12">
+    <%= link_to new_admin_college_path, class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-plus-sign">新建</span>
+    <%end%>
+    <div class="col-xs-3 pull-right">
+      <div class="form-group">
+        <%= render partial: 'admin/common/keyword', locals: {path: ""} %>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<hr></hr>
+<table class="table table-hover table-bordered text-center table-condensed">
+  <thead>
+    <tr>
+      <th class="text-center">名称</th>
+      <th class="text-center" colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @colleges %>
+  </tbody>
+</table>
+<%= paginate @colleges %>
