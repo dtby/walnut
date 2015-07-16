@@ -43,7 +43,7 @@
 				<div class="media">
 					<div class="media-left">
 						<a href="#">
-							<%=image_tag"interviews_pic.png"%>
+							<%=image_tag interview.try(:image_url).present? ? interview.try(:image_url) : "interviews_pic.png" %>
 						</a>
 					</div>
 					<div class="media-body">
@@ -63,7 +63,7 @@
 		</div>
 	</div>
 	<div class="main-model text-center ">
-		<%= render partial: "paging" %>
+	<!-- <%= render partial: "paging" %> -->
 	<%= paginate @interviews %>
 		<!-- <ul  class="paging">
 			<li>

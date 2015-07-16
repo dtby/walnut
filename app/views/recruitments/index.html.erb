@@ -61,8 +61,8 @@
         <% @recruitments.each do |recruitment| %>
         <tr>
           <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
-          <td><%=image_tag '0401_1.png' %></td>
-          <td><%=recruitment.company_id %></td>
+          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
+          <td><%=recruitment.try(:company).try(:name) %></td>
           <td><%=recruitment.city %></td>
           <td><%=recruitment.publish_time %></td>
           <td><%=recruitment.view_count %></td>

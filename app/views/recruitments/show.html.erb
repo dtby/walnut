@@ -23,7 +23,7 @@
           <td>要求证书</td>
           <td><%=@recruitment.certificate %></td>
           <td>学历要求</td>
-          <td><%=@recruitment.degree %></td>
+          <td><%=@recruitment.try(:degree).try(:name) %></td>
         </tr><tr>
           <td>工作地区</td>
           <td><%=@recruitment.city %></td>

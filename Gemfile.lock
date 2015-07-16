@@ -43,6 +43,8 @@ GEM
     autoprefixer-rails (5.2.1)
       execjs
       json
+    backstretch-rails (2.0.4)
+      railties (> 3.1)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -217,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.6.6)
+  backstretch-rails
   bootstrap-sass (~> 3.3.4)
   byebug
   china_city

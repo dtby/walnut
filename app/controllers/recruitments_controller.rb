@@ -1,7 +1,7 @@
 class RecruitmentsController < ApplicationController
   def index
     #@recruitments = Recruitment.all
-    @recruitments = Recruitment.order("created_at DESC").page(params[:page]).per(15)
+    @recruitments = Recruitment.includes(:company).order("created_at DESC").page(params[:page]).per(15)
   end
   def show
     @recruitment = Recruitment.find(params[:id])
