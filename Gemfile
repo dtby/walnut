@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 gem 'bootstrap-sass', '~> 3.3.4'
 
@@ -46,6 +46,11 @@ gem 'china_sms'
 gem "responders"
 
 gem 'logger', '~> 1.2.8'
+
+#mina部署
+group :development do
+  gem 'mina'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
