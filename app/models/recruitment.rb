@@ -23,6 +23,8 @@
 #
 
 class Recruitment < ActiveRecord::Base
+  acts_as_votable
+  
   belongs_to :degree
   belongs_to :company
 end

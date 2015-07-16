@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :user
 
+  resources :votes, only: [:create]
+
   #get "/courses/list", to: "courses#list", as: :list_courses
   resources :courses, only: [:index, :show] do
     collection do

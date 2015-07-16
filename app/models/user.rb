@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
 
 
   attr_accessor :sms #短信验证码
+  acts_as_voter
 
 
   validates :mobile, presence: true, uniqueness: true

@@ -66,7 +66,11 @@
           <td><%=recruitment.city %></td>
           <td><%=recruitment.publish_time %></td>
           <td><%=recruitment.view_count %></td>
-          <td><span class="glyphicon glyphicon-star-empty iconstar" aria-hidden="true"></span></td>
+          <td>
+            <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, is_like: (current_user.voted_up_on? recruitment) ) do %>
+              <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.voted_up_on? recruitment) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
+            <% end %>
+          </td>
           <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
         </tr>
         <% end %>
@@ -75,3 +79,10 @@
       <%= paginate @recruitments %>
     </div>
 </div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+<% end %>
