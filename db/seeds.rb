@@ -16,9 +16,9 @@ Degree.create!([{id: 1, name: "高中/中专", sort_no: 1},
 
 Company.destroy_all
 Company.create!([{id:1,
- logo_url:"www.dtbytec.com",
+ logo_url:"0401_1.png",
   name:"大唐邦彦",
-  description:"校企合作深度院系校企合作深度院系校企合作深度院系校企合作深度院系校企合作深度院系校企合作深度院系",
+  description:"大唐邦彦（上海）信息技术有限公司（简称大唐邦彦）是一家专注于移动互联网信息技术、大数据云平台、教育行业信息化、校企合作产教融合开发的高科技企业。集合大唐电信科技产业集团优势资源，依托集团研发实力和企业大学的教学经验，大唐邦彦与国内外多所知名教育研究机构、高校建立了战略伙伴关系，将校企合作由原来的共建产教融合基地、人才创新基地等扩展到专业领域的人才培养，进行专业学科建设的设计与实施、在线教育平台的综合应用，并自主开发集成了FITWARE系列实训室整体解决方案，从专业共建、技能培训、实习实训、就业指导、创业孵化等全流程的培养方案，实现产业需求与高校教育内容、教学过程的深度融结合",
   address:"上海市香港路53号",
   web_address:"www.dtbytec.com",
   contact:"叶小姐",
@@ -28,7 +28,7 @@ Recruitment.destroy_all
  (1..36).each do |i| 
   Recruitment.create!([
   { id:i,
-    name: "John", 
+    name: "前端研发工程师", 
     gender: "男", 
     certificate: "英语六级", 
     degree_id: 3, 
