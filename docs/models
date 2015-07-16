@@ -1,20 +1,23 @@
-学校 school
+学校 college
   学校名字  name
-  学校LOGO logo
+  软删除 deleted_at
+  学校LOGO logo  [多态，表中不创建]
 
-分类 categroy
+分类 category
   分类名 name
+  软删除 deleted_at
 
 主讲教师 teacher
   name 名字
   description 描述
+  软删除 deleted_at
 
 教师课程 teacher_courses
   teacher_id
   course_id
 
 课程 course
-  school_id [关联关系，表中不创建]
+  college_id [关联关系，表中不创建]
   categroy_id [关联关系，表中不创建]
   课程标题 title
   课程描述 description
@@ -22,6 +25,7 @@
 
 子课程 sub_course
    title  标题
+   description  子课程描述
 
 附件 attachment
   sub_course_id [关联关系，表中不创建]
@@ -29,12 +33,17 @@
   content
   content_file_name
   content_content_type
-  content_file_size
-  attachmentable_id
+  content_file_size  int
+  attachmentable_id  int
   attachmentable_type
   file_url   [附件上传出现问题时存入固定url]
 
 image 图片管理
+  avatar_file_name
+  avatar_content_type
+  avatar_file_size
+  imageable_id
+  imageable_type
   教师头像
   课程展示图片
   学校logo

@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716023613) do
+ActiveRecord::Schema.define(version: 20150716083201) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "content",              limit: 255
+    t.string   "content_file_name",    limit: 255
+    t.string   "content_content_type", limit: 255
+    t.integer  "content_file_size",    limit: 4
+    t.integer  "attachmentable_id",    limit: 4
+    t.string   "attachmentable_type",  limit: 255
+    t.string   "file_url",             limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
+
+  create_table "categroys", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "deleted_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "colleges", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "deleted_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",          limit: 255
@@ -25,11 +51,29 @@ ActiveRecord::Schema.define(version: 20150716023613) do
     t.string   "logo_url",      limit: 255
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "view_count",  limit: 4,     default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
   create_table "degrees", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "sort_no",    limit: 4,   default: 1000
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.integer  "imageable_id",        limit: 4
+    t.string   "imageable_type",      limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "interviews", force: :cascade do |t|
@@ -82,6 +126,31 @@ ActiveRecord::Schema.define(version: 20150716023613) do
 
   add_index "sms", ["mobile"], name: "index_sms_on_mobile", unique: true, using: :btree
 
+  create_table "sub_courses", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  create_table "teacher_courses", force: :cascade do |t|
+    t.integer  "teacher_id", limit: 4
+    t.integer  "course_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "teacher_courses", ["course_id"], name: "index_teacher_courses_on_course_id", using: :btree
+  add_index "teacher_courses", ["teacher_id"], name: "index_teacher_courses_on_teacher_id", using: :btree
+
+  create_table "teachers", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.datetime "deleted_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -104,4 +173,6 @@ ActiveRecord::Schema.define(version: 20150716023613) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "interviews", "iv_categories"
+  add_foreign_key "teacher_courses", "courses"
+  add_foreign_key "teacher_courses", "teachers"
 end
