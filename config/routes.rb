@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
-resources :interviews
 
   root "home#index"
-resources :recruitments
+  
+  devise_for :users
+
+  resources :interviews
+
+  resources :recruitments
+
   resources :sms, only: [:create]
 
-  resources :courses do
-    resources :sub_courses
+  resources :courses, only: [:index, :show] do
+    resources :sub_courses, only: [:index, :show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

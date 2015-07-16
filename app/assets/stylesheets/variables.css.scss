@@ -12,7 +12,10 @@ $gray-bg: #F5F5F5;
 $font-default: #333;
 
 //navbar
-$navbar-height: 70px;
+$navbar-height: 66px;
 $navbar-border-radius: 0;
 $navbar-inverse-bg: $color-black;
 $navbar-margin-bottom: 0;
+$navbar-inverse-link-color: #fff;
+$navbar-inverse-link-hover-color: $color-green;
+$navbar-inverse-link-active-color: #fff;

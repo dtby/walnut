@@ -15,11 +15,11 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">课程中心<span class="sr-only">(current)</span></a></li>
-				<li><a href="#">实训项目</a></li>
-				<li><a href="#">实习培训</a></li>
-				<li><a href="#">个人中心</a></li>
+			<ul class="nav navbar-nav navbar-left">
+				<li class="<%= "active" if params[:controller] == 'home' && params[:action] == 'index'%>"><a href="#">课程中心</a></li>
+				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实训项目</a></li>
+				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实习培训</a></li>
+				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">个人中心</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right sign">
 				<li><a href="#" data-toggle="modal" data-target="#userLoginModal"><%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;登录</a></li>

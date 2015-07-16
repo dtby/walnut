@@ -2,6 +2,10 @@
 //header
 .my-navbar{
 	font-weight: bold;
+	border: none !important;
+	li.active{
+		border-bottom: 4px solid $color-green;
+	}
 	.sign{
 		font-size: 12px;
 		li > a{
