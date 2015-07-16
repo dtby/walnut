@@ -48,6 +48,8 @@ gem "responders"
 gem 'logger', '~> 1.2.8'
 
 gem "mediaelement_rails"
+
+gem "paperclip", "~> 4.2.1"
 #mina部署
 group :development do
   gem 'mina'

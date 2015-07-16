@@ -1,0 +1,44 @@
+<%= simple_form_for([:admin, @teacher], html: {class: "form-horizontal"}) do |f| %>
+
+  <% if @teacher.image.present? %>
+    <div class="form-group">
+      <%= label_tag :image, '已上传头像', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4 container">
+        <%= image_tag(@teacher.try(:image).try(:avatar), size: "340x200") %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :image, '教师头像', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name, '教师姓名', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, '教师信息', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <hr></hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#teacher_image").fileinput();
+  });
+</script>

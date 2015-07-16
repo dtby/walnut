@@ -6,7 +6,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :term_mode, nil
 
 set :domain, '115.29.211.21'
-set :deploy_to, 'walnut'
+set :deploy_to, '/home/deploy2/walnut'
 set :repository, 'https://github.com/dtby/walnut'
 set :branch, 'master'
 
