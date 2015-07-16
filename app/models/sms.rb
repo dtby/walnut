@@ -59,7 +59,7 @@ class Sms < ActiveRecord::Base
     chars = ("0".."9").to_a
     code = ""
     1.upto(len) { |i| code << chars[rand(chars.size-1)] }
-    return code.to_i
+    return code
   end
 
 

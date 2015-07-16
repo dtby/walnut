@@ -9,7 +9,7 @@
         <%= f.input :sms, wrapper: :inline_form , label: false %>
       </div>
       <div class="col-sm-5">
-        <%= link_to("获取验证码", "javascript:void(0);" , class: "btn btn-info devise-sms-btn") %>
+        <%= link_to("获取验证码", "javascript:void(0);" , class: "btn btn-info devise-sms-btn", id: "getSmsBtn") %>
       </div>
     </div>
     <%= f.input :email, label: false %>
@@ -26,3 +26,20 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#getSmsBtn").click(function(){
+      var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+      if(!$("#userMobile").val().match(reg)){
+        alert("请输入正确的手机号");
+      }else{
+        $.ajax({
+          type: "POST",
+          url: "<%= sms_path %>.js",
+          data: "sms[mobile]=" + $("#userMobile").val()
+        });
+      }
+    });
+  });
+</script>
