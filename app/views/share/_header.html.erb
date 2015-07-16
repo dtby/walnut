@@ -22,8 +22,16 @@
 				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">个人中心</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right sign">
-				<li><a href="#" data-toggle="modal" data-target="#userLoginModal"><%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;登录</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#userRegisterModal"><%= image_tag "loginout.png", width: '18' %>&nbsp;&nbsp;注册</a></li>
+				<li>
+					<%= link_to(new_session_path(:user),remote: true, format: :js) do %>
+						<%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;登录
+					<% end %>
+				</li>
+				<li>
+					<%= link_to(new_registration_path(:user),remote: true, format: :js) do %>
+						<%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;注册
+					<% end %>
+				</li>
 			</ul>
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->

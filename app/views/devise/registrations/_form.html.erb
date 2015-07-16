@@ -1,0 +1,28 @@
+<h3 class="text-center title"><span>欢迎注册<span></h3>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :mobile, label: false, autofocus: true, input_html: {id: "userMobile"} %>
+    <div class="row">
+      <div class="col-sm-7">
+        <%= f.input :sms, wrapper: :inline_form , label: false %>
+      </div>
+      <div class="col-sm-5">
+        <%= link_to("获取验证码", "javascript:void(0);" , class: "btn btn-info devise-sms-btn") %>
+      </div>
+    </div>
+    <%= f.input :email, label: false %>
+    <%= f.input :password, label: false %>
+    <%= f.input :password_confirmation, label: false %>
+  </div>
+
+  <div class="form-actions row">
+    <div class="col-sm-6">
+      <%= f.button :submit, "立即注册", class: "btn btn-success" %>
+    </div>
+    <div class="col-sm-6">
+      <%= link_to("返回登录", new_session_path(:user),remote: true, format: :js, class: "btn btn-info") %>
+    </div>
+  </div>
+<% end %>

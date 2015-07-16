@@ -1,0 +1,2 @@
+$ ->
+  $("#getSmsBtn").click ->
