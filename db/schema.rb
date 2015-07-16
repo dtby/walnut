@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716083201) do
+ActiveRecord::Schema.define(version: 20150716091911) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -174,7 +174,6 @@ ActiveRecord::Schema.define(version: 20150716083201) do
   add_index "users", ["mobile"], name: "index_users_on_mobile", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "interviews", "iv_categories"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
 end
