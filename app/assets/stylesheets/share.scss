@@ -49,3 +49,44 @@
 .gray-bg{
 	background-color: $gray-bg;
 }
+
+.devise-modal {
+	.modal-sm {
+		width: 350px;
+		margin: 70px auto;
+	}
+	.user-devise-form {
+		.title span {
+			border-bottom: 2px solid #5ac3b7;
+		}
+		form {
+			padding: 10px 15px;
+			.form-group {
+				margin-bottom: 20px;
+				.form-control {
+					height: 42px;
+				}
+			}
+			.form-actions {
+				margin-bottom: 20px;
+			}
+			.btn {
+				width: 100%;
+				line-height: 27px;
+
+				&.btn-info {
+					background-color: #5ac3b7;
+				}
+
+				&.btn-success {
+					background-color: #61c35a;
+				}
+
+				&.btn-danger {
+					background-color: #f25d64;
+				}
+			}
+		}
+
+	}
+}

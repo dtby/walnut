@@ -37,6 +37,7 @@ zh-CN:
         password: '密码'
         password_confirmation: '确认密码'
         nickname: '昵称'
+        remember_me: '记住密码'
     placeholders:
       user:
         mobile: '请输入登录手机号'
