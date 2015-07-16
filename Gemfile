@@ -47,6 +47,7 @@ gem "responders"
 
 gem 'logger', '~> 1.2.8'
 
+gem "mediaelement_rails"
 #mina部署
 group :development do
   gem 'mina'

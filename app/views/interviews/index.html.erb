@@ -40,7 +40,7 @@
 				<div class="media">
 					<div class="media-left">
 						<a href="#">
-							<%=image_tag"interviews-pic.png"%>
+							<%=image_tag"interviews_pic.png"%>
 						</a>
 					</div>
 					<div class="media-body">
@@ -57,29 +57,7 @@
 		</div>
 	</div>
 	<div class="main-model text-center ">
-		<ul  class="paging">
-			<li>
-				<a href="#" aria-label="Previous">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				</a>
-			</li>
-			<li><a href="#">首页</a></li>
-			<li><a href="#">上一页</a></li>
-			<li><a href="#">&nbsp; 1 &nbsp;</a></li>
-			<li><a href="#">&nbsp; 2 &nbsp;</a></li>
-			<li><a href="#">&nbsp; 3  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 4  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 5  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 6  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 7  &nbsp;</a></li>
-			<li><a href="#">下一页</a></li>
-			<li><a href="#">尾页</a></li>
-			<li>
-				<a href="#" aria-label="Next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				</a>
-			</li>
-		</ul>
+		<%= render partial: "paging" %>
 	</div>
 </div>
 

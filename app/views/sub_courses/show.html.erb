@@ -1,2 +1,86 @@
-<h1>SubCourses#show</h1>
-<p>Find me in app/views/sub_courses/show.html.erb</p>
+<div class="video">
+	<div class="container">
+		<div class="row my-row">
+			<div class="col-md-9 col-0">
+				<video width="100%" height="530" class="mejs-player" poster="" controls="controls" preload="none">
+					<source type="video/mp4" src="http://vjs.zencdn.net/v/oceans.mp4" />
+					<source type="video/webm" src="myvideo.webm" />
+					<source type="video/ogg" src="myvideo.ogv" />
+				</video>
+			</div>
+			<div class="col-md-3 col-0">
+				<div class="list-title">课程列表</div>
+				<div class="list-content">
+					<% (1..10).each do |img|%>
+					<div class="col-xs-6 col-5 text-center">
+						<%= image_tag "interviews_pic.png", class: 'img-responsive' %>
+						第一章
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container video-comment">
+	<div class="cmt-tab">
+		<div class="row">
+			<div class="col-xs-12">
+				<ul class="my-ul cmt-ul">
+					<li class="active"><%= link_to "评论", "#"%></li>
+					<li><%= link_to "问答", "#"%></li>
+				</ul>
+			</div>
+			<div class="col-xs-12">
+				<div class="tab-content">
+					<div id="cmt">
+						<div class="col-xs-12">
+							<textarea class="form-control" rows="3"></textarea>
+							<button type="button" class="cmt-btn pull-right">发表评论</button>
+						</div>
+						<div class="col-xs-12">
+							<hr class="cmt-hr">
+							<% (1..5).each do |item| %>
+							<div class="media cmt-media">
+								<div class="media-left">
+									<a href="#">
+										<%= image_tag "recruit_computer.png", class: "media-object img-circle", width: "40"%>
+									</a>
+								</div>
+								<div class="media-body">
+									<h6 class="media-heading">DxDy</h6>
+									<p>其实程设真的很有趣～</p>
+									<h6 class="text-muted clearfix">
+										<span>时间：6天前</span>
+										<span class="pull-right">
+											<span class="glyphicon glyphicon-thumbs-up"></span>
+											<%= 2 %>
+										</span>
+									</h6>
+								</div>
+							</div>
+							<hr>
+							<% end %>
+							<div class="text-center ">
+								<br>
+								<%= render partial: "/interviews/paging"%>
+								<br>
+							</div>
+						</div>
+					</div>
+					<div id="answer">
+						world
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<%= image_tag "advertisement.png", class: "img-responsive"%>
+	<br>
+</div>
+
+<script>
+
+</script>
