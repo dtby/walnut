@@ -27,21 +27,21 @@ Company.create!([{id:1,
 Recruitment.destroy_all
 (1..36).each do |i|
   Recruitment.create!([
-  { name:"John", 
-    gender:"男", 
-    certificate:"英语六级", 
-    degree_id:3, 
-    number: "4"
-    company_id:1, 
-    city:"上海", 
-    remuneration:"面议",
-    foreign_language:"英语",
-    others:"无",
-    description:"前端工程师",
-    hr_email:"example@dtbytec.com",
-    publish_time:"2015-07-08",
-    category:"软件工程师",
-    industry:"互联网"}])
+  { name: "John", 
+    gender: "男", 
+    certificate: "英语六级", 
+    degree_id: 3, 
+    number: "4",
+    company_id: 1, 
+    city: "上海", 
+    remuneration: "面议",
+    foreign_language: "英语",
+    others: "无",
+    description: "前端工程师",
+    hr_email: "example@dtbytec.com",
+    publish_time: "2015-07-08",
+    category: "软件工程师",
+    industry: "互联网"}])
   end
 
 
