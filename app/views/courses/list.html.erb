@@ -1,0 +1,68 @@
+<div class="container">
+	<div class="row category">
+		<div class="title-bar">
+	  	<h4 class="text-center title">学院分类</h4>
+	    <div class="line"></div>
+	  </div>
+	  <div class="col-sm-3">
+		  <%= link_to "", class: "link-lg active" do %>
+		    <span>全部课程</span>
+		  <% end %>
+		</div>
+		<div class="col-sm-3">
+		  <div class="col-sm-6">
+			  <%= link_to "", class: "link-sm" do %>
+			    <span>全部课程</span>
+			  <% end %>
+			</div>
+			<div class="col-sm-6">
+			  <%= link_to "", class: "link-sm" do %>
+			    <span>全部课程</span>
+			  <% end %>
+			</div>
+		</div>
+		<div class="col-sm-3">
+		  <%= link_to "", class: "link-lg" do %>
+		    <span>全部课程</span>
+		  <% end %>
+		</div>
+		<div class="col-sm-3">
+		  <div class="col-sm-6">
+			  <%= link_to "", class: "link-sm" do %>
+			    <span>全部课程</span>
+			  <% end %>
+			</div>
+			<div class="col-sm-6">
+			  <%= link_to "", class: "link-sm" do %>
+			    <span>全部课程</span>
+			  <% end %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+	  <div class="title-bar">
+	  	<h4 class="text-center title">课程中心</h4>
+	    <div class="line"></div>
+	  </div>
+    <% 9.times do %>
+			<div class="col-sm-4">
+			  <div class="bordered">
+			  	<%= image_tag("course-index.gif", class: "img-responsive")%>
+					<%= image_tag("course-teacher.png", class: "img-responsive avatar")%>
+					<span class="pull-right name">沈晴天</span>
+					<div class="col-sm-12 mt-40">
+						<p>操作系统和虚拟化安全</p>
+						<p>沈晴天，博士， 副教授。北京大学牛逼学院...</p>
+					</div>
+					<div class="col-sm-12 infos">
+						<span class="glyphicon glyphicon-eye-open"></span> 1549
+						&nbsp;&nbsp;&nbsp;
+						<span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+						<b class="pull-right">免费</b>
+					</div>
+			  </div>
+			</div>
+		<% end %>
+	</div>
+</div>
