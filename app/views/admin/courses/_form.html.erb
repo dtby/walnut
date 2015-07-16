@@ -1,0 +1,62 @@
+<%= form_for([:admin, @course], html: {class: "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= label_tag :category, '所属分类', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <% @categories.each do |p| %>
+        <%= f.radio_button :category_id, p.id %>
+        <%= f.label :category_id, p.name %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :college, '所属学校', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <% @colleges.each do |p| %>
+        <%= f.radio_button :college_id, p.id %>
+        <%= f.label :college_id, p.name %>
+      <% end %>
+    </div>
+  </div>
+  <% if @course.image.present? %>
+    <div class="form-group">
+      <%= label_tag :image, '已上传展示图', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4 container">
+        <%= image_tag(@course.try(:image).try(:avatar), size: "340x200") %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :image, '课程展示图', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title, '课程标题', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, '课程简介', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <hr></hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#course_image").fileinput();
+  });
+</script>

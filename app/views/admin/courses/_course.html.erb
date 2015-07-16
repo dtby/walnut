@@ -1,0 +1,15 @@
+<tr>
+  <td><%= image_tag(course.try(:image).try(:avatar)) %></td>
+  <td><%= course.name %></td>
+  <td>
+    <%#= link_to [:admin, specialty], class: 'btn btn-xs btn-info', title: '查看' do %>
+     <!--  <span class="glyphicon glyphicon-eye-open"></span> -->
+    <%#end%>
+    <%= link_to edit_admin_course_path(course), class: 'btn btn-xs btn-default', title: '编辑' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <%end%>
+    <%= link_to admin_course_path(course), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <%end%>
+  </td>
+</tr>

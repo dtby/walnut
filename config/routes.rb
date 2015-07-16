@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :colleges
     resources :teachers
     resources :categories
+    resources :courses
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

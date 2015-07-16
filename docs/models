@@ -17,6 +17,7 @@
   course_id
 
 课程 course
+  teacher_id [关联关系，表中不创建]
   college_id [关联关系，表中不创建]
   category_id [关联关系，表中不创建]
   课程标题 title
