@@ -1,5 +1,5 @@
 <h3 class="text-center title"><span>欢迎登录<span></h3>
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), remote: true, format: :json, html: {id: "userDeviseLogin"}) do |f| %>
   <div class="form-inputs">
     <%= f.input :mobile, required: false, label: false, autofocus: true %>
     <%= f.input :password, required: false, label: false %>
@@ -18,3 +18,16 @@
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $('#userDeviseLogin').on('ajax:complete', function(e, xhr, type){
+      if (type === 'success') {
+        location.href = '/';
+      } else {
+        alert(xhr);
+        alert(e.flash);
+      }
+    });
+  });
+</script>

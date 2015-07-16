@@ -72,8 +72,6 @@ image 图片管理
 
 实习招聘 recruitment
   名称 name
-<<<<<<< Updated upstream
-
   性别要求 gender
   要求证书 certificate
   学历要求 references.degree
@@ -98,27 +96,6 @@ image 图片管理
   所属分类  references.iv_category
   阅读量 browse_count
   点赞 
-=======
-  性别要求
-  要求证书
-  学历要求
-  工作地点
-  薪酬范围
-  外语要求
-  其他要求
-  职位描述
-  HR邮箱
-  点击量
-  发布时间
-
-
-面试经验
-  标题
-  内容
-  所属分类
-  阅读量
-  点赞
->>>>>>> Stashed changes
   收藏
   评论
 

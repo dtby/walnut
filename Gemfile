@@ -52,6 +52,8 @@ group :development do
   gem 'mina'
 end
 
+gem 'remotipart', '~> 1.2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
