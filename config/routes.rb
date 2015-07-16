@@ -17,11 +17,13 @@ Rails.application.routes.draw do
     collection do
       get :list
     end
-    resources :sub_courses, only: [:index, :show]
     member do
       get :detail
     end
+    resources :sub_courses, only: [:index, :show]
   end
+
+  resources :sub_courses, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
