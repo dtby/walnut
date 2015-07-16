@@ -21,58 +21,57 @@
 		}
 	}
 	.video-comment{
-		margin: 35px 0;
+		margin: 35px auto;
+		padding: 10px 15px;
 		border: 1px solid $cmt-border;
-		.cmt-tab{
-			.cmt-ul{
-				height: 52px;
-				margin-bottom: 20px;
-				border-bottom: 1px solid $cmt-border;
-				li{
-					float: left;
-					padding: 15px 45px;
-					a{
+		.cmt-ul{
+			height: 52px;
+			margin-bottom: 20px;
+			border-bottom: 1px solid $cmt-border;
+			li{
+				float: left;
+				padding: 15px 45px;
+				a{
+					color: #333;
+					text-decoration: none;
+					&:hover{
+						color: $tabs-color;
+					}
+				}
+				&.active{
+					border-bottom: 2px solid $tabs-color;
+					background-color: #fff;
+					a:hover{
 						color: #333;
-						text-decoration: none;
-						&:hover{
-							color: $tabs-color;
-						}
 					}
-					&.active{
-						border-bottom: 2px solid $tabs-color;
-						background-color: #fff;
-						a:hover{
-							color: #333;
+				}
+			}
+		}
+		.tab-content{
+			#cmt{
+				.cmt-btn{
+					color: #fff;
+					margin-top: 20px;
+					border: none;
+					padding: 10px 30px;
+					background-color: $color-green;
+				}
+				.cmt-hr{
+					border-color: $cmt-border;
+				}
+				.cmt-media{
+					height: 100px;
+					.media-body{
+						p{
+							height: 60px;
 						}
 					}
 				}
 			}
-			.tab-content{
-				#cmt{
-					.cmt-btn{
-						color: #fff;
-						margin-top: 20px;
-						border: none;
-						padding: 10px 30px;
-						background-color: $color-green;
-					}
-					.cmt-hr{
-						border-color: $cmt-border;
-					}
-					.cmt-media{
-						height: 100px;
-						.media-body{
-							p{
-								height: 60px;
-							}
-						}
-					}
-				}
 
-				#answer{
-					display: none;
-				}			
-			}
+			#answer{
+				display: none;
+			}			
 		}
 	}
 }

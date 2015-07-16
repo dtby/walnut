@@ -42,10 +42,7 @@
 	font-size: 12px;
 }
 
-//global style
-.my-container{
-	padding: 0;
-}
+//global css
 .my-row{
 	margin: 0 !important;
 }
@@ -55,6 +52,7 @@
 .col-5{
 	padding: 5px !important;
 }
+
 .my-ul{
 	padding: 0;
 	list-style: none;
@@ -62,7 +60,22 @@
 .gray-bg{
 	background-color: $gray-bg;
 }
-
+.paging li{
+	display: inline;
+	list-style: none;
+	text-decoration: none;			
+	a{
+		color: #6E6E6E;
+		padding: 10px 5px;
+	}
+	a:hover, a:focus{
+		text-decoration: none;
+		color: white;
+		background: #00A369;			
+		border-radius: 2px;
+	}
+}
+//devise-modal
 .devise-modal {
 	.modal-sm {
 		width: 350px;
@@ -103,18 +116,4 @@
 
 	}
 }
-.paging li{
-	display: inline;
-	list-style: none;
-	text-decoration: none;			
-	a{
-		color: #6E6E6E;
-		padding: 10px 5px;
-	}
-	a:hover, a:focus{
-		text-decoration: none;
-		color: white;
-		background: #00A369;			
-		border-radius: 2px;
-	}
-}
+
