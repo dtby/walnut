@@ -1,6 +1,6 @@
-class CreateCategroys < ActiveRecord::Migration
+class Createcategorys < ActiveRecord::Migration
   def change
-    create_table :categroys do |t|
+    create_table :categorys do |t|
       t.string :name
       t.datetime :deleted_at
 

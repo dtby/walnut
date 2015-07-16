@@ -18,7 +18,7 @@
 
 课程 course
   college_id [关联关系，表中不创建]
-  categroy_id [关联关系，表中不创建]
+  category_id [关联关系，表中不创建]
   课程标题 title
   课程描述 description
   课程访问量  view_count

@@ -1,0 +1,10 @@
+<%= content_for :nav do%>
+	<li><a href="<%= admin_root_path%>">后台</a></li>
+	<li><a href="<%= admin_categories_path%>">课程分类</a></li>
+	<li>
+		<a href="<%= admin_category_path(@category) %>"><%= @category.name %></a>
+	</li>
+	<li class="active">修改</li>
+	<hr>
+	<%= render 'form' %>
+<%end%>

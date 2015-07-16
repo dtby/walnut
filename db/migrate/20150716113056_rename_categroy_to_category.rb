@@ -1,5 +1,5 @@
-class RenameCategroyToCategory < ActiveRecord::Migration
+class RenamecategoryToCategory < ActiveRecord::Migration
   def change
-  	rename_table('categroys', 'categories')
+  	rename_table('categorys', 'categories')
   end
 end
