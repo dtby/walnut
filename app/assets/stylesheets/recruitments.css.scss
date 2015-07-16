@@ -52,58 +52,57 @@
       color:#00B89F;
     }
   }
-//show page
+  //show page
 
-.recruit_table {
-  text-align:center;
-  .recruit_table1 {
-    width:100%;
-    td {
-      font-size:14px;
-      font-weight:bold;
-      padding:10px;
-      border:solid 1px #E9E9E9;
+  .recruit_table {
+    text-align:center;
+    .recruit_table1 {
+      width:100%;
+      td {
+        font-size:14px;
+        font-weight:bold;
+        padding:10px;
+        border:solid 1px #E9E9E9;
+      }
     }
   }
-}
-.recruit_content {
-  margin:2px auto;
-  margin-bottom:20px;
-  border:solid 1px #E9E9E9;
-  img {
-    width:20px;
-    height:20px;
-  }
-  p {
-   text-indent:2em;
- }
- .company {
-  line-height:30px;
-}
-.divider1 {
-  border-width: 2px 0px 0px;
-  border-style: dashed none none;
-  border-color:#E9E9E9;
-}
-}
-.btn_tab {
-  .btn_apply {
-    a {
-      display:block;
-      margin-bottom:20px;
-      font-size:20px;
-      color:#fff;
-      background-color:#00C6B8;
+  .recruit_content {
+    margin:2px auto;
+    margin-bottom:20px;
+    border:solid 1px #E9E9E9;
+    img {
+      width:20px;
+      height:20px;
+    }
+    p {
+     text-indent:2em;
+    }
+   .company {
+    line-height:30px;
+    }
+   .divider1 {
+    border-width: 2px 0px 0px;
+    border-style: dashed none none;
+    border-color:#E9E9E9;
     }
   }
-  .btn_collection {
-    a {
-      display:block;
-      font-size:20px;
-      color:#fff;
-      background-color:#FDD900;
+  .btn_tab {
+    .btn_apply {
+      a {
+        display:block;
+        margin-bottom:20px;
+        font-size:20px;
+        color:#fff;
+        background-color:#00C6B8;
+      }
+    }
+    .btn_collection {
+      a {
+        display:block;
+        font-size:20px;
+        color:#fff;
+        background-color:#FDD900;
+      }
     }
   }
-}
-
 }

@@ -60,17 +60,18 @@
         <tbody class="recruit_list_text">
         <% @recruitments.each do |recruitment| %>
         <tr>
-          <td><%=link_to recruitment.name, recruitment_path(1) %></td>
-          <td></td>
+          <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
+          <td><%=image_tag '0401_1.png' %></td>
           <td><%=recruitment.company_id %></td>
           <td><%=recruitment.city %></td>
           <td><%=recruitment.publish_time %></td>
-          <td>1000</td>
+          <td><%=recruitment.view_count %></td>
           <td><span class="glyphicon glyphicon-star-empty iconstar" aria-hidden="true"></span></td>
           <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
         </tr>
         <% end %>
         </tbody>
       </table>
+      <%= paginate @recruitments %>
     </div>
 </div>

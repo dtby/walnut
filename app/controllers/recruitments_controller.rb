@@ -1,9 +1,11 @@
 class RecruitmentsController < ApplicationController
   def index
-    @recruitments = Recruitment.all
+    #@recruitments = Recruitment.all
+    @recruitments = Recruitment.order("created_at DESC").page(params[:page]).per(15)
   end
   def show
     @recruitment = Recruitment.find(params[:id])
+    @recruitment.update(view_count: @recruitment.view_count.present? ? (@recruitment.view_count + 1) : 1) 
   end
   def create
     @recruitment = Recruitment.new(recruitment_params)
