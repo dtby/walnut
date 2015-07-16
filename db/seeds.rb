@@ -66,7 +66,7 @@ Interview.create!([
   },
   {id:2, title:"各行业应聘英语要求(2013校园招聘)", 
   content:"TOEIC听读630分以上/ 四级425分以上托福70分以上/ 雅思5.5分以上中国工商银行TOEIC听读715分及以上/ 六级425分及以上托福85分及以上/ 雅思6.5分及以上交通银行TOEIC听读750分及以上/ 六级中国建设银行托业715分及以上/ 六级425分以上托福85分以上/ ",
-  iv_category_id:0,
+  iv_category_id:2,
   view_count:255,
   public_time:"2015-07-16",
   image_url:"www.dtbytec.com"
