@@ -8,7 +8,8 @@
 </head>
 
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>" >
-
+	<%= render "share/flash_message" %>
+	
 	<%= render partial: 'share/header' %>
 	<%= yield :banner %>
 	<%= yield %>

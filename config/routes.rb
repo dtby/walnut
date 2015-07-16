@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :sms, only: [:create]
 
+  resources :user
+
   #get "/courses/list", to: "courses#list", as: :list_courses
   resources :courses, only: [:index, :show] do
     collection do

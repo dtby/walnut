@@ -29,9 +29,9 @@ class User < ActiveRecord::Base
   attr_accessor :sms #短信验证码
 
 
-  validates :mobile, presence: true
+  validates :mobile, presence: true, uniqueness: true
   validate :mobile_reg?
-  validates :nickname, presence: true, length: {minimum: 3, maximum: 50}
+  #validates :nickname, presence: true, length: {minimum: 3, maximum: 50}
   validates :sms, presence: true
   validate :is_right_sms?, if: "sms.present?"
 

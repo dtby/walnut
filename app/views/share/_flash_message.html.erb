@@ -1,0 +1,16 @@
+<% for name in [:info, :warning, :error, :notice] %>
+  <% if flash[name] %>
+      <div id="showFlashMessage" style="display:none;" role="button" data-content="<%= flash[name].html_safe %>"></div>
+      <% flash[name] = nil %>
+  <% end %>
+<% end %>
+<script type="text/javascript">
+  $(function(){
+    $("#showFlashMessage").popover({
+      template: '<div class="flash-message alert alert-info" role="tooltip"><div class="popover-content"></div></div>',
+      animation: true,
+      delay: { "show": 500, "hide": 500 }
+    }).click();
+    setInterval('$("#showFlashMessage").popover("hide");',3000);
+  });
+</script>

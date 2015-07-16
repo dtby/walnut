@@ -19,3 +19,14 @@
 @import "variables";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+//全局flash提示
+.flash-message {
+  top: 200px;
+  width: 100%;
+  position: absolute;
+  .popover-content {
+    text-align: center;
+    font-size: 20px;
+  }
+}
