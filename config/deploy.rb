@@ -6,12 +6,12 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 set :term_mode, nil
 
 set :domain, '115.29.211.21'
-set :deploy_to, '/home/walnut'
+set :deploy_to, 'walnut'
 set :repository, 'https://github.com/dtby/walnut'
 set :branch, 'master'
 
 # For system-wide RVM install.
-set :rvm_path, '/home/deploy/.rvm/scripts/rvm'
+set :rvm_path, '/home/deploy2/.rvm/scripts/rvm'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
