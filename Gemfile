@@ -49,14 +49,12 @@ gem 'logger', '~> 1.2.8'
 
 gem "mediaelement_rails"
 
-<<<<<<< HEAD
 gem "paperclip", "~> 4.2.1"
-=======
+
 gem 'remotipart', '~> 1.2'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
->>>>>>> recruitment vote
 #mina部署
 group :development do
   gem 'mina'
