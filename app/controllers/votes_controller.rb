@@ -14,7 +14,7 @@ class VotesController < ApplicationController
       if voteable.present?
         @success = true
         @is_like = current_user.try(:voted_up_on?,voteable)
-        @is_like ? (voteable.liked_by current_user) : (voteable.disliked_by current_user)
+        @is_like ? (voteable.disliked_by current_user) : (voteable.liked_by current_user)
       else
         @success = false 
       end
