@@ -1,5 +1,5 @@
   .waperbg {
-    background:transparent url('center_bg.png') left top no-repeat;
+    background: image-url('center_bg.png') left top no-repeat;
   }
   .thumbnail {
     margin-top:40px;
@@ -21,6 +21,7 @@
    }
  }
  .left_nav {
+  background-color:#fff;
   border:solid 1px #DDDDDD;
   border-radius:5px;
   text-align:center;
@@ -48,12 +49,36 @@
 }
 
 /* my_project_rightaire */
-.right_nav {
-  margin:40px auto 20px;
+.right_nav_c {
+  background-color:#fff;
+  border-radius:5px;
+  border:solid 1px #DDDDDD;
+  height:785px;
+  margin:40px auto;
+  
+  /* right_nav style */
+  .right_nav {
+    padding:10px 10px 0;
+    margin-bottom:20px;
+  border-color:#00CBD2;
+  .active > a {
+      border-color:#00CBD2;
+    border-width:4px 1px 0 1px;
+    }
 }
 .right_content {
-  .tab1{
+  .tab1, .tab2{
     background-color:#00CBD2;
+    margin-bottom:20px;
+    .content_text {
+      color:#fff;
+      .right_icon {
+    margin:10px 0 0 10px;
   }
-  
+    }
+  }
+  .tab2 {
+    background-color:#f56935;
+  }
+}
 }
