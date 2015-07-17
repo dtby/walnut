@@ -83,17 +83,17 @@
     <div class="col-md-5"><hr class="divider"></div>
   </div>
   <div class="col-md-12 recruit_content">
-    <br><p class="company">大唐邦彦（上海）信息技术有限公司（简称大唐邦彦）是一家专注于移动互联网信息技术、大数据云平台、教育行业信息化、校企合作产教融合开发的高科技企业。集合大唐电信科技产业集团优势资源，依托集团研发实力和企业大学的教学经验，大唐邦彦与国内外多所知名教育研究机构、高校建立了战略伙伴关系，将校企合作由原来的共建产教融合基地、人才创新基地等扩展到专业领域的人才培养，进行专业学科建设的设计与实施、在线教育平台的综合应用，并自主开发集成了FITWARE系列实训室整体解决方案，从专业共建、技能培训、实习实训、就业指导、创业孵化等全流程的培养方案，实现产业需求与高校教育内容、教学过程的深度融结合。</p>
+    <br><p class="company"><%= @recruitment.try(:company).try(:description)%></p>
     <hr class="divider1">
-    <p>地址：上海市黄浦区香港路58号 &nbsp&nbsp&nbsp<%=image_tag "map.ico",class:"map" %>&nbsp<%=link_to "查看地图",'#' %></p>
-    <p>网址：www.buoyantec.com</p>
+    <p>地址：<%= @recruitment.try(:company).try(:address)%> &nbsp;&nbsp;&nbsp;<%=image_tag "map.ico",class:"map" %>&nbsp;<%=link_to "查看地图",'#' %></p>
+    <p>网址：<%= @recruitment.try(:company).try(:web_address)%></p>
   </div>
   <div class="btn_tab">
   <div class="col-md-2 btn_apply col-md-offset-2">
-        <%=link_to "立刻申请 ", '#' ,class:"btn " %>
+        <%=link_to "立刻申请 ", '#' ,class: "btn" %>
       </div>
       <div class="col-md-2  btn_collection col-md-offset-3">
-        <%=link_to "我要收藏", '#' ,class:"btn " %>
+        <%=link_to "我要收藏", '#' ,class: "btn" %>
       </div>
       </div>
   </div>
