@@ -1,4 +1,4 @@
-class CreateCategorys < ActiveRecord::Migration
+class CreateCategroys < ActiveRecord::Migration
   def change
     create_table :categorys do |t|
       t.string :name
