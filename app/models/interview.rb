@@ -11,6 +11,7 @@
 #  updated_at     :datetime         not null
 #  public_time    :string(255)
 #  image_url      :string(255)
+#  view_count     :integer
 #
 
 class Interview < ActiveRecord::Base

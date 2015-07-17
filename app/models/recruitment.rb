@@ -20,6 +20,8 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  industry         :string(255)
+#  number           :integer
+#  view_count       :integer
 #
 
 class Recruitment < ActiveRecord::Base
