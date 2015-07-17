@@ -5,13 +5,13 @@
 	    <div class="line"></div>
 	  </div>
 	  <div class="col-sm-3">
-			<%= link_to "", class: "all-active" do %>
+			<%= link_to list_courses_path, class: "all-active" do %>
 			<span>全部课程</span>
 			<% end %>
 		</div>
 	  <% @colleges.each do |college|%>
 		  <div class="col-sm-3">
-			  <%= link_to "", class: "" do %>
+			  <%= link_to list_courses_path(college_id: college.id), class: "" do %>
 			    <span><%= image_tag(college.try(:image).try(:avatar), class: "img-responsive center-block") %></span>
 			  <% end %>
 			</div>
@@ -35,26 +35,8 @@
 	  	<h4 class="text-center title">课程中心</h4>
 	    <div class="line"></div>
 	  </div>
-    <% @courses.each do |course| %>
-			<div class="col-sm-4">
-				<div class="bordered">
-				  <%= link_to course_path(course.id) do %>
-						<%= image_tag(course.image.avatar.url(:c_360_200), class: "img-responsive")%>
-						<%= image_tag(course.try(:teacher).try(:image).avatar.url(:t_98), class: "img-responsive avatar")%>
-						<span class="pull-right name"><%= course.try(:teacher).name %></span>
-						<div class="col-sm-12 mt-40">
-							<p><%= course.try(:teacher).description %></p>
-							<!-- <p>沈晴天，博士， 副教授。北京大学牛逼学院...</p> -->
-						</div>
-						<div class="col-sm-12 infos">
-							<span class="glyphicon glyphicon-eye-open"></span> <%= course.view_count %>
-							&nbsp;&nbsp;&nbsp;
-							<span class="glyphicon glyphicon-time"></span> 5月14日 17:30
-							<b class="pull-right">免费</b>
-						</div>
-					<% end %>
-				</div>
-			</div>
-		<% end %>
+	  <div id="courseList">
+		  <%= render @courses %>
+		</div>
 	</div>
 </div>

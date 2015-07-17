@@ -13,7 +13,7 @@ module Admin
 		def create
 			@sub_course = @course.sub_courses.new(sub_course_params)
 			#子课程展示图
-			@sub_course.image = Image.new if @course.image.blank?
+			@sub_course.image = Image.new if @sub_course.image.blank?
       @sub_course.image.avatar = params[:sub_course][:image]
 
 			@sub_course.attachment = Attachment.new if @sub_course.attachment.blank?

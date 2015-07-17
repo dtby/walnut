@@ -18,8 +18,8 @@
 			<ul id="Menu1" class="nav navbar-nav navbar-left">
 				<li  class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心
 					 <ul class="dropdown-menu sub_menu" >
-					  	<li><a href="#">在线学习</a></li>
-					   	<li><a href="#">大学课程</a></li>
+					  	<li><a href="<%= courses_path %>">在线学习</a></li>
+					   	<li><a href="<%= list_courses_path %>">大学课程</a></li>
 					  </ul>
 				</a></li>
 				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实训项目</a></li>

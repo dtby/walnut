@@ -1,9 +1,9 @@
 <div class="sub_head">
   <ol class="breadcrumb">
   	<li><span class="glyphicon glyphicon-home">&nbsp;</span>课程中心</li>
-  	<li><%= link_to "在线学习", "" %></li>
-  	<li><%= link_to "计算机", "" %></li>
-  	<li><%= link_to course.title, "" %></li>
+  	<li><%= link_to "在线学习", "javascript:void(0)" %></li>
+  	<li><%= link_to "名师课程", "javascript:void(0)" %></li>
+  	<li><%= link_to course.title, course_path(course.id) %></li>
   </ol>
 </div>
 <div class="wrapper online">
@@ -17,8 +17,8 @@
 			<h2 class="media-heading"><%= @course.title %></h2>
 			<span class="name"><%=image_tag @course.try(:teacher).try(:image).avatar.url(:t_98),class: "img-circle"%>&nbsp;&nbsp;  <%= @course.try(:teacher).name %></span>
 			<span class="click"><a href="#">	敲敲核桃</a>&nbsp;&nbsp; 1234</span>
-			<span  class="glyphicon glyphicon-eye-open"> 1234 </span>
-			<span style="padding-left:20px"><%=image_tag"online-time.png"%>&nbsp;&nbsp; 2015年1月20日&nbsp;&nbsp;   17：39</span>
+			<span  class="glyphicon glyphicon-eye-open"><%= course.view_count %></span>
+			<span style="padding-left:20px"><%=image_tag"online-time.png"%><%= format_time(course.last_update_time) %></span>
 			<% if params[:controller]=="courses"&&params[:action]=="show"%>
 			<p><%= course.description %><a href="<%= detail_course_path(course)%>">[详细]</a></p>
 			<span style="font-weight:bold">总课时：6小时50分钟30秒  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已学习：1小时50分钟<botton class="btn btn-default">&nbsp;&nbsp;开始/继续学习&nbsp;&nbsp;</botton></span>
