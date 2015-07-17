@@ -9,31 +9,31 @@
   <div class=" col-md-12 recruit_table">
     <table class="recruit_table1">
       <tr>
-          <td>职位名称</td>
-          <td><%= @recruitment.name %></td>
-          <td>职业类别</td>
-          <td><%=@recruitment.industry %></td>
+          <td width="15%">职位名称</td>
+          <td width="35%" class="text-left"> <%= @recruitment.name %></td>
+          <td width="15%">职业类别</td>
+          <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
         </tr>
         <tr>
           <td>招聘人数</td>
-          <td> <%=@recruitment.number %>人</td>
+          <td class="text-left"> <%=@recruitment.number %>人</td>
           <td>性别要求</td>
-          <td><%=@recruitment.gender %></td>
+          <td class="text-left"> <%=@recruitment.gender %></td>
         </tr><tr>
           <td>要求证书</td>
-          <td><%=@recruitment.certificate %></td>
+          <td class="text-left"> <%=@recruitment.certificate %></td>
           <td>学历要求</td>
-          <td><%=@recruitment.try(:degree).try(:name) %></td>
+          <td class="text-left"> <%=@recruitment.try(:degree).try(:name) %></td>
         </tr><tr>
           <td>工作地区</td>
-          <td><%=@recruitment.city %></td>
+          <td class="text-left"> <%=@recruitment.city %></td>
           <td>薪资范围</td>
-          <td><%=@recruitment.remuneration %></td>
+          <td class="text-left"> <%=@recruitment.remuneration %></td>
         </tr><tr>
           <td>外语要求</td>
-          <td><%=@recruitment.foreign_language %></td>
+          <td class="text-left"> <%=@recruitment.foreign_language %></td>
           <td>其他要求</td>
-          <td><%=@recruitment.others %></td>
+          <td class="text-left"> <%=@recruitment.others %></td>
         </tr>
     </table>
   </div>
