@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require mediaelement_rails
+//= require jquery.backstretch
 //= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap-sprockets

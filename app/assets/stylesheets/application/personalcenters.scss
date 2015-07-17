@@ -1,0 +1,48 @@
+  .waperbg {
+    background:transparent url('center_bg.png') left top no-repeat;
+  }
+  .thumbnail {
+    margin-top:40px;
+    padding-top:10px;
+    .caption {
+      text-align:center;
+      .empirical {
+        padding-right:20px;
+      }
+      .value {
+        color:red;
+      }
+      .divesi {
+       margin:19px auto;
+       border-width: 1.5px 0px 0px;
+       border-style: dashed none none;
+       border-color:#787A70;
+     }
+   }
+ }
+ .left_nav {
+  border:solid 1px #DDDDDD;
+  border-radius:5px;
+  text-align:center;
+    padding:30px 10px;
+  li {
+    list-style-type:none;
+    font-size:15px;
+    font-weight:600;
+    &:hover,&:visited{
+      background: image-url("p_link_bg.png") center no-repeat;
+    }
+    a{
+          &:hover,&:visited{
+            color:#00C7B8;
+            text-decoration: none;
+          }
+        }
+  }
+  .divesi1 {
+       margin:18px 10px;
+       border-width: 2px 0px 0px;
+       border-style: dashed none none;
+       border-color:#DDDDDD;
+     }
+}
