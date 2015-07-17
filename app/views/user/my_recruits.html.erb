@@ -1,0 +1,42 @@
+<div class="waperbg">
+  <div class="container">
+    <div class="row">
+      <%=render "left_nav" %>
+      <div class="col-md-9 right_nav_c">
+      <ul class="nav nav-tabs right_nav">
+          <li role="presentation" class="active"><a href="#">已收藏</a></li>
+          <li role="presentation"><a href="#">已学习</a></li>
+          <li role="presentation"><a href="#">已完成</a></li>
+        </ul>
+        <div class="row">
+          <% 6.times do %>
+          <div class="col-sm-4">
+            <div class="bordered">
+              <%= link_to course_path(1) do %>
+              <%= image_tag("course-index.gif", class: "img-responsive")%>
+              <%= image_tag("course-teacher.png", class: "img-responsive avatar")%>
+              <span class="pull-right name">沈晴天</span>
+              <div class="col-sm-12 mt-40">
+                <p>操作系统和虚拟化安全</p>
+                <p>沈晴天，博士， 副教授。北京大学牛逼学院...</p>
+              </div>
+              <div class="col-sm-12 infos">
+                <span class="glyphicon glyphicon-eye-open"></span> 1549
+                &nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+                <b class="pull-right">免费</b>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    // To attach Backstrech as the body's background
+    $.backstretch("path/to/h_link_bg.png");
+  </script>
