@@ -26,8 +26,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="my-ul cmt-ul">
-						<li class="active"><%= link_to "评论", "#"%></li>
-						<li><%= link_to "问答", "#"%></li>
+						<li id="cmt-link" class="active"><%= link_to "评论", "javascript:void(0)"%></li>
+						<li id="answer-link"><%= link_to "问答", "javascript:void(0)"%></li>
 					</ul>
 				</div>
 				<div class="col-xs-12">
@@ -66,7 +66,9 @@
 						</div>
 						<!-- answer tabs -->
 						<div id="answer">
-							world
+							<div class="col-xs-12">
+								<div class="text-muted">问答</div>
+							</div>
 						</div>	
 					</div>
 				</div>
@@ -78,3 +80,20 @@
 		<br>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#cmt-link a").click(function(){
+			$("#cmt-link").addClass("active");
+			$("#answer-link").removeClass("active");
+			$("#cmt").show();
+			$("#answer").hide();
+		});
+		$("#answer-link a").click(function(){
+			$("#answer-link").addClass("active");
+			$("#cmt-link").removeClass("active");
+			$("#answer").show();
+			$("#cmt").hide();
+		});
+	});
+</script>
