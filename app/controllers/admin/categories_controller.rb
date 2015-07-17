@@ -1,5 +1,5 @@
 module Admin
-	class CategoriesController < ApplicationController
+	class CategoriesController < Admin::ApplicationController
 		before_action :set_category, only: [:edit, :update, :destroy]
 		def index
 			@categories = Category.page(params[:page]).per(10)

@@ -4,17 +4,19 @@
 			<div class="row my-row">
 				<div class="col-md-9 col-0">
 					<video width="855" height="530" class="mejs-player" poster="poster.jpg" controls="controls" preload="none">
-						<source type="video/mp4" src="http://7xj8j2.com1.z0.glb.clouddn.com/无线网络设备维护（标清）~1.mp4" />
+						<source type="video/mp4" src="<%= @sub_course.attachment.file_url %>" />
 					</video>
 				</div>
 				<div class="col-md-3 col-0">
 					<div class="list-title">课程列表</div>
 					<div class="list-content">
-						<% (1..10).each do |img|%>
-						<div class="col-xs-6 col-5 text-center">
-							<%= image_tag "interviews_pic.png", class: 'img-responsive' %>
-							第一章
-						</div>
+					  <% @sub_courses.each do |sub_course|%>
+					    <%= link_to sub_course_path(sub_course, course_id: @course.id) do %>
+								<div class="col-xs-6 col-5 text-center">
+									<%= image_tag(sub_course.try(:image).try(:avatar).url(:c_130_70), class: 'img-responsive')%>
+									第一章
+								</div>
+							<% end %>
 						<% end %>
 					</div>
 				</div>

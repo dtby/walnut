@@ -1,0 +1,65 @@
+<%= form_for([:admin, @course, @sub_course], html: {class: "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, '子课程名称', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+  </div>
+
+  <% if @sub_course.image.present? %>
+    <div class="form-group">
+      <%= label_tag :image, '已上传展示图', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4 container">
+        <%= image_tag(@sub_course.try(:image).try(:avatar), size: "340x200") %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :image, '子课程展示图', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :attachment, '课件上传', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.file_field :attachment, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :or, '或者', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+    </div>
+  </div>
+  <div class="form-group">
+    <%= label_tag :attachment_file_url, '课程附件[地址]', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= text_field_tag :attachment_file_url, nil, class: 'form-control'%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, '子课程描述', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+
+  <hr></hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<%end%>
+
+<script type="text/javascript">
+  $(function(){
+    $("#sub_course_attachment, #sub_course_image").fileinput();
+  });
+</script>

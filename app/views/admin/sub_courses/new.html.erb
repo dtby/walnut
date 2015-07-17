@@ -1,0 +1,17 @@
+<%= content_for :nav do%>
+  <li>
+  	<a href="#{admin_root_path}">后台</a>
+  </li>
+  <li>
+    <a href="#{admin_courses_path}">课程列表</a>
+  </li>
+  <li>
+    <a href="#"><%= @course.id %></a>
+  </li>
+  <li class="active">新建</li>
+<%end%>
+
+<hr></hr>
+<div class="col-sm-12">
+  <%= render 'form'%>
+</div>

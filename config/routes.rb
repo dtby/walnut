@@ -43,7 +43,9 @@ end
     resources :colleges
     resources :teachers
     resources :categories
-    resources :courses
+    resources :courses do
+      resources :sub_courses
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

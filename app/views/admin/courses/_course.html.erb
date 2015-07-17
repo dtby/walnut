@@ -1,6 +1,17 @@
 <tr>
   <td><%= image_tag(course.try(:image).try(:avatar)) %></td>
-  <td><%= course.name %></td>
+  <td>
+    <% if course.teacher_id %>
+      <%= course.teacher.name %>
+    <% elsif course.college_id %>
+      <%= course.college.name %>
+    <% elsif course.category_id %>
+      <%= course.category.name %>
+    <% end %>
+  </td>
+  <td><%= course.title %></td>
+  <td><%= course.view_count %></td>
+  <td><%= link_to "创建子课程", admin_course_sub_courses_path(course.id) %></td>
   <td>
     <%#= link_to [:admin, specialty], class: 'btn btn-xs btn-info', title: '查看' do %>
      <!--  <span class="glyphicon glyphicon-eye-open"></span> -->

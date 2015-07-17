@@ -1,5 +1,5 @@
 module Admin
-  class TeachersController < ApplicationController
+  class TeachersController < Admin::ApplicationController
     before_action :set_teacher, only: [:edit, :update, :destroy]
     def index
       @teachers = Teacher.all.page(params[:page]).per(10)

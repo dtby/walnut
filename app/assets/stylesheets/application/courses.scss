@@ -1,12 +1,14 @@
 // Place all the styles related to the Courses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.courses__index, .courses__list {
+
+.courses__index {
 	.category a {
 		height: 60px;
 		line-height: 60px;
 		width: 100%;
 		text-align: center;
+		margin: 5px 0px;
 		border: solid 1px #e1e1e1;
 		display: block;
 		&:hover, &.active {
@@ -14,7 +16,29 @@
 			color: #fff;
 		}
 	}
+}
+.courses__list {
+	.category a {
+		height: 130px;
+		line-height: 130px;
+		width: 100%;
+		font-size: 28px;
+		text-align: center;
+		margin: 5px 0px;
+		border: solid 1px #e1e1e1;
+		display: block;
+		&.all-active {
+			background: #19b29f;
+			color: #fff;
+		}
+		&:hover, &.active {
+			border: solid 1px #19b29f;
+			color: #fff;
+		}
+	}
+}
 
+.courses__index, .courses__list {
 	.title-bar {
 		width: 100%;
 		height: 80px;
