@@ -5,7 +5,7 @@ working_directory app_root
 
 # Listen on fs socket for better performance
 listen "/tmp/unicorn.walnut.sock", :backlog => 64
-listen 4200, :tcp_nopush => false
+#listen 4200, :tcp_nopush => false
 
 # Nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 30
