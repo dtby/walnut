@@ -1,7 +1,5 @@
-      <div class="col-md-3">
-        <div class="col-md-12">
               <div class="thumbnail">
-              <%=image_tag "personal_head.png" ,class:"p_h1"%>
+                <%=image_tag "personal_head.png" ,class:"p_h1"%>
                 <div class="caption">
                   <h4>我是昵称我是昵称</h4>
                   <p><span class="empirical" >经验值</span>&nbsp;&nbsp;&nbsp;<span>学习时长</span></p>
@@ -10,15 +8,12 @@
                   <p><h6>个性签名：不忘初心，方得始终！</h6></p>
                 </div>
               </div>
-        </div>
-        <div class="col-md-12">
-        <ul class="left_nav">
-          <li><%=link_to "我的课程","#" %></li><hr class="divesi1">
-          <li><%=link_to "我的项目","#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的招聘", "#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的简历","#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的消息", "#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "个人信息","#" %></li>
-        </ul>
-        </div>
-      </div>
+              <ul class="left_nav">
+                <li><%=link_to "我的课程", "my_courses" %></li><hr class="divesi1">
+                <li><%=link_to "我的项目","my_projects" %></li><li><hr class="divesi1"></li>
+                <li><%=link_to "我的招聘", "my_recruits" %></li><li><hr class="divesi1"></li>
+                <li><%=link_to "我的简历","my_resumes" %></li><li><hr class="divesi1"></li>
+                <li><%=link_to "我的消息", "my_messages" %></li><li><hr class="divesi1"></li>
+                <li><%=link_to "个人信息","my_informations" %></li>
+              </ul>
+              
