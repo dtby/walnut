@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   resources :sms, only: [:create]
 
   resources :user do
-        collection do
+    collection do
     get :my_projects
     get :my_courses
     get :my_informations
     get :my_messages
     get :my_recruits
     get :my_resumes
-  end
+    end
 end
 
   resources :votes, only: [:create]
