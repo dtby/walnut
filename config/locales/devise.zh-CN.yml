@@ -10,7 +10,7 @@ zh-CN:
       invalid: "手机号或密码错误"
       last_attempt: "你还有多一次尝试正确的密码，过后你的帐户会被锁住"
       locked: "您的帐号已被锁定."
-      not_found_in_database: "邮箱或密码不正确"
+      not_found_in_database: "手机号或密码不正确"
       timeout: "您已登录超时，请重新登录."
       unauthenticated: "继续操作前请注册或者登录."
       unconfirmed: "继续操作前请先确认您的帐号."

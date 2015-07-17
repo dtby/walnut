@@ -85,7 +85,7 @@
           <td><%=recruitment.publish_time %></td>
           <td><%=recruitment.view_count %></td>
           <td>
-            <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, is_like: (current_user.try(:voted_up_on?,recruitment)) ) do %>
+            <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, style_type: "recruitment-list") do %>
               <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
             <% end %>
           </td>

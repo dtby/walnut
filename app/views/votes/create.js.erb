@@ -1,9 +1,9 @@
 <% unless @success %>
   alert("操作失败，请刷新重试");
 <% else %>
-  <% case @voteable_class %>
-  <% when "Recruitment" %>
-    <% if @is_like == "false" %>
+  <% case params[:style_type] %>
+  <% when "recruitment-list" %>
+    <% unless @is_like %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star-empty").addClass("glyphicon-star");
     <% else %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
