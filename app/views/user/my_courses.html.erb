@@ -1,0 +1,47 @@
+<div class="waperbg">
+  <div class="container">
+    <div class="row">
+      <%=render "left_nav" %>
+      <div class="col-md-9">
+      <ul class="nav nav-tabs right_nav">
+          <li role="presentation" class="active"><a href="#">参与的项目</a></li>
+          <li role="presentation"><a href="#">创建的项目</a></li>
+        </ul>
+        <div class="row">
+          <% 9.times do %>
+          <div class="col-sm-4">
+            <div class="bordered">
+              <%= link_to course_path(1) do %>
+              <%= image_tag("course-index.gif", class: "img-responsive")%>
+              <%= image_tag("course-teacher.png", class: "img-responsive avatar")%>
+              <span class="pull-right name">沈晴天</span>
+              <div class="col-sm-12 mt-40">
+                <p>操作系统和虚拟化安全</p>
+                <p>沈晴天，博士， 副教授。北京大学牛逼学院...</p>
+              </div>
+              <div class="col-sm-12 infos">
+                <span class="glyphicon glyphicon-eye-open"></span> 1549
+                &nbsp;&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+                <b class="pull-right">免费</b>
+              </div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    // To attach Backstrech as the body's background
+    $.backstretch("path/to/h_link_bg.png");
+  </script>
+
+
+
+
+
+  在线教育平台建设 （总任务：20 已完成：15 代办中：5 验收通过：3）
