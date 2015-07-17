@@ -2,13 +2,14 @@
   <div class="container">
     <div class="row">
       <%=render "left_nav" %>
-      <div class="col-md-9">
+      <div class="col-md-9 right_nav_c">
       <ul class="nav nav-tabs right_nav">
           <li role="presentation" class="active"><a href="#">参与的项目</a></li>
           <li role="presentation"><a href="#">创建的项目</a></li>
+          <li role="presentation"><a href="#">创建的项目</a></li>
         </ul>
         <div class="row">
-          <% 9.times do %>
+          <% 6.times do %>
           <div class="col-sm-4">
             <div class="bordered">
               <%= link_to course_path(1) do %>
