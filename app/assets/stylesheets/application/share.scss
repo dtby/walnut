@@ -80,13 +80,21 @@
 	text-decoration: none;			
 	a{
 		color: #6E6E6E;
-		padding: 10px 5px;
+		padding: 5px 10px;
 	}
 	a:hover, a:focus{
 		text-decoration: none;
 		color: white;
 		background: #00A369;			
 		border-radius: 2px;
+	}
+	&.active {
+		a {
+			text-decoration: none;
+			color: white;
+			background: #00A369;			
+			border-radius: 2px;
+		}
 	}
 }
 //devise-modal

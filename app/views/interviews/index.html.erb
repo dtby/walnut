@@ -48,7 +48,7 @@
 					</div>
 					<div class="media-body">
 						<h3 class="media-heading"><%=interview.title %></h3>
-						<p><%=interview.content %><a href="#"><%=link_to "[详细页面]", interview_path(interview)%></a></p>
+						<p><%=interview.content %><%=link_to "[详细页面]", interview_path(interview)%></p>
 						<span><span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
 						<span style="padding-right:20px">阅读人数</span> <%=interview.view_count %> 
 						<span class="glyphicon glyphicon-star" aria-hidden="true" ></span>
@@ -63,31 +63,7 @@
 		</div>
 	</div>
 	<div class="main-model text-center ">
-	<!-- <%= render partial: "paging" %> -->
-	<%= paginate @interviews %>
-		<!-- <ul  class="paging">
-			<li>
-				<a href="#" aria-label="Previous">
-					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				</a>
-			</li>
-			<li><a href="#">首页</a></li>
-			<li><a href="#">上一页</a></li>
-			<li><a href="#">&nbsp; 1 &nbsp;</a></li>
-			<li><a href="#">&nbsp; 2 &nbsp;</a></li>
-			<li><a href="#">&nbsp; 3  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 4  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 5  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 6  &nbsp;</a></li>
-			<li><a href="#">&nbsp; 7  &nbsp;</a></li>
-			<li><a href="#">下一页</a></li>
-			<li><a href="#">尾页</a></li>
-			<li>
-				<a href="#" aria-label="Next">
-					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				</a>
-			</li>
-		</ul> -->
+		<%= paginate @interviews %>
 	</div>
 </div>
 

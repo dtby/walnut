@@ -1,7 +1,7 @@
 class InterviewsController < ApplicationController
   def index
     #@interviews = Interview.all
-    @interviews = Interview.order("created_at DESC").page(params[:page]).per(1)
+    @interviews = Interview.order("created_at DESC").page(params[:page])
   end
   def show
     @interview = Interview.find(params[:id])
