@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716125249) do
+ActiveRecord::Schema.define(version: 20150717064653) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.integer  "teacher_id",  limit: 4
     t.integer  "college_id",  limit: 4
     t.integer  "category_id", limit: 4
+    t.text     "detail",      limit: 65535
   end
 
   create_table "degrees", force: :cascade do |t|
