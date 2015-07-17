@@ -28,13 +28,14 @@
   .form-control, .find_job {
     margin:5px auto;
   }
-  .table {
+  table.recruitment-list {
     text-align:center;
-    .recruit_list_title {
-      font-size:18px;
-      background-color:#00B89F;
-      td {
-        color:#fff;
+    thead tr{
+      font-size: 16px;
+      background-color:#5c5c5c;
+      th {
+        text-align: center;
+        color:#cccccc;
       }
     }
   }

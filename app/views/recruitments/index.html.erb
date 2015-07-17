@@ -10,13 +10,17 @@
   <div class="row recruit_class">
     <div class="col-md-12">
       <div class="col-md-3">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>请选择职位类别</option>
+        </select>
       </div>
       <div class="col-md-3">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>请选择行业类别</option>
+        </select>
       </div>
       <div class="col-md-4">
-        <input class="form-control"></input>
+        <input class="form-control" placeholder="请输入职位名、公司名等关键字"/>
       </div>
       <div class="col-md-2 find_job">
         <%=link_to "找工作", '#' ,class:"btn" %>
@@ -24,16 +28,24 @@
     </div>
     <div class="col-md-12">
       <div class="col-md-3">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>上海</option>
+        </select>
       </div>
       <div class="col-md-3">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>薪资</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>学历</option>
+        </select>
       </div>
       <div class="col-md-2">
-        <select class="form-control">wo</select>
+        <select class="form-control">
+          <option>工作经验</option>
+        </select>
       </div>
     </div>
     <div class="container">
@@ -44,17 +56,23 @@
     </div>
     </div>
     <div class="container">
-      <table class="table table-hover">
+      <table class="table table-hover recruitment-list">
       <thead>
-        <tr class="recruit_list_title">
-          <td>职位</td>
-          <td>logo</td>
-          <td>公司</td>
-          <td>工作地点</td>
-          <td>发布时间</td>
-          <td>点击量</td>
-          <td>收藏</td>
-          <td>申请工作</td>
+        <tr>
+          <th>职位</th>
+          <th>logo</th>
+          <th>公司</th>
+          <th>工作地点</th>
+          <th width="12%">
+            发布时间<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+          </th>
+          <th width="10%">
+            点击量<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+          </th>
+          <th width="6%">收藏</th>
+          <th width="10%">申请工作</th>
         </tr>
         </thead>
         <tbody class="recruit_list_text">
