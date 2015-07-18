@@ -54,7 +54,6 @@ IvCategory.create!([{id: 1, name: "通用材料", sort_no: 1},
   {id: 6, name: "面试之后", sort_no: 6},
   {id: 7, name: "经验/经历/心得", sort_no: 7}])
 
-
 Interview.destroy_all
 Interview.create!([
   {id:1, title:"各行业应聘英语要求(2013校园招聘)", 
@@ -79,3 +78,38 @@ Interview.create!([
   image_url:"www.dtbytec.com"
   }
   ])
+
+College.destroy_all
+College.create!([
+  { name: "北京大学" },
+  { name: "上海复旦大学" },
+  {name: "上海j交通大学"},
+  {name: "清华大学"},
+  {name: "中原工学院"},
+  {name: "中国人民大学"},
+  {name: "浙江大学"}
+])
+
+Category.destroy_all
+Category.create!([
+  {name: "计算机"},
+  {name: "艺术设计"},
+  {name: "信息传播"},
+  {name: "电子电气工程"},
+  {name: "数据分析"},
+  {name: "水利工程"},
+  {name: "土木工程"},
+  {name: "社会科学"},
+  {name: "测控技术与仪器"},
+  {name: "材料科学"},
+  {name: "机械工程"},
+  {name: "教育"},
+  {name: "光信息科学与技术"}
+  ])
+
+Teacher.destroy_all
+Teacher.create!([
+  {name: "赵国栋", description: "北京大学教育学院教授"},
+  {name: " 俞敬松", description: "北京大学副教授"},
+  {name: " 沈晴霓", description: "博士，副教授，北京大学...."}
+])
