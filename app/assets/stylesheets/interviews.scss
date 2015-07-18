@@ -1,6 +1,7 @@
 // Place all the styles related to the interviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+<<<<<<< HEAD
 .wrap{
 	padding-bottom: 20px;
 	//font-family: "微软雅黑";
@@ -34,19 +35,58 @@
 				a{
 					color: #00BDA5;
 				}
+=======
+.interviews__index {
+	.wrap{
+		margin-top: 70px;
+		padding: 20px 0;
+		//font-family: "微软雅黑";
+		.main-model{
+			padding: 10px 0;
+			h2{
+				margin-top: 5px;
+				color: #000;
+>>>>>>> modify interviews/index.html.erb
 			}
-			.glyphicon-star{
-				color:#FFB500;
-				padding-left: 50px;
+			.divide{
+				border-color: #797979;
+				border-width: 3px 0 0; 
 			}
-			.glyphicon-user{
-				color: #00BDA5;
-				padding-right: 10px;
+			.btn-primary{
+				background-color: #00BA9F;
+				border: none;
+				border-radius: 0;
 			}
-			img{
-				padding-right:10px; 
-				color:#00BDA5;  
+			.interview_info{
+				border: 1px solid  #ccc;
+				margin: 10px 0;
+				padding: 10px;
+				h3{
+					color: #000;
+					margin-bottom: 10px;
+				}
+				p{
+					color:#4C4C4C;
+					font-size: 16px;
+					line-height: 1.6em;
+					a{
+						color: #00BDA5;
+					}
+				}
+				.glyphicon-star{
+					color:#FFB500;
+					padding-left: 50px;
+				}
+				.glyphicon-user{
+					color: #00BDA5;
+					padding-right: 10px;
+				}
+				img{
+					padding-right:10px; 
+					color:#00BDA5;  
+				}
 			}
+<<<<<<< HEAD
 		}
 		.paging li{
 			display: inline;
@@ -55,15 +95,27 @@
 			a{
 				color: #6E6E6E;
 				padding: 10px 5px;
+=======
+			.paging li{
+				display: inline;
+				list-style: none;
+				text-decoration: none;			
+				a{
+					color: #6E6E6E;
+					padding: 10px 5px;
+				}
+			a:hover, a:focus{
+				text-decoration: none;
+				color: white;
+				background: #00A369;			
+				border-radius: 2px;
+>>>>>>> modify interviews/index.html.erb
 			}
-		a:hover, a:focus{
-			text-decoration: none;
-			color: white;
-			background: #00A369;			
-			border-radius: 2px;
-		}
 
 		}
 	}
+}
+
+
 }
 
