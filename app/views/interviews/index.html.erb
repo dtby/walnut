@@ -1,0 +1,85 @@
+<div class="wrap">
+	<%= render partial:"/share/banner"%>
+	<div class="main-model">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5"><hr class="divide"></div>
+				<div class="col-xs-2 text-center"><h2>面经搜索</h2></div>
+				<div class="col-xs-5"><hr class="divide"></div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 text-center">
+					<select class="form-control">热门搜索</select>
+				</div>
+				<div class="col-xs-3 text-center">
+					<select class="form-control">全部面经</select>
+				</div>
+				<div class="col-xs-6">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+							</div>
+							<button type="submit" class="btn btn-primary">开始搜索
+					</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main-model">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5"><hr class="divide"></div>
+				<div class="col-xs-2 text-center"><h2>面试信息</h2></div>
+				<div class="col-xs-5"><hr class="divide"></div>
+			</div>
+			<% (1..5).each do|index|%>
+			<div class="interview_info">
+				<div class="media">
+					<div class="media-left">
+						<a href="#">
+							<%=image_tag"interviews-pic.png"%>
+						</a>
+					</div>
+					<div class="media-body">
+						<h3 class="media-heading">各行业应聘英语要求(2013校园招聘)</h3>
+						<p>TOEIC听读630分以上/ 四级425分以上托福70分以上/ 雅思5.5分以上中国工商银行TOEIC听读715分及以上/ 六级425分及以上托福85分及以上/ 雅思6.5分及以上交通银行TOEIC听读750分及以上/ 六级中国建设银行托业715分及以上/ 六级425分以上托福85分以上/ <a href="#">[详细页面]</a></p>
+						<span><span class="glyphicon glyphicon-user" aria-hidden="true" ></span>
+						<span style="padding-right:20px">阅读人数</span> 200 
+						<span class="glyphicon glyphicon-star" aria-hidden="true" ></span>
+						<span style="padding-right:10px;"> 收藏</span> 200</span>
+					</div>
+				</div>
+			</div>
+			<%end%>
+		</div>
+	</div>
+	<div class="main-model text-center ">
+		<ul  class="paging">
+			<li>
+				<a href="#" aria-label="Previous">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</a>
+			</li>
+			<li><a href="#">首页</a></li>
+			<li><a href="#">上一页</a></li>
+			<li><a href="#">&nbsp; 1 &nbsp;</a></li>
+			<li><a href="#">&nbsp; 2 &nbsp;</a></li>
+			<li><a href="#">&nbsp; 3  &nbsp;</a></li>
+			<li><a href="#">&nbsp; 4  &nbsp;</a></li>
+			<li><a href="#">&nbsp; 5  &nbsp;</a></li>
+			<li><a href="#">&nbsp; 6  &nbsp;</a></li>
+			<li><a href="#">&nbsp; 7  &nbsp;</a></li>
+			<li><a href="#">下一页</a></li>
+			<li><a href="#">尾页</a></li>
+			<li>
+				<a href="#" aria-label="Next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+

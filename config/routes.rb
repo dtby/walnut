@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+resources :interviews
   root "home#index"
 resources :recruitments
   resources :sms, only: [:create]

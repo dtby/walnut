@@ -14,9 +14,11 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: 68909187
-  #socket: /var/run/mysqld/mysqld.sock
 
+  password:
+
+  #socket: /tmp/mysql.sock
+  
 development:
   <<: *default
   database: walnut_development
