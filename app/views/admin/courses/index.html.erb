@@ -7,7 +7,7 @@
 
 <%= content_for :toolbar do %>
   <div class="col-xs-12">
-    <%= link_to new_admin_course_path, class: 'btn btn-success' do %>
+    <%= link_to new_admin_course_path, 'data-no-turbolink' => true, class: 'btn btn-success' do %>
       <span class="glyphicon glyphicon-plus-sign">新建</span>
     <%end%>
     <div class="col-xs-3 pull-right">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717064653) do
+ActiveRecord::Schema.define(version: 20150718033513) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 20150717064653) do
     t.integer  "sort_no",    limit: 4,   default: 1000
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "kindeditor_assets", force: :cascade do |t|
+    t.string   "asset",      limit: 255
+    t.integer  "file_size",  limit: 4
+    t.string   "file_type",  limit: 255
+    t.integer  "owner_id",   limit: 4
+    t.string   "asset_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recruitments", force: :cascade do |t|

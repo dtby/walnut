@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def detail
-    render "show"
+        
   end
 
   def list

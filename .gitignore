@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 public/assets/
+public/uploads/
 current
 last_version
 releases/
