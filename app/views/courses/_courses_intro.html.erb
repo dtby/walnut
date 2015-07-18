@@ -1,0 +1,26 @@
+<div class="sub_head">
+		<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+		<span>&nbsp;&nbsp;课程中心/在线学习/计算机/C语言程序设计精髓</span>
+	</div>
+	<div class="wrapper online">
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+				<%=image_tag"online.png"%>
+				</a>
+			</div>
+			<div class="media-body">
+				<h2 class="media-heading">C语言程序设计精髓</h2>
+				<span class="name"><%=image_tag"online-yujings.png",class: "img-circle"%>&nbsp;&nbsp;  俞敬松</span>
+				<span class="click"><a href="#">	敲敲核桃</a>&nbsp;&nbsp; 1234</span>
+				<span><%=image_tag"online-glasess.png"%>&nbsp;&nbsp; 1234</span>
+				<span style="padding-left:20px"><%=image_tag"online-time.png"%>&nbsp;&nbsp; 2015年1月20日&nbsp;&nbsp;   17：39</span>
+				<p>学习程序设计是一件充满挑战、更充满乐趣的事情，然而学习之初，它之所以给你枯燥乏味的感觉，那是因为没有发觉它的趣味来，本课程力图用最简单的语言，最典型的案例及最通俗的解释将这种趣味性挖掘出来，带给你全新的的学习体验，和你一起欣赏C语言之美，领悟C语言之妙，体会学习C语言....<a href="#">[详细]</a></p>
+				<% if params[:controller]=="courses"&&params[:action]=="show"%>
+				<span style="font-weight:bold">总课时：6小时50分钟30秒  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已学习：1小时50分钟<botton class="btn btn-default">&nbsp;&nbsp;开始/继续学习&nbsp;&nbsp;</botton></span>
+				<% elsif  params[:controller]=="courses"&&params[:action]=="details"%>
+				<span><botton class="btn btn-default">&nbsp;&nbsp;我要学习&nbsp;&nbsp;</botton></span>
+				<%end%>
+			</div>
+		</div>
+	</div>
