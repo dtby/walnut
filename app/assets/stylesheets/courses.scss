@@ -64,7 +64,7 @@
 	}
 }
 .courses__show{
-.sub_head{
+	.sub_head{
 		margin: 10px 0;
 	}
 .wrapper{
@@ -135,3 +135,14 @@
 	}
 }
 
+.courses__details{
+	.detail{
+		padding: 0 30px 20px 30px;
+		h3{
+			color: #2DC8B8;
+		}
+		p{
+			text-indent: 2em;
+		}
+	}
+}
