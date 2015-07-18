@@ -9,11 +9,11 @@
                 </div>
               </div>
               <ul class="left_nav">
-                <li><%=link_to "我的课程", "my_courses" %></li><hr class="divesi1">
-                <li><%=link_to "我的项目","my_projects" %></li><li><hr class="divesi1"></li>
-                <li><%=link_to "我的招聘", "my_recruits" %></li><li><hr class="divesi1"></li>
-                <li><%=link_to "我的简历","my_resumes" %></li><li><hr class="divesi1"></li>
-                <li><%=link_to "我的消息", "my_messages" %></li><li><hr class="divesi1"></li>
-                <li><%=link_to "个人信息","my_informations" %></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_courses'%>"><%=link_to "我的课程", "my_courses" %></li><hr class="divesi1">
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_projects'%>"><%=link_to "我的项目","my_projects" %></li><li><hr class="divesi1"></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", "my_recruits" %></li><li><hr class="divesi1"></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历","my_resumes" %></li><li><hr class="divesi1"></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", "my_messages" %></li><li><hr class="divesi1"></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_informations'%>"><%=link_to "个人信息","my_informations" %></li>
               </ul>
               
