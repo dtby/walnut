@@ -15,7 +15,22 @@ class UserController < ApplicationController
 
   def update
     @user = User.where(id: params[:id]).first
+    #头像赋值
+    if params[:user][:image]
+      #头像处理,未上传头像显示默认图片
+      @user.image = Image.new if @user.image.blank?
+      @user.image.avatar = params[:user][:image] 
+    end
     if @user.update user_params
+      #头像更新
+      @user.image.save(:validate => false)  if params[:user][:image]
+
+      #更新成功
+      #重新登录更新session以及current_user等相关变量方法的值 
+      sign_in(:user, @user)
+
+      flash[:notice] = "个人资料更新成功"
+
       redirect_to  user_path
     else
       render 'show'

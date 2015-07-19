@@ -3,11 +3,14 @@
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-3 control-label">我的头像</label>
     <div class="col-sm-4">
-      <%=image_tag"personal_head.png"%>
+        <%= image_tag current_user.show_image , class: "img-rounded" %>
     </div>
     <div class="col-sm-3">
       图片大小不能超过2M，<br>
-      支持JPG，GIF，PNG图片格式
+      支持JPG，GIF，PNG图片格式<br><br><br>
+      <div>
+        <%= f.input :image , as: :file, label: false ,wrapper: "horizontal_file_input"%>
+      </div>
     </div>
   </div>
   <%= f.input :name %>
@@ -19,8 +22,7 @@
   <% end %>
   <%= f.input :mobile, required: false %>
   <%= f.input :email, placeholder: 'user@domain.com'%>
-  <label for="inputPassword3" class="col-sm-3 control-label">性别</label>
-  <%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last%>
+  <%= f.input :gender, collection: [['男',true] ,['女',false]], as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes", item_wrapper_class: "radio-inline" %>
   <%= f.input :signature ,label: '个性签名'%>
   <div class="form-group modify-btn">
       <label for="inputPassword3" class="col-sm-1 control-label"></label>

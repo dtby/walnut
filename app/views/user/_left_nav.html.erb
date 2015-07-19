@@ -1,5 +1,5 @@
 <div class="thumbnail">
-  <%=image_tag "personal_head.png" ,class:"p_h1"%>
+  <%= image_tag current_user.show_image , class: "img-rounded" %>
   <div class="caption">
     <h4><%= current_user.nickname %></h4>
     <p><span class="empirical" >经验值</span>&nbsp;&nbsp;&nbsp;<span>学习时长</span></p>
@@ -14,6 +14,6 @@
   <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", my_recruits_user_index_path %></li><li><hr class="divesi1"></li>
   <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历",my_resumes_user_index_path %></li><li><hr class="divesi1"></li>
   <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", my_messages_user_index_path %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息",user_index_path %></li>
+  <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息",user_path(current_user) %></li>
 </ul>
               

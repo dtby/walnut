@@ -33,7 +33,7 @@
 					    	<li><a href="#">职业测评</a></li>
 				 	</ul>
 				</a></li>
-				<li class="<%= "active" if params[:controller] == 'user' %>"><%=link_to "个人中心",user_index_path %></li>
+				<li class="<%= "active" if params[:controller] == 'user' %>"><%=link_to "个人中心",my_courses_user_index_path %></li>
 			</ul>
 			<ul id="userInfoMenu" class="nav navbar-nav navbar-right sign">
 				<%= render 'share/user_info' %>

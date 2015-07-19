@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   
   has_many :user_recruitments, dependent: :destroy
   has_many :recruitments, through: :user_recruitments
+  has_one :image, as: :imageable
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create
@@ -54,6 +55,11 @@ class User < ActiveRecord::Base
     if ! Sms.is_right_sms? mobile, sms
       errors.add(:sms, :sms_error)
     end
+  end
+
+   #页面头像显示
+  def show_image
+    self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "personal_head.png"
   end
   
 end
