@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row my-row">
 				<div class="col-md-9 col-0">
-					<video width="855" height="530" class="mejs-player" poster="poster.jpg" controls="controls" preload="none">
+					<video width="855" height="530" class="mejs-player" poster="<%= image_url "online.png"%>" controls="controls" preload="none">
 						<source type="video/mp4" src="<%= @sub_course.attachment.file_url %>" />
 					</video>
 				</div>
@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<div class="video-comment">
+	<div class="video-comment">
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="my-ul cmt-ul">
@@ -35,43 +35,7 @@
 				<div class="col-xs-12">
 					<div class="tab-content">
 						<!-- comment tabs -->
-						<div id="cmt">
-							<div class="col-xs-12">
-								<%= form_for :comment, url: course_sub_courses_path do |f|%>
-									<%= text_field_tag 'user_comment',"", class: "form-control", rows: "3"%>
-									<%= hidden_field_tag "sub_course_id", params[:id]%>
-									<%= f.submit "发表评论", class: "cmt-btn pull-right"%>
-								<% end %>
-							</div>
-							<div class="col-xs-12">
-								<hr class="cmt-hr">
-
-
-								<% @comments.each do |comment| %>
-									<div class="media cmt-media">
-										<div class="media-left">
-											<a href="#"><%= image_tag "recruit_computer.png", class: "media-object img-circle", width: "40"%></a>
-										</div>
-										<div class="media-body">
-											<h6 class="media-heading"><%= comment.try(:user).try(:nickname) %></h6>
-											<p><%= comment.body %></p>
-											<h6 class="text-muted clearfix">
-												<span>时间：6天前</span>
-												<%= link_to "javascript:void(0)" do %>
-												<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up"></span> <%= 2 %></span>
-												<% end %>
-											</h6>
-										</div>
-									</div>
-									<hr>
-								<% end %>
-
-
-								<div class="text-center ">
-									<br><%= render partial: "/interviews/paging"%><br>
-								</div>
-							</div>
-						</div>
+						<%= render partial: "comments", locals: { comments: @comments }%>
 						<!-- answer tabs -->
 						<div id="answer">
 							<div class="col-xs-12">
