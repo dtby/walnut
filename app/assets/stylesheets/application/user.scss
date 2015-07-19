@@ -116,23 +116,26 @@
   border-radius:5px;
   text-align:center;
   padding:30px 10px;
-  .active {
-    background: image-url("p_link_bg.png") center no-repeat;
-  }
   li  {
     list-style-type:none;
     font-size:15px;
     font-weight:600;
-    &:hover,&:visited{
-      background: image-url("p_link_bg.png") center no-repeat;
-    }
-    a{
-          &:hover,&:visited{
-            color:#00C7B8;
-            text-decoration: none;
-          }
+    a, a:visited {
+        color: #000;
+        &:hover {
+          color: #00C7B8;
+          text-decoration: none;
         }
+      }
+    &.active, &:hover {
+      background: image-url("p_link_bg.png") center no-repeat;
+      a {
+        color: #00C7B8;
+        text-decoration: none;
+      }
+    }
   }
+
   .divesi1 {
        margin:18px 10px;
        border-width: 2px 0px 0px;

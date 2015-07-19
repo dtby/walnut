@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   #validates :nickname, presence: true, length: {minimum: 3, maximum: 50}
   validates :sms, presence: true, on: :create
   validate :is_right_sms?, if: "sms.present?", on: :create
-  validates :name, presence: true
+  validates :name, presence: true, on: :update
 
 
 

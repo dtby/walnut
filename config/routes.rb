@@ -28,11 +28,11 @@ Rails.application.routes.draw do
 
   resources :user, only:[:show, :update] do
     collection do
-    get :my_projects
-    get :my_courses
-    get :my_messages
-    get :my_recruits
-    get :my_resumes
+      get :my_projects
+      get :my_courses
+      get :my_messages
+      get :my_recruits
+      get :my_resumes
     end
 end
 
