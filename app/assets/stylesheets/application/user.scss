@@ -1,7 +1,7 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.users__my_informations{
+.user__my_informations{
 	.my-nav{
     background-color:#fff;
 		margin-top: 40px;
@@ -82,7 +82,7 @@
 	border-width: 3px 0 0; 
 }
 
-.user__my_courses {
+.user__my_courses, .user__my_projects {
   .my-nav{
     background-color:#fff;
     margin-top: 20px;
