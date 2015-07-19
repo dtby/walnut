@@ -1,71 +1,83 @@
-<%= form_for([:aadmin, @recruitment], html: {class: "form-horizontal"}) do |f| %>
-  <% if @recruitment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@recruitment.errors.count, "error") %> prohibited this recruitment from being saved:</h2>
+<%= simple_form_for([:admin, @recruitment], html: {class: "form-horizontal"}) do |f| %>
 
-      <ul>
-      <% @recruitment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="form-group">
-    <%= f.label :name, '职位名称', class: 'col-sm-2 control-label' %>
+    <%= f.label :name, '职位名称', class: 'col-sm-2 col-sm-offset-2 control-label' %>
   <div class="col-sm-4">
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   </div>
   <div class="form-group">
-    <%= f.label :industry, '职业类别',class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :industry, class: 'form-control' %>
+    <%= f.label :industry, '职业类别',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :industry, class: 'form-control' %>
+    </div>
   </div>
   <div class="form-group">
-    <%= f.label :gender, '性别要求' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :gender, class: 'form-control' %>
+    <%= f.label :gender, '性别要求' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :gender, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :number, '招聘人数' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :number, class: 'form-control' %>
+    <%= f.label :number, '招聘人数' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :number, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :certificate, '要求证书' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :certificate, class: 'form-control' %>
+    <%= f.label :certificate, '要求证书' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :certificate, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :degree_id, '学历要求' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :degree_id, class: 'form-control' %>
+    <%= f.label :degree_id, '学历要求' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :degree_id, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :company_id, '公司名称' class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :company_id, class: 'form-control' %>
+    <%= f.label :company_id, '公司名称', class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :company_id, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :publish_time, '发布时间' class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :publish_time, class: 'form-control' %>
+    <%= f.label :publish_time, '发布时间', class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :publish_time, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :city, '工作地区' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :city, class: 'form-control' %>
+    <%= f.label :city, '工作地区' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :remuneration, '薪资范围' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :remuneration, class: 'form-control' %>
+    <%= f.label :remuneration, '薪资范围' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :remuneration, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :foreign_language, '外语要求' , class: 'col-sm-2 control-label'%><br>
-    <%= f.text_area :foreign_language, class: 'form-control' %>
+    <%= f.label :foreign_language, '外语要求' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :foreign_language, class: 'form-control' %>
+  </div>
   </div>
   <div class="form-group">
-    <%= f.label :others, '其他要求' , class: 'col-sm-2 control-label'%><br>
+    <%= f.label :others, '其他要求' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
     <%= f.text_area :others, class: 'form-control' %>
+  </div>
   </div>
   <div class="actions">
   <hr>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button class="btn btn-success" type="submit">
-        <span class="glyphicon glyphicon-floppy-save"><%= f.submit ,'保存'%></span>
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
       </button>
     </div>
   </div>

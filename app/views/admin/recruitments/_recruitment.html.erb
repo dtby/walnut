@@ -5,8 +5,8 @@
   <td><%= recruitment.certificate %></td>
   <td><%= recruitment.number %></td>
   <td><%= recruitment.publish_time %></td>
-  <td><%= recruitment.degree_id %></td>
-  <td><%= recruitment.company_id %></td>
+  <td><%=recruitment.try(:degree).try(:name) %></td>
+  <td><%=recruitment.try(:company).try(:name) %></td>
   <td><%= recruitment.city %></td>
   <td><%= recruitment.remuneration %></td>
   <td><%= recruitment.foreign_language %></td>
