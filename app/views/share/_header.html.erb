@@ -15,10 +15,22 @@
 
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-left">
-				<li class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心</a></li>
+			<ul id="Menu1" class="nav navbar-nav navbar-left">
+				<li  class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心
+					 <ul class="dropdown-menu sub_menu" >
+					  	<li><a href="#">在线学习</a></li>
+					   	<li><a href="#">大学课程</a></li>
+					  </ul>
+				</a></li>
 				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实训项目</a></li>
-				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实习培训</a></li>
+				<li  class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实习招聘
+					<ul class="dropdown-menu sub_menu" >
+					  	<li><a href="#">工作推荐</a></li>
+					   	<li><a href="#">招聘信息</a></li>
+					   	<li><a href="#">面试经验</a></li>
+					    	<li><a href="#">职业测评</a></li>
+				 	</ul>
+				</a></li>
 				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">个人中心</a></li>
 			</ul>
 			<ul id="userInfoMenu" class="nav navbar-nav navbar-right sign">
@@ -27,3 +39,16 @@
 		</div><!-- /.navbar-collapse -->
 	</div><!-- /.container-fluid -->
 </nav>
+<script type="text/javascript">
+	$(function(){
+		$("#Menu1 li").mouseenter(function(){
+			$(this).addClass("open");
+			$(this).find("a").attr("aria-expanded",true)
+
+		$("#Menu1 li").mouseleave(function(){
+			$(this).removeClass("open");
+			$(this).find("a").attr("aria-expanded", false)
+		})
+		});
+	})
+</script>
