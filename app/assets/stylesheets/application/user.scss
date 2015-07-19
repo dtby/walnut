@@ -1,3 +1,47 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.users__my_informations{
+	.my-nav{
+		margin-top: 40px;
+		margin-bottom: 20px;
+		padding: 10px;
+		border:1px solid #ccc;
+		border-radius: 4px;
+		.nav-tabs{
+			border-bottom: 2px solid #8bd4cc;
+			padding-left: 20px;
+			li{
+				margin-bottom: -2px;
+			}
+			.active > a {
+				border-top: 4px solid #8bd4cc;
+				border-right: 2px solid #8bd4cc;
+				border-left: 2px solid #8bd4cc;
+				font-weight: bold;
+			}
+		}
+		.main{
+			margin:0 20px;
+			padding:40px;
+			textarea , input{
+				border-radius: 0;
+			}
+			.modify-btn{
+				padding-top: 20px;
+			}
+			.mybtn{
+				padding: 10px 40px;
+				color: #fff;
+				border-radius: 0;
+				font-size: 18px;
+			}
+			.my_btn1{
+				background-color: #f16c70;
+			}
+			.my_btn2{
+				background-color: #8bd4cc;
+			}
+		}
+	}
+}
