@@ -11,7 +11,7 @@
 					<div class="list-title">课程列表</div>
 					<div class="list-content">
 					  <% @sub_courses.each do |sub_course|%>
-					    <%= link_to sub_course_path(sub_course, course_id: @course.id) do %>
+					    <%= link_to course_sub_course_path(sub_course, course_id: @course.id) do %>
 								<div class="col-xs-6 col-5 text-center">
 									<%= image_tag(sub_course.try(:image).try(:avatar).url(:c_130_70), class: 'img-responsive')%>
 									第一章
@@ -37,30 +37,36 @@
 						<!-- comment tabs -->
 						<div id="cmt">
 							<div class="col-xs-12">
-								<textarea class="form-control" rows="3">
-								</textarea>
-								<button type="button" class="cmt-btn pull-right">发表评论</button>
+								<%= form_for :comment, url: course_sub_courses_path do |f|%>
+									<%= text_field_tag 'user_comment',"", class: "form-control", rows: "3"%>
+									<%= hidden_field_tag "sub_course_id", params[:id]%>
+									<%= f.submit "发表评论", class: "cmt-btn pull-right"%>
+								<% end %>
 							</div>
 							<div class="col-xs-12">
 								<hr class="cmt-hr">
-								<% 5.times do %>
-								<div class="media cmt-media">
-									<div class="media-left">
-										<a href="#"><%= image_tag "recruit_computer.png", class: "media-object img-circle", width: "40"%></a>
+
+
+								<% @comments.each do |comment| %>
+									<div class="media cmt-media">
+										<div class="media-left">
+											<a href="#"><%= image_tag "recruit_computer.png", class: "media-object img-circle", width: "40"%></a>
+										</div>
+										<div class="media-body">
+											<h6 class="media-heading"><%= comment.try(:user).try(:nickname) %></h6>
+											<p><%= comment.body %></p>
+											<h6 class="text-muted clearfix">
+												<span>时间：6天前</span>
+												<%= link_to "javascript:void(0)" do %>
+												<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up"></span> <%= 2 %></span>
+												<% end %>
+											</h6>
+										</div>
 									</div>
-									<div class="media-body">
-										<h6 class="media-heading">DxDy</h6>
-										<p>其实程设真的很有趣～</p>
-										<h6 class="text-muted clearfix">
-											<span>时间：6天前</span>
-											<%= link_to "javascript:void(0)" do %>
-											<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up"></span> <%= 2 %></span>
-											<% end %>
-										</h6>
-									</div>
-								</div>
-								<hr>
+									<hr>
 								<% end %>
+
+
 								<div class="text-center ">
 									<br><%= render partial: "/interviews/paging"%><br>
 								</div>

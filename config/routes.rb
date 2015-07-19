@@ -47,10 +47,8 @@ end
     member do
       get :detail
     end
-    resources :sub_courses, only: [:index, :show]
+    resources :sub_courses, only: [:index, :show, :create]
   end
-
-  resources :sub_courses, only: [:show]
 
   namespace :admin do
     root "home#index"

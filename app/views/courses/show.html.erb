@@ -4,13 +4,14 @@
 		<h3>&nbsp;课程选择</h3>
 		<div class="container">
 		  <% @sub_courses.each do |sub_course|%>
-		    <%= link_to sub_course_path(sub_course, course_id: @course.id) do %>
-					<div class="col-xs-3">
-						<%=image_tag(sub_course.try(:image).avatar.url(:c_250_190))%>
-						<div class="shadow">第一章 &nbsp;&nbsp;C语言程序设计精髓 <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-						</div>
+		    	<%= link_to course_sub_course_path(sub_course, course_id: @course.id) do %>
+				<div class="col-xs-3">
+					<%=image_tag(sub_course.try(:image).avatar.url(:c_250_190))%>
+					<div class="shadow">
+						j第一章 &nbsp;&nbsp;C语言程序设计精髓 <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
 					</div>
-				<% end %>
+				</div>
+			<% end %>
 		  <%end%>
 		</div>
 	</div>
