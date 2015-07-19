@@ -9,8 +9,9 @@ class UserRecruitmentsController < ApplicationController
     @user_recruitment.user_id = current_user.id
     @user_recruitment.recruitment_id = params[:recruitment_id]
     @user_recruitment.save
+    
     #邮件发送
-    UserMailer.send_recruitment(current_user, Recruitment.where(id: params[:recruitment_id]).first).deliver
+    UserMailer.send_recruitment(current_user, Recruitment.where(id: params[:recruitment_id]).first).deliver_later
     respond_with  @user_recruitment
   end
 

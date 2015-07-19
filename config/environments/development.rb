@@ -41,13 +41,12 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-     :tls => true,
-    :address => "smtp.gmail.com",
-    :port => "587",
-    :domain => "www.inruby.com",
-    :authentication => :plain,
-    :user_name => "kenrome00",
-    :password => "0000000"
+      :address => "smtp.163.com",
+      :domain => "www.163.com",
+      :port => 25,
+      :authentication => :login,
+      :user_name => "fwshun@163.com",
+      :password => "!qaz9ijn",
   }
 
 end

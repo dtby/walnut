@@ -1,4 +1,12 @@
 class UserMailer < ApplicationMailer
+
+  def test_send
+    mail(
+      from: "dev@buoyantec.com",
+      to: "992273028@qq.com", 
+      subject: "test send email success!!!"
+      )
+  end
  
   def send_recruitment(user,recruitment)
     @user = user
