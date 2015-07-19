@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   acts_as_voter
   
   has_many :user_recruitments, dependent: :destroy
+  has_many :recruitments, through: :user_recruitments
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create

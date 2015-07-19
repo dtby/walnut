@@ -5,38 +5,37 @@
       <%=render "left_nav" %>
     </div>
       <div class="col-md-9 right_nav_c">
-      <table class="table table-hover recruitment-list recruits_list">
-      <thead>
-        <tr>
-          <th>职位</th>
-          <th>logo</th>
-          <th>公司</th>
-          <th>工作地点</th>
-          <th width="12%">
-            投递状态
-          </th>
-          <th width="10%">
-            面试通知
-          </th>
-          <th width="6%">操作</th>
-        </tr>
-        </thead>
-        <tbody class="recruit_list_text">
-        <% @recruits.each do |recruitment| %>
-        <tr>
-          <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
-          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
-          <td><%=recruitment.try(:company).try(:name) %></td>
-          <td><%=recruitment.city %></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <% end %>
-        </tbody>
-      </table>
-      <div class="text-center"><%= paginate @recruits %></div>
-
+        <table class="table table-hover recruitment-list">
+          <thead>
+            <tr>
+              <th>职位</th>
+              <th>logo</th>
+              <th>公司</th>
+              <th>工作地点</th>
+              <th width="12%">
+                投递状态
+              </th>
+              <th width="10%">
+                面试通知
+              </th>
+              <th width="6%">操作</th>
+            </tr>
+            </thead>
+            <tbody class="recruit_list_text">
+              <% @recruits.each do |recruitment| %>
+              <tr>
+                <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
+                <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
+                <td><%=recruitment.try(:company).try(:name) %></td>
+                <td><%=recruitment.city %></td>
+                <td><span class="text-muted">已投简历</span></td>
+                <td><span class="text-muted">未发送</span></td>
+                <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        <div class="text-center"><%= paginate @recruits %></div>
       </div>
     </div>
   </div>

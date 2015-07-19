@@ -104,6 +104,43 @@
   }
 }
 
+.user__my_recruits {
+  table.recruitment-list {
+    margin-top: 20px;
+    text-align:center;
+    thead tr{
+      font-size: 16px;
+      background-color:#5c5c5c;
+      th {
+        text-align: center;
+        color:#cccccc;
+      }
+    }
+  }
+  .iconstar {
+    font-size:20px;
+    color:#F38C00;
+  }
+  .glyphicon-trash {
+    color: red;
+  }
+  .recruit_list_text {
+    tr {
+      border:solid 1px #E9E9E9;
+      td {
+        span.text-muted {
+          color: #d7d7d7;
+        }
+      }
+    }
+    .deliver {
+      display:block;
+      text-decoration: none;
+      color:#00B89F;
+    }
+  }
+}
+
  /*  .waperbg {
    background: image-url('center_bg.png') left top no-repeat;
  } */
@@ -231,29 +268,3 @@
     }
   }
 }
-/* my_recruits page */
- table.recruit_list {
-    text-align:center;
-    thead tr{
-      font-size: 16px;
-      background-color:#5c5c5c;
-      th {
-        text-align: center;
-        color:#cccccc;
-      }
-    }
-  }
-  .iconstar {
-    font-size:20px;
-    color:#F38C00;
-  }
-  .recruit_list_text {
-    tr {
-      border:solid 1px #E9E9E9;
-    }
-    .deliver {
-      display:block;
-      text-decoration: none;
-      color:#00B89F;
-    }
-  }
