@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .users__my_informations{
 	.my-nav{
-                background-color:#fff;
+    background-color:#fff;
 		margin-top: 40px;
 		margin-bottom: 20px;
 		padding: 10px;
@@ -80,6 +80,28 @@
 .divider{
 	border-color: #797979;
 	border-width: 3px 0 0; 
+}
+
+.user__my_courses {
+  .my-nav{
+    background-color:#fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    .nav-tabs{
+      border-bottom: 2px solid #8bd4cc;
+      padding-left: 20px;
+      li{
+        margin-bottom: -2px;
+      }
+      .active > a {
+        border-top: 4px solid #8bd4cc;
+        border-right: 2px solid #8bd4cc;
+        border-left: 2px solid #8bd4cc;
+        font-weight: bold;
+      }
+    }
+  }
 }
 
  /*  .waperbg {
