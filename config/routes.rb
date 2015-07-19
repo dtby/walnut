@@ -16,7 +16,11 @@ Rails.application.routes.draw do
 
   resources :interviews
 
-  resources :recruitments
+  resources :recruitments do
+    collection do
+      get :recommend
+    end
+  end
 
   resources :user_recruitments, only: [:create]
 

@@ -1,4 +1,4 @@
-.recruitments__index, .recruitments__show {
+.recruitments__index, .recruitments__show, .recruitments__recommend {
   .waper {
     margin-top:80px;
   }
@@ -18,15 +18,18 @@
     }
   }
   .find_job {
-    a {
-      display:block;
-      font-size:20px;
-      color:#fff;
-      background-color:#00B89F;
+    color:#fff;
+    background-color:#00B89F;
+    width: 100%;
+    font-size: 18px;
+    margin:5px auto;
+    &.recommend {
+      background-color:#f15967;
     }
   }
-  .form-control, .find_job {
+  .form-control {
     margin:5px auto;
+    height: 40px;
   }
   table.recruitment-list {
     text-align:center;
