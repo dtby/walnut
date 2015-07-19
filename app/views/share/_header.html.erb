@@ -26,12 +26,12 @@
 				<li  class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">实习招聘
 					<ul class="dropdown-menu sub_menu" >
 					  	<li><a href="#">工作推荐</a></li>
-					   	<li><a href="#">招聘信息</a></li>
+					   	<li><a href="<%=recruitments_path %>">招聘信息</a></li>
 					   	<li><a href="#">面试经验</a></li>
 					    	<li><a href="#">职业测评</a></li>
 				 	</ul>
 				</a></li>
-				<li class="<%= "active" if params[:controller] == '' && params[:action] == ''%>"><a href="#">个人中心</a></li>
+				<li class="<%= "active" if params[:controller] == 'user' %>"><%=link_to "个人中心","user/show" %></li>
 			</ul>
 			<ul id="userInfoMenu" class="nav navbar-nav navbar-right sign">
 				<%= render 'share/user_info' %>

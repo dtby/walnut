@@ -1,0 +1,34 @@
+<%= simple_form_for @user, url: user_path(@user),wrapper: :horizontal_form,  html: { class: "form-horizontal" } do |f| %>
+              <%= f.input :nickname %>
+              <div class="form-group">
+                                <label for="inputPassword3" class="col-sm-3 control-label">我的头像</label>
+                                <div class="col-sm-4">
+                                  <%=image_tag"personal_head.png"%>
+                                </div>
+                                <div class="col-sm-3">
+                                  图片大小不能超过2M，<br>
+                                  支持JPG，GIF，PNG图片格式
+                                </div>
+                              </div>
+              <%= f.input :name %>
+              <%= f.input :department do %>
+              <%= f.select :department, [ "艺术设计系", "商务管理系", "商务管理系" ] %>
+              <% end %>
+              <%= f.input :major do %>
+              <%= f.select :major, [ "设计", "艺术", "艺术设计", "商务英语"] %>
+              <% end %>
+              <%= f.input :mobile, required: false %>
+              <%= f.input :email, placeholder: 'user@domain.com'%>
+              <label for="inputPassword3" class="col-sm-3 control-label">性别</label>
+              <%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last%>
+              <%= f.input :signature ,label: '个性签名'%>
+              <div class="form-group modify-btn">
+                  <label for="inputPassword3" class="col-sm-1 control-label"></label>
+                  <div class="col-sm-2">
+                    <%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1"%>
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-2">
+                    <%= f.button :submit , '取消修改', class:"btn btn-default mybtn my_btn2"%>
+                  </div>
+                </div>
+            <% end %>

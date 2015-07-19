@@ -1,11 +1,11 @@
               <div class="thumbnail">
                 <%=image_tag "personal_head.png" ,class:"p_h1"%>
                 <div class="caption">
-                  <h4>我是昵称我是昵称</h4>
+                  <h4><%= current_user.nickname %></h4>
                   <p><span class="empirical" >经验值</span>&nbsp;&nbsp;&nbsp;<span>学习时长</span></p>
                   <p><span class="empirical value">1234</span>&nbsp;&nbsp;<span class="value">1小时50分钟</span></p>
                   <hr class="divesi">
-                  <p><h6>个性签名：不忘初心，方得始终！</h6></p>
+                  <p><h6>个性签名：<%=current_user.signature %></h6></p>
                 </div>
               </div>
               <ul class="left_nav">
@@ -14,6 +14,6 @@
                 <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", "my_recruits" %></li><li><hr class="divesi1"></li>
                 <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历","my_resumes" %></li><li><hr class="divesi1"></li>
                 <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", "my_messages" %></li><li><hr class="divesi1"></li>
-                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_informations'%>"><%=link_to "个人信息","my_informations" %></li>
+                <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'show'%>"><%=link_to "个人信息","show" %></li>
               </ul>
               

@@ -184,6 +184,11 @@ ActiveRecord::Schema.define(version: 20150718033513) do
     t.string   "nickname",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",                   limit: 255
+    t.string   "major",                  limit: 255
+    t.string   "department",             limit: 255
+    t.string   "gender",                 limit: 255
+    t.string   "signature",              limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,61 @@
+<div class="waperbg">
+<div class="container">
+  <div class="row">
+  <div class="col-md-3">
+    <%=render partial: "left_nav"%>
+    </div>
+    <div class="col-md-9 users__my_informations">
+      <div class="row">
+        <div  class="my-nav">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">个人设置</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">密码修改</a></li>
+          </ul>
+          <!-- Tab panes -->
+          <div class="tab-content main">
+            <div role="tabpanel" class="tab-pane active" id="home">
+            
+              <%=render "form" %>
+
+            </div>
+
+                        <div role="tabpanel" class="tab-pane" id="profile">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">当前密码</label>
+                  <div class="col-sm-6">
+                    <input type="email" class="form-control" id="inputEmail3" placeholder="请输入当前密码">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">新密码</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPassword3" class="col-sm-2 control-label">确认密码</label>
+                  <div class="col-sm-6">
+                    <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码">
+                  </div>
+                </div>
+                <div class="form-group modify-btn">
+                  <label for="inputPassword3" class="col-sm-1 control-label"></label>
+                  <div class="col-sm-2">
+                    <botton class="btn btn-default mybtn my_btn1">提交修改</botton>
+                  </div>
+                  <div class="col-sm-offset-2 col-sm-2">
+                    <botton class="btn btn-default mybtn  my_btn2">取消修改</botton>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

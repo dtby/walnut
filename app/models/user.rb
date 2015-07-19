@@ -30,11 +30,13 @@ class User < ActiveRecord::Base
   acts_as_voter
 
 
-  validates :mobile, presence: true, uniqueness: true
-  validate :mobile_reg?
+  validates :mobile, presence: true, uniqueness: true, on: :create
+  validate :mobile_reg?, on: :create
   #validates :nickname, presence: true, length: {minimum: 3, maximum: 50}
-  validates :sms, presence: true
-  validate :is_right_sms?, if: "sms.present?"
+  validates :sms, presence: true, on: :create
+  validate :is_right_sms?, if: "sms.present?", on: :create
+  validates :name, presence: true
+
 
 
   def mobile_reg?

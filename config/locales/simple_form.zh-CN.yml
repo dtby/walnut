@@ -37,6 +37,10 @@ zh-CN:
         password: '密码'
         password_confirmation: '确认密码'
         nickname: '昵称'
+        name: '姓名'
+        gender: '性别'
+        department: '系别'
+        major: '专业'
         remember_me: '记住密码'
     placeholders:
       user:
@@ -46,3 +50,4 @@ zh-CN:
         password_confirmation: '请再次输入密码'
         sms: '请输入短信验证码'
         nickname: '请输入昵称'
+        name: '请输入你的姓名'

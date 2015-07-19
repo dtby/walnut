@@ -20,11 +20,10 @@ Rails.application.routes.draw do
 
   resources :sms, only: [:create]
 
-  resources :user do
+  resources :user, only:[:show, :update] do
     collection do
     get :my_projects
     get :my_courses
-    get :my_informations
     get :my_messages
     get :my_recruits
     get :my_resumes
@@ -50,6 +49,7 @@ end
     root "home#index"
     resources :colleges
     resources :teachers
+    resources :recruitments
     resources :categories
     resources :courses do
       resources :sub_courses
