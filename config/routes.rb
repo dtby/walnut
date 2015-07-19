@@ -26,8 +26,9 @@ Rails.application.routes.draw do
 
   resources :sms, only: [:create]
 
-  resources :user, only:[:show, :update] do
+  resources :user, only:[:update] do
     collection do
+      get :show
       get :my_projects
       get :my_courses
       get :my_messages

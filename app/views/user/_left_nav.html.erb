@@ -9,11 +9,11 @@
   </div>
 </div>
 <ul class="left_nav">
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_courses'%>"><%=link_to "我的课程", "my_courses" %></li><hr class="divesi1">
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_projects'%>"><%=link_to "我的项目","my_projects" %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", "my_recruits" %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历","my_resumes" %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", "my_messages" %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息","show" %></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_courses'%>"><%=link_to "我的课程", my_courses_user_index_path %></li><hr class="divesi1">
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_projects'%>"><%=link_to "我的项目",my_projects_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", my_recruits_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历",my_resumes_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", my_messages_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息",user_index_path %></li>
 </ul>
               
