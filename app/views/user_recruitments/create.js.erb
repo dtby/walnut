@@ -1,0 +1,9 @@
+<% unless @user_recruitment.errors.blank? %>
+  alert("操作失败，请刷新重试");
+<% else %>
+  <% case params[:style_type] %>
+  <% when "recruitment-list" %>
+    $("#deliverRecruitment<%= @user_recruitment.recruitment_id%>").replaceWith('<span class="text-muted">已投简历</span>');
+    alert("简历投递成功");
+  <% end %>
+<% end %>

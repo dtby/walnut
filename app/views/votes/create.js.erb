@@ -5,8 +5,10 @@
   <% when "recruitment-list" %>
     <% unless @is_like %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star-empty").addClass("glyphicon-star");
+      alert("收藏成功");
     <% else %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
+      alert("取消收藏成功");
     <% end %>
   <% end %>
 <% end %>

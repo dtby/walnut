@@ -20,6 +20,8 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  industry         :string(255)
+#  number           :integer
+#  view_count       :integer
 #
 
 class Recruitment < ActiveRecord::Base
@@ -27,4 +29,5 @@ class Recruitment < ActiveRecord::Base
   
   belongs_to :degree
   belongs_to :company
+  has_many :user_recruitments, dependent: :destroy
 end

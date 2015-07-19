@@ -38,4 +38,16 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+     :tls => true,
+    :address => "smtp.gmail.com",
+    :port => "587",
+    :domain => "www.inruby.com",
+    :authentication => :plain,
+    :user_name => "kenrome00",
+    :password => "0000000"
+  }
+
 end

@@ -89,7 +89,13 @@
               <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
             <% end %>
           </td>
-          <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
+          <td>
+            <% if recruitment.state.present?%>
+              <span class="text-muted">已投简历</span>
+            <% else %>
+              <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
         </tbody>
@@ -101,6 +107,9 @@
 <%= content_for :scripts do %>
   <%= javascript_tag do %>
     vote_create_path = "<%= votes_path %>.js"
+    deliver_path = "<%= user_recruitments_path %>.js"
   <% end %>
   <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+
 <% end %>

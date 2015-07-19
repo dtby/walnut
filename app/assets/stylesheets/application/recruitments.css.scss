@@ -46,6 +46,11 @@
   .recruit_list_text {
     tr {
       border:solid 1px #E9E9E9;
+      td {
+        span.text-muted {
+          color: #d7d7d7;
+        }
+      }
     }
     .deliver {
       display:block;

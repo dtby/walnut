@@ -26,8 +26,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+
   attr_accessor :sms #短信验证码
   acts_as_voter
+  
+  has_many :user_recruitments, dependent: :destroy
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create

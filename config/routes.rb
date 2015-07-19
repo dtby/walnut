@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :recruitments
 
+  resources :user_recruitments, only: [:create]
+
   resources :sms, only: [:create]
 
   resources :user, only:[:show, :update] do

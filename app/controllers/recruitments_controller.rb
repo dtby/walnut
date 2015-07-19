@@ -1,7 +1,11 @@
 class RecruitmentsController < ApplicationController
   def index
     #@recruitments = Recruitment.all
-    @recruitments = Recruitment.includes(:company).order("created_at DESC").page(params[:page])
+    #@recruitments = Recruitment.includes(:company).order("created_at DESC").page(params[:page])
+
+    @recruitments = Recruitment.select("recruitments.id,name,city,publish_time,company_id,view_count,user_recruitments.state as state")
+    .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id and user_recruitments.user_id = #{current_user.try(:id)}")
+    .includes(:company).order("recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
   end
   def show
     @recruitment = Recruitment.find(params[:id])
