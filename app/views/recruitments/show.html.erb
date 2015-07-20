@@ -71,7 +71,9 @@
         <% end %>
       </div>
         <div class="col-md-2 col-md-offset-3">
-          <%=link_to "我要收藏", '#' ,class: "btn btn_collection" %>
+          <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection vote-create-a", voteable_id: @recruitment.id, voteable_type: @recruitment.class, style_type: "recruitment-show", id: "collectRecruitment#{@recruitment.id}") do %>
+          <%= current_user.try(:voted_up_on?,@recruitment) ? "取消收藏" : "我要收藏" %>
+          <% end %>
         </div>
     </div>
   </div>
