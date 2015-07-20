@@ -15,9 +15,16 @@ class RecruitmentsController < ApplicationController
 
 
   def show
-    @recruitment = Recruitment.select("recruitments.*,user_recruitments.state as state")
-    .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id and user_recruitments.user_id = #{current_user.try(:id)}")
+    if current_user.present?
+      @recruitment = Recruitment.select("recruitments.*,user_recruitments.state as state")
+      .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id and user_recruitments.user_id = #{current_user.try(:id)}")
+      .includes(:company).where(id: params[:id]).first
+    else
+      @recruitment = Recruitment.select("recruitments.*,user_recruitments.state as state")
+    .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id")
     .includes(:company).where(id: params[:id]).first
+    end
+    
     @recruitment.update(view_count: @recruitment.view_count.present? ? (@recruitment.view_count + 1) : 1) 
   end
 
