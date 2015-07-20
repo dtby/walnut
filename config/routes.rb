@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'evaluations/index'
+
+  get 'evaluations/show'
+
+  get 'evaluations/new'
+
+  get 'evaluations/result'
+
   root "home#index"
   
   devise_for :users, controllers: {
