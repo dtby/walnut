@@ -5,3 +5,5 @@
 <p>
   性别：<%= @user.gender %>
 </p>
+<%= link_to("同意", @agree_url, format: :js, remote: true ) %>
+<%= link_to("不同意", @disagree_url, format: :js, remote: true  ) %>

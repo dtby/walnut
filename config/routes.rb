@@ -20,7 +20,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :user_recruitments, only: [:create]
+  resources :user_recruitments, only: [:create] do
+    collection do
+      get :agree
+    end
+  end
 
   resources :sms, only: [:create]
 

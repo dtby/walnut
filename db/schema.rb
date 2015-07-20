@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719011859) do
+ActiveRecord::Schema.define(version: 20150720004430) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -186,12 +186,21 @@ ActiveRecord::Schema.define(version: 20150719011859) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "user_recruiments", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "recruitment_id", limit: 4
+    t.integer  "state",          limit: 4, default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
   create_table "user_recruitments", force: :cascade do |t|
     t.integer  "user_id",        limit: 4
     t.integer  "recruitment_id", limit: 4
     t.integer  "state",          limit: 4, default: 0
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.time     "deliver_time"
   end
 
   add_index "user_recruitments", ["recruitment_id"], name: "index_user_recruitments_on_recruitment_id", using: :btree
