@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'evaluations/index'
-
-  get 'evaluations/show'
-
-  get 'evaluations/new'
-
-  get 'evaluations/result'
-
   root "home#index"
   
   devise_for :users, controllers: {
@@ -19,6 +11,12 @@ Rails.application.routes.draw do
   resources :recruitments do
     collection do
       get :recommend
+    end
+  end
+
+  resources :evaluations do
+    collection do
+      get :result
     end
   end
 

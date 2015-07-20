@@ -26,14 +26,13 @@
 					<a href="#">实训项目</a>
 				</li>
 				<li  class="<%= "active" if (params[:controller] == 'recruitments' && 
-				(params[:action] == 'index' || params[:action] == 'show' || params[:action] == 'recommend')) 
-				%>">
+				(params[:action] == 'index' || params[:action] == 'show' || params[:action] == 'recommend')) || (params[:controller] == 'interviews' && params[:action] == 'index') || (params[:controller] == 'evaluations' && params[:action] == 'index')%>">
 				<a href="<%=recommend_recruitments_path %>">实习招聘
 					<ul class="dropdown-menu sub_menu" >
 					  	<li><a href="<%=recommend_recruitments_path %>">工作推荐</a></li>
 					   	<li><a href="<%=recruitments_path %>">招聘信息</a></li>
 					   	<li><a href="<%=interviews_path %>">面试经验</a></li>
-					    	<li><a href="#">职业测评</a></li>
+					    	<li><a href="<%= evaluations_path%>">职业测评</a></li>
 				 	</ul>
 				</a></li>
 				<li class="<%= "active" if params[:controller] == 'user' %>"><%=link_to "个人中心",my_courses_user_index_path %></li>
