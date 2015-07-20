@@ -11,7 +11,6 @@ module Admin
     end
 
     def create
-      pp params
       @course = Course.new(course_params)
 
       #存入课程展示图

@@ -16,7 +16,6 @@ class CoursesController < ApplicationController
   end
 
   def detail
-        
   end
 
   def list
