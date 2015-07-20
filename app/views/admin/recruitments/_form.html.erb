@@ -72,6 +72,12 @@
     <%= f.text_area :others, class: 'form-control' %>
   </div>
   </div>
+   <div class="form-group">
+    <%= f.label :description, '职位描述', class: 'col-sm-2 col-sm-offset-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.kindeditor :description, owner_id: @recruitment.id, height: 400 %>
+    </div>
+  </div>
   <div class="actions">
   <hr>
   <div class="form-group">
