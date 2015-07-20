@@ -79,11 +79,11 @@ Rails.application.configure do
 
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-      :address => "smtp.163.com",
-      :domain => "www.163.com",
+      :address => "smtp.mxhichina.com",
+      #:domain => "www.163.com",
       :port => 25,
       :authentication => :login,
-      :user_name => "fwshun@163.com",
-      :password => "!qaz9ijn",
+      :user_name => "dev@buoyantec.com",
+      :password => "Asdf1234",
   }
 end
