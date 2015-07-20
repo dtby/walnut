@@ -122,28 +122,13 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
-  config.wrappers :login_input, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+  config.wrappers :login_boolean, tag: 'p', class: 'pull-left' , error_class: 'has-error' do |b|
     b.use :html5
-    b.use :placeholder
-    b.optional :maxlength
-    b.optional :pattern
-    b.optional :min_max
     b.optional :readonly
-    b.use :label, class: 'sr-only'
 
-    b.wrapper tag: 'div', class: 'input-group' do |ba|
-      ba.wrapper tag: 'div', class: 'input-group-addon' do |wr|
-        wr.wrapper tag: 'span', class: 'glyphicon glyphicon-user' do |w|
-        end
-      end
-
-      ba.use :input, class: 'form-control'
-     
-    end
-    
+    b.use :label_input
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
-
   end
 
   # Wrappers for forms and inputs using the Bootstrap toolkit.

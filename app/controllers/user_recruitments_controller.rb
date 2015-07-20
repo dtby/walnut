@@ -1,5 +1,5 @@
 class UserRecruitmentsController < ApplicationController
-  before_action :authenticate_user!, expect: [:agree]
+  before_action :authenticate_user!, only: [:create]
   respond_to :js, :json
 
   def create
