@@ -45,3 +45,36 @@
 		}
 	}
 }
+.my__messages{
+	.main{
+		padding-top: 20px;
+		margin: 40px 0 20px;
+		width: 848px;
+		background-color: #fff;
+		.my_message{
+			margin: 10px  -15px 30px;
+		}
+		.my_data{
+			padding-top: 10px;
+		}
+		.arrow{
+			width: 0px;
+			height: 0px;
+			border-top: 5px solid transparent;
+			border-right: 10px solid #DEEDFF;
+			border-bottom: 5px solid transparent;
+			position: absolute;
+			left: -10px;
+			top: 10px;
+		}
+		.message{
+			padding-top: 10px;
+			background-color: #deedff;
+			position: relative;
+		}
+	}
+}
+.divider{
+	border-color: #797979;
+	border-width: 3px 0 0; 
+}

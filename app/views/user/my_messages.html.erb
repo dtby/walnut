@@ -1,15 +1,49 @@
-<div class="waperbg">
-  <div class="container">
-    <div class="row">
-      <%=render "left_nav" %>
-      <div class="col-md-9">
-        <div class="row recruit_title">
-          <div class="col-md-5"><hr class="divider"></div>
-          <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘分类</span></div>
-          <div class="col-md-5"><hr class="divider"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="my__messages">
+	<div class="waperbg">
+		<div class="container">
+			<div class="row">
+				<%=render "left_nav" %>
+				<div class="col-md-9 main">
+					<div class="row">
+						<div class="col-md-5"><hr class="divider"></div>
+						<div class="col-md-2 text-center my_data">
+							<span>2015-07-07</span>
+						</div>
+						<div class="col-md-5"><hr class="divider"></div>
+					</div>
+					<% 2.times do %>
+					<div class="row my_message">
+						<div class="col-md-2"><%=image_tag"user_mymessage.png"%></div>
+						<div class="col-md-6 message">
+							<span class="arrow"></span>
+							<p>《css3实现网页平滑过渡效果》的课程全局样式文件已上传，小伙伴们可以到课程播放页面去下载了。
+							<a href="#">http://www.imooc.com/video/7142</a>
+							</p>
+						</div>
+						<div class="col-md-4">19:30:30</div>
+					</div>
+					<%end%>
+					<div class="row">
+						<div class="col-md-5"><hr class="divider"></div>
+						<div class="col-md-2 text-center my_data">
+							<span>2015-07-07</span>
+						</div>
+						<div class="col-md-5"><hr class="divider"></div>
+					</div>
+					<% 4.times do %>
+					<div class="row my_message">
+						<div class="col-md-2"><%=image_tag"user_mymessage.png"%></div>
+						<div class="col-md-6 message">
+							<span class="arrow"></span>
+							<p>《css3实现网页平滑过渡效果》的课程全局样式文件已上传，小伙伴们可以到课程播放页面去下载了。
+							<a href="#">http://www.imooc.com/video/7142</a>
+							</p>
+						</div>
+						<div class="col-md-4">19:30:30</div>
+					</div>
+					<%end%>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
