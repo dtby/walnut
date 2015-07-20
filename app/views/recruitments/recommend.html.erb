@@ -93,7 +93,7 @@
             <% end %>
           </td>
           <td>
-            <% if recruitment.state.present?%>
+            <% if recruitment.state.present? && current_user.present? %>
               <span class="text-muted">已投简历</span>
             <% else %>
               <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
