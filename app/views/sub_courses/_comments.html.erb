@@ -1,7 +1,7 @@
 <div id="cmt">
 	<div class="col-xs-12">
 		<%= form_tag    course_sub_courses_path, method: :post, remote: true, format: :js do |f|%>
-		<%= text_field_tag 'user_comment',"", rows: 100, class: "form-control" %>
+		<%= text_area_tag "user_comment", "", class: "comment_text form-control", rows: 4, placeholder: "讨论、吐槽、表扬、鼓励......想说啥就说啥！" %>
 		<%= hidden_field_tag "sub_course_id", params[:id]%>
 		<%= hidden_field_tag "course_id", params[:course_id]%>
 		<%= hidden_field_tag "page", params[:page]%>
@@ -19,7 +19,7 @@
 				<h6 class="media-heading"><%= comment.try(:user).try(:nickname) %></h6>
 				<p><%= comment.body %></p>
 				<h6 class="text-muted clearfix">
-					<span>时间：6天前</span>
+					<span>时间：<%= time_interval(comment) %></span>
 					<%= link_to "javascript:void(0)" do %>
 					<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up"></span> <%= 2 %></span>
 					<% end %>
