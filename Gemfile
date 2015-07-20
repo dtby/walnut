@@ -84,3 +84,6 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
+#生产环境下解决rails_kindeditor编译问题
+gem 'sprockets', '~> 2.12.3'
+
