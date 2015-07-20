@@ -13,7 +13,7 @@ class UserRecruitmentsController < ApplicationController
     
     host = request.protocol + request.host_with_port
     #邮件发送
-    UserMailer.send_recruitment(current_user, @user_recruitment, host).deliver_now
+    UserMailer.send_recruitment(current_user, @user_recruitment, host).deliver_later
     respond_with  @user_recruitment
   end
 
