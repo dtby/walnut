@@ -1,6 +1,6 @@
 <%= form_for([:admin, @course], html: {class: "form-horizontal"}) do |f| %>
 
-<div class="form-group">
+<div id="category" class="form-group">
 	<%= label_tag :category, '所属分类', class: 'col-sm-2 control-label' %>
 	<div class="col-sm-8">
 		<% @categories.each do |p| %>
@@ -9,7 +9,7 @@
 		<% end %>
 	</div>
 </div>
-<div class="form-group">
+<div id="school" class="form-group">
 	<%= label_tag :college, '所属学校', class: 'col-sm-2 control-label' %>
 	<div class="col-sm-8">
 		<% @colleges.each do |p| %>
@@ -18,7 +18,7 @@
 		<% end %>
 	</div>
 </div>
-<div class="form-group">
+<div id="teacher" class="form-group">
 	<%= label_tag :teacher, "主讲教师", class: 'col-sm-2 control-label' %>
 	<div class="col-sm-8">
 		<% @teachers.each do |p| %>
@@ -81,5 +81,20 @@
 <script type="text/javascript">
 	$(function(){
 		$("#course_image, #course_attachment").fileinput();
+	});
+	//点击分类时，隐藏学校选择和教师选择
+	$("#category :radio").click(function(){
+		$("#school").hide();
+		$("#teacher").hide();
+	});
+	//点击学校选择时，隐藏分类学则和教师选择
+	$("#school :radio").click(function(){
+		$("#category").hide();
+		$("#teacher").hide();
+	});
+	//点击教师选择时，隐藏分类选择和学校选择
+	$("#teacher :radio").click(function(){
+		$("#category").hide();
+		$("#school").hide();
 	});
 </script>

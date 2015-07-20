@@ -86,7 +86,7 @@ College.destroy_all
 College.create!([
   { name: "北京大学" },
   { name: "上海复旦大学" },
-  {name: "上海j交通大学"},
+  {name: "上海交通大学"},
   {name: "清华大学"},
   {name: "中原工学院"},
   {name: "中国人民大学"},
