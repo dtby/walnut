@@ -2,30 +2,31 @@
 <% content_for :banner do %>
 	<%= render partial: "/share/banner"%>
 <% end %>
+
 <!-- walnut online education platform -->
 <div class="container">
 	<div class="row platform">
-		<div class="col-md-6">
+		<div class="col-md-6 wow slideInRight" data-wow-delay="0.5s">
 			<%= image_tag "platform_img.png", class: "img-responsive" %>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 wow slideInLeft" data-wow-delay="1s">
 			<h2 class="title-green">核桃在线教育平台</h2>
-			<div class="express">
+			<div class="express pull-left text-center col-sm-2">
 				<div class="express-icon"><%= image_tag "platform_study.png" %></div>
 				<span>在线学习</span>
 			</div>
-			<div class="plus-equal"><%= image_tag "platform_plus.png" %></div>
-			<div class="express">
+			<div class="plus-equal  pull-left"><%= image_tag "platform_plus.png" %></div>
+			<div class="express pull-left text-center col-sm-2">
 				<div class="express-icon"><%= image_tag "platform_train.png" %></div>
 				<span>协同实训</span>
 			</div>
-			<div class="plus-equal"><%= image_tag "platform_plus.png"%></div>
-			<div class="express">
+			<div class="plus-equal pull-left"><%= image_tag "platform_plus.png"%></div>
+			<div class="express pull-left text-center col-sm-2">
 				<div class="express-icon"><%= image_tag "platform_star.png" %></div>
 				<span>实习招聘</span>
 			</div>
-			<div class="plus-equal"><%= image_tag "platform_equal.png" %></div>
-			<div class="express">
+			<div class="plus-equal  pull-left"><%= image_tag "platform_equal.png" %></div>
+			<div class="express pull-left text-center col-sm-4">
 				<div class="express-icon"><%= image_tag "platform_icon.png" %></div>
 				<span>在线教育平台</span>
 			</div>
@@ -38,7 +39,7 @@
 	</div>
 </div>
 <!-- study online -->
-<div class="gray-bg">
+<div class="gray-bg wow fadeInDown" style="background-color: #F5F5F5;">
 	<div class="container">
 		<div class="row study">
 			<div class="col-md-6">
@@ -60,10 +61,10 @@
 <!-- train -->
 <div class="container">
 	<div class="row study">
-		<div class="col-md-6">
+		<div class="col-md-6 wow slideInRight">
 			<%= image_tag "train_computer.png" %>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-6 wow slideInLeft">
 			<h2 class="title-green"><li>协同实训</li></h2>
 			<div class="row">
 				<div class="col-xs-12 plat-content">
@@ -79,19 +80,35 @@
 	<div class="gray-bg">
 		<div class="container">
 			<div class="row study">
-				<div class="col-md-6">
+				<div class="col-md-6 wow slideInLeft">
 					<h2 class="title-green"><li>实习招聘</li></h2>
 					<div class="row">
 						<div class="col-xs-12 plat-content">
 							大学生的就业问题近来越发突出的背景下，在校大学生的实习经历显得格外必要。但是大学生普遍缺乏获取实习机会的有效渠道，难以在步入社会之前得到一定的锻炼。<br>
 							邦彦在线教育平台开发出实习招聘模块，大学生可以在平台根据自己的专业查询到全国IT互联网行业的实习及招聘信息。另外，平台还为大学生用户提供个性定制的实习招聘信息推送功能，在WEB端和移动端都可实现，最大限度的方便大学生随时随地轻松找实习、找工作。
-						</div>		
-					</div>			
+						</div>
+					</div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6 wow slideInRight">
 					<%= image_tag "train_all.png", class: "img-responsive" %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	wow = new WOW(
+      {
+        animateClass: 'animated',
+        offset:       100,
+        callback:     function(box) {
+          console.log("WOW: animating <" + box.tagName.toLowerCase() + ">")
+        }
+      }
+    );
+    wow.init();
+</script>
+
+<%= content_for :scripts do %>
+  <%= javascript_include_tag "wow", 'data-turbolinks-track' => true  %>
+<% end %>
