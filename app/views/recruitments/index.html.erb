@@ -22,8 +22,8 @@
       <div class="col-md-4">
         <input class="form-control" placeholder="请输入职位名、公司名等关键字"/>
       </div>
-      <div class="col-md-2 find_job">
-        <%=link_to "找工作", '#' ,class:"btn" %>
+      <div class="col-md-2">
+        <%= link_to("找工作", recruitments_path  , class: "btn find_job") %>
       </div>
     </div>
     <div class="col-md-12">
@@ -46,6 +46,9 @@
         <select class="form-control">
           <option>工作经验</option>
         </select>
+      </div>
+      <div class="col-md-2">
+        <%= link_to("工作推荐",recommend_recruitments_path  , class: "btn find_job recommend") %>
       </div>
     </div>
     <div class="container">
@@ -89,7 +92,13 @@
               <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
             <% end %>
           </td>
-          <td><%=link_to"投递简历" , '#' ,class:"deliver"%></td>
+          <td>
+            <% if recruitment.state.present?%>
+              <span class="text-muted">已投简历</span>
+            <% else %>
+              <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
         </tbody>
@@ -101,6 +110,9 @@
 <%= content_for :scripts do %>
   <%= javascript_tag do %>
     vote_create_path = "<%= votes_path %>.js"
+    deliver_path = "<%= user_recruitments_path %>.js"
   <% end %>
   <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+
 <% end %>

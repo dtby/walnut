@@ -1,24 +1,19 @@
-      <div class="col-md-3">
-        <div class="col-md-12">
-              <div class="thumbnail">
-              <%=image_tag "personal_head.png" ,class:"p_h1"%>
-                <div class="caption">
-                  <h4>我是昵称我是昵称</h4>
-                  <p><span class="empirical" >经验值</span>&nbsp;&nbsp;&nbsp;<span>学习时长</span></p>
-                  <p><span class="empirical value">1234</span>&nbsp;&nbsp;<span class="value">1小时50分钟</span></p>
-                  <hr class="divesi">
-                  <p><h6>个性签名：不忘初心，方得始终！</h6></p>
-                </div>
-              </div>
-        </div>
-        <div class="col-md-12">
-        <ul class="left_nav">
-          <li><%=link_to "我的课程","#" %></li><hr class="divesi1">
-          <li><%=link_to "我的项目","#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的招聘", "#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的简历","#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "我的消息", "#" %></li><li><hr class="divesi1"></li>
-          <li><%=link_to "个人信息","#" %></li>
-        </ul>
-        </div>
-      </div>
+<div class="thumbnail">
+  <%= image_tag current_user.show_image , class: "img-rounded" %>
+  <div class="caption">
+    <h4><%= current_user.nickname %></h4>
+    <p><span class="empirical" >经验值</span>&nbsp;&nbsp;&nbsp;<span>学习时长</span></p>
+    <p><span class="empirical value">1234</span>&nbsp;&nbsp;<span class="value">1小时50分钟</span></p>
+    <hr class="divesi">
+    <p><h6>个性签名：<%=current_user.signature %></h6></p>
+  </div>
+</div>
+<ul class="left_nav">
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_courses'%>"><%=link_to "我的课程", my_courses_user_index_path %></li><hr class="divesi1">
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_projects'%>"><%=link_to "我的项目",my_projects_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_recruits'%>"><%=link_to "我的招聘", my_recruits_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历",my_resumes_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", my_messages_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息",user_path(current_user) %></li>
+</ul>
+              

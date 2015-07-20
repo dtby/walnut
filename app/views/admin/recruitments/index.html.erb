@@ -1,0 +1,46 @@
+<%= content_for :nav do%>
+  <li>
+    <a href="#{admin_root_path}">后台</a>
+  </li>
+  <li class="active">招聘列表</li>
+<%end%>
+
+<%= content_for :toolbar do %>
+  <div class="col-xs-12">
+    <%= link_to new_admin_recruitment_path, class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-plus-sign">新建</span>
+    <%end%>
+    <div class="col-xs-3 pull-right">
+      <div class="form-group">
+        <%= render partial: 'admin/common/keyword', locals: {path: ""} %>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<hr></hr>
+<table class="table table-hover table-bordered text-center table-condensed">
+  <thead>
+    <tr>
+      <th class="text-center">职位名称</th>
+      <th class="text-center">职业类别</th>
+      <th class="text-center">性别要求</th>
+      <th class="text-center">要求证书</th>
+      <th class="text-center">招聘人数</th>
+      <th class="text-center">发布时间</th>
+      <th class="text-center">学历要求</th>
+      <th class="text-center">公司名称</th>
+      <th class="text-center">工作地区</th>
+      <th class="text-center">薪资范围</th>
+      <th class="text-center">外语要求</th>
+      <th class="text-center">其他要求</th>
+      <th class="text-center" colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @recruitments %>
+  </tbody>
+</table>
+<div class="col-xs-10 col-xs-offset-1">
+<%= paginate @recruitments %>
+</div>

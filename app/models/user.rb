@@ -26,15 +26,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
+
   attr_accessor :sms #短信验证码
   acts_as_voter
+  
+  has_many :user_recruitments, dependent: :destroy
+  has_many :recruitments, through: :user_recruitments
+  has_one :image, as: :imageable
 
 
-  validates :mobile, presence: true, uniqueness: true
-  validate :mobile_reg?
+  validates :mobile, presence: true, uniqueness: true, on: :create
+  validate :mobile_reg?, on: :create
   #validates :nickname, presence: true, length: {minimum: 3, maximum: 50}
-  validates :sms, presence: true
-  validate :is_right_sms?, if: "sms.present?"
+  validates :sms, presence: true, on: :create
+  validate :is_right_sms?, if: "sms.present?", on: :create
+  validates :name, presence: true, on: :update
+
 
 
   def mobile_reg?
@@ -48,6 +55,11 @@ class User < ActiveRecord::Base
     if ! Sms.is_right_sms? mobile, sms
       errors.add(:sms, :sms_error)
     end
+  end
+
+   #页面头像显示
+  def show_image
+    self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "personal_head.png"
   end
   
 end

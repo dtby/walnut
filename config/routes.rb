@@ -8,18 +8,33 @@ Rails.application.routes.draw do
 
   resources :interviews
 
-  resources :recruitments
+  resources :recruitments do
+    collection do
+      get :recommend
+    end
+  end
+
+  resources :evaluations do
+    collection do
+      get :result
+    end
+  end
+
+  resources :user_recruitments, only: [:create] do
+    collection do
+      get :agree
+    end
+  end
 
   resources :sms, only: [:create]
 
-  resources :user do
+  resources :user, only:[:show, :update] do
     collection do
-    get :my_projects
-    get :my_courses
-    get :my_informations
-    get :my_messages
-    get :my_recruits
-    get :my_resumes
+      get :my_projects
+      get :my_courses
+      get :my_messages
+      get :my_recruits
+      get :my_resumes
     end
 end
 
@@ -33,15 +48,14 @@ end
     member do
       get :detail
     end
-    resources :sub_courses, only: [:index, :show]
+    resources :sub_courses, only: [:index, :show, :create]
   end
-
-  resources :sub_courses, only: [:show]
 
   namespace :admin do
     root "home#index"
     resources :colleges
     resources :teachers
+    resources :recruitments
     resources :categories
     resources :courses do
       resources :sub_courses

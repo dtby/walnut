@@ -1,4 +1,4 @@
-.recruitments__index, .recruitments__show {
+.recruitments__index, .recruitments__show, .recruitments__recommend {
   .waper {
     margin-top:80px;
   }
@@ -18,15 +18,18 @@
     }
   }
   .find_job {
-    a {
-      display:block;
-      font-size:20px;
-      color:#fff;
-      background-color:#00B89F;
+    color:#fff;
+    background-color:#00B89F;
+    width: 100%;
+    font-size: 18px;
+    margin:5px auto;
+    &.recommend {
+      background-color:#f15967;
     }
   }
-  .form-control, .find_job {
+  .form-control {
     margin:5px auto;
+    height: 40px;
   }
   table.recruitment-list {
     text-align:center;
@@ -46,6 +49,11 @@
   .recruit_list_text {
     tr {
       border:solid 1px #E9E9E9;
+      td {
+        span.text-muted {
+          color: #d7d7d7;
+        }
+      }
     }
     .deliver {
       display:block;
@@ -84,25 +92,29 @@
    .divider1 {
     border-width: 2px 0px 0px;
     border-style: dashed none none;
-    border-color:#E9E9E9;
+    border-color: #E9E9E9;
     }
   }
   .btn_tab {
-    .btn_apply {
-      a {
-        display:block;
-        margin-bottom:20px;
-        font-size:20px;
-        color:#fff;
-        background-color:#00C6B8;
+    a.btn_apply {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #fff;
+      background-color: #00C6B8;
+      &.muted {
+        background-color: #ebebeb;
+        color: #9b9898;
       }
     }
-    .btn_collection {
-      a {
-        display:block;
-        font-size:20px;
-        color:#fff;
-        background-color:#FDD900;
+    a.btn_collection {
+      display: block;
+      font-size: 20px;
+      color: #fff;
+      background-color: #FDD900;
+      &.muted {
+        background-color: #ebebeb;
+        color: #9b9898;
       }
     }
   }

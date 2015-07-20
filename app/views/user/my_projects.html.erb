@@ -1,34 +1,68 @@
 <div class="waperbg">
   <div class="container">
     <div class="row">
-      <%=render "left_nav" %>
+    <div class="col-md-3">
+       <%=render "left_nav" %>
+    </div>
       <div class="col-md-9 right_nav_c">
-      <ul class="nav nav-tabs right_nav">
-          <li role="presentation" class="active"><a href="#">参与的项目</a></li>
-          <li role="presentation"><a href="#">创建的项目</a></li>
-        </ul>
-        <div class="row right_content">
-          <div class="col-md-8 col-md-offset-2 tab1">
-          <div class="col-md-3">
-            <%=image_tag "progress_chart.png" %>
+        <div class="my-nav">
+          <ul class="nav nav-tabs right_nav">
+            <li role="presentation" class="active"><a href="#joinProjects" aria-controls="joinProjects" role="tab" data-toggle="tab">参与的项目</a></li>
+            <li role="presentation"><a href="#createProjects" aria-controls="createProjects" role="tab" data-toggle="tab">创建的项目</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="joinProjects">
+            <div class="row right_content">
+              <div class="col-md-8 col-md-offset-2 tab1">
+                <div class="col-md-3">
+                  <%=image_tag "progress_chart.png" %>
+                </div>
+                <div class="col-md-9 content_text">
+                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
+                  <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
+                </div>
+              </div>
+              <div class="col-md-8 col-md-offset-2 tab2">
+                <div class="col-md-3">
+                  <%=image_tag "progress_chart.png" %>
+                </div>
+                <div class="col-md-9 content_text">
+                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
+                  <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-md-9 content_text">
-          <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-          <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-            <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
+
+          <div role="tabpanel" class="tab-pane" id="createProjects">
+            <div class="row right_content">
+              <div class="col-md-8 col-md-offset-2 tab1">
+                <div class="col-md-3">
+                  <%=image_tag "progress_chart.png" %>
+                </div>
+                <div class="col-md-9 content_text">
+                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
+                  <h3>课程中心建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
+                </div>
+              </div>
+              <div class="col-md-8 col-md-offset-2 tab2">
+                <div class="col-md-3">
+                  <%=image_tag "progress_chart.png" %>
+                </div>
+                <div class="col-md-9 content_text">
+                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
+                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
+                  <h3>在线商城开发</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-                  <div class="col-md-8 col-md-offset-2 tab2">
-          <div class="col-md-3">
-            <%=image_tag "progress_chart.png" %>
-          </div>
-          <div class="col-md-9 content_text">
-          <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-          <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-            <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
-          </div>
-        </div>
-        </div>
+
       </div>
     </div>
   </div>

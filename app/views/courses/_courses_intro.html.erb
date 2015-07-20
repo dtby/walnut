@@ -14,8 +14,8 @@
 			</a>
 		</div>
 		<div class="media-body">
-			<h2 class="media-heading"><%= @course.title %></h2>
-			<span class="name"><%=image_tag @course.try(:teacher).try(:image).avatar.url(:t_98),class: "img-circle"%>&nbsp;&nbsp;  <%= @course.try(:teacher).name %></span>
+			<h2 class="media-heading"><%= course.title %></h2>
+			<span class="name"><%=image_tag course.try(:teacher).try(:image).avatar.url(:t_98),class: "img-circle"%>&nbsp;&nbsp;  <%= course.try(:teacher).name %></span>
 			<span class="click"><a href="#">	敲敲核桃</a>&nbsp;&nbsp; 1234</span>
 			<span  class="glyphicon glyphicon-eye-open"><%= course.view_count %></span>
 			<span style="padding-left:20px"><%=image_tag"online-time.png"%><%= format_time(course.last_update_time) %></span>

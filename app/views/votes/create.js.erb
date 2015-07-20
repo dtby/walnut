@@ -5,8 +5,18 @@
   <% when "recruitment-list" %>
     <% unless @is_like %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star-empty").addClass("glyphicon-star");
+      alert("收藏成功");
     <% else %>
       $("#voteRecruitmentSpan<%= params[:voteable_id]%>").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
+      alert("取消收藏成功");
+    <% end %>
+  <% when "recruitment-show" %>
+    <% unless @is_like %>
+      $("#collectRecruitment<%= params[:voteable_id]%>").text("取消收藏");
+      alert("收藏成功");
+    <% else %>
+      $("#collectRecruitment<%= params[:voteable_id]%>").text("我要收藏");
+      alert("取消收藏成功");
     <% end %>
   <% end %>
 <% end %>

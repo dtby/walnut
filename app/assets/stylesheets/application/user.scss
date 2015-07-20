@@ -1,3 +1,270 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user__my_informations, .user__show, .user__update {
+	.my-nav{
+    background-color:#fff;
+		margin-top: 40px;
+		margin-bottom: 20px;
+		padding: 10px;
+		border:1px solid #ccc;
+		border-radius: 4px;
+		.nav-tabs{
+			border-bottom: 2px solid #8bd4cc;
+			padding-left: 20px;
+			li{
+				margin-bottom: -2px;
+			}
+			.active > a {
+				border-top: 4px solid #8bd4cc;
+				border-right: 2px solid #8bd4cc;
+				border-left: 2px solid #8bd4cc;
+				font-weight: bold;
+			}
+		}
+		.main{
+			margin:0 20px;
+			padding:40px;
+			textarea , input{
+				border-radius: 0;
+			}
+			.modify-btn{
+				padding-top: 20px;
+			}
+			.mybtn{
+				padding: 10px 40px;
+				color: #fff;
+				border-radius: 0;
+				font-size: 18px;
+			}
+			.my_btn1{
+				background-color: #f16c70;
+			}
+			.my_btn2{
+				background-color: #8bd4cc;
+			}
+		}
+	}
+}
+
+
+.my__messages{
+	.main{
+		padding-top: 20px;
+		margin: 40px 0 20px;
+		width: 848px;
+		background-color: #fff;
+		.my_message{
+			margin: 10px  -15px 30px;
+		}
+		.my_data{
+			padding-top: 10px;
+		}
+		.arrow{
+			width: 0px;
+			height: 0px;
+			border-top: 5px solid transparent;
+			border-right: 10px solid #DEEDFF;
+			border-bottom: 5px solid transparent;
+			position: absolute;
+			left: -10px;
+			top: 10px;
+		}
+		.message{
+			padding-top: 10px;
+			background-color: #deedff;
+			position: relative;
+		}
+	}
+}
+.divider{
+	border-color: #797979;
+	border-width: 3px 0 0; 
+}
+
+.user__my_courses, .user__my_projects {
+  .my-nav{
+    background-color:#fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    .nav-tabs{
+      border-bottom: 2px solid #8bd4cc;
+      padding-left: 20px;
+      li{
+        margin-bottom: -2px;
+      }
+      .active > a {
+        border-top: 4px solid #8bd4cc;
+        border-right: 2px solid #8bd4cc;
+        border-left: 2px solid #8bd4cc;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.user__my_recruits {
+  table.recruitment-list {
+    margin-top: 20px;
+    text-align:center;
+    thead tr{
+      font-size: 16px;
+      background-color:#5c5c5c;
+      th {
+        text-align: center;
+        color:#cccccc;
+      }
+    }
+  }
+  .iconstar {
+    font-size:20px;
+    color:#F38C00;
+  }
+  .glyphicon-trash {
+    color: red;
+  }
+  .recruit_list_text {
+    tr {
+      border:solid 1px #E9E9E9;
+      td {
+        span.text-muted {
+          color: #d7d7d7;
+        }
+      }
+    }
+    .deliver {
+      display:block;
+      text-decoration: none;
+      color:#00B89F;
+    }
+  }
+}
+
+ /*  .waperbg {
+   background: image-url('center_bg.png') left top no-repeat;
+ } */
+
+/* user left_nav */
+.waperbg {
+  background: image-url('center_bg.png') left top no-repeat;
+}
+
+  .thumbnail {
+    margin-top:40px;
+    padding-top:10px;
+    .caption {
+      text-align:center;
+      .empirical {
+        padding-right:20px;
+      }
+      .value {
+        color:red;
+      }
+      .divesi {
+       margin:19px auto;
+       border-width: 1.5px 0px 0px;
+       border-style: dashed none none;
+       border-color:#787A70;
+     }
+   }
+ }
+ .left_nav {
+  background-color:#fff;
+  border:solid 1px #DDDDDD;
+  border-radius:5px;
+  text-align:center;
+  padding:30px 10px;
+  li  {
+    list-style-type:none;
+    font-size:15px;
+    font-weight:600;
+    a, a:visited {
+        color: #000;
+        &:hover {
+          color: #00C7B8;
+          text-decoration: none;
+        }
+      }
+    &.active, &:hover {
+      background: image-url("p_link_bg.png") center no-repeat;
+      a {
+        color: #00C7B8;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .divesi1 {
+       margin:18px 10px;
+       border-width: 2px 0px 0px;
+       border-style: dashed none none;
+       border-color:#DDDDDD;
+     }
+}
+
+/* my_project_rightaire */
+.right_nav_c {
+  background-color:#fff;
+  border-radius:5px;
+  border:solid 1px #DDDDDD;
+  padding-bottom:20px;
+  min-height:785px;
+  margin:40px auto;
+  
+  /* right_nav style */
+  .right_nav {
+  padding:10px 10px 0;
+  margin-bottom:20px;
+  border-color:#00CBD2;
+  .active > a {
+    border-color:#00CBD2;
+    border-width:4px 2px 0 2px;
+    }
+}
+.right_content {
+  .tab1, .tab2{
+    background-color:#00CBD2;
+    margin-bottom:20px;
+    .content_text {
+      color:#fff;
+      .right_icon {
+    margin:10px 0 0 10px;
+  }
+    }
+  }
+  .tab2 {
+    background-color:#f56935;
+  }
+}
+/* my_courses page*/
+.courses_tent {
+  margin-top:20px;
+}
+  .bordered {
+    border: solid 1px #e3e3e3;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    position: relative;
+    overflow: hidden;
+    img.avatar {
+      top: 100px;
+      left: 20px;
+      position: absolute;
+    }
+    .mt-40 {
+      margin-top: 40px;
+    }
+    .infos {
+      color: #9b9b9b;
+      b, span {
+        color: #19b29f;
+      }
+    }
+    .name {
+      color: #9b9b9b;
+      padding-right: 20px;
+      padding-top: 10px;
+    }
+  }
+}

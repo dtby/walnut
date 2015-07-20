@@ -6,37 +6,37 @@
   </div>
   </div>
   <div class="container">
-  <div class=" col-md-12 recruit_table">
-    <table class="recruit_table1">
-      <tr>
-          <td width="15%">职位名称</td>
-          <td width="35%" class="text-left"> <%= @recruitment.name %></td>
-          <td width="15%">职业类别</td>
-          <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
-        </tr>
+    <div class=" col-md-12 recruit_table">
+      <table class="recruit_table1">
         <tr>
-          <td>招聘人数</td>
-          <td class="text-left"> <%=@recruitment.number %>人</td>
-          <td>性别要求</td>
-          <td class="text-left"> <%=@recruitment.gender %></td>
-        </tr><tr>
-          <td>要求证书</td>
-          <td class="text-left"> <%=@recruitment.certificate %></td>
-          <td>学历要求</td>
-          <td class="text-left"> <%=@recruitment.try(:degree).try(:name) %></td>
-        </tr><tr>
-          <td>工作地区</td>
-          <td class="text-left"> <%=@recruitment.city %></td>
-          <td>薪资范围</td>
-          <td class="text-left"> <%=@recruitment.remuneration %></td>
-        </tr><tr>
-          <td>外语要求</td>
-          <td class="text-left"> <%=@recruitment.foreign_language %></td>
-          <td>其他要求</td>
-          <td class="text-left"> <%=@recruitment.others %></td>
-        </tr>
-    </table>
-  </div>
+            <td width="15%">职位名称</td>
+            <td width="35%" class="text-left"> <%= @recruitment.name %></td>
+            <td width="15%">职业类别</td>
+            <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
+          </tr>
+          <tr>
+            <td>招聘人数</td>
+            <td class="text-left"> <%=@recruitment.number %>人</td>
+            <td>性别要求</td>
+            <td class="text-left"> <%=@recruitment.gender %></td>
+          </tr><tr>
+            <td>要求证书</td>
+            <td class="text-left"> <%=@recruitment.certificate %></td>
+            <td>学历要求</td>
+            <td class="text-left"> <%=@recruitment.try(:degree).try(:name) %></td>
+          </tr><tr>
+            <td>工作地区</td>
+            <td class="text-left"> <%=@recruitment.city %></td>
+            <td>薪资范围</td>
+            <td class="text-left"> <%=@recruitment.remuneration %></td>
+          </tr><tr>
+            <td>外语要求</td>
+            <td class="text-left"> <%=@recruitment.foreign_language %></td>
+            <td>其他要求</td>
+            <td class="text-left"> <%=@recruitment.others %></td>
+          </tr>
+      </table>
+    </div>
   </div>
   <div class="container">
     <div class="row recruit_title">
@@ -46,36 +46,10 @@
   </div>
   </div>
   <div class="container">
-  <div class="">
-  <div class="col-md-12 recruit_content">
-
-  <h4>【岗位职能】</h4>
-<p>1.负责WEB方面培训的日常授课以及课程研发和升级，教材的编写；</p>
-<p>2.讨论教学相关项目的需求，参与案例设计，完成设计文档以及核心模块编写；</p>
-<p>3.解决案例开发过程中的实际项目和业务问题；</p>
-<p>4.参与新技术预研并做技术分享。</p>
-</div>
-<div class="col-md-12 recruit_content">
-<h4>【任职要求】</h4>
-<p>1. 计算机相关专业，本科及以上学历；</p>
-<p>2. 2年以上Web实际开发经验，能够独立承担设计、编码、测试工作；</p>
-<p>3. 熟悉HTML5、CSS3，熟悉W3C标准，对页面性能和浏览器兼容有丰富的实践经验；</p>
-<p>4. 熟悉Web2.0标准，精通JavaScript、Ajax、DOM、XML、JSON等前端开发技术，能够持续的优化前端体验和页面响应速度，并保证兼容性和执行效率；</p>
-<p>5. 精通Jquery，熟悉各种常见 JS 开发框架，如AngularJS、Bootstrap、NodeJS等；</p>
-<p>6. 了解移动开发，对于响应式布局有一些实践经验；</p>
-<p>7. 熟悉至少一种后端开发语言更佳，比如Java，Php，rails等；</p>
-<p>8.能主动与学生沟通，关心学生，并督促学生认真学习；</p>
-<p>9.普通话标准，语言表达能力强，逻辑思维清晰，具有优秀的沟通技巧；</p>
-<p>10.热爱教育事业，有良好的敬业心；有相关授课经验者优先。</p>
-</div>
-<div class="col-md-12 recruit_content">
-<h4>【福利待遇】</h4><p>福利待遇：五险一金，带薪年假，团队旅游，节日福利。</p>
-<h4>【薪资范围】</h4><p>薪资范围：6K-10K</p>
-<h4>【职位诱惑】</h4><p>职位诱惑：处于快速发展期的公司，提供广阔的发展平台；后期可入职到学校，工作稳定，可同时享受学校的相关福利待遇。</p>
-<h4>【联系方式】</h4><p>联系人：叶小姐     电话：13162787916</p>
-   </div>
-   </div>
-</div>
+    <div class="col-md-12 recruit_content">
+      <%= raw(@recruitment.description)%>
+    </div>
+  </div>
 <div class="container">
     <div class="row recruit_title">
     <div class="col-md-5"><hr class="divider"></div>
@@ -88,12 +62,28 @@
     <p>地址：<%= @recruitment.try(:company).try(:address)%> &nbsp;&nbsp;&nbsp;<%=image_tag "map.ico",class:"map" %>&nbsp;<%=link_to "查看地图",'#' %></p>
     <p>网址：<%= @recruitment.try(:company).try(:web_address)%></p>
   </div>
-  <div class="btn_tab">
-  <div class="col-md-2 btn_apply col-md-offset-2">
-        <%=link_to "立刻申请 ", '#' ,class: "btn" %>
+    <div class="btn_tab">
+      <div class="col-md-2 col-md-offset-2">
+        <% if @recruitment.state.present?%>
+          <%=link_to "已经申请", 'javascript:void(0);' ,class: "btn btn_apply muted", disabled: true %>
+        <% else %>
+          <%=link_to "立刻申请", 'javascript:void(0);' ,class: "btn btn_apply recruitment-deliver", deliver_id: @recruitment.id, style_type: "recruitment-show", id: "deliverRecruitment#{@recruitment.id}" %>
+        <% end %>
       </div>
-      <div class="col-md-2  btn_collection col-md-offset-3">
-        <%=link_to "我要收藏", '#' ,class: "btn" %>
-      </div>
-      </div>
+        <div class="col-md-2 col-md-offset-3">
+          <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection vote-create-a", voteable_id: @recruitment.id, voteable_type: @recruitment.class, style_type: "recruitment-show", id: "collectRecruitment#{@recruitment.id}") do %>
+          <%= current_user.try(:voted_up_on?,@recruitment) ? "取消收藏" : "我要收藏" %>
+          <% end %>
+        </div>
+    </div>
   </div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+    deliver_path = "<%= user_recruitments_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+
+<% end %>

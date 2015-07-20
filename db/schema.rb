@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716125249) do
+ActiveRecord::Schema.define(version: 20150720004430) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "commentable_id",   limit: 4
+    t.string   "commentable_type", limit: 255
+    t.string   "title",            limit: 255
+    t.text     "body",             limit: 65535
+    t.string   "subject",          limit: 255
+    t.integer  "user_id",          limit: 4,     null: false
+    t.integer  "parent_id",        limit: 4
+    t.integer  "lft",              limit: 4
+    t.integer  "rgt",              limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "companies", force: :cascade do |t|
     t.string   "name",          limit: 255
     t.text     "description",   limit: 65535
@@ -61,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.integer  "teacher_id",  limit: 4
     t.integer  "college_id",  limit: 4
     t.integer  "category_id", limit: 4
+    t.text     "detail",      limit: 65535
   end
 
   create_table "degrees", force: :cascade do |t|
@@ -99,6 +117,16 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.integer  "sort_no",    limit: 4,   default: 1000
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+  end
+
+  create_table "kindeditor_assets", force: :cascade do |t|
+    t.string   "asset",      limit: 255
+    t.integer  "file_size",  limit: 4
+    t.string   "file_type",  limit: 255
+    t.integer  "owner_id",   limit: 4
+    t.string   "asset_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "recruitments", force: :cascade do |t|
@@ -158,6 +186,18 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "user_recruitments", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.integer  "recruitment_id", limit: 4
+    t.integer  "state",          limit: 4, default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.time     "deliver_time"
+  end
+
+  add_index "user_recruitments", ["recruitment_id"], name: "index_user_recruitments_on_recruitment_id", using: :btree
+  add_index "user_recruitments", ["user_id"], name: "index_user_recruitments_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -173,6 +213,11 @@ ActiveRecord::Schema.define(version: 20150716125249) do
     t.string   "nickname",               limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name",                   limit: 255
+    t.string   "major",                  limit: 255
+    t.string   "department",             limit: 255
+    t.string   "gender",                 limit: 255
+    t.string   "signature",              limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

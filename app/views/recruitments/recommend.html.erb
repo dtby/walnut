@@ -1,0 +1,117 @@
+<% content_for :banner do %>
+<%= render partial: "/share/banner"%>
+<% end %>
+<div class="container">
+  <div class="row recruit_title">
+    <div class="col-md-5"><hr class="divider"></div>
+    <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘分类</span></div>
+    <div class="col-md-5"><hr class="divider"></div>
+  </div>
+  <div class="row recruit_class">
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <select class="form-control">
+          <option>请选择职位类别</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control">
+          <option>请选择行业类别</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input class="form-control" placeholder="请输入职位名、公司名等关键字"/>
+      </div>
+      <div class="col-md-2">
+        <%= link_to("找工作", recruitments_path  , class: "btn find_job") %>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="col-md-3">
+        <select class="form-control">
+          <option>上海</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <select class="form-control">
+          <option>薪资</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select class="form-control">
+          <option>学历</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <select class="form-control">
+          <option>工作经验</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <%= link_to("工作推荐",recommend_recruitments_path  , class: "btn find_job recommend") %>
+      </div>
+    </div>
+    <div class="container">
+    <div class="row recruit_title">
+      <div class="col-md-5"><hr class="divider"></div>
+      <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘信息</span></div>
+      <div class="col-md-5"><hr class="divider"></div>
+    </div>
+    </div>
+    <div class="container">
+      <table class="table table-hover recruitment-list">
+      <thead>
+        <tr>
+          <th>职位</th>
+          <th>logo</th>
+          <th>公司</th>
+          <th>工作地点</th>
+          <th width="12%">
+            发布时间<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+          </th>
+          <th width="10%">
+            点击量<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+          </th>
+          <th width="6%">收藏</th>
+          <th width="10%">申请工作</th>
+        </tr>
+        </thead>
+        <tbody class="recruit_list_text">
+        <% @recruitments.each do |recruitment| %>
+        <tr>
+          <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
+          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
+          <td><%=recruitment.try(:company).try(:name) %></td>
+          <td><%=recruitment.city %></td>
+          <td><%=recruitment.publish_time %></td>
+          <td><%=recruitment.view_count %></td>
+          <td>
+            <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, style_type: "recruitment-list") do %>
+              <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
+            <% end %>
+          </td>
+          <td>
+            <% if recruitment.state.present?%>
+              <span class="text-muted">已投简历</span>
+            <% else %>
+              <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+    deliver_path = "<%= user_recruitments_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+
+<% end %>

@@ -29,4 +29,5 @@ class Recruitment < ActiveRecord::Base
   
   belongs_to :degree
   belongs_to :company
+  has_many :user_recruitments, dependent: :destroy
 end

@@ -11,6 +11,7 @@ module Admin
     end
 
     def create
+      pp params
       @course = Course.new(course_params)
 
       #存入课程展示图
@@ -62,8 +63,7 @@ module Admin
     end
 
     def course_params
-      params.require(:course).permit(:title, :description, :view_count, :category_id,
-                                :teacher_id, :college_id)
+      params.require(:course).permit(:title, :description, :view_count, :category_id, :teacher_id, :college_id, :detail)
     end
     def set_course
       @course = Course.find(params[:id])

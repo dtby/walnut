@@ -55,6 +55,10 @@ gem 'remotipart', '~> 1.2'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'rails_kindeditor'
+
+gem 'acts_as_commentable_with_threading'
+
 #mina部署
 group :development do
   gem 'mina'

@@ -1,0 +1,101 @@
+<div class="container evaluations__new evaluations__show">
+	<div class="row">
+		<strong><span class="glyphicon glyphicon-home" aria-hidden="true"></span>职业测试/MBTI性格测试介绍/MBTI性格测试（28题）试题</strong>
+	</div>
+	<div class="row content">
+		<div class="col-xs-12 my-subhead">
+			<p>MBTI是一种迫选型、自我报告式的性格评估理论模型，用以衡量人们在获取信息、作出决策、对待生活等方面的心理活动规律和性格类型。</p>		
+		</div>
+
+		<div id="start"cclass="evaluation-new" >
+			<div class="col-xs-12 text-center my-test">
+				<p>请靠第一感觉回答下面的问题</p>
+				<botton class="btn btn-defaut my-btn start-btn">开始答题</botton>
+			</div>
+		</div>
+
+		<div id="answer" class="evaluation-new" style="display: none;">
+			<div class="col-xs-offset-1 col-xs-10 progress my-progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+					70%
+				</div>
+			</div>
+			<div class="col-xs-12"><hr class="my-divider"></div>
+			<div class="col-xs-12 text-center">
+				<strong>我倾向比较能够觉察到：</strong>
+				<div class="radio">
+					<botton  id="abtn" class="btn btn-default new-btn">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+							A 当人们需要感情上的支持时。
+						</label>
+					</botton>
+				</div>
+				<div class="radio">
+					<botton  id="bbtn" class="btn btn-default new-btn b-btn">
+						<label>
+							<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+							B 当人们不合逻辑时。
+						</label>
+					</botton>
+				</div>
+			</div>
+			<div class="col-xs-12 text-center">
+				<botton class="btn btn-default up-btn">上一题</botton>
+				<botton class="btn btn-default up-btn">下一题</botton>
+			</div>
+		</div>
+		<div id="submit"class="evaluation-new" style="display: none;">
+			<div class="col-xs-offset-1 col-xs-10 progress my-progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+					100%
+				</div>
+			</div>
+			<div class="col-xs-12"><hr class="my-divider"></div>
+			<div class="col-xs-12 text-center my-test">
+				<p>回答完毕，请提交你的测试题目</p>
+				<button class="btn btn-default my-btn submit">提交测试</button>
+			</div>
+		</div>
+		<div id="show" class="evaluation-new" style="display: none;">
+			<div class="col-xs-offset-1 col-xs-10 progress my-progress">
+				<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+					100%
+				</div>
+			</div>
+			<div class="col-xs-12"><hr class="my-divider"></div>
+			<div class="col-xs-12 text-center my-test">
+				<p>分析完毕，请查看结果</p>
+				<button class="btn btn-default my-btn">查看结果你</button>
+			</div>
+		</div>
+	</div>
+	<!-- 
+<script type="text/javascript">
+	$(function(){
+		$("#abtn").mouseenter(function(){
+			$(this).addClass("focus-btn")
+		});
+
+		$("#bbtn").mouseenter(function(){
+			$(this).addClass("focus-btn")
+		});
+	})
+</script> -->
+<script type="text/javascript">
+	$(function(){
+		$(".start-btn").click(function(){
+			$("#answer").show();
+			$("#start").hide( );
+		});
+		$(".up-btn").click(function(){
+			$("#submit").show();
+			$("#answer").hide();
+		});
+		$(".submit").click(function(){
+			$("#show").show();
+			$("#submit").hide();
+		})
+
+	})	
+</script>
