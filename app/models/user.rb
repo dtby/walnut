@@ -47,7 +47,18 @@ class User < ActiveRecord::Base
   validate :is_right_sms?, if: "sms.present?", on: :create
   validates :name, presence: true, on: :update
 
-
+  enum department: {
+   '艺术设计系': 'yssj',
+  '商务管理系': 'swgl',
+  '商务管理': 'swglx',
+  '商务英语': 'swyy'
+  }
+  enum major: {
+    '设计': 'sj',
+  '商务': 'sw',
+  '管理': 'gl',
+  '英语': 'yy'
+  }
 
   def mobile_reg?
     reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/
