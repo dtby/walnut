@@ -20,9 +20,21 @@
 				<p><%= comment.body %></p>
 				<h6 class="text-muted clearfix">
 					<span>时间：<%= time_interval(comment) %></span>
-					<%= link_to "javascript:void(0)" do %>
-					<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up"></span> <%= 2 %></span>
+					<!-- 点赞 -->
+					<% if current_user.try(:voted_up_on?, comment) %>
+						<span class="pull-right">
+							<span class="glyphicon glyphicon-thumbs-up text-danger"></span> 
+							<%= 2 %>
+						</span>
+					<% else %>
+						<%= link_to("javascript:void(0)", id: "comment_praise_#{comment.id}", class: "vote-create-a", title: "赞一下", voteable_id: comment.id, voteable_type: comment.class, style_type: "comment_list") do %>
+							<span class="pull-right">
+								<span class="glyphicon <%= (current_user.try(:voted_up_on?, comment)) ? "glyphicon-thumbs-up text-danger" : "glyphicon-thumbs-up"%>"></span> 
+								<%= 2 %>
+							</span>
+						<% end %>
 					<% end %>
+
 				</h6>
 			</div>
 		</div>
@@ -37,3 +49,10 @@
 		</div>
 	</div>	
 </div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+<% end %>

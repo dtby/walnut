@@ -4,10 +4,10 @@ class VotesController < ApplicationController
 
   #收藏、点赞
   def create
-    promise_class = ["Recruitment"]
+    promise_class = ["Recruitment", "Comment"]
     @voteable_class = params[:voteable_type]
     unless promise_class.include? @voteable_class
-      @success = false 
+      @success = false
     else
       #获取要收藏的对象
       voteable = eval("#{@voteable_class}.where(id: #{params[:voteable_id]}).first")
