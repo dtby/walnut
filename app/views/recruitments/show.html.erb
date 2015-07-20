@@ -6,37 +6,37 @@
   </div>
   </div>
   <div class="container">
-  <div class=" col-md-12 recruit_table">
-    <table class="recruit_table1">
-      <tr>
-          <td width="15%">职位名称</td>
-          <td width="35%" class="text-left"> <%= @recruitment.name %></td>
-          <td width="15%">职业类别</td>
-          <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
-        </tr>
+    <div class=" col-md-12 recruit_table">
+      <table class="recruit_table1">
         <tr>
-          <td>招聘人数</td>
-          <td class="text-left"> <%=@recruitment.number %>人</td>
-          <td>性别要求</td>
-          <td class="text-left"> <%=@recruitment.gender %></td>
-        </tr><tr>
-          <td>要求证书</td>
-          <td class="text-left"> <%=@recruitment.certificate %></td>
-          <td>学历要求</td>
-          <td class="text-left"> <%=@recruitment.try(:degree).try(:name) %></td>
-        </tr><tr>
-          <td>工作地区</td>
-          <td class="text-left"> <%=@recruitment.city %></td>
-          <td>薪资范围</td>
-          <td class="text-left"> <%=@recruitment.remuneration %></td>
-        </tr><tr>
-          <td>外语要求</td>
-          <td class="text-left"> <%=@recruitment.foreign_language %></td>
-          <td>其他要求</td>
-          <td class="text-left"> <%=@recruitment.others %></td>
-        </tr>
-    </table>
-  </div>
+            <td width="15%">职位名称</td>
+            <td width="35%" class="text-left"> <%= @recruitment.name %></td>
+            <td width="15%">职业类别</td>
+            <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
+          </tr>
+          <tr>
+            <td>招聘人数</td>
+            <td class="text-left"> <%=@recruitment.number %>人</td>
+            <td>性别要求</td>
+            <td class="text-left"> <%=@recruitment.gender %></td>
+          </tr><tr>
+            <td>要求证书</td>
+            <td class="text-left"> <%=@recruitment.certificate %></td>
+            <td>学历要求</td>
+            <td class="text-left"> <%=@recruitment.try(:degree).try(:name) %></td>
+          </tr><tr>
+            <td>工作地区</td>
+            <td class="text-left"> <%=@recruitment.city %></td>
+            <td>薪资范围</td>
+            <td class="text-left"> <%=@recruitment.remuneration %></td>
+          </tr><tr>
+            <td>外语要求</td>
+            <td class="text-left"> <%=@recruitment.foreign_language %></td>
+            <td>其他要求</td>
+            <td class="text-left"> <%=@recruitment.others %></td>
+          </tr>
+      </table>
+    </div>
   </div>
   <div class="container">
     <div class="row recruit_title">
@@ -62,12 +62,26 @@
     <p>地址：<%= @recruitment.try(:company).try(:address)%> &nbsp;&nbsp;&nbsp;<%=image_tag "map.ico",class:"map" %>&nbsp;<%=link_to "查看地图",'#' %></p>
     <p>网址：<%= @recruitment.try(:company).try(:web_address)%></p>
   </div>
-  <div class="btn_tab">
-  <div class="col-md-2 btn_apply col-md-offset-2">
-        <%=link_to "立刻申请 ", '#' ,class: "btn" %>
+    <div class="btn_tab">
+      <div class="col-md-2 col-md-offset-2">
+        <% if @recruitment.state.present?%>
+          <%=link_to "已经申请", 'javascript:void(0);' ,class: "btn btn_apply muted", disabled: true %>
+        <% else %>
+          <%=link_to "立刻申请", 'javascript:void(0);' ,class: "btn btn_apply recruitment-deliver", deliver_id: @recruitment.id, style_type: "recruitment-show", id: "deliverRecruitment#{@recruitment.id}" %>
+        <% end %>
       </div>
-      <div class="col-md-2  btn_collection col-md-offset-3">
-        <%=link_to "我要收藏", '#' ,class: "btn" %>
-      </div>
-      </div>
+        <div class="col-md-2 col-md-offset-3">
+          <%=link_to "我要收藏", '#' ,class: "btn btn_collection" %>
+        </div>
+    </div>
   </div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+    deliver_path = "<%= user_recruitments_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+
+<% end %>
