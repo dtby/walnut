@@ -17,8 +17,10 @@ module Admin
       @sub_course.image.avatar = params[:sub_course][:image]
 
 			@sub_course.attachment = Attachment.new if @sub_course.attachment.blank?
+			#存入附件
 			@sub_course.attachment.content = params[:sub_course][:attachment] if params[:sub_course][:attachment].present?
-			@sub_course.attachment.file_url = params[:attachment_file_url] if params[:attachment_file_url].present?
+			#存入地址
+			#@sub_course.attachment.file_url = params[:attachment_file_url] if params[:attachment_file_url].present?
 			if @sub_course.save && @sub_course.attachment.save
 				flash.now[:notice] = "课程创建成功"
 				return redirect_to admin_course_sub_courses_path(@course)
@@ -36,15 +38,10 @@ module Admin
 
 			#子课程展示图
 			@sub_course.image = Image.new if @sub_course.image.blank? && params[:sub_course][:image].present?
-			if @sub_course.update(sub_course_params) && @sub_course.attachment.update(content: params[:sub_course][:attachment])
+			if @sub_course.update(sub_course_params)
+				@sub_course.attachment.update(content: params[:sub_course][:attachment]) if params[:sub_course][:attachment].present?
 				#子课程展示图
 				@sub_course.image.update(avatar: params[:sub_course][:image]) if params[:sub_course][:image].present?
-				if @sub_course.attachment.present?
-				  @sub_course.attachment.update(file_url: params[:attachment_file_url]) if params[:attachment_file_url].present?
-				else
-					@sub_course.attachment = Attachment.new
-					@sub_course.attachment.create(file_url: params[:attachment_file_url]) if params[:attachment_file_url].present?
-				end
 				flash.now[:notice] = "课程更新成功"
 				redirect_to admin_course_sub_courses_path(@course)
 			else

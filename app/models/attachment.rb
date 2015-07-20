@@ -17,4 +17,6 @@
 
 class Attachment < ActiveRecord::Base
 	belongs_to :attachmentable, polymorphic: true
+	has_attached_file :content
+	validates_attachment :content, :content_type => {:content_type => %w()}
 end

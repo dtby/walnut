@@ -89,3 +89,7 @@ gem 'nokogiri'
 gem 'mechanize'
 #生产环境下解决rails_kindeditor编译问题
 gem 'sprockets', '~> 2.12.3'
+
+gem 'streamio-ffmpeg', '~> 1.0.0'
+
+>>>>>>> subcourse form

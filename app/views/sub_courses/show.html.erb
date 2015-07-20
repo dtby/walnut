@@ -3,8 +3,8 @@
 		<div class="container">
 			<div class="row my-row">
 				<div class="col-md-9 col-0">
-					<video width="855" height="530" class="mejs-player" poster="<%= image_url "online.png"%>" controls="controls" preload="none">
-						<source type="video/mp4" src="<%= @sub_course.attachment.file_url %>" />
+					<video width="855" height="530" class="mejs-player" poster="<%= image_url(@sub_course.image.avatar)%>" controls="controls" preload="none">
+						<source type="video/mp4" src="<%= @sub_course.attachment.content.url %>" />
 					</video>
 				</div>
 				<div class="col-md-3 col-0">

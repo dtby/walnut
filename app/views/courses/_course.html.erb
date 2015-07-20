@@ -2,11 +2,11 @@
 	<div class="bordered">
 	  <%= link_to course_path(course.id) do %>
 			<%= image_tag(course.image.avatar.url(:c_360_200), class: "img-responsive")%>
-			<%= image_tag(course.try(:teacher).try(:image).avatar.url(:t_98), class: "img-responsive avatar")%>
-			<span class="pull-right name"><%= course.try(:teacher).name %></span>
+			<%= image_tag(course.try(:teacher).try(:image).avatar.url(:t_98), class: "img-responsive avatar") if course.teacher %>
+			<span class="pull-right name"><%= course.try(:teacher).try(:name) %></span>
 			<div class="col-sm-12 mt-40">
-				<p><%= course.try(:teacher).description %></p>
-				<!-- <p>沈晴天，博士， 副教授。北京大学牛逼学院...</p> -->
+				<p class="text-muted"><%= course.try(:teacher).try(:description) %></p>
+				<p class="text-muted"><%= course.title %></p>
 			</div>
 			<div class="col-sm-12 infos">
 				<span class="glyphicon glyphicon-eye-open"></span> <%= course.view_count %>

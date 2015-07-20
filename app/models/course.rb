@@ -23,7 +23,19 @@ class Course < ActiveRecord::Base
 	belongs_to :category
 	belongs_to :college
 
+  #子课程最后更新时间
 	def last_update_time
 		self.sub_courses.present? ? self.sub_courses.last.updated_at : self.updated_at
+	end
+
+	#课程包含全部子课程时间
+	def total_length
+		time = 0
+		if self.sub_courses.present?
+			self.sub_courses.each do |sub_course|
+				time = FFMPEG::Movie.new("public"+sub_course.attachment.content.url.to_s).duration
+			end
+		end
+		"#{time}秒"
 	end
 end
