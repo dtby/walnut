@@ -15,7 +15,7 @@
               <th width="12%">
                 投递状态
               </th>
-              <th width="10%">
+              <th width="12%">
                 面试通知
               </th>
               <th width="6%">操作</th>
@@ -29,7 +29,15 @@
                 <td><%=recruitment.try(:company).try(:name) %></td>
                 <td><%=recruitment.city %></td>
                 <td><span class="text-muted">已投简历</span></td>
-                <td><span class="text-muted">未发送</span></td>
+                <td>
+                  <% if recruitment.state == 1 %>
+                    <span class="text-info">通知面试</span>
+                  <% elsif recruitment.state == 90 %>
+                    <span class="text-danger">简历未通过</span>
+                  <% else %>
+                    <span class="text-muted">未发送</span>
+                  <% end %>
+                </td>
                 <td><a href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
               </tr>
             <% end %>

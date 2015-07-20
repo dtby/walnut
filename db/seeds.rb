@@ -56,7 +56,7 @@ Recruitment.destroy_all
       <h4>【薪资范围】</h4><p>薪资范围：6K-10K</p>
       <h4>【职位诱惑】</h4><p>职位诱惑：处于快速发展期的公司，提供广阔的发展平台；后期可入职到学校，工作稳定，可同时享受学校的相关福利待遇。</p>
       <h4>【联系方式】</h4><p>联系人：叶小姐     电话：13162787916</p>",
-    hr_email: "example@dtbytec.com",
+    hr_email: "992273028@qq.com",
     publish_time: "2015-07-08",
     category: "软件工程师",
     industry: "互联网"}])

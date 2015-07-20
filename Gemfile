@@ -1,5 +1,5 @@
-source 'https://ruby.taobao.org'
-# source 'https://rubygems.org'
+# source 'http://ruby.taobao.org'
+source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -87,3 +87,5 @@ end
 
 gem 'nokogiri'
 gem 'mechanize'
+#生产环境下解决rails_kindeditor编译问题
+gem 'sprockets', '~> 2.12.3'

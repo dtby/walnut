@@ -64,7 +64,7 @@
   </div>
     <div class="btn_tab">
       <div class="col-md-2 col-md-offset-2">
-        <% if @recruitment.state.present?%>
+        <% if @recruitment.state.present? && current_user.present? %>
           <%=link_to "已经申请", 'javascript:void(0);' ,class: "btn btn_apply muted", disabled: true %>
         <% else %>
           <%=link_to "立刻申请", 'javascript:void(0);' ,class: "btn btn_apply recruitment-deliver", deliver_id: @recruitment.id, style_type: "recruitment-show", id: "deliverRecruitment#{@recruitment.id}" %>

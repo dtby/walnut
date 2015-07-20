@@ -1,5 +1,5 @@
 class UserRecruitmentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create]
   respond_to :js, :json
 
   def create
@@ -11,9 +11,8 @@ class UserRecruitmentsController < ApplicationController
     @user_recruitment.deliver_time = Time.now
     @user_recruitment.save
     
-    host = request.protocol + request.host_with_port
     #邮件发送
-    UserMailer.send_recruitment(current_user, @user_recruitment, host).deliver_later
+    UserMailer.send_recruitment(current_user, @user_recruitment).deliver_later
     respond_with  @user_recruitment
   end
 

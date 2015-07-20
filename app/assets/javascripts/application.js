@@ -18,3 +18,4 @@
 //= require jquery.backstretch
 //= require bootstrap-sprockets
 //= require jquery.remotipart
+//= require wow
