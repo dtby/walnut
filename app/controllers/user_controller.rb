@@ -40,7 +40,10 @@ class UserController < ApplicationController
   end
 
   def my_recruits
-    @recruits = current_user.recruitments.page(params[:page])
+    #@recruits = current_user.recruitments.page(params[:page])
+    @recruits = Recruitment.select("recruitments.*,user_recruitments.state as state")
+    .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id")
+    .includes(:company).where("user_recruitments.user_id = #{current_user.id}").order("user_recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
   end
 
    private
