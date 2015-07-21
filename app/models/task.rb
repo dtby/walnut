@@ -35,46 +35,30 @@ class Task < ActiveRecord::Base
   Level = { important: "重要", general: "普通", unimportant: "不重要" }
 
   aasm column: :state, enum: true do
-    state :waiting, initial: true, after_commit: :update_task_category_total_and_unfinished
+    state :waiting, initial: true
     state :doing
     state :completed
     state :acceptance
     state :failure
 
-    event :wait, after_commit: Proc.new { set_process(old_state, :waiting) } do
+    event :wait do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting 
     end
 
-    event :do, after_commit: Proc.new { set_process(old_state, :doing) } do
+    event :do do
       transitions from: [:waiting, :completed, :acceptance] , to: :doing
     end
 
-    event :complete, after_commit: Proc.new { set_process(old_state, :completed) } do
+    event :complete do
       transitions from: [:waiting, :doing, :acceptance] , to: :completed
     end
 
-    event :accept, after_commit: Proc.new { set_process(old_state, :acceptance) } do
+    event :accept do
       transitions from: [:waiting, :doing, :completed] , to: :acceptance
     end
 
-    event :fail, after_commit: Proc.new { set_process(old_state, :waiting) } do
+    event :fail do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting
-    end
-  end
-
-  #更新task对应task_category的总任务数以及未完成任务数
-  def update_task_category_total_and_unfinished old_state, new_state
-    case new_state.to_sym
-    when :waiting
-      self.task_category.update_attributes({unfinished: self.unfinished + 1}) unless old_state == :doing
-    when :doing
-      self.task_category.update_attributes({unfinished: self.unfinished + 1}) unless old_state == :waiting
-    when :completed
-      self.task_category.update_attributes({unfinished: self.unfinished - 1}) unless old_state == :acceptance
-    when :acceptance
-      self.task_category.update_attributes({unfinished: self.unfinished - 1}) unless old_state == :completed
-    else
-      self.task_category.update_attributes({unfinished: (self.unfinished + 1), total: (self.total + 1)})
     end
   end
 

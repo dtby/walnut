@@ -5,24 +5,13 @@ RSpec.describe Task, type: :model do
   #序号在同一项目递增
   describe "No + 1" do
     it "should be no + 1" do
-      task = create(:task)
+      project = create(:project)
+      task_category = create(:task_category,project: project)
+      task = create(:task, task_category: task_category)
       task.No == 1
       expect(task.No).to eq( 1 )
-      task2 = create(:task)
+      task2 = create(:task, task_category: task_category)
       expect(task2.No).to eq( 2 )
-    end
-  end
-
-  #创建task择期对应的task_category的任务总数+1，未完成数+1
-  describe "task_category's task + 1" do
-    it "should be task_category's task + 1" do
-      task = create(:task)
-      expect(task.task_category.total).to eq( 1 )
-      expect(task.task_category.unfinished).to eq( 1 )
-
-      task2 = create(:task)
-      expect(task2.task_category.total).to eq( 2 )
-      expect(task2.task_category.unfinished).to eq( 2 )
     end
   end
 
@@ -39,28 +28,22 @@ RSpec.describe Task, type: :model do
       it "should be doing to waiting" do
         @task.state = "doing"
         expect(@task.state).to eq( "doing" )
-        unfinished = @task.task_category.unfinished
         @task.wait 
         expect(@task.state).to eq( "waiting" )
-        expect(@task.task_category.unfinished).to eq( unfinished )
       end
 
       it "should be completed to waiting" do
         @task.state = "completed"
         expect(@task.state).to eq( "completed" )
-        unfinished = @task.task_category.unfinished
         @task.wait 
         expect(@task.state).to eq( "waiting" )
-        expect(@task.task_category.unfinished).to eq( unfinished + 1 )
       end
 
       it "should be acceptance to waiting" do
         @task.state = "acceptance"
         expect(@task.state).to eq( "acceptance" )
-        unfinished = @task.task_category.unfinished
         @task.wait 
         expect(@task.state).to eq( "waiting" )
-        expect(@task.task_category.unfinished).to eq( unfinished + 1 )
       end
     end
 
@@ -69,28 +52,22 @@ RSpec.describe Task, type: :model do
 
       it "should be waiting to doing" do
         expect(@task.state).to eq( "waiting" )
-        unfinished = @task.task_category.unfinished
         @task.do 
         expect(@task.state).to eq( "doing" )
-        expect(@task.task_category.unfinished).to eq( unfinished )
       end
 
       it "should be completed to doing" do
         @task.state = "completed"
         expect(@task.state).to eq( "completed" )
-        unfinished = @task.task_category.unfinished
         @task.do 
         expect(@task.state).to eq( "doing" )
-        expect(@task.task_category.unfinished).to eq( unfinished + 1 )
       end
 
       it "should be acceptance to doing" do
         @task.state = "acceptance"
         expect(@task.state).to eq( "acceptance" )
-        unfinished = @task.task_category.unfinished
         @task.do 
         expect(@task.state).to eq( "doing" )
-        expect(@task.task_category.unfinished).to eq( unfinished + 1 )
       end
     end
 
@@ -99,28 +76,22 @@ RSpec.describe Task, type: :model do
 
       it "should be waiting to completed" do
         expect(@task.state).to eq( "waiting" )
-        unfinished = @task.task_category.unfinished
         @task.complete 
         expect(@task.state).to eq( "completed" )
-        expect(@task.task_category.unfinished).to eq( unfinished - 1 )
       end
 
       it "should be doing to completed" do
         @task.state = "doing"
         expect(@task.state).to eq( "doing" )
-        unfinished = @task.task_category.unfinished
         @task.complete 
         expect(@task.state).to eq( "completed" )
-        expect(@task.task_category.unfinished).to eq( unfinished - 1 )
       end
 
       it "should be acceptance to completed" do
         @task.state = "acceptance"
         expect(@task.state).to eq( "acceptance" )
-        unfinished = @task.task_category.unfinished
         @task.complete 
         expect(@task.state).to eq( "completed" )
-        expect(@task.task_category.unfinished).to eq( unfinished )
       end
     end
 
@@ -129,28 +100,22 @@ RSpec.describe Task, type: :model do
 
       it "should be waiting to acceptance" do
         expect(@task.state).to eq( "waiting" )
-        unfinished = @task.task_category.unfinished
         @task.accept 
         expect(@task.state).to eq("acceptance")
-        expect(@task.task_category.unfinished).to eq( unfinished - 1 )
       end
 
       it "should be doing to acceptance" do
         @task.state = "doing"
         expect(@task.state).to eq( "doing" )
-        unfinished = @task.task_category.unfinished
         @task.accept 
         expect(@task.state).to eq("acceptance")
-        expect(@task.task_category.unfinished).to eq( unfinished - 1 )
       end
 
       it "should be completed to acceptance" do
         @task.state = "completed"
         expect(@task.state).to eq("completed")
-        unfinished = @task.task_category.unfinished
         @task.accept 
         expect(@task.state).to eq("acceptance")
-        expect(@task.task_category.unfinished).to eq( unfinished )
       end
     end
 
