@@ -13,4 +13,15 @@
 class UserNotification < ActiveRecord::Base
   belongs_to :user
   belongs_to :notification
+
+  enum state: { unread: 1, read: 2}
+
+  aasm :column => :state, :enum => true do
+    state :unread, :initial => true
+    state :read
+
+    event :reading do
+      transitions from: :unread , to: :read
+    end
+  end
 end

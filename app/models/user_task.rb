@@ -13,4 +13,8 @@
 class UserTask < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
+
+  #创建者、负责人、协同者 
+  enum role: { creator: 1, principal: 2, helper: 3 }
+  Role = { creator: "创建者", principal: "负责人", helper: "协同者" }
 end

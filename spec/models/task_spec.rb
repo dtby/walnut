@@ -19,6 +19,7 @@ RSpec.describe Task, type: :model do
       @task = create(:task)
     end
 
+    #状态转换未待办中
     context "state to waiting" do
       it "should be waiting to waiting" do
         @task.state == "waiting"
