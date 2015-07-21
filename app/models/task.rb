@@ -31,8 +31,8 @@ class Task < ActiveRecord::Base
   State = { waiting: "待办中", doing: "进行中", completed: "已完成", acceptance: "验收通过", failure: "验收失败"  }
 
   #重要、普通、不重要 
-  enum level: { important: 1, general: 2, unimportant: 3 }
-  Level = { important: "重要", general: "普通", unimportant: "不重要" }
+  enum level: { high: 1, normal: 2, low: 3 }
+  Level = { high: "重要", normal: "普通", low: "不重要" }
 
   aasm column: :state, enum: true do
     state :waiting, initial: true
@@ -60,6 +60,25 @@ class Task < ActiveRecord::Base
     event :fail do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting
     end
+  end
+
+  aasm column: :level, enum: true do
+    state :high
+    state :normal, initial: true
+    state :low
+
+    event :to_high do
+      transitions from: [:low, :normal] , to: :high 
+    end
+
+    event :to_normal do
+      transitions from: [:low, :high] , to: :normal
+    end
+
+    event :to_low do
+      transitions from: [:normal, :high] , to: :low
+    end
+
   end
 
 end
