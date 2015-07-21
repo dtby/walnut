@@ -15,7 +15,6 @@
 }
 
 .evaluations__show{
-	border:1px solid #ccc;
 	margin: 20px 0;
 	.row{
 		margin: 0 ;
@@ -41,14 +40,6 @@
 				p{
 					margin-bottom: 30px;
 				}
-				.btn{
-					border:2px solid  darken(#19B29F, 6.5%);
-					padding: 6px 20px;
-					border-radius: 30px;
-					background-color: #19b29f;
-					color: #fff;
-					margin-right: 40px;
-				}
 			}
 			.my-divider{
 				border-style: dashed;
@@ -60,5 +51,24 @@
 				margin: 20px 0 40px;
 			}
 		}
+	}
+	.btn{
+		border:2px solid  darken(#19B29F, 6.5%);
+		padding: 6px 20px;
+		border-radius: 30px;
+		background-color: #19b29f;
+		color: #fff;
+		margin-right: 40px;
+	}
+}
+
+.evaluations__new{
+	.my-test{
+		margin-top: 100px;
+		margin-bottom: 200px;
+	}
+	.btn{
+		padding: 6px 40px;
+		margin: 30px 40px 0;
 	}
 }
