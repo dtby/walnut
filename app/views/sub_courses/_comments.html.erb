@@ -24,13 +24,13 @@
 					<% if current_user.try(:voted_up_on?, comment) %>
 						<span class="pull-right">
 							<span class="glyphicon glyphicon-thumbs-up text-danger"></span> 
-							<%= 2 %>
+							<%= comment.votes_for.size %>
 						</span>
 					<% else %>
 						<%= link_to("javascript:void(0)", id: "comment_praise_#{comment.id}", class: "vote-create-a", title: "赞一下", voteable_id: comment.id, voteable_type: comment.class, style_type: "comment_list") do %>
 							<span class="pull-right">
 								<span class="glyphicon <%= (current_user.try(:voted_up_on?, comment)) ? "glyphicon-thumbs-up text-danger" : "glyphicon-thumbs-up"%>"></span> 
-								<%= 2 %>
+								<%= comment.votes_for.size %>
 							</span>
 						<% end %>
 					<% end %>
