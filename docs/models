@@ -114,5 +114,52 @@ image 图片管理
 
 
 
+++++++z++++++++++++++++++++++++++实训项目++++++++++++++++++++++++++++++++++++++++++
+项目 projects
+  名称：name
+  描述：description
+  项目属性：is_public
+
+
+用户项目关系 user_projects
+  ref: user
+  ref: project
+  role  创建者、管理者、成员、访客
+
+任务列表 task_category 
+  名称：name
+  描述：description
+  ref: project
+
+任务： task
+  ref: task_category
+  ref: projects 任务所属项目不会改变，添加冗余字段方便后期操作
+  序号：No,同一个项目下递增
+  名称：name
+  描述：description
+  截止日期 end_time
+  优先级：level 重要、普通、不重要  
+  gem tag
+  状态：state，使用gem aasm， 待办中、进行中、已完成、验收通过、打回
+
+任务动态使用评论
+  评论内容有用户信息以及附件信息"%{User: 1}xxxxx %{Attachment: 2}"
+  
+
+用户任务 user_task
+  ref: user
+  ref: task
+  role: 创建者、负责人、协同者
+
+通知： notification
+  内容: content，"%{User: 1}xxxxx %{Attachment: 2}"
+  ref: project
+
+
+用户通知：user_notification
+  ref: user
+  ref: notification
+  状态：state: 已读、未读
+
 
 
