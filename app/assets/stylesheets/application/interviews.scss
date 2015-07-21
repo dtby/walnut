@@ -53,3 +53,38 @@
 	}
 }
 
+//Interviews/show page
+.int_nav {
+	margin:20px 0 0 0;
+}
+.text_title {
+	background-color:#19b29f;
+	margin-top:-20px;
+	.content_t {
+		font-size:17px;
+		line-height:40px;
+		color:#fff;
+	}
+}
+.content_t2 {
+	margin:15px auto;
+	span {
+		padding-right:8px;
+	}
+	.share {
+			line-height:2;
+		}
+}
+.collection_btn {
+	background-color:#fff;
+	margin-top:5px;
+	border-radius:15px;
+	font-size:12px;
+	line-height:15px;
+	.star {
+			line-height:2;
+		}
+}
+.devise1 {
+	border : 1px dashed #19b29f;
+}

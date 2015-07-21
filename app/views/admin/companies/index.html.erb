@@ -1,0 +1,41 @@
+<%= content_for :nav do%>
+  <li>
+    <a href="#{admin_root_path}">后台</a>
+  </li>
+  <li class="active">公司列表</li>
+<%end%>
+
+<%= content_for :toolbar do %>
+  <div class="col-xs-12">
+    <%= link_to new_admin_company_path, class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-plus-sign">新建</span>
+    <%end%>
+    <div class="col-xs-3 pull-right">
+      <div class="form-group">
+        <%= render partial: 'admin/common/keyword', locals: {path: ""} %>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<hr></hr>
+<table class="table table-hover table-bordered text-center table-condensed">
+  <thead>
+    <tr>
+      <th class="text-center">公司名称</th>
+      <th class="text-center">公司介绍</th>
+      <th class="text-center">地址</th>
+      <th class="text-center">网址</th>
+      <th class="text-center">TEL</th>
+      <th class="text-center">HR</th>
+      <th class="text-center">LOGO</th>
+      <th class="text-center" >操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render @companies %>
+  </tbody>
+</table>
+<div class="col-xs-10 col-xs-offset-1">
+<%= paginate @companies %>
+</div>

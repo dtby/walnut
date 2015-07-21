@@ -1,0 +1,56 @@
+<%= simple_form_for([:admin, @company], html: {class: "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :name, '公司名称', class: 'col-sm-2 col-sm-offset-2 control-label' %>
+  <div class="col-sm-4">
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description, '公司介绍',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_area :description, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :address, '地址' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :web_address, '网址', class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :web_address, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact_phone, 'TEL' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :contact_phone, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :contact, 'HR' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :contact, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :logo_url, 'LOGO' , class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.text_field :logo_url, class: 'form-control' %>
+  </div>
+  </div>
+  <div class="actions">
+  <hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<!--     <%= f.submit %> -->
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<tr>
+  <td><%= company.name %></td>
+  <td id="description"><%= company.description %></td>
+  <td><%= company.address %></td>
+  <td><%= company.web_address %></td>
+  <td><%= company.contact_phone %></td>
+  <td><%= company.contact %></td>
+  <td><%=image_tag company.try(:logo_url).present? ? company.try(:logo_url) : "0401_1.png" %></td>
+  <td>
+    <%#= link_to [:admin, specialty], class: 'btn btn-xs btn-info', title: '查看' do %>
+     <!--  <span class="glyphicon glyphicon-eye-open"></span> -->
+    <%#end%>
+    <%= link_to edit_admin_company_path(company), class: 'btn btn-xs btn-default', title: '编辑' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <%end%>
+    <%= link_to admin_company_path(company), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <%end%>
+  </td>
+</tr>

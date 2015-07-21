@@ -39,6 +39,7 @@ Rails.application.routes.draw do
 end
 
   resources :votes, only: [:create]
+  resources :ints, only: [:create]
 
   #get "/courses/list", to: "courses#list", as: :list_courses
   resources :courses, only: [:index, :show] do
@@ -55,6 +56,7 @@ end
     root "home#index"
     resources :colleges
     resources :teachers
+    resources :companies
     resources :recruitments
     resources :categories
     resources :courses do
