@@ -3,8 +3,8 @@
 FactoryGirl.define do
 
   factory :task do
-    project (Project.first || FactoryGirl.create(:project))
-    task_category (TaskCategory.first || FactoryGirl.create(:task_category))
+    #project (Project.first || FactoryGirl.create(:project))
+    #task_category (TaskCategory.first || FactoryGirl.create(:task_category))
     #No 1
     name "个人中心静态页面"
     description "完成个人中心的所有静态页面"
