@@ -12,10 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require_tree ./app/.
 //= require turbolinks
 //= require jquery.turbolinks
-//= require mediaelement_rails
-//= require jquery.backstretch
-//= require bootstrap-sprockets
-//= require jquery.remotipart
-//= require wow
