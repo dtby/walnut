@@ -21,9 +21,11 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :task_category
 
-  #序号No赋值
+  #序号No状态、优先级的初始化赋值
   before_create do
     self.No = Task.where(project_id: self.project_id).count + 1
+    self.state = 1
+    self.level = 2
   end
 
   #待办中、进行中、已完成、验收通过、验收失败
@@ -60,25 +62,6 @@ class Task < ActiveRecord::Base
     event :fail do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting
     end
-  end
-
-  aasm column: :level, enum: true do
-    state :high
-    state :normal, initial: true
-    state :low
-
-    event :to_high do
-      transitions from: [:low, :normal] , to: :high 
-    end
-
-    event :to_normal do
-      transitions from: [:low, :high] , to: :normal
-    end
-
-    event :to_low do
-      transitions from: [:normal, :high] , to: :low
-    end
-
   end
 
 end
