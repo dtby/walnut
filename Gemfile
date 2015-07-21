@@ -1,5 +1,5 @@
- source 'http://ruby.taobao.org'
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
+#source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -58,6 +58,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails_kindeditor'
 
 gem 'acts_as_commentable_with_threading'
+
+gem 'aasm', '~> 4.2.0'
 
 #mina部署
 group :development do

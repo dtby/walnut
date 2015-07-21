@@ -1,7 +1,7 @@
 GEM
   remote: http://ruby.taobao.org/
-  remote: https://rubygems.org/
   specs:
+    aasm (4.2.0)
     actionmailer (4.2.3)
       actionpack (= 4.2.3)
       actionview (= 4.2.3)
@@ -269,6 +269,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aasm (~> 4.2.0)
   acts_as_commentable_with_threading
   acts_as_votable (~> 0.10.0)
   annotate (~> 2.6.6)

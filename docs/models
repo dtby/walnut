@@ -140,7 +140,7 @@ image 图片管理
   截止日期 end_time
   优先级：level 重要、普通、不重要  
   gem tag
-  状态：state，使用gem aasm， 待办中、进行中、已完成、验收通过、打回
+  状态：state，使用gem aasm， 待办中、进行中、已完成、验收通过、验收失败
 
 任务动态使用评论
   评论内容有用户信息以及附件信息"%{User: 1}xxxxx %{Attachment: 2}"

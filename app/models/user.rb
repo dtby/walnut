@@ -17,6 +17,11 @@
 #  nickname               :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  name                   :string(255)
+#  major                  :string(255)
+#  department             :string(255)
+#  gender                 :string(255)
+#  signature              :string(255)
 #
 
 class User < ActiveRecord::Base
