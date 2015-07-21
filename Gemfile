@@ -93,3 +93,8 @@ gem 'mechanize'
 gem 'sprockets', '~> 2.12.3'
 
 gem 'streamio-ffmpeg', '~> 1.0.0'
+
+gem 'ember-rails'
+gem 'ember-source', '~> 1.9.0'
+
+
