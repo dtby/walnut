@@ -8,17 +8,24 @@
     <span class="content_t" >
       求职面试时常被问到的问题与技巧性回答
     </span>
+
     <div class="col-xs-2 pull-right collection_btn">
-      <span>
-        <div class="col-xs-3">
-          <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection int-create-a", intable_id: @interview.id, intable_type: @interview.class, style_type: "interview-show", id: "collectInterview#{@interview.id}") do %>
-        </div>
-        <%= current_user.try(:inted_up_on?,@interview) ? "取消收藏" : "收藏" %>
-        <% end %><%=@interview.view_count %></span>
+      <!-- 收藏 -->
+      <div class="col-xs-2">
+        <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: @interview.id, voteable_type: @interview.class, style_type: "@interview-list") do %>
+              <span id="voteInterviewSpan<%= @interview.id %>" class="star glyphicon <%= (current_user.try(:voted_up_on?,@interview)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
+            <% end %>
+      </div>
+      <div class="col-xs-6">
+        <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection vote-create-a", voteable_id: @interview.id, voteable_type: @interview.class, style_type: "interview-show", id: "collectInterview#{@interview.id}") do %>
+      <%= current_user.try(:voted_up_on?,@interview) ? "取消收藏" : "我要收藏" %>
+      <% end %>
+      </div>
 
       </div>
     </div>
-    <div class="col-xs-12">
+    <div class="content3">
+    <div class="col-xs-12 content3">
       <div class="row content_t2">
         <div class="col-xs-2"><span class="glyphicon glyphicon-book" aria-hidden="true"></span>所属分类：职业选择</div>
         <div class="col-xs-3"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发布时间：2015-07-15</div>
@@ -41,26 +48,21 @@
       </div>
       <hr class="devise1">  
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 content3">
       <%=image_tag "interview1.png" %>
     </div>
     <% (1..5).each do |i| %>
-    <div class="text_content col-xs-12">
+    <div class="text_content col-xs-12 content3">
       <h4>1、在线教育平台建设在线教育平台建设</h4>
       <p>在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设在线教育平台建设</p>
     </div>
     <% end %>
-    
+    <!-- 评论 -->
+    <%= render partial: 'comments', locals: { comments: @comments } %>
+    </div>
   </div>
-  <%=link_to "back",interviews_path %>
+    <!-- 百度分享JS代码 -->
   <script>
     window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};
     with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
   </script>
-
-  <%= content_for :scripts do %>
-  <%= javascript_tag do %>
-  int_create_path = "<%= ints_path %>.js"
-  <% end %>
-  <%= javascript_include_tag "ints", 'data-turbolinks-track' => true  %>
-  <% end %>

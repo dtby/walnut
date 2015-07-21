@@ -4,7 +4,7 @@ class VotesController < ApplicationController
 
   #收藏、点赞
   def create
-    promise_class = ["Recruitment", "Comment"]
+    promise_class = ["Recruitment", "Comment", "Interview"]
     @voteable_class = params[:voteable_type]
     unless promise_class.include? @voteable_class
       @success = false

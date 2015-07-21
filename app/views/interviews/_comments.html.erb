@@ -1,0 +1,57 @@
+<div id="cmt">
+  <div class="col-xs-12 content3">
+    <%= form_tag    interviews_path, method: :post, remote: true, format: :js do |f|%>
+    <%= text_area_tag "user_comment", "", class: "comment_text form-control", rows: 4, placeholder: "请输入您的留言！" %>
+    <%= hidden_field_tag "interview_id", params[:id]  || params[:interview_id]%>
+    <%= hidden_field_tag "page", params[:page]%>
+    <%= submit_tag "发表", class: "inter_cmt_btn pull-right"%>
+    <% end %>
+  </div>
+  <div id="comments" class="col-xs-12 content3">
+    <hr class="cmt-hr">
+    <% comments.each do |comment| %>
+    <div class="media cmt-media">
+      <div class="media-left">
+        <a href="#"><%= image_tag "personal_head.png", class: "media-object img-circle", width: "40"%></a>
+      </div>
+      <div class="media-body">
+        <h6 class="media-heading"><%= comment.try(:user).try(:nickname) %></h6>
+        <p><%= comment.body %></p>
+        <h6 class="text-muted clearfix">
+          <span>时间：<%= time_interval(comment) %></span>
+          <!-- 点赞 -->
+          <% if current_user.try(:voted_up_on?, comment) %>
+          <span class="pull-right">
+            <span class="glyphicon glyphicon-thumbs-up text-danger"></span> 
+            <%= 2 %>
+          </span>
+          <% else %>
+          <%= link_to("javascript:void(0)", id: "comment_praise_#{comment.id}", class: "vote-create-a", title: "赞一下", voteable_id: comment.id, voteable_type: comment.class, style_type: "comment_list") do %>
+          <span class="pull-right">
+            <span class="glyphicon <%= (current_user.try(:voted_up_on?, comment)) ? "glyphicon-thumbs-up text-danger" : "glyphicon-thumbs-up"%>"></span> 
+            <%= 2 %>
+          </span>
+          <% end %>
+          <% end %>
+
+        </h6>
+      </div>
+    </div>
+    <hr>
+    <% end %>
+    <div class="text-center ">
+      <br>
+      <div class="text-center">
+        <%= paginate  comments, remote: true %>
+      </div>
+      <br>
+    </div>
+  </div>  
+</div>
+
+<%= content_for :scripts do %>
+<%= javascript_tag do %>
+vote_create_path = "<%= votes_path %>.js"
+<% end %>
+<%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
+<% end %>

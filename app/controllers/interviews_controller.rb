@@ -4,8 +4,20 @@ class InterviewsController < ApplicationController
     @interviews = Interview.order("created_at DESC").page(params[:page])
   end
   def show
-    @interview = Interview.select("interviews.*")
-    @interview = Interview.find(params[:id])
+
+     @interview = Interview.find(params[:id])
+
+    @comment = Comment.new
+
+    @comments = @interview.root_comments.order("created_at DESC").page(params[:page])
+    respond_with @comments
+
     @interview.update(view_count:@interview.view_count.present? ? (@interview.view_count + 1) :1) 
+  end
+
+  def create
+    user = current_user
+    @comments = Interview.save_comment_return_comments user,params
+    respond_with @comments
   end
 end
