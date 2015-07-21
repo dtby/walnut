@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :project do
-    name "MyString"
-    description "MyString"
+    name "核桃网项目管理"
+    description "核桃网项目管理描述"
     is_public false
   end
 end
