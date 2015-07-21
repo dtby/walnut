@@ -24,7 +24,7 @@
 		border:1px solid #ccc;
 		.my-subhead{
 			border:1px solid #ccc;
-			background-color: #19B29F;
+			background-color: #24d1b2;
 			color: #fff;
 			height: 40px;
 			line-height: 40px;
@@ -50,13 +50,13 @@
 	.my-divider{
 				border-style: dashed;
 				border-width: 1px;
-				border-color: #19B29F
+				border-color: #24d1b2
 			}
 	.my-btn{
-		border:2px solid  darken(#19B29F, 6.5%);
+		border:2px solid  darken(#24d1b2, 6.5%);
 		padding: 6px 20px;
 		border-radius: 30px;
-		background-color: #19b29f;
+		background-color: #24d1b2;
 		color: #fff;
 		margin-right: 40px;
 	}
@@ -74,7 +74,7 @@
 	.my-progress{
 		.progress-bar{
 			line-height: 15px;
-			background-color: #19B29F;
+			background-color: #24d1b2;
 		}
 		height: 15px;
 		border-radius: 15px;
@@ -91,13 +91,25 @@
 	}
 	.focus-btn{
 		color: #fff;
-		background-color: #19B29F;
+		background-color: #24d1b2;
 	}
 	.up-btn{
-		color: #19B29F;
-		border:2px solid #19B29F;
+		color: #24d1b2;
+		border:2px solid #24d1b2;
 		border-radius: 20px;
 		padding: 2px 40px;
 		margin-bottom: 30px;
+	}
+}
+.evaluations__result{
+	.my-result{
+		margin: 20px 0;
+	}
+	p{
+		text-indent: 2em;
+		margin: 30px 10px;
+	}
+	h3{
+		font-weight: bold;
 	}
 }
