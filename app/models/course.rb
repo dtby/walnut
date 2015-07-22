@@ -32,10 +32,18 @@ class Course < ActiveRecord::Base
 	def total_length
 		time = 0
 		if self.sub_courses.present?
-			self.sub_courses.each do |sub_course|
-				time = FFMPEG::Movie.new("public"+sub_course.attachment.content.url.to_s).duration
-			end
+		   self.sub_courses.each do |sub_course|
+		       time = FFMPEG::Movie.new("public"+sub_course.attachment.content.url.to_s).duration 
+	          end
 		end
-		"#{time}秒"
+		if time > 0
+			alltime = time.ceil
+			hour =  (alltime / 3600)
+			min = (alltime - hour * 3600) / 60
+			sec = (alltime - hour * 3600 - min * 60)
+			return "#{hour}小时 #{min}分钟 #{sec}秒"
+		else
+			return "-- -- --"
+		end
 	end
 end
