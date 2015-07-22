@@ -28,6 +28,7 @@ class Task < ActiveRecord::Base
     self.level = 2
   end
 
+
   #待办中、进行中、已完成、验收通过、验收失败
   enum state: { waiting: 1, doing: 2, completed: 3, acceptance: 4 }
   State = { waiting: "待办中", doing: "进行中", completed: "已完成", acceptance: "验收通过", failure: "验收失败"  }
