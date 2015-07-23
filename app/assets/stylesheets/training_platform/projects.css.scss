@@ -22,6 +22,34 @@
     background-color: #A600F9;
   }
 }
+.project_name {
+  text-align:center;
+  padding-bottom:5px;
+    .project_name_t {
+    font-size:18px;
+    color:#fff;
+}
+}
 .ace-nav-left > li > a {  
   padding:0 6px;
+}
+.ace_content_page_left, .ace_content_page_right{
+  border: solid 0.5px #e1e1e1;
+  .ace_content_right_title, .ace_content_left_title {
+    border: solid 1px #e1e1e1;
+    background-color:#19B29F;
+    padding:10px;
+    .input-icon > input {
+      border-radius:100px !important;
+    }
+    .ace_bell, .ace_ques {
+      margin:10px 5px;
+    }
+    .ace_plus {
+      margin:6.5px 5px;
+       padding:2px;
+      border:solid 2px #fff;
+      border-radius:10px;
+    }
+  }
 }

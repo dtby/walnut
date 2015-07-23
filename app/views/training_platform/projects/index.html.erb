@@ -13,35 +13,9 @@
             try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
           </script>
 
-          <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-              <button class="btn btn-success">
-                <i class="icon-signal"></i>
-              </button>
-
-              <button class="btn btn-info">
-                <i class="icon-pencil"></i>
-              </button>
-
-              <button class="btn btn-warning">
-                <i class="icon-group"></i>
-              </button>
-
-              <button class="btn btn-danger">
-                <i class="icon-cogs"></i>
-              </button>
-            </div>
-
-            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-              <span class="btn btn-success"></span>
-
-              <span class="btn btn-info"></span>
-
-              <span class="btn btn-warning"></span>
-
-              <span class="btn btn-danger"></span>
-            </div>
-          </div><!-- #sidebar-shortcuts -->
+          <div class="project_name">
+          <span class="project_name_t">这里是项目名称</span>
+          </div>
 
           <ul class="nav nav-list ace-nav-left">
             <li class="active">
@@ -223,6 +197,36 @@
                 </span>
               </a>
             </li>
+
+            <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+              <button class="btn btn-success">
+                <i class="icon-signal"></i>
+              </button>
+
+              <button class="btn btn-info">
+                <i class="icon-pencil"></i>
+              </button>
+
+              <button class="btn btn-warning">
+                <i class="icon-group"></i>
+              </button>
+
+              <button class="btn btn-danger">
+                <i class="icon-cogs"></i>
+              </button>
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+              <span class="btn btn-success"></span>
+
+              <span class="btn btn-info"></span>
+
+              <span class="btn btn-warning"></span>
+
+              <span class="btn btn-danger"></span>
+            </div>
+          </div><!-- #sidebar-shortcuts -->
           </ul><!-- /.nav-list -->
 
           <div class="sidebar-collapse" id="sidebar-collapse">
@@ -235,35 +239,42 @@
         </div>
 
         <div class="main-content">
-          <div class="breadcrumbs" id="breadcrumbs">
-            <script type="text/javascript">
-              try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
-            </script>
-
-            <ul class="breadcrumb">
-              <li>
-                <i class="icon-home home-icon"></i>
-                <a href="#">Home</a>
-              </li>
-              <li class="active">公告信息</li>
-            </ul><!-- .breadcrumb -->
-
-            <div class="nav-search" id="nav-search">
-              <form class="form-search">
-                <span class="input-icon">
-                  <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-                  <i class="icon-search nav-search-icon"></i>
-                </span>
-              </form>
-            </div><!-- #nav-search -->
-          </div>
-
           <div class="page-content">
             <div class="row">
               <div class="col-xs-12">
+              <div class="row">
                 <!-- PAGE CONTENT BEGINS -->
-
+                <div class="col-xs-6 ace_content_page_left">
+                <div class="row">
+                    <div class="col-xs-12 ace_content_left_title">
+                      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span>添加任务
+                    </a>
+                    </div>
+                    222222<br>
+                </div>
+                </div>
+                <div class="col-xs-6 ace_content_page_right">
+                <div class="row">
+                <div class="col-xs-12 ace_content_right_title">
+                    <form class="form-search">
+                    <span class="input-icon">
+                    <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="icon-search nav-search-icon"></i>
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                    </a>
+                    </form><!-- #nav-search -->
+                </div>
+                2222222<br>
+                </div>
+                </div>
                 <!-- PAGE CONTENT ENDS -->
+                </div>
               </div><!-- /.col -->
             </div><!-- /.row -->
           </div><!-- /.page-content -->
