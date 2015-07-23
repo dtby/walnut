@@ -15,3 +15,7 @@
  *= require mediaelement_rails
  *= require mediaelement_rails/mejs-skins
  */
+
+ .ember-text-field, .ember-text-area {
+  width: 100%;
+}

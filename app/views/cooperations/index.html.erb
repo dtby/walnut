@@ -1,0 +1,56 @@
+<script type="text/x-handlebars">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li>{{#link-to 'projects.new'}}添加项目{{/link-to}}</li>
+      </ul>
+    </div>
+  </div>
+  {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="projects/index">
+  <table>
+	  {{#each project in model}}
+		  <tr>
+		    <td>
+		      {{#link-to 'project' project}}{{project.name}}{{/link-to}}
+		    </td>
+		  </tr>
+    {{/each}}
+  </table>
+</script>
+
+<!-- 查看页面 -->
+<script type="text/x-handlebars" id="project">
+  {{#if isEditing}}
+  {{partial 'project/edit'}}
+  <button {{action 'doneEditing'}} class='btn'>确认修改</button>
+  {{else}}
+  <button {{action 'edit'}} class='btn'>编辑</button>
+	<button {{action 'removeProject'}} class='btn'>删除</button>
+	{{/if}}
+  {{partial 'project/view'}}
+</script>
+
+<script type="text/x-handlebars" id="projects/new">
+  <legend>创建项目</legend>
+  {{partial 'project/edit'}}
+  <button {{action 'create_project'}} class='btn'>创建</button>
+  <button {{action concle}} class='btn'>取消创建</button>
+  {{partial 'project/view'}}
+</script>
+
+<script type="text/x-handlebars" id="project/_view">
+  <div class="intro">
+    {{name}}
+  </div>
+  <div class="below-the-fold">
+    {{description}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" id="project/_edit">
+  <p>{{input type="text" value=name class=""}}</p>
+  <p>{{input type="text" value=description class=""}}</p>
+</script>

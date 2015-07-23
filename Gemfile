@@ -96,5 +96,7 @@ gem 'streamio-ffmpeg', '~> 1.0.0'
 
 gem 'ember-rails'
 gem 'ember-source', '~> 1.9.0'
+gem 'handlebars_assets', '~> 0.20.2'
+gem 'inherited_resources'
 
 

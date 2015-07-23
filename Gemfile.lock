@@ -128,10 +128,23 @@ GEM
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     handlebars-source (2.0.0)
+    handlebars_assets (0.20.2)
+      execjs (~> 2.0)
+      multi_json (~> 1.0)
+      sprockets (>= 2.0.0, < 4.0)
+      tilt (~> 1.2)
+    has_scope (0.6.0)
+      actionpack (>= 3.2, < 5)
+      activesupport (>= 3.2, < 5)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
+    inherited_resources (1.6.0)
+      actionpack (>= 3.2, < 5)
+      has_scope (~> 0.6.0.rc)
+      railties (>= 3.2, < 5)
+      responders
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -308,6 +321,8 @@ DEPENDENCIES
   ember-source (~> 1.9.0)
   factory_girl_rails (= 4.2.1)
   ffaker
+  handlebars_assets (~> 0.20.2)
+  inherited_resources
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

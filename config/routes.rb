@@ -52,10 +52,12 @@ end
     resources :sub_courses, only: [:index, :show, :create]
   end
 
-  #实训项目
   resources :projects do
     resources :tasks
   end
+
+  resources :cooperations, only: [:index]
+
 
   namespace :admin do
     root "home#index"
