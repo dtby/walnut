@@ -12,13 +12,13 @@
             <td width="15%">职位名称</td>
             <td width="35%" class="text-left"> <%= @recruitment.name %></td>
             <td width="15%">职业类别</td>
-            <td width="35%" class="text-left"> <%=@recruitment.industry %></td>
+            <td width="35%" class="text-left"> <%=@recruitment.nature %> [<%=@recruitment.category %>]</td>
           </tr>
           <tr>
             <td>招聘人数</td>
-            <td class="text-left"> <%=@recruitment.number %>人</td>
+            <td class="text-left"> <%=@recruitment.need_person %></td>
             <td>性别要求</td>
-            <td class="text-left"> <%=@recruitment.gender %></td>
+            <td class="text-left"> <%= @recruitment.gender || "不限" %></td>
           </tr><tr>
             <td>要求证书</td>
             <td class="text-left"> <%=@recruitment.certificate %></td>
@@ -33,7 +33,7 @@
             <td>外语要求</td>
             <td class="text-left"> <%=@recruitment.foreign_language %></td>
             <td>其他要求</td>
-            <td class="text-left"> <%=@recruitment.others %></td>
+            <td class="text-left"> <%=@recruitment.it_tec %>、<%=@recruitment.age %></td>
           </tr>
       </table>
     </div>
@@ -47,36 +47,46 @@
   </div>
   <div class="container">
     <div class="col-md-12 recruit_content">
-      <%= raw(@recruitment.description)%>
+      <h4>【岗位职能】</h4>
+      <p class="p-info">
+        <%= raw(@recruitment.responsibility)%>
+      </p>
+    </div>
+    <div class="col-md-12 recruit_content">
+      <h4>【任职要求】</h4>
+      <p class="p-info">
+        <%= raw(@recruitment.demand)%>
+      </p>
     </div>
   </div>
-<div class="container">
-    <div class="row recruit_title">
-    <div class="col-md-5"><hr class="divider"></div>
-    <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >公司介绍</span></div>
-    <div class="col-md-5"><hr class="divider"></div>
-  </div>
-  <div class="col-md-12 recruit_content">
-    <br><p class="company"><%= @recruitment.try(:company).try(:description)%></p>
-    <hr class="divider1">
-    <p>地址：<%= @recruitment.try(:company).try(:address)%> &nbsp;&nbsp;&nbsp;<%=image_tag "map.ico",class:"map" %>&nbsp;<%=link_to "查看地图",'#' %></p>
-    <p>网址：<%= @recruitment.try(:company).try(:web_address)%></p>
-  </div>
-    <div class="btn_tab">
-      <div class="col-md-2 col-md-offset-2">
-        <% if @recruitment.state.present? && current_user.present? %>
-          <%=link_to "已经申请", 'javascript:void(0);' ,class: "btn btn_apply muted", disabled: true %>
-        <% else %>
-          <%=link_to "立刻申请", 'javascript:void(0);' ,class: "btn btn_apply recruitment-deliver", deliver_id: @recruitment.id, style_type: "recruitment-show", id: "deliverRecruitment#{@recruitment.id}" %>
-        <% end %>
-      </div>
-        <div class="col-md-2 col-md-offset-3">
-          <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection vote-create-a", voteable_id: @recruitment.id, voteable_type: @recruitment.class, style_type: "recruitment-show", id: "collectRecruitment#{@recruitment.id}") do %>
-          <%= current_user.try(:voted_up_on?,@recruitment) ? "取消收藏" : "我要收藏" %>
+  <div class="container">
+      <div class="row recruit_title">
+      <div class="col-md-5"><hr class="divider"></div>
+      <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >公司介绍</span></div>
+      <div class="col-md-5"><hr class="divider"></div>
+    </div>
+    <div class="col-md-12 recruit_content">
+      <br><p class="company"><%= raw(@recruitment.try(:company).try(:description))%></p>
+      <hr class="divider1">
+      <p>地址：<%= @recruitment.try(:company).try(:address)%> &nbsp;&nbsp;&nbsp;<%=image_tag "map.ico",class:"map" %>&nbsp;<%=link_to "查看地图",'#' %></p>
+      <p>网址：<%=link_to @recruitment.try(:company).try(:web_address), @recruitment.try(:company).try(:web_address),target: "_blank" %> </p>
+
+    </div>
+      <div class="btn_tab">
+        <div class="col-md-2 col-md-offset-2">
+          <% if @recruitment.state.present? && current_user.present? %>
+            <%=link_to "已经申请", 'javascript:void(0);' ,class: "btn btn_apply muted", disabled: true %>
+          <% else %>
+            <%=link_to "立刻申请", 'javascript:void(0);' ,class: "btn btn_apply recruitment-deliver", deliver_id: @recruitment.id, style_type: "recruitment-show", id: "deliverRecruitment#{@recruitment.id}" %>
           <% end %>
         </div>
+          <div class="col-md-2 col-md-offset-3">
+            <%= link_to("javascript:void(0);" , title: "收藏", class: "btn btn_collection vote-create-a", voteable_id: @recruitment.id, voteable_type: @recruitment.class, style_type: "recruitment-show", id: "collectRecruitment#{@recruitment.id}") do %>
+            <%= current_user.try(:voted_up_on?,@recruitment) ? "取消收藏" : "我要收藏" %>
+            <% end %>
+          </div>
+      </div>
     </div>
-  </div>
 
 <%= content_for :scripts do %>
   <%= javascript_tag do %>

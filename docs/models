@@ -89,15 +89,30 @@ image 图片管理
   要求证书 certificate
   学历要求 references.degree
   所属公司 references.company
-  职位类别 category
+  职位类别 category (全职、兼职等)
+  职位性质 nature
   工作地点 city
   薪酬范围 remuneration
+  所属部门 department
+  招聘人数 need_person
+  截止时间 stop_time
   外语要求 foreign_language
   其他要求 others
   职位描述 description
   HR邮箱 hr_email
   点击量 browse_count
   发布时间 publish_time
+  院校 must_school
+  专业一 must_specialty1
+  专业二 must_specialty2
+  年龄 age
+  工作经验 experience
+  IT技能 it_tec
+  工作职责 responsibility
+  职位要求 demand
+  type, 1是招聘信息，2是实习信息
+
+
 
 经验分类 iv_category
   name 分类名

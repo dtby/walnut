@@ -81,12 +81,12 @@
         <tbody class="recruit_list_text">
         <% @recruitments.each do |recruitment| %>
         <tr>
-          <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
-          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
-          <td><%=recruitment.try(:company).try(:name) %></td>
+          <td><%=link_to truncate(recruitment.name, length: 12), recruitment_path(recruitment) %></td>
+          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "delo.jpg", style: "max-height: 45px;" %></td>
+          <td><%=truncate(recruitment.try(:company).try(:name), length: 12) %></td>
           <td><%=recruitment.city %></td>
-          <td><%=recruitment.publish_time %></td>
-          <td><%=recruitment.view_count %></td>
+          <td><%=recruitment.publish_time.try(:strftime, "%F") %></td>
+          <td><%=recruitment.browse_count %></td>
           <td>
             <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, style_type: "recruitment-list") do %>
               <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>

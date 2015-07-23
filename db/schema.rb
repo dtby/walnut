@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721020340) do
+ActiveRecord::Schema.define(version: 20150723090007) do
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -67,6 +67,10 @@ ActiveRecord::Schema.define(version: 20150721020340) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "logo_url",      limit: 255
+    t.string   "city",          limit: 255
+    t.string   "industry",      limit: 255
+    t.string   "nature",        limit: 255
+    t.string   "scale",         limit: 255
   end
 
   create_table "courses", force: :cascade do |t|
@@ -160,12 +164,24 @@ ActiveRecord::Schema.define(version: 20150721020340) do
     t.text     "description",      limit: 65535
     t.string   "hr_email",         limit: 255
     t.integer  "browse_count",     limit: 4,     default: 0
-    t.string   "publish_time",     limit: 255
+    t.datetime "publish_time"
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
     t.string   "industry",         limit: 255
     t.integer  "number",           limit: 4
-    t.integer  "view_count",       limit: 4
+    t.string   "nature",           limit: 255
+    t.string   "department",       limit: 255
+    t.string   "need_person",      limit: 255
+    t.datetime "stop_time"
+    t.string   "must_school",      limit: 255
+    t.string   "must_specialty1",  limit: 255
+    t.string   "must_specialty2",  limit: 255
+    t.string   "age",              limit: 255
+    t.string   "experience",       limit: 255
+    t.string   "it_tec",           limit: 255
+    t.text     "responsibility",   limit: 65535
+    t.text     "demand",           limit: 65535
+    t.integer  "recruit_type",     limit: 4,     default: 0
   end
 
   create_table "sms", force: :cascade do |t|

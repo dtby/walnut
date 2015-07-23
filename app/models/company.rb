@@ -12,6 +12,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  logo_url      :string(255)
+#  city          :string(255)
+#  industry      :string(255)
+#  nature        :string(255)
+#  scale         :string(255)
 #
 
 class Company < ActiveRecord::Base

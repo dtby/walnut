@@ -22,6 +22,18 @@
 #  industry         :string(255)
 #  number           :integer
 #  view_count       :integer
+#  nature           :string(255)
+#  department       :string(255)
+#  need_person      :string(255)
+#  stop_time        :time
+#  must_school      :string(255)
+#  must_specialty1  :string(255)
+#  must_specialty2  :string(255)
+#  age              :string(255)
+#  experience       :string(255)
+#  it_tec           :string(255)
+#  responsibility   :text(65535)
+#  demand           :text(65535)
 #
 
 class Recruitment < ActiveRecord::Base
