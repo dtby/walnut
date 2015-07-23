@@ -122,7 +122,7 @@
     vote_create_path = "<%= votes_path %>.js"
     deliver_path = "<%= user_recruitments_path %>.js"
   <% end %>
-  <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
-  <%= javascript_include_tag "user_recruitments", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "app/votes", 'data-turbolinks-track' => true  %>
+  <%= javascript_include_tag "app/user_recruitments", 'data-turbolinks-track' => true  %>
 
 <% end %>
