@@ -52,11 +52,14 @@ end
     resources :sub_courses, only: [:index, :show, :create]
   end
 
-  resources :projects do
-    collection do
-    get :project
-  end
-    resources :tasks
+  #实训项目
+  namespace :training_platform do
+    resources :projects do
+      collection do
+      get :project
+    end
+      resources :tasks
+    end
   end
 
   resources :cooperations, only: [:index]

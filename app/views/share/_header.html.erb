@@ -23,7 +23,7 @@
 					  </ul>
 				</a></li>
 				<li class="<%= "active" if params[:controller] == 'projects'%>">
-					<a href="<%= projects_path %>">实训项目</a>
+					<a href="<%= training_platform_projects_path %>">实训项目</a>
 				</li>
 				<li  class="<%= "active" if (params[:controller] == 'recruitments' && 
 				(params[:action] == 'index' || params[:action] == 'show' || params[:action] == 'recommend')) || (params[:controller] == 'interviews' && params[:action] == 'index') || (params[:controller] == 'evaluations' && params[:action] == 'index')%>">

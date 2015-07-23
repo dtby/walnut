@@ -1,0 +1,27 @@
+// Place all the styles related to the projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.main-bg{
+  background-color: #E8E8E8;
+  padding: 40px 0;
+  color: #fff;
+  .main{
+    margin:0 0px 15px 0px;
+    padding: 5px 0 20px;
+  }
+  .blue-bg{
+    background-color: #2EC8BA;
+  }
+  .yellow-bg{
+    background-color: #F6C22F;
+  }
+  .orange-bg{
+    background-color: #FF5A15;
+  }
+  .purple-bg{
+    background-color: #A600F9;
+  }
+}
+.ace-nav-left > li > a {  
+  padding:0 6px;
+}
