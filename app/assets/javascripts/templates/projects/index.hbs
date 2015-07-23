@@ -1,0 +1,9 @@
+<table>
+  {{#each project in model}}
+    <tr>
+      <td>
+        {{#link-to 'project' project}}{{project.name}}{{/link-to}}
+      </td>
+    </tr>
+  {{/each}}
+</table>

@@ -1,0 +1,8 @@
+{{#if isEditing}}
+{{partial 'projects/edit'}}
+<button {{action 'doneEditing'}} class='btn'>确认修改</button>
+{{else}}
+<button {{action 'edit'}} class='btn'>编辑</button>
+<button {{action 'removeProject'}} class='btn'>删除</button>
+{{/if}}
+{{partial 'projects/view'}}

@@ -63,6 +63,7 @@ end
     end
   end
 
+  resources :projects
   resources :cooperations, only: [:index]
 
 

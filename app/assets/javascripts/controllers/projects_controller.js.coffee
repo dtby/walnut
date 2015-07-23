@@ -8,7 +8,7 @@ Walnut.ProjectsNewController = Ember.ObjectController.extend(
       @transitionTo('index')
 )
 
-Walnut.ProjectController = Ember.ObjectController.extend(
+Walnut.ProjectIndexController = Ember.ObjectController.extend(
   isEditing: false
   actions:
 	  edit: ->
