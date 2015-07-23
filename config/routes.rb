@@ -55,12 +55,8 @@ end
   #实训项目
   namespace :training_platform do
     root 'home#index'
-    resources :projects do
-      collection do
-      get :project
-    end
+    resources :projects
       resources :tasks
-    end
   end
 
   resources :projects

@@ -15,7 +15,7 @@
           </script>
 
           <div class="project_name">
-          <span class="project_name_t">这里是项目名称</span>
+          <span class="project_name_t">我的项目</span>
           </div>
 
           <ul class="nav nav-list ace-nav-left">
@@ -36,7 +36,7 @@
             <li>
               <a href="#" class="dropdown-toggle">
                 <i class="icon-desktop"></i>
-                <span class="menu-text"> 我的任务 </span>
+                <span class="menu-text"> 个人项目 </span>
 
                 <b class="arrow icon-angle-down"></b>
               </a>
@@ -125,7 +125,7 @@
             <li>
               <a href="#" class="dropdown-toggle">
                 <i class="icon-list"></i>
-                <span class="menu-text"> 任务列表 </span>
+                <span class="menu-text"> 参与的项目</span>
 
                 <b class="arrow icon-angle-down"></b>
               </a>
@@ -242,72 +242,105 @@
         <div class="main-content">
           <div class="page-content">
             <div class="row">
-              <div class="col-xs-12 main-bg">
+              <div class="col-xs-12">
                 <!-- PAGE CONTENT BEGINS -->
-        <div class="col-sm-6">
-          <div class="row blue-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row yellow-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row orange-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row purple-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
+                    <div class="col-xs-6 ace_content_page_left">
+                    <div class="row">
+                        <div class="col-xs-12 ace_content_left_title">
+                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                              <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span>添加任务
+                          </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-xs-6 ace_content_page_right">
+                    <div class="row">
+                    <div class="col-xs-12 ace_content_right_title">
+                        <form class="form-search">
+                        <span class="input-icon">
+                        <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="icon-search nav-search-icon"></i>
+                        </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                        </a>
+                        </form><!-- #nav-search -->
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <div class="col-xs-12 main-bg">
+                    <div class="col-sm-6">
+                    <%=link_to 'training_platform/projects' do |i| %>
+                
+                      <div class="row blue-bg main">
+                        <div class="col-sm-12 text-right">
+                          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                          <%=image_tag"schedule.png"%>
+                        </div>
+                        <div class="col-sm-9">
+                          <h4>在线教育平台</h4>
+                          <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
+                        </div>
+                      </div>
+                      <% end %>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="row yellow-bg main">
+                        <div class="col-sm-12 text-right">
+                          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                          <%=image_tag"schedule.png"%>
+                        </div>
+                        <div class="col-sm-9">
+                          <h4>在线教育平台</h4>
+                          <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="row orange-bg main">
+                        <div class="col-sm-12 text-right">
+                          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                          <%=image_tag"schedule.png"%>
+                        </div>
+                        <div class="col-sm-9">
+                          <h4>在线教育平台</h4>
+                          <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="row purple-bg main">
+                        <div class="col-sm-12 text-right">
+                          <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                          <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-sm-3 text-center">
+                          <%=image_tag"schedule.png"%>
+                        </div>
+                        <div class="col-sm-9">
+                          <h4>在线教育平台</h4>
+                          <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
                 <!-- PAGE CONTENT ENDS -->
                 </div>
               </div><!-- /.col -->

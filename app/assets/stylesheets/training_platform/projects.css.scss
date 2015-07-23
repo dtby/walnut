@@ -39,8 +39,11 @@
     color:#fff;
 }
 }
-.ace-nav-left > li > a {  
-  padding:0 6px;
+.ace-nav-left > li {
+  border-color: #222A2D!important;
+      a {  
+      padding:0 6px;
+    }
 }
 .ace_content_page_left, .ace_content_page_right{
   border: solid 0.5px #e1e1e1;
