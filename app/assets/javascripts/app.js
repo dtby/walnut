@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
-//= require_tree ./app/.
-//= require application
 //= require turbolinks
 //= require jquery.turbolinks
+//= require bootstrap
+//= require application
 //= require mediaelement_rails
 //= require jquery.backstretch
 //= require bootstrap-sprockets

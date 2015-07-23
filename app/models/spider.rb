@@ -240,6 +240,7 @@ class Spider
       #招聘信息发布时间
       recruitment.publish_time = index_other_info[:publish_time]
       recruitment.browse_count = index_other_info[:browse_count]
+      recruitment.hr_email = "dev@buoyantec.com"
 
       #工作地点等字段保存
       some_fileds = ["city", "nature", "remuneration", "department", "need_person", "stop_time"]
