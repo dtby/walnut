@@ -3,13 +3,13 @@ class RecruitmentsController < ApplicationController
     #@recruitments = Recruitment.all
     #@recruitments = Recruitment.includes(:company).order("created_at DESC").page(params[:page])
     if current_user.present?
-    @recruitments = Recruitment.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
+    @recruitments = Recruitment.recruits.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
     .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id and user_recruitments.user_id = #{current_user.try(:id)}")
-    .includes(:company).order("recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
+    .includes(:company).order("recruitments.publish_time DESC").page(params[:page])
     else
-      @recruitments = Recruitment.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
+      @recruitments = Recruitment.recruits.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
       .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id")
-      .includes(:company).order("recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
+      .includes(:company).order("recruitments.publish_time DESC").page(params[:page])
     end
   end
 
@@ -30,13 +30,13 @@ class RecruitmentsController < ApplicationController
 
   def recommend
     if current_user.present?
-      @recruitments = Recruitment.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
+      @recruitments = Recruitment.practices.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
       .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id and user_recruitments.user_id = #{current_user.try(:id)}")
-      .includes(:company).order("recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
+      .includes(:company).order("recruitments.publish_time DESC").page(params[:page])
     else
-      @recruitments = Recruitment.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
+      @recruitments = Recruitment.practices.select("recruitments.id,name,city,publish_time,company_id,browse_count,user_recruitments.state as state")
       .joins("left join user_recruitments on recruitments.id = user_recruitments.recruitment_id")
-      .includes(:company).order("recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
+      .includes(:company).order("recruitments.publish_time DESC").page(params[:page])
     end
   end
   

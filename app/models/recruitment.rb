@@ -16,16 +16,15 @@
 #  description      :text(65535)
 #  hr_email         :string(255)
 #  browse_count     :integer          default(0)
-#  publish_time     :string(255)
+#  publish_time     :datetime
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  industry         :string(255)
 #  number           :integer
-#  view_count       :integer
 #  nature           :string(255)
 #  department       :string(255)
 #  need_person      :string(255)
-#  stop_time        :time
+#  stop_time        :datetime
 #  must_school      :string(255)
 #  must_specialty1  :string(255)
 #  must_specialty2  :string(255)
@@ -34,9 +33,12 @@
 #  it_tec           :string(255)
 #  responsibility   :text(65535)
 #  demand           :text(65535)
+#  recruit_type     :integer          default(0)
 #
 
 class Recruitment < ActiveRecord::Base
+  scope :recruits, -> { where(recruit_type: 1) } #招聘信息
+  scope :practices, -> { where(recruit_type: 2) } #实习信息
   acts_as_votable
   
   belongs_to :degree
