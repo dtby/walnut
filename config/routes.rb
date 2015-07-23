@@ -53,6 +53,9 @@ end
   end
 
   resources :projects do
+    collection do
+    get :project
+  end
     resources :tasks
   end
 

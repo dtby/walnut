@@ -17,3 +17,8 @@
 //= require application
 //= require turbolinks
 //= require jquery.turbolinks
+//= require mediaelement_rails
+//= require jquery.backstretch
+//= require bootstrap-sprockets
+//= require jquery.remotipart
+//= require_tree ./ace/.
