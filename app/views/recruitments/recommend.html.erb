@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row recruit_title">
     <div class="col-md-5"><hr class="divider"></div>
-    <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘分类</span></div>
+    <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >实习分类</span></div>
     <div class="col-md-5"><hr class="divider"></div>
   </div>
   <div class="row recruit_class">
@@ -48,13 +48,13 @@
         </select>
       </div>
       <div class="col-md-2">
-        <%= link_to("工作推荐",recommend_recruitments_path  , class: "btn find_job recommend") %>
+        <%= link_to("工作推荐",recruitments_path  , class: "btn find_job recommend") %>
       </div>
     </div>
     <div class="container">
     <div class="row recruit_title">
       <div class="col-md-5"><hr class="divider"></div>
-      <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >招聘信息</span></div>
+      <div class="col-md-2 recruit_class_word"><span class="recruit_class_title" >实习信息</span></div>
       <div class="col-md-5"><hr class="divider"></div>
     </div>
     </div>
@@ -62,10 +62,10 @@
       <table class="table table-hover recruitment-list">
       <thead>
         <tr>
-          <th>职位</th>
+          <th width="15%">职位</th>
           <th>logo</th>
-          <th>公司</th>
-          <th>工作地点</th>
+          <th width="10%">公司</th>
+          <th width="10%">工作地点</th>
           <th width="12%">
             发布时间<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
             <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
@@ -80,7 +80,7 @@
         </thead>
         <tbody class="recruit_list_text">
         <% @recruitments.each do |recruitment| %>
-        <tr>
+        <tr class="job_tr">
           <td><%=link_to recruitment.name, recruitment_path(recruitment) %></td>
           <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "0401_1.png" %></td>
           <td><%=recruitment.try(:company).try(:name) %></td>
@@ -100,12 +100,23 @@
             <% end %>
           </td>
         </tr>
+        <tr class="job_blank">
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+          <td>&nbsp</td>
+        </tr>
         <% end %>
         </tbody>
       </table>
+      <div class="text-center"><%= paginate @recruitments %></div>
     </div>
 </div>
-
+</div>
 <%= content_for :scripts do %>
   <%= javascript_tag do %>
     vote_create_path = "<%= votes_path %>.js"

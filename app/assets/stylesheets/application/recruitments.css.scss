@@ -48,12 +48,17 @@
   }
   .recruit_list_text {
     tr {
+      width:100%;
       border:solid 1px #E9E9E9;
       td {
+        vertical-align:middle;
         span.text-muted {
           color: #d7d7d7;
         }
       }
+    }
+    .job_blank {
+      border-color:#fff;
     }
     .deliver {
       display:block;
@@ -61,6 +66,7 @@
       color:#00B89F;
     }
   }
+
   //show page
 
   .recruit_table {

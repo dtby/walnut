@@ -56,6 +56,7 @@
 //Interviews/show page
 .int_nav {
 	margin:20px 0 0 0;
+	background-color:#fff !important;
 }
 .text_title {
 	background-color:#19b29f;
@@ -77,7 +78,8 @@
 }
 .collection_btn {
 	background-color:#fff;
-	margin-top:5px;
+	width:100%;
+	margin-top:3px;
 	border-radius:15px;
 	font-size:12px;
 	line-height:15px;
@@ -98,4 +100,9 @@
 }
 .text_content {
 	padding:10px;
+}
+.interview_img {
+	img {
+		width:100%;
+	} 
 }

@@ -1,9 +1,10 @@
 <div id="cmt">
   <div class="col-xs-12 content3">
     <%= form_tag    interviews_path, method: :post, remote: true, format: :js do |f|%>
-    <%= text_area_tag "user_comment", "", class: "comment_text form-control", rows: 4, placeholder: "请输入您的留言！" %>
+    <%= text_area_tag "user_comment", "", class: "comment_text form-control", onKeyDown:"checkMaxInput(this)", onKeyUp:"checkMaxInput(this)", rows: 4, placeholder: "请输入您的留言！" %>
     <%= hidden_field_tag "interview_id", params[:id]  || params[:interview_id]%>
     <%= hidden_field_tag "page", params[:page]%>
+    <font align="right" id="remLen"><b></b></font>
     <%= submit_tag "发表", class: "inter_cmt_btn pull-right"%>
     <% end %>
   </div>
@@ -55,3 +56,16 @@ vote_create_path = "<%= votes_path %>.js"
 <% end %>
 <%= javascript_include_tag "votes", 'data-turbolinks-track' => true  %>
 <% end %>
+
+<script type="text/javascript">
+maxLen = 50; //定义用户可以输入的最多字数
+function checkMaxInput(obj) {
+if (obj.value.length > maxLen){ //假如输入的字数超过了限制
+obj.value = obj.value.substring(0, maxLen); //就去掉多余的字
+remLen.innerText = '您输入的内容超出了字数限制'
+}
+else{
+remLen.innerText = '还剩下' + (maxLen - obj.value.length) + '字';//计算并显示剩余字数
+}
+}
+</script>

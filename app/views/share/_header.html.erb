@@ -29,7 +29,7 @@
 				(params[:action] == 'index' || params[:action] == 'show' || params[:action] == 'recommend')) || (params[:controller] == 'interviews' && params[:action] == 'index') || (params[:controller] == 'evaluations' && params[:action] == 'index')%>">
 				<a href="<%=recommend_recruitments_path %>">实习招聘
 					<ul class="dropdown-menu sub_menu" >
-					  	<li><a href="<%=recommend_recruitments_path %>">工作推荐</a></li>
+					  	<li><a href="<%=recommend_recruitments_path %>">实习信息</a></li>
 					   	<li><a href="<%=recruitments_path %>">招聘信息</a></li>
 					   	<li><a href="<%=interviews_path %>">面试经验</a></li>
 					    	<li><a href="<%= evaluations_path%>">职业测评</a></li>
