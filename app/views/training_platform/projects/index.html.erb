@@ -1,111 +1,270 @@
+<div class="main-container" id="main-container">
+      <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+      </script>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2">
-      <div class="row">
-        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          <ul class="nav nav-pills nav-stacked">
+      <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+          <span class="menu-text"></span>
+        </a>
+
+        <div class="sidebar" id="sidebar">
+          <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+          </script>
+
+          <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+              <button class="btn btn-success">
+                <i class="icon-signal"></i>
+              </button>
+
+              <button class="btn btn-info">
+                <i class="icon-pencil"></i>
+              </button>
+
+              <button class="btn btn-warning">
+                <i class="icon-group"></i>
+              </button>
+
+              <button class="btn btn-danger">
+                <i class="icon-cogs"></i>
+              </button>
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+              <span class="btn btn-success"></span>
+
+              <span class="btn btn-info"></span>
+
+              <span class="btn btn-warning"></span>
+
+              <span class="btn btn-danger"></span>
+            </div>
+          </div><!-- #sidebar-shortcuts -->
+
+          <ul class="nav nav-list ace-nav-left">
             <li class="active">
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingOne">
-                  <h4 class="panel-title">
-                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      个人项目
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                  <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  </div>
-                </div>
-              </div>
+              <a href="index.html">
+                <i class="icon-dashboard"></i>
+                <span class="menu-text"> 公告信息 </span>
+              </a>
             </li>
+
             <li>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingTwo">
-                  <h4 class="panel-title">
-                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Collapsible Group Item #2
-                    </a>
-                  </h4>
-                </div>
-                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                  <div class="panel-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                  </div>
-                </div>
-              </div>
+              <a href="typography.html">
+                <i class="icon-text-width"></i>
+                <span class="menu-text"> 文字排版 </span>
+              </a>
             </li>
-          </ul>
-        </div>
-      </div>    
-    </div>
-    <div class="col-sm-10 main-bg">
-        <div class="col-sm-6">
-          <div class="row blue-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
+
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-desktop"></i>
+                <span class="menu-text"> 我的任务 </span>
+
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="elements.html">
+                    <i class="icon-double-angle-right"></i>
+                    组件
+                  </a>
+                </li>
+
+                <li>
+                  <a href="buttons.html">
+                    <i class="icon-double-angle-right"></i>
+                    按钮 &amp; 图表
+                  </a>
+                </li>
+
+                <li>
+                  <a href="treeview.html">
+                    <i class="icon-double-angle-right"></i>
+                    树菜单
+                  </a>
+                </li>
+
+                <li>
+                  <a href="jquery-ui.html">
+                    <i class="icon-double-angle-right"></i>
+                    jQuery UI
+                  </a>
+                </li>
+
+                <li>
+                  <a href="nestable-list.html">
+                    <i class="icon-double-angle-right"></i>
+                    可拖拽列表
+                  </a>
+                </li>
+
+                <li>
+                  <a href="#" class="dropdown-toggle">
+                    <i class="icon-double-angle-right"></i>
+
+                    三级菜单
+                    <b class="arrow icon-angle-down"></b>
+                  </a>
+
+                  <ul class="submenu">
+                    <li>
+                      <a href="#">
+                        <i class="icon-leaf"></i>
+                        第一级
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="#" class="dropdown-toggle">
+                        <i class="icon-pencil"></i>
+
+                        第四级
+                        <b class="arrow icon-angle-down"></b>
+                      </a>
+
+                      <ul class="submenu">
+                        <li>
+                          <a href="#">
+                            <i class="icon-plus"></i>
+                            添加产品
+                          </a>
+                        </li>
+
+                        <li>
+                          <a href="#">
+                            <i class="icon-eye-open"></i>
+                            查看商品
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-list"></i>
+                <span class="menu-text"> 任务列表 </span>
+
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="tables.html">
+                    <i class="icon-double-angle-right"></i>
+                    简单 &amp; 动态
+                  </a>
+                </li>
+
+                <li>
+                  <a href="jqgrid.html">
+                    <i class="icon-double-angle-right"></i>
+                    jqGrid plugin
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#" class="dropdown-toggle">
+                <i class="icon-edit"></i>
+                <span class="menu-text"> 团队成员 </span>
+
+                <b class="arrow icon-angle-down"></b>
+              </a>
+
+              <ul class="submenu">
+                <li>
+                  <a href="form-elements.html">
+                    <i class="icon-double-angle-right"></i>
+                    表单组件
+                  </a>
+                </li>
+
+                <li>
+                  <a href="form-wizard.html">
+                    <i class="icon-double-angle-right"></i>
+                    向导提示 &amp; 验证
+                  </a>
+                </li>
+
+                <li>
+                  <a href="wysiwyg.html">
+                    <i class="icon-double-angle-right"></i>
+                    编辑器
+                  </a>
+                </li>
+
+                <li>
+                  <a href="dropzone.html">
+                    <i class="icon-double-angle-right"></i>
+                    文件上传
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="calendar.html">
+                <i class="icon-calendar"></i>
+
+                <span class="menu-text">
+                  日历
+                  <span class="badge badge-transparent tooltip-error" title="2&nbsp;Important&nbsp;Events">
+                    <i class="icon-warning-sign red bigger-130"></i>
+                  </span>
+                </span>
+              </a>
+            </li>
+          </ul><!-- /.nav-list -->
+
+          <div class="sidebar-collapse" id="sidebar-collapse">
+            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
           </div>
+
+          <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+          </script>
         </div>
-        <div class="col-sm-6">
-          <div class="row yellow-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
+
+        <div class="main-content">
+          <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+              try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+
+            <ul class="breadcrumb">
+              <li>
+                <i class="icon-home home-icon"></i>
+                <a href="#">Home</a>
+              </li>
+              <li class="active">公告信息</li>
+            </ul><!-- .breadcrumb -->
+
+            <div class="nav-search" id="nav-search">
+              <form class="form-search">
+                <span class="input-icon">
+                  <input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                  <i class="icon-search nav-search-icon"></i>
+                </span>
+              </form>
+            </div><!-- #nav-search -->
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row orange-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="row purple-bg main">
-            <div class="col-sm-12 text-right">
-              <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            </div>
-            <div class="col-sm-3 text-center">
-              <%=image_tag"schedule.png"%>
-            </div>
-            <div class="col-sm-9">
-              <h4>在线教育平台</h4>
-              <p>（总任务：20   已完成：15 待办中：5 验收通过：3）</p>
-            </div>
-          </div>
-        </div>
-    </div>
-  </div>
-</div>
+
+          <div class="page-content">
+            <div class="row">
+              <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+
+                <!-- PAGE CONTENT ENDS -->
+              </div><!-- /.col -->
+            </div><!-- /.row -->
+          </div><!-- /.page-content -->
+        </div><!-- /.main-content -->

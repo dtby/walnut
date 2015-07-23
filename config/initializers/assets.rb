@@ -12,4 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( admin.css training_platform.css )
 
 
-Rails.application.config.assets.precompile += %w( admin.js votes.js user_recruitments.js wow.js training_platform.js)
+Rails.application.config.assets.precompile += %w( admin.js votes.js user_recruitments.js wow.js training_platform.js app.js)
