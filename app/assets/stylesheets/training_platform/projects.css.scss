@@ -46,26 +46,25 @@
     }
 }
 .ace_content_page_left, .ace_content_page_right{
-	// border: solid 0.5px #e1e1e1;
-	.ace_content_right_title, .ace_content_left_title {
-		border: solid 1px #e1e1e1;
-		background-color:#19B29F;
-		padding:10px;
-		margin-bottom: 10px;
-		.input-icon > input {
-			border-radius:100px !important;
-		}
-		.ace_bell, .ace_ques {
-			margin:10px 5px;
-		}
-		.ace_plus {
-			margin:6.5px 5px;
-			padding:2px;
-			border:solid 2px #fff;
-			border-radius:10px;
-		}
-	}
+  border: solid 0.5px #e1e1e1;
 }
+  .ace_content_right_title, .ace_content_left_title {
+    border: solid 1px #e1e1e1;
+    background-color:#19B29F;
+    padding:10px;
+    .input-icon > input {
+      border-radius:100px !important;
+    }
+    .ace_bell, .ace_ques {
+      margin:10px 5px;
+    }
+    .ace_plus {
+      margin:6.5px 5px;
+       padding:2px;
+      border:solid 2px #fff;
+      border-radius:10px;
+    }
+  }
 .my-task{
 	padding: 0 10px;
 	.my-line{
@@ -99,3 +98,6 @@
 	}
 }
 
+.percent_number {
+  font-size:25px;
+}
