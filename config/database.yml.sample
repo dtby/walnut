@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: walnut_production
-  username: walnut
+  username: root
   password: <%= ENV['WALNUT_DATABASE_PASSWORD'] %>

@@ -8,7 +8,7 @@ set :term_mode, nil
 set :domain, '218.244.134.146'
 set :deploy_to, '/home/deploy/walnut'
 set :repository, 'https://github.com/dtby/walnut'
-set :branch, 'master'
+set :branch, 'develop'
 
 # For system-wide RVM install.
 set :rvm_path, '/home/deploy/.rvm/scripts/rvm'
