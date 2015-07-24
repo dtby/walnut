@@ -2,25 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .main-bg{
-	background-color: #E8E8E8;
-	padding: 40px 0;
-	color: #fff;
-	.main{
-		margin:0 0px 15px 0px;
-		padding: 5px 0 20px;
-	}
-	.blue-bg{
-		background-color: #2EC8BA;
-	}
-	.yellow-bg{
-		background-color: #F6C22F;
-	}
-	.orange-bg{
-		background-color: #FF5A15;
-	}
-	.purple-bg{
-		background-color: #A600F9;
-	}
+  padding: 40px 0;
+  color: #fff;
+  .main{
+    margin:0 0px 15px 0px;
+    padding: 5px 0 20px;
+  }
+  .blue-bg{
+    background-color: #2EC8BA;
+  }
+  .yellow-bg{
+    background-color: #F6C22F;
+  }
+  .orange-bg{
+    background-color: #FF5A15;
+  }
+  .purple-bg{
+    background-color: #A600F9;
+  }
 } 
 //home/index page
 
@@ -32,12 +31,13 @@
 }
 
 .project_name {
-	text-align:center;
-	padding-bottom:5px;
-	.project_name_t {
-		font-size:18px;
-		color:#fff;
-	}
+  text-align:center;
+  padding-bottom:5px;
+  padding-top:5px;
+    .project_name_t {
+    font-size:18px;
+    color:#fff;
+}
 }
 .ace-nav-left > li  {
   border-color:#222A2D!important;
@@ -49,7 +49,6 @@
   border: solid 0.5px #e1e1e1;
 }
   .ace_content_right_title, .ace_content_left_title {
-    border: solid 1px #e1e1e1;
     background-color:#19B29F;
     padding:10px;
     .input-icon > input {
@@ -97,7 +96,6 @@
 		}
 	}
 }
-
 .percent_number {
   font-size:25px;
 }
