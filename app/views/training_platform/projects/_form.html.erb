@@ -1,0 +1,16 @@
+<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
+<%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+  <%= f.input :name, as: :string, required: false, autofocus: true %>
+  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+  <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.button :submit, "创建", class: "btn btn-info" %>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+<% end %>

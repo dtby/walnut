@@ -256,9 +256,9 @@
                   <div class="col-xs-12">
                     <!-- PAGE CONTENT BEGINS -->
                     <div class="col-xs-6 ace_content_left_title">
-                          <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                              <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span>添加项目
-                          </a>
+                      <%= link_to(new_training_platform_project_path,remote: true, format: :js) do %>
+                        <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span>添加项目
+                      <% end %>
                     </div>
                     <div class="col-xs-6 ace_content_right_title">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">

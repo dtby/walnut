@@ -17,4 +17,5 @@ class Project < ActiveRecord::Base
   enum is_public: { open: true, close: false }
   IsPublic = { open: '公开', close: '私有' }
 
+  validates :name, presence: true
 end
