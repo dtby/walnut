@@ -40,8 +40,10 @@
                     <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                   </div>
                   <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 text-center">
-                    <div class="easy-pie-chart percentage" data-percent="20" data-color="#fff">
-                      <span class="percent percent_number">20</span>%
+                    <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
+                      <span class="percent percent_number">
+                        <%= project.task_percentage %>
+                      </span>%
                     </div>
                   </div>
                   <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
@@ -50,7 +52,7 @@
                       （总任务：<%= project.tasks.count %>   
                       已完成：<%= project.tasks.completes.count %>   
                       待办中：<%= project.tasks.waits.count %>   
-                      验收通过：<%= project.tasks.acceprances.count %>   ）
+                      验收通过：<%= project.tasks.acceprances.count %> ）
                     </p>
                   </div>
                 </div>
@@ -75,9 +77,9 @@
       trackColor: 'rgba(255,255,255,0.4)',
       scaleColor: false,
       lineCap: 'butt',
-      lineWidth: 12,
+      lineWidth: 10,
       animate: oldie ? false : 1000,
-      size:90
+      size:80
     }).css('color', $(this).data('color'));
   });
 </script><!-- ./環裝讀條百分比  -->

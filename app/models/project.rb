@@ -19,4 +19,11 @@ class Project < ActiveRecord::Base
   IsPublic = { open: '公开', close: '私密' }
 
   validates :name, presence: true
+
+
+  #任务完成以及验收通过的百分比
+  def task_percentage
+    return 0 if self.tasks.count == 0
+    (project.tasks.completes.count + project.tasks.acceprances.count)/self.tasks.count
+  end
 end

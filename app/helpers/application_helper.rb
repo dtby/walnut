@@ -21,4 +21,5 @@ module ApplicationHelper
       "purple-bg"
     end
   end
+
 end
