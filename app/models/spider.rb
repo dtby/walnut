@@ -236,6 +236,7 @@ class Spider
       recruitment = Recruitment.find_or_create_by(name: name, company_id: company.try(:id))
 
       recruitment.recruit_type = recruit_type
+      recruitment.recruit_type = 2 if name.include?("实习生")
 
       #招聘信息发布时间
       recruitment.publish_time = index_other_info[:publish_time]
