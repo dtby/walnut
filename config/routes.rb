@@ -54,7 +54,7 @@ end
 
   #实训项目
   namespace :training_platform do
-    root 'home#index'
+    root 'projects#index'
     resources :projects
     resources :tasks
   end

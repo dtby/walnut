@@ -1,7 +1,8 @@
 class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationController
 
   def index
-    respond_with Project.all
+    @projects = Project.includes(:user_projects).where(user_projects: {user_id: 1})
+    respond_with @projects
   end
 
   def show
@@ -16,7 +17,9 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
 
   def create
     @project = Project.new project_params
-    @project.save
+    if @project.save
+      UserProject.create(user_id: current_user.id, project_id: @project.id, role: 1)
+    end
     respond_with @project
   end
 

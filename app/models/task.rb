@@ -21,6 +21,11 @@ class Task < ActiveRecord::Base
   belongs_to :project
   belongs_to :task_category
 
+  scope :waits, -> { where state: 1 }
+  scope :dos, -> { where state: 2 }
+  scope :completes, -> { where state: 3 }
+  scope :acceprances, -> { where state: 4 }
+
   #序号No状态、优先级的初始化赋值
   before_create do
     self.No = Task.where(project_id: self.project_id).count + 1
