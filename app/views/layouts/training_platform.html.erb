@@ -9,8 +9,10 @@
 
 <body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %> skin-1" >
   <%= render "share/flash_message" %>
+  <%= render partial: 'share/header' %>
   <%= yield :banner %>
   <%= yield %>
+  <%= render partial: 'share/devise_form' %>
   <%= yield :scripts %>
 </body>
 </html>

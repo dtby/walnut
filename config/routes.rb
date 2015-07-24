@@ -56,7 +56,7 @@ end
   namespace :training_platform do
     root 'home#index'
     resources :projects
-      resources :tasks
+    resources :tasks
   end
 
   resources :projects
