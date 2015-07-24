@@ -1,4 +1,4 @@
-class TrainingPlatform::TasksController < ApplicationController
+class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   def index
   end
 end
