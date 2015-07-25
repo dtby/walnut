@@ -29,4 +29,22 @@ class Project < ActiveRecord::Base
     return 0 if self.tasks.count == 0
     (project.tasks.completes.count + project.tasks.acceprances.count)/self.tasks.count
   end
+
+
+  #根据当前登录用户以及列表需显示的数据显示相关项目
+  #type: 需要显示项目的种类
+  def self.list_projects type
+    case type
+    when "self"
+      Project.includes(:user_projects).where(user_projects: {user_id: current_user.id, role: 1})
+    when "join"
+      Project.joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role <> 1")
+    when "collect"
+      current_user.votes.up.for_type(Project).where(vote_scope: "collect").votables
+    when "pigeonhole"
+      current_user.votes.up.for_type(Project).where(vote_scope: "pigeonhole").votables
+    else
+      Project.includes(:user_projects).where(user_projects: {user_id: current_user.id})
+    end
+  end
 end

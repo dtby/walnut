@@ -77,5 +77,13 @@ class User < ActiveRecord::Base
   def show_image
     self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "personal_head.png"
   end
+
+  def self.current
+    Thread.current[:user]
+  end
+
+  def self.current=(user)
+    Thread.current[:user] = user
+  end
   
 end

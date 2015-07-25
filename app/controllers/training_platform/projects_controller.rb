@@ -2,7 +2,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.includes(:user_projects).where(user_projects: {user_id: 1})
+    @projects = Project.list_projects params[:type]
     respond_with @projects
   end
 
