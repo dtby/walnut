@@ -27,11 +27,16 @@
 
     .project-set-btn {
       display: inline;
-      ul li {
-        a {
-          color: #000;
+      ul.dropdown-menu{
+        right: -16px;
+        left: auto;
+        min-width: 100px;
+        li {
+          a {
+            color: #000;
+          }
         }
-      }
+      } 
     }
   }
 } 
