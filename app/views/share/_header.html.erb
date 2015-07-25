@@ -16,13 +16,13 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul id="Menu1" class="nav navbar-nav navbar-left">
-				<li  class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心
+				<li class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心
 					 <ul class="dropdown-menu sub_menu" >
 					  	<li><a href="<%= courses_path %>">在线学习</a></li>
 					   	<li><a href="<%= list_courses_path %>">大学课程</a></li>
 					  </ul>
 				</a></li>
-				<li class="<%= "active" if params[:controller] == 'projects'%>">
+				<li class="<%= "active" if params[:controller] == 'training_platform/home'%>">
 					<a href="<%= training_platform_root_path %>">实训项目</a>
 				</li>
 				<li  class="<%= "active" if (params[:controller] == 'recruitments' && 

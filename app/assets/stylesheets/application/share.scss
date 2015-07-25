@@ -2,6 +2,7 @@
 //header
 .navbar.navbar-inverse.my-navbar{
 	font-weight: bold;
+	min-height: 66px;
 	border: none !important;
 	li.active{
 		border-bottom: 4px solid $color-green;
@@ -13,9 +14,11 @@
 		}
 	}
 
+
 	 .sub_menu{
-	 	background:#19B29F;
-	 	border:none;
+	 	min-width: 96px;
+	 	background: #19B29F;
+	 	border: none;
 	 	border-radius: 0;
 	 	a{
 	 		color: #fff;

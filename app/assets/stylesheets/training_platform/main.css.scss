@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$color-sign: #5582ED;
+$color-green: #11BD9E;
+
+.navbar-brand {
+  float: left;
+  padding: 21px 15px!important;
+  font-size: 18px;
+  line-height: 20px;
+  height: 66px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: #fff;
+}
+.navbar-nav > li > a {
+	padding-top: 21px;
+	padding-bottom: 21px;
+}
