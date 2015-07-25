@@ -34,8 +34,8 @@
             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 project-title-show">
               <div class="row <%= project_bc index %> main">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-right">
-                  <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?,project) ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}") do %>
-                    <span class="glyphicon <%= (current_user.try(:voted_up_on?,project)) ? "glyphicon-star" : "glyphicon-star-empty" %> " aria-hidden="true"></span>
+                  <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?,project, scope: "collect") ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}", scope: "collect") do %>
+                    <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %> " aria-hidden="true"></span>
                   <% end %>
                   <div class="dropdown project-set-btn">
                     <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -43,9 +43,14 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
                       <li><%= link_to "打开项目", training_platform_tasks_path %></li>
-                      <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %></li>
-                      <li><a href="#">归档项目</a></li>
-                      <li><a href="#">删除项目</a></li>
+                      <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
+                      </li>
+                      <li>
+                        <%= link_to("javascript:void(0);", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-pigeonhole", scope: "pigeonhole", id: "") do %>
+                          <%= (current_user.try(:voted_up_on?,project, scope: "pigeonhole")) ? "取消归档" : "归档项目" %>
+                        <% end %>
+                      </li>
+                      <li><%= link_to "删除项目", training_platform_project_path(project), method: :delete, remote: true, format: :js, id: "deleteProjectLink#{project.id}" %></li>
                     </ul>
                   </div>
                 </div>

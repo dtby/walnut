@@ -41,5 +41,12 @@
 			$("#projectListShowLink<%= params[:voteable_id]%> span").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
 			alert("取消收藏成功");
 		<% end %>
+	<% when "project-pigeonhole"%>
+		<% unless @is_like %>
+			alert("归档成功");
+		<% else %>
+			alert("取消归档成功");
+		<% end %>
+		location.href = "<%= training_platform_root_path %>";
 	<% end %>
 <% end %>

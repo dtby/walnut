@@ -2,7 +2,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.includes(:user_projects).where(user_projects: {user_id: 1})
+    @projects = Project.includes(:user_projects, :votes_for).where(user_projects: {user_id: 1})
     respond_with @projects
   end
 
@@ -33,7 +33,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   end
 
   def destroy
-    respond_with Project.destroy(params[:id])
+    respond_with @project.destroy
   end
 
   private
@@ -46,11 +46,11 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
       if @project.blank? 
         flash[:notice] = "当前数据不存在"
         if request.xhr?
-          return redirect_to training_platform_root_path
-        else
           respond_to do |format|
             format.js {render js: "location.href='#{training_platform_root_path}'"}
           end
+        else
+          return redirect_to training_platform_root_path
         end
       end
     end
