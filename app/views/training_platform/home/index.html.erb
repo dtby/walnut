@@ -8,15 +8,48 @@
               <span class="menu-text"></span>
             </a>
 
+            <!-- begin siderbar -->
             <div class="sidebar" id="sidebar">
                 <script type="text/javascript">
                   try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
                 </script>
 
-                <div class="project_name">
-                <span class="project_name_t">我的项目</span>
-                </div>
+                <!-- end sidebar-shortcuts -->
+                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+                  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                    <button class="btn btn-success">
+                      <i class="icon-signal"></i>
+                    </button>
 
+                    <button class="btn btn-info">
+                      <i class="icon-pencil"></i>
+                    </button>
+
+                    <button class="btn btn-warning">
+                      <i class="icon-group"></i>
+                    </button>
+
+                    <button class="btn btn-danger">
+                      <i class="icon-cogs"></i>
+                    </button>
+                  </div>
+
+                  <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                    <span class="btn btn-success"></span>
+
+                    <span class="btn btn-info"></span>
+
+                    <span class="btn btn-warning"></span>
+
+                    <span class="btn btn-danger"></span>
+                  </div>
+                </div>
+                <!-- end sidebar-shortcuts -->
+
+               <div class="project_name">
+               <span class="project_name_t">我的项目</span>
+               </div>
+                <!-- begin nav-list -->
                 <ul class="nav nav-list ace-nav-left">
                   <li class="active">
                     <a href="#">
@@ -209,37 +242,8 @@
                       </span>
                     </a>
                   </li>
-
-                  <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-                  <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-                    <button class="btn btn-success">
-                      <i class="icon-signal"></i>
-                    </button>
-
-                    <button class="btn btn-info">
-                      <i class="icon-pencil"></i>
-                    </button>
-
-                    <button class="btn btn-warning">
-                      <i class="icon-group"></i>
-                    </button>
-
-                    <button class="btn btn-danger">
-                      <i class="icon-cogs"></i>
-                    </button>
-                  </div>
-
-                  <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-                    <span class="btn btn-success"></span>
-
-                    <span class="btn btn-info"></span>
-
-                    <span class="btn btn-warning"></span>
-
-                    <span class="btn btn-danger"></span>
-                  </div>
-                </div><!-- #sidebar-shortcuts -->
-                </ul><!-- /.nav-list -->
+                </ul>
+                <!--end nav-list -->
 
                 <div class="sidebar-collapse" id="sidebar-collapse">
                   <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
@@ -248,31 +252,42 @@
                 <script type="text/javascript">
                   try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
                 </script>
-            </div><!-- /.sidebar -->
+            </div>
+            <!--end sidebar -->
 
             <div class="main-content">
               <div class="page-content">
                   <div class="col-xs-12">
                   <div class="row">
                     <!-- PAGE CONTENT BEGINS -->
-                    <div class="col-xs-6 ace_content_left_title">
-                      <%= link_to(new_training_platform_project_path,remote: true, format: :js) do %>
-                        <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加项目</span>
-                      <% end %>
-                    </div>
-                    <div class="col-xs-6 ace_content_right_title">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
-                        </a>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
-                        </a>
-                    </div>
-                    </div>
-                    </div>
+                        <div class="col-xs-6 ace_content_left_title">
+                          <%= link_to(new_training_platform_project_path,remote: true, format: :js) do %>
+                            <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加项目</span>
+                          <% end %>
+                        </div>
+                        <div class="col-xs-6 ace_content_right_title">
+                            <div class="col-xs-7 ace-serch">
+                                <form class="form-search col-xs-12 ace-form-serch">
+                                <span class="input-icon">
+                                <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                                <i class="icon-search nav-search-icon"></i>
+                                </span>
+                                </form><!-- #nav-search -->
+                            </div>
+                            <div class="col-xs-5">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                                </a>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                                </a>
+                            </div>
+                        </div>
+                  </div>
+                  </div>
                     <div class="col-xs-12 main-bg">
                         <div class="col-sm-6">
-                        <%=link_to 'training_platform/projects' do |i| %>
+                          <%=link_to 'training_platform/projects' do |i| %>
                     
                           <div class="row blue-bg main">
                             <div class="col-sm-12 text-right">
@@ -350,7 +365,7 @@
                     </div>
               </div><!-- /.page-content -->
             </div><!-- /.main-content -->
-        </div>
+        </div><!-- /.main-container-inner -->
 
         <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
         <i class="icon-double-angle-up icon-only bigger-110"></i>

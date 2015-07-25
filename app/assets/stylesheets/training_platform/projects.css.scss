@@ -90,9 +90,11 @@
   }
   .ace_content_right_title, .ace_content_left_title {
     background-color:#19B29F;
-    .input-icon > input {
-      border-radius:100px !important;
+    .input-icon {
       margin-top:3px;
+      input {
+         border-radius:100px !important;
+      }
     }
     .ace_bell, .ace_ques {
       margin:6.5px 5px;
@@ -101,16 +103,19 @@
     .ace_plus {
       margin:6.5px 5px;
       padding:2px;
-      color:#fff;
       border:solid 2px #fff;
       border-radius:10px;
     }
-    .ace_plus_word {
+    .ace_plus_word, .ace_plus {
       color:#fff;
+      font-size:12px;
     }
   }
   .ace_content_right_title  {
     background-color:#00CBD2;
+  }
+  .ace-form-serch {
+    margin-left:-40px;
   }
 }
 .my-task{
