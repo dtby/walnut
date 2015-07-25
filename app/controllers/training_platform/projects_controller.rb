@@ -1,4 +1,5 @@
 class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationController
+  before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
     @projects = Project.includes(:user_projects).where(user_projects: {user_id: 1})
@@ -12,7 +13,6 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   def new
   	@project = Project.new
   	respond_with @project
-
   end
 
   def create
@@ -23,8 +23,13 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
     respond_with @project
   end
 
+  def edit
+    respond_with @project
+  end
+
   def update
-    respond_with Project.update(params[:id], project_params)
+    @project.update project_params
+    respond_with @project
   end
 
   def destroy
@@ -32,7 +37,21 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   end
 
   private
-  def project_params
-    params.require(:project).permit(:name, :description, :is_public)
-  end
+    def project_params
+      params.require(:project).permit(:name, :description, :is_public)
+    end
+
+    def set_project
+      @project = Project.where(id: params[:id]).first
+      if @project.blank? 
+        flash[:notice] = "当前数据不存在"
+        if request.xhr?
+          return redirect_to training_platform_root_path
+        else
+          respond_to do |format|
+            format.js {render js: "location.href='#{training_platform_root_path}'"}
+          end
+        end
+      end
+    end
 end

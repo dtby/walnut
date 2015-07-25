@@ -7,7 +7,7 @@
 
   <div class="row">
     <div class="col-sm-6">
-      <%= f.button :submit, "创建", class: "btn btn-info" %>
+      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info" %>
     </div>
     <div class="col-sm-6">
       <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
