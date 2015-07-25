@@ -34,8 +34,8 @@
             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 project-title-show">
               <div class="row <%= project_bc index %> main">
                 <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-right">
-                  <%= link_to("#", class: "") do %>
-                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                  <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?,project) ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}") do %>
+                    <span class="glyphicon <%= (current_user.try(:voted_up_on?,project)) ? "glyphicon-star" : "glyphicon-star-empty" %> " aria-hidden="true"></span>
                   <% end %>
                   <%= link_to("#" , class: "") do %>
                     <span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
@@ -89,3 +89,10 @@
     }).css('color', $(this).data('color'));
   });
 </script><!-- ./環裝讀條百分比  -->
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    vote_create_path = "<%= votes_path %>.js"
+  <% end %>
+  <%= javascript_include_tag "app/votes", 'data-turbolinks-track' => true  %>
+<% end %>

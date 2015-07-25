@@ -31,5 +31,15 @@
 	<% when "comment_list" %>
 		$("#comment_praise_<%= params[:voteable_id]%>").replaceWith('<span class="pull-right"><span class="glyphicon glyphicon-thumbs-up text-danger"></span> '+
 			(parseInt($("#comment_praise_<%= params[:voteable_id]%>").text()) + 1)+'</span>');
+	<% when "project-list"%>
+		<% unless @is_like %>
+			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "取消收藏")
+			$("#projectListShowLink<%= params[:voteable_id]%> span").removeClass("glyphicon-star-empty").addClass("glyphicon-star");
+			alert("收藏成功");
+		<% else %>
+			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "收藏")
+			$("#projectListShowLink<%= params[:voteable_id]%> span").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
+			alert("取消收藏成功");
+		<% end %>
 	<% end %>
 <% end %>

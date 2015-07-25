@@ -11,9 +11,12 @@
 #
 
 class Project < ActiveRecord::Base
+
+  acts_as_votable
   has_many :task_categories, dependent: :destroy
   has_many :user_projects, dependent: :destroy
   has_many :tasks, through: :task_categories
+
 
   enum is_public: { open: true, close: false }
   IsPublic = { open: '公开', close: '私密' }
