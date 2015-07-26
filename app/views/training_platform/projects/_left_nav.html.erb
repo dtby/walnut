@@ -4,44 +4,45 @@
     </script>
 
     <div class="project_name">
-      <span class="project_name_t"><%= current_user.nickname %></span>
+      <span class="project_name_t">我的项目</span>
     </div>
 
     <ul class="nav nav-list ace-nav-left">
-      <li class="<%= 'active' if params[:type].blank? %>">
-        <%= link_to training_platform_root_path do%>
+      <li class="active">
+        <a href="#">
           <i class="icon-book "></i>
           <span class="menu-text"> 全部项目</span>
-        <% end %>
+        </a>
       </li>
       
-      <li class="<%= 'active' if params[:type] == 'self' %>">
-        <%= link_to training_platform_root_path(type: "self") do%>
+      <li>
+        <a href="#" class="dropdown-toggle">
           <i class="icon-bookmark"></i>
           <span class="menu-text"> 个人项目 </span>
-        <% end %>
+        </a>
       </li>
 
-      <li class="<%= 'active' if params[:type] == 'join' %>">
-        <%= link_to training_platform_root_path(type: "join") do%>
+      <li>
+        <a href="#" class="dropdown-toggle">
           <i class="icon-list"></i>
           <span class="menu-text"> 参与的项目</span>
-        <% end %>
+        </a>
       </li>
 
-      <li class="<%= 'active' if params[:type] == 'collect' %>">
-        <%= link_to training_platform_root_path(type: "collect") do%>
+      <li >
+        <a href="#">
           <i class="icon-flag "></i>
           <span class="menu-text"> 关注的项目</span>
-        <% end %>
+        </a>
       </li>
 
-      <li class="<%= 'active' if params[:type] == 'pigeonhole' %>">
-        <%= link_to training_platform_root_path(type: "pigeonhole") do%>
+      <li>
+        <a href="#">
           <i class="icon-folder-close "></i>
           <span class="menu-text"> 归档项目 </span>
-        <% end %>
+        </a>
       </li>
+
       
 
       <div class="sidebar-shortcuts" id="sidebar-shortcuts">
