@@ -142,7 +142,7 @@
 }
 
 
-//traing_platform_modal
+//traing_platform_modal1
 #trainingPlatformModal {
 	.modal-content {
 		border: 5px solid rgba(0, 203, 210,1);
@@ -167,9 +167,9 @@
 				text-align:center;
 			}
 			.btn {
-				width: 50%;
+				width: 80%;
 				border-radius:8px;
-				line-height: 10px;
+				line-height: 15px;
 				&.btn-info-tp {
 					background-color:rgba(0, 203, 210,0.8)!important;
 				}
@@ -181,3 +181,52 @@
 	}
 }
 }
+
+//traing_platform_modal2
+.ace_modal_ul {
+	background-color:rgba(0, 203, 210,0.8);
+	text-align:center;
+	& ul {
+		padding-left:20px!important;
+	}
+}
+.ace_modal_tab {
+	text-align:center;
+}
+button  {
+	&.btn-info-tp {
+		background-color:rgba(0, 203, 210,0.8)!important;
+	}
+}
+.ace_modal_tab1 {
+	input  {
+		padding:7px 54px;
+		margin-right:20px;
+	}
+	button {
+		padding:10px;
+		background-color:#fff;
+		border:2px solid #F1F1F1;
+	}
+}
+.ace_modal_tbd {
+	.dropdown {
+			padding-top:10px;
+			ul {
+				z-index:10;
+			}
+		}
+	tr {
+		margin:10px;
+	}
+}
+.ace_modal_media {
+	img {
+		width:50px;
+	}
+	span {
+		padding-left:20px;
+		}
+}
+
+		

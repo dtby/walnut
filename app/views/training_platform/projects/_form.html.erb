@@ -14,3 +14,113 @@
     </div>
   </div>
 <% end %>
+<!-- <div  class="my-nav">
+         Nav tabs
+          <ul class="nav nav-tabs ace_modal_ul" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
+            <li role="presentation"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
+          </ul>
+        Tab panes
+        <div class="tab-content main">
+
+            <div role="tabpanel" class="tab-pane active" id="home">
+              <table class="table table-hover ace_modal_tab">
+                  <thead>
+                    <tr>
+                      <th>任务列表名称</th>
+                      <th>所有任务（未完成/已完成）</th>
+                      <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>这是任务列表的名称</td>
+                      <td>14/20</td>
+                      <td>删除 &nbsp| &nbsp 编辑</td>
+                    </tr>
+                    <tr>
+                      <td>这是任务列表的名称</td>
+                      <td>14/20</td>
+                      <td>删除 &nbsp| &nbsp 编辑</td>
+                    </tr>
+                    <tr>
+                      <td>这是任务列表的名称</td>
+                      <td>14/20</td>
+                      <td>删除 &nbsp| &nbsp 编辑</td>
+                    </tr>
+                    </tbody>
+              </table>
+              <button type="button" class="btn btn-info-tp" data-dismiss="modal">添加</button>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="profile">
+               <input type="text" placeholder="请输入关键字" class="ace_modal_form" id="ace_modal_form" autocomplete="off" />
+                <button type="submit" class="btn btn-default">Send invitation</button>
+
+                  <div class="ace_modal_media">
+                    <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+                    
+                    <span class="pull-left">
+                    <h4 class="media-heading">123456</h4>
+                    邀请于2015-07-28</span>
+                </div>
+            
+                  <button type="button" class="btn btn-info-tp" data-dismiss="modal">创建者...</button>
+            <hr>
+            <h3>成员列表</h3>
+                <table class="table table-striped">
+                <tbody class="ace_modal_tbd">
+                 <% 4.times do %>
+                 <tr>
+                 <td>
+                  <div class="ace_modal_media">
+                    <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+                    
+                    <span class="pull-left">
+                    <h4 class="media-heading">123456</h4>
+                    邀请于2015-07-28</span>
+                </div>
+                </td>
+                <td>
+                <div class="dropdown">
+                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    管理员
+                    <span class="caret my-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">参与人</a></li>
+                    <li><a href="#">负责人</a></li>
+                    <li><a href="#">创建者</a></li>
+                  </ul>
+                </div>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-info-tp" data-dismiss="modal">移除</button>
+                </td>
+                </tr>
+                <% end %>
+                </tbody>
+                </table>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="profile1">
+
+                <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+                <%= f.input :name, as: :string, required: false, autofocus: true %>
+                <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+                
+
+                <div class="row  ace_tp_m">
+                <div class="col-sm-6">
+                <button type="button" class="btn btn-danger-tp" data-dismiss="modal">编辑</button>
+                <div class="col-sm-6">
+                <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+                </div>
+                </div>
+                <% end %>
+
+            </div>
+        </div>
+</div> -->
