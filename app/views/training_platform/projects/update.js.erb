@@ -1,6 +1,6 @@
 <% if @project.errors.blank? %>
   location.href = "<%= training_platform_root_path%>";
 <% else %>
-  $("#deviseUserFormModal").html("<%= escape_javascript(render 'training_platform/projects/form') %>");
-  $("#deviseUserModal").modal('show');
+  $("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/projects/form') %>");
+  $("#trainingPlatformModal").modal('show');
 <% end %>
