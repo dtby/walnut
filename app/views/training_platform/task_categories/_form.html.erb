@@ -1,0 +1,15 @@
+<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑任务列表" : "创建任务列表" %><span></h3>
+<%= simple_form_for(@task_category, url: (is_edit_or_update? ? training_platform_project_task_category_path(@task_category,project_id: params[:project_id]) : training_platform_project_task_categories_path(@task_category, project_id: params[:project_id])), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+  <%= f.input :name, as: :string, required: false, autofocus: true %>
+  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+
+  <div class="row tp_m">
+    <div class="col-sm-6">
+      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+<% end %>

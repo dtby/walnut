@@ -18,6 +18,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   def create
     @project = Project.new project_params
     if @project.save
+      flash[:notice] = "项目创建成功"
       UserProject.create(user_id: current_user.id, project_id: @project.id, role: 1)
     end
     respond_with @project
@@ -28,7 +29,9 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   end
 
   def update
-    @project.update project_params
+    if @project.update project_params
+      flash[:notice] = "项目更新成功"
+    end
     respond_with @project
   end
 

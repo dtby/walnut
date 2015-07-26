@@ -1,0 +1,6 @@
+<% if @task_category.errors.blank? %>
+  location.href = "<%= training_platform_project_task_categories_path(project_id: params[:project_id])%>";
+<% else %>
+  $("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/task_categories/form') %>");
+  $("#trainingPlatformModal").modal('show');
+<% end %>

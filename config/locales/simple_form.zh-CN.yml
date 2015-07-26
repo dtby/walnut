@@ -46,6 +46,9 @@ zh-CN:
         name: '名称'
         description: '描述'
         is_public: '属性'
+      task_category:
+        name: '名称'
+        description: '描述'
     placeholders:
       user:
         mobile: '请输入登录手机号'
