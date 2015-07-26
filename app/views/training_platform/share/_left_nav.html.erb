@@ -8,144 +8,82 @@
       </div>
 
       <ul class="nav nav-list ace-nav-left">
-        <li class="active">
-          <a href="index.html">
+        <li class="<%= 'active' if params[:controller] == "training_platform/announces"%>">
+          <%= link_to(training_platform_project_announces_path(project_id: @project.id)) do %>
             <i class="icon-dashboard"></i>
-            <span class="menu-text"> 公告信息 </span>
-          </a>
+            <span class="menu-text">公告信息</span>
+          <% end %>
         </li>
 
-        <li>
+        <li class="<%= 'active' if params[:controller] == ""%>">
           <a href="#" class="dropdown-toggle">
             <i class="icon-user"></i>
             <span class="menu-text"> 我的任务 </span>
-
-            <b class="arrow icon-angle-down"></b>
           </a>
-
-          <ul class="submenu">
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                待办中（0）
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                进行中（0）
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-               已完成（0）
-              </a>
-            </li>
-          </ul>
         </li>
 
-        <li>
+        <li class="<%= 'active' if params[:controller] == "training_platform/tasks"%>">
           <a href="#" class="dropdown-toggle">
-            <i class="icon-list"></i>
+            <i class="icon-tasks"></i>
             <span class="menu-text"> 任务列表 </span>
-
-            <b class="arrow icon-angle-down"></b>
+            <% if @project.task_categories.present? %><b class="arrow icon-angle-down"></b><% end %>
           </a>
-
-          <ul class="submenu">
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                任务1
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-               任务2
-              </a>
-            </li>
-          </ul>
+          <% if @project.task_categories.present? %>
+            <ul class="submenu">
+              <% @project.task_categories.each do |tc|%>
+                <li>
+                  <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                    <%= tc.name %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </li>
 
-        <li>
-          <a href="#" class="dropdown-toggle">
+        <li class="<%= 'active' if params[:controller] == ""%>">
+          <a href="javascript:void(0);" class="dropdown-toggle">
             <i class="icon-group"></i>
             <span class="menu-text"> 团队成员 </span>
-            <b class="arrow icon-angle-down"></b>
+            <% if @project.users.present? %><b class="arrow icon-angle-down"></b><% end %>
           </a>
-
-          <ul class="submenu">
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                李毅杰（大师）
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                崔军伟（工程师）
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                樊伟（工程师）
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                陈博
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                曹子莹
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <i class="icon-double-angle-right"></i>
-                张留刚
-              </a>
-            </li>
-          </ul>
+          <% if @project.users.present? %>
+            <ul class="submenu">
+              <% @project.users.each do |member|%>
+                <li>
+                  <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                    <%= member.show_name %>
+                  </a>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
         </li>
 
-        <li>
-          <a href="index.html">
+        <li class="<%= 'active' if params[:controller] == "training_platform/courses"%>">
+          <%= link_to(training_platform_project_courses_path(project_id: @project.id)) do %>
             <i class="icon-book"></i>
             <span class="menu-text">相关课程</span>
-          </a>
+          <% end %>
         </li>
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
           <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <button class="btn btn-success">
-              <i class="icon-signal"></i>
+            <button class="btn btn-success" data-toggle="tooltip" data-placement="left" title="新建任务列表">
+              <i class="icon-tasks"></i>
             </button>
 
-            <button class="btn btn-info">
-              <i class="icon-pencil"></i>
+            <button class="btn btn-info" data-toggle="tooltip" data-placement="left" title="新建任务">
+              <i class="icon-plus"></i>
             </button>
 
-            <button class="btn btn-warning">
+            <button class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="邀请团队成员">
               <i class="icon-group"></i>
             </button>
 
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="设置">
               <i class="icon-cogs"></i>
             </button>
           </div>

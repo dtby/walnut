@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   has_many :user_recruitments, dependent: :destroy
   has_many :recruitments, through: :user_recruitments
   has_one :image, as: :imageable
+  has_many :user_projects, dependent: :destroy
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create
@@ -84,6 +85,10 @@ class User < ActiveRecord::Base
 
   def self.current=(user)
     Thread.current[:user] = user
+  end
+
+  def show_name
+    name || mobile
   end
   
 end
