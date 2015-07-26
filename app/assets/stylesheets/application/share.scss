@@ -15,20 +15,20 @@
 	}
 
 
-	 .sub_menu{
-	 	min-width: 96px;
-	 	background: #19B29F;
-	 	border: none;
-	 	border-radius: 0;
-	 	a{
-	 		color: #fff;
-	 		background-color: #19B29F !important;
-	 	}
-	 	a :hover a:focus{
-	 		color: #000;
-	 		background-color:#19B29F!important;
-	 	}
-	 }
+	.sub_menu{
+		min-width: 96px;
+		background: #19B29F;
+		border: none;
+		border-radius: 0;
+		a{
+			color: #fff;
+			background-color: #19B29F !important;
+		}
+		a :hover a:focus{
+			color: #000;
+			background-color:#19B29F!important;
+		}
+	}
 }
 
 //footer
@@ -152,14 +152,15 @@
 				text-align:center;
 			}
 			.title span {
-			border-bottom: 2px solid rgba(0, 203, 210,0.8);
+				border-bottom: 2px solid rgba(0, 203, 210,0.8);
 			}
 			form {
-			padding: 10px 15px;
-			.form-group {
-				margin-bottom: 20px;
-				.form-control {
-					height: 42px;
+				padding: 10px 15px;
+				.form-group {
+					margin-bottom: 20px;
+					.form-control {
+						height: 42px;
+					}
 				}
 			}
 			.form-actions {
@@ -173,13 +174,20 @@
 				&.btn-info-tp {
 					background-color:rgba(0, 203, 210,0.8)!important;
 				}
-				&.btn-danger-tp {
-					background-color:#FF5962!important;
+				.btn {
+					width: 50%;
+					border-radius:8px;
+					line-height: 10px;
+					&.btn-info-tp {
+						background-color:rgba(0, 203, 210,0.8)!important;
+					}
+					&.btn-danger-tp {
+						background-color:#FF5962!important;
+					}
 				}
 			}
 		}
 	}
-}
 }
 
 //traing_platform_modal2
@@ -211,11 +219,11 @@ button  {
 }
 .ace_modal_tbd {
 	.dropdown {
-			padding-top:10px;
-			ul {
-				z-index:10;
-			}
+		padding-top:10px;
+		ul {
+			z-index:10;
 		}
+	}
 	tr {
 		margin:10px;
 	}
@@ -226,7 +234,7 @@ button  {
 	}
 	span {
 		padding-left:20px;
-		}
+	}
 }
 
-		
+
