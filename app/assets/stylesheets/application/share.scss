@@ -154,7 +154,8 @@
 			.title span {
 				border-bottom: 2px solid rgba(0, 203, 210,0.8);
 			}
-			form {
+
+			form.form-horizontal {
 				padding: 10px 15px;
 				.form-group {
 					margin-bottom: 20px;
@@ -162,22 +163,14 @@
 						height: 42px;
 					}
 				}
-			}
-			.form-actions {
-				margin-bottom: 10px;
-				text-align:center;
-			}
-			.btn {
-				width: 80%;
-				border-radius:8px;
-				line-height: 15px;
-				&.btn-info-tp {
-					background-color:rgba(0, 203, 210,0.8)!important;
+				.form-actions {
+					margin-bottom: 10px;
+					text-align:center;
 				}
 				.btn {
-					width: 50%;
-					border-radius:8px;
-					line-height: 10px;
+					width: 80%;
+					border-radius: 8px;
+					line-height: 28px;
 					&.btn-info-tp {
 						background-color:rgba(0, 203, 210,0.8)!important;
 					}
@@ -185,6 +178,32 @@
 						background-color:#FF5962!important;
 					}
 				}
+			}
+			form.form-inline {
+				padding: 10px 15px;
+				margin: 0px 15px;
+				.form-group {
+					width: 100%;
+					.form-control {
+						height: 38px;
+						width: 99%
+					}
+				}
+				.btn {
+					border-radius: 8px;
+					line-height: 24px;
+					&.btn-info-tp {
+						width: 100%;
+						background-color:rgba(0, 203, 210,0.8)!important;
+					}
+				}
+			}
+		}
+
+		//modal中列表
+		.modal-list {
+			.row {
+				margin: 5px 10px;
 			}
 		}
 	}

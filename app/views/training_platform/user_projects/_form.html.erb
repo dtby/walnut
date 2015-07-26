@@ -1,17 +1,39 @@
 <h3 class="text-center title"><span>邀请成员<span></h3>
-<%= simple_form_for(@task, url: (is_edit_or_update? ? training_platform_project_task_path(@task,project_id: params[:project_id]) : training_platform_project_tasks_path(@task, project_id: params[:project_id])), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
-
-  <%= f.input :name, as: :string, required: false, autofocus: true %>
-  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
-  <%= f.input :task_category_id, as: :hidden, input_html: {value: params[:task_category_id]} %>
-  <%= f.input :user_id, as: :hidden, input_html: {value: params[:user_id]} %>
-
-  <div class="row tp_m">
-    <div class="col-sm-6">
-      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
+<%= simple_form_for(@user_project, url: training_platform_project_user_projects_path(@user_project, project_id: params[:project_id]),html: {id: "projectFormModal", class: "form-inline"}) do |f| %>
+  <div class="row">
+    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
+      <%= f.input :user, as: :string, required: false, label: false ,autofocus: true, placeholder: "请输入邮箱或者手机号" %>
     </div>
-    <div class="col-sm-6">
-      <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
+      <%= f.input :role, as: :select, label: false ,collection: [["管理者", "admin"], ["成员", "member"]], include_blank: false %>
+    </div>
+    <%= f.input :project_id, as: :hidden, input_html: {value: params[:project_id]} %>
+    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
+      <div class="form-group">
+        <%= f.button :submit, "邀请", class: "btn btn-info-tp" %>
+      </div>
     </div>
   </div>
 <% end %>
+
+<hr class="my-line">
+
+<div class="modal-list">
+  <% (1..10).each do |i| %>
+    <div class="row">
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
+        <%= image_tag("course-teacher.png", class: "img-circle", style: "width: 100%") %>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
+        <div><%= "樊伟" %></div>
+        <div><%= "992273028@qq.com" %></div>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
+        创建者
+      </div>
+      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
+        移除
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -79,7 +79,7 @@
               <!-- <i class="icon-plus"></i> -->
             <%# end %>
 
-            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning") do %>
+            <%= link_to( new_training_platform_project_user_project_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning", format: :js, remote: true) do %>
               <i class="icon-group"></i>
             <% end %>
 
