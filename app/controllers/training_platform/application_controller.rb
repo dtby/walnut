@@ -1,5 +1,5 @@
 class TrainingPlatform::ApplicationController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, excep: :invite_member
   layout 'training_platform'
 
   # Prevent CSRF attacks by raising an exception.

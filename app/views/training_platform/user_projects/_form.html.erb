@@ -1,8 +1,8 @@
 <h3 class="text-center title"><span>邀请成员<span></h3>
-<%= simple_form_for(@user_project, url: training_platform_project_user_projects_path(@user_project, project_id: params[:project_id]),html: {id: "projectFormModal", class: "form-inline"}) do |f| %>
+<%= simple_form_for(@user_project, url: training_platform_project_user_projects_path(@user_project, project_id: params[:project_id]),html: {id: "projectFormModal", class: "form-inline"}, remote: true, format: :js) do |f| %>
   <div class="row">
     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
-      <%= f.input :user, as: :string, required: false, label: false ,autofocus: true, placeholder: "请输入邮箱或者手机号" %>
+      <%= f.input :user_id, as: :string, required: false, label: false ,autofocus: true, placeholder: "请输入邮箱或者手机号" %>
     </div>
     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
       <%= f.input :role, as: :select, label: false ,collection: [["管理者", "admin"], ["成员", "member"]], include_blank: false %>

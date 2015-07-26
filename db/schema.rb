@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726005720) do
+ActiveRecord::Schema.define(version: 20150726171313) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 20150726005720) do
     t.integer  "role",       limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.boolean  "invite"
   end
 
   add_index "user_projects", ["project_id"], name: "index_user_projects_on_project_id", using: :btree

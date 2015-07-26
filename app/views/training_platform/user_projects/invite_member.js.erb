@@ -1,0 +1,6 @@
+<% if @success %>
+  location.href = "<%= training_platform_project_announces_path(project_id: @user_project.project_id)%>"
+<% else %>
+  <% flash[:notice]  %>
+  location.href = "<%= root_path %>"
+<% end %>

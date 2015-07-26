@@ -16,4 +16,9 @@ class UserProject < ActiveRecord::Base
   #创建者、管理者、成员、访客
   enum role: { creator: 1, admin: 2, member: 3 }
   Role = { creator: "创建者", admin: "管理者", member: "成员" }
+
+
+  validates :user_id, presence: {message: "不存在该用户"}
+  validates_uniqueness_of :user_id, scope: :project_id, message: "该成员已经存在"
+
 end

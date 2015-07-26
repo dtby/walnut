@@ -28,7 +28,7 @@ class Project < ActiveRecord::Base
   #任务完成以及验收通过的百分比
   def task_percentage
     return 0 if self.tasks.count == 0
-    (project.tasks.completes.count + project.tasks.acceprances.count)/self.tasks.count
+    (self.tasks.completes.count + self.tasks.acceprances.count)/self.tasks.count
   end
 
 

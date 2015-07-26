@@ -1,0 +1,10 @@
+<h1>邀请你加入<%= @project.name %>实训项目</h1>
+<p>
+  姓名：<%= @user.name %>
+</p>
+<p>
+  性别：<%= @user.gender %>
+</p>
+<%#= link_to("同意", url_for(controller: "user_projects", action: "invite_member", params: {r: @agree}), format: :js ) %>
+<%= link_to("同意", invite_member_training_platform_project_user_projects_url(@project, r: @agree), format: :js ) %>
+
