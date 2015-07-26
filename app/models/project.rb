@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
 
   acts_as_votable
   has_many :task_categories, dependent: :destroy
-  has_many :tasks, through: :task_categories
+  has_many :tasks, dependent: :destroy
   has_many :user_projects, dependent: :destroy
   has_many :users, through: :user_projects
 

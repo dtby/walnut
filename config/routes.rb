@@ -59,6 +59,7 @@ end
       resources :tasks
       resources :announces
       resources :courses
+      resources :task_categories
     end
   end
 

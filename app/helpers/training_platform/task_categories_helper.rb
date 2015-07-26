@@ -1,0 +1,2 @@
+module TrainingPlatform::TaskCategoriesHelper
+end

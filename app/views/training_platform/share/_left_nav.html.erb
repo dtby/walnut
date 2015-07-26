@@ -71,21 +71,21 @@
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
           <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <button class="btn btn-success" data-toggle="tooltip" data-placement="left" title="新建任务列表">
+            <%= link_to( new_training_platform_project_task_category_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务列表", class: "btn btn-success") do %>
               <i class="icon-tasks"></i>
-            </button>
+            <% end %>
 
-            <button class="btn btn-info" data-toggle="tooltip" data-placement="left" title="新建任务">
+            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务", class: "btn btn-info") do %>
               <i class="icon-plus"></i>
-            </button>
+            <% end %>
 
-            <button class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="邀请团队成员">
+            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning") do %>
               <i class="icon-group"></i>
-            </button>
+            <% end %>
 
-            <button class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="设置">
+            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "设置", class: "btn btn-danger") do %>
               <i class="icon-cogs"></i>
-            </button>
+            <% end %>
           </div>
 
           <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
