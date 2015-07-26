@@ -141,3 +141,43 @@
 	}
 }
 
+
+//traing_platform_modal
+#trainingPlatformModal {
+	.modal-content {
+		border: 5px solid rgba(0, 203, 210,1);
+		border-radius:15px;
+		.tp-user-devise-form{
+			.tp_m {
+				text-align:center;
+			}
+			.title span {
+			border-bottom: 2px solid rgba(0, 203, 210,0.8);
+			}
+			form {
+			padding: 10px 15px;
+			.form-group {
+				margin-bottom: 20px;
+				.form-control {
+					height: 42px;
+				}
+			}
+			.form-actions {
+				margin-bottom: 10px;
+				text-align:center;
+			}
+			.btn {
+				width: 50%;
+				border-radius:8px;
+				line-height: 10px;
+				&.btn-info-tp {
+					background-color:rgba(0, 203, 210,0.8)!important;
+				}
+				&.btn-danger-tp {
+					background-color:#FF5962!important;
+				}
+			}
+		}
+	}
+}
+}

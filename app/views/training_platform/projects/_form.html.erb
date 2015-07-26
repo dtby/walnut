@@ -5,12 +5,12 @@
   <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
   <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
 
-  <div class="row">
+  <div class="row tp_m">
     <div class="col-sm-6">
-      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info" %>
+      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
     </div>
     <div class="col-sm-6">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+      <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
     </div>
   </div>
 <% end %>
