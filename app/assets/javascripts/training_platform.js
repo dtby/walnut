@@ -5,5 +5,4 @@
 //= require_tree ./ace/.
 //= require_tree ./training_platform/.
 //= require bootstrap
-//= require application
 
