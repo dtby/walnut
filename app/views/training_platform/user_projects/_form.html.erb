@@ -1,0 +1,17 @@
+<h3 class="text-center title"><span>邀请成员<span></h3>
+<%= simple_form_for(@task, url: (is_edit_or_update? ? training_platform_project_task_path(@task,project_id: params[:project_id]) : training_platform_project_tasks_path(@task, project_id: params[:project_id])), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+  <%= f.input :name, as: :string, required: false, autofocus: true %>
+  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+  <%= f.input :task_category_id, as: :hidden, input_html: {value: params[:task_category_id]} %>
+  <%= f.input :user_id, as: :hidden, input_html: {value: params[:user_id]} %>
+
+  <div class="row tp_m">
+    <div class="col-sm-6">
+      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
+    </div>
+    <div class="col-sm-6">
+      <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+    </div>
+  </div>
+<% end %>

@@ -61,6 +61,11 @@ end
       resources :courses
       resources :task_categories
       resources :users, only: :show
+      resources :user_projects do
+        collection do
+          get :invite_member
+        end
+      end
     end
   end
 
