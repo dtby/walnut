@@ -1,0 +1,239 @@
+<div class="main-container" id="main-container">
+  <script type="text/javascript">
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+  </script>
+
+  <div class="main-container-inner">
+    <a class="menu-toggler" id="menu-toggler" href="#">
+      <span class="menu-text"></span>
+    </a>
+
+    <%= render 'training_platform/share/left_nav'%>
+
+    <div class="main-content">
+      <div class="page-content">
+          <div class="col-xs-12">
+            <div class="row">
+                <!-- PAGE CONTENT BEGINS -->
+                <div class="col-xs-6 ace_content_left_title">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加项目</span>
+                  </a>
+                </div>
+                <!-- begin right-title -->
+                <div class="col-xs-6 ace_content_right_title">
+                    <div class="col-xs-7 ace-serch">
+                        <form class="form-search col-xs-12 ace-form-serch">
+                        <span class="input-icon">
+                        <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                        <i class="icon-search nav-search-icon"></i>
+                        </span>
+                        </form><!-- #nav-search -->
+                    </div>
+                    <div class="col-xs-5">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- end right-title -->
+                          <div class="col-xs-6 ace_content_page_left">
+              <div class="my-task">
+                <h3>我的任务</h3>
+                <hr class="my-line">
+              </div>
+              <h4 class="my-progress">待办中（0）</h4>
+              <%2.times do%>
+              <div class="row backlog">
+                <div class="dropdown col-xs-3">
+                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    待办中
+                    <span class="caret my-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Anoth</a></li>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">link</a></li>
+                  </ul>
+                </div>
+                <div class="col-xs-3"><span class="business">业务需求讨论</span></div>
+                <div class="col-xs-6 text-right"><span class="business">2015-07-15</span></div>
+              </div>
+              <%end%>
+              <h4 class="my-progress">进行中（0）</h4>
+              <%2.times do%>
+              <div class="row backlog">
+                <div class="dropdown col-xs-3">
+                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    待办中
+                    <span class="caret my-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Anoth</a></li>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">link</a></li>
+                  </ul>
+                </div>
+                <div class="col-xs-3"><span class="business">业务需求讨论</span></div>
+                <div class="col-xs-6 text-right"><span class="business">2015-07-15</span></div>
+              </div>
+              <%end%>
+              <h4 class="my-progress">已完成（0）</h4>
+              <%2.times do%>
+              <div class="row backlog">
+                <div class="dropdown col-xs-3">
+                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    待办中
+                    <span class="caret my-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Anoth</a></li>
+                    <li><a href="#">Some</a></li>
+                    <li><a href="#">link</a></li>
+                  </ul>
+                </div>
+                <div class="col-xs-3"><span class="business">业务需求讨论</span></div>
+                <div class="col-xs-6 text-right"><span class="business">2015-07-15</span></div>
+              </div>
+              <%end%>
+            </div>
+
+            <div class="col-xs-6 ace_content_page_right">
+              <div class="my-task">
+                <h3>任务详情</h3>
+                <hr class="my-line">
+              </div>
+              <div class="my-details">
+                <div class="col-xs-2 dropdown">
+                  <botton class="my-btn my-black btn btn-default">所属任务</botton>
+                </div>
+                <div class="col-xs-2 dropdown" style="padding-left:10px">
+                  <div class="dropdown">
+                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      负责人
+                      <span class="caret my-caret"></span>
+                    </button>
+                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">other</a></li>
+                      <li><a href="#">Some</a></li>
+                      <li><a href="#">Separate</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xs-2 dropdown" style="padding-left:20px">
+                  <botton class="my-btn my-black btn btn-default">截止日期</botton>
+                </div>
+                <div class="col-xs-2 dropdown" style="padding-left:30px">
+                  <div class="dropdown">
+                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      优先级
+                      <span class="caret my-caret"></span>
+                    </button>
+                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">other</a></li>
+                      <li><a href="#">Some</a></li>
+                      <li><a href="#">Separate</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-xs-2 dropdown" style="padding-left:40px">
+                  <botton class="my-btn my-black btn btn-default">附件</botton>
+                </div>
+                <div class="col-xs-2 dropdown" style="padding-left:25px">
+                  <div class="dropdown">
+                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      操作
+                      <span class="caret my-caret"></span>
+                    </button>
+                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                      <li><a href="#">Action</a></li>
+                      <li><a href="#">other</a></li>
+                      <li><a href="#">Some</a></li>
+                      <li><a href="#">Separ</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div><br>
+              <div class="col-xs-4 a-col">
+                <h4>业务需求讨论</h4>
+              </div>
+              <div class="dropdown col-xs-8">
+                <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  待办中
+                  <span class="caret my-caret"></span>
+                </button>
+                <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">Some</a></li>
+                  <li><a href="#">link</a></li>
+                </ul>
+              </div><br>
+              <div class="col-xs-12">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-xs-8">
+                      <input type="email" class="form-control" id="inputEmail3" placeholder="请输入任务描述或者任务标签">
+                    </div>
+                    <div class="col-xs-2">
+                      <botton class="btn btn-default submit-btn">描述提交</botton>
+                    </div>
+                    <div class="col-xs-2">
+                      <botton class="btn btn-default">添加标签</botton>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="dropdown">
+                <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                  请选择协作者
+                  <span class="caret my-caret"></span>
+                </button>
+                <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">other</a></li>
+                  <li><a href="#">Some</a></li>
+                  <li><a href="#">link</a></li>
+                </ul>
+              </div>
+              <button type="submit" class="btn btn-default">确认提交</button>
+              <div class="col-xs-12 my-task">
+                <h3>任务动态</h3>
+                <hr class="my-line">
+              </div>
+              <div class="my-trends">
+              </div>
+            </div>
+              <!-- PAGE CONTENT ENDS -->
+            </div>
+          </div><!-- /.col -->
+      </div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+  </div>
+
+  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+  </a>
+
+</div>
+<script type="text/javascript">
+      jQuery(function($){
+      
+        $('.dd').nestable();
+      
+        $('.dd-handle a').on('mousedown', function(e){
+          e.stopPropagation();
+        });
+        
+        $('[data-rel="tooltip"]').tooltip();
+      
+      });
+    </script>

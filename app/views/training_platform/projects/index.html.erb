@@ -43,7 +43,7 @@
                       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
-                      <li><%= link_to "打开项目", training_platform_tasks_path %></li>
+                      <li><%= link_to "打开项目", training_platform_project_announces_path(project_id: project.id) %></li>
                       <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
                       </li>
                       <li>
@@ -62,7 +62,7 @@
                     </span>%
                   </div>
                 </div>
-                <%= link_to training_platform_tasks_path do %>
+                <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
                   <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
                     <h4><%= project.name %></h4>
                     <p>

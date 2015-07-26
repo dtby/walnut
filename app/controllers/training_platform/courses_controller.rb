@@ -1,8 +1,6 @@
-class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
+class TrainingPlatform::CoursesController < TrainingPlatform::ApplicationController
   before_action :set_project
 
-  def index
-  end
 
   private 
     def set_project

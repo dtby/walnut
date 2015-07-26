@@ -55,8 +55,11 @@ end
   #实训项目
   namespace :training_platform do
     root 'projects#index'
-    resources :projects
-    resources :tasks
+    resources :projects do
+      resources :tasks
+      resources :announces
+      resources :courses
+    end
   end
 
   resources :projects
