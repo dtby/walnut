@@ -147,7 +147,7 @@
 		color: #000 !important;
 	}
 	.my-btn{
-		padding: 2px 16px;
+		padding: 1px 8px;
 		border-radius: 20px;
 		background-color: #fff !important;
 		font-weight: normal;
@@ -155,6 +155,14 @@
 			color: #000;
 		}
 	}
+        .right_dm1 {
+          margin-top:10px;
+        }
+}
+.task_d {
+  padding-bottom:40px;
+}.task_t {
+  padding-left:30px;
 }
 .percent_number {
 	font-size:25px;
