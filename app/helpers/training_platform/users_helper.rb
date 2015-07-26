@@ -1,0 +1,2 @@
+module TrainingPlatform::UsersHelper
+end

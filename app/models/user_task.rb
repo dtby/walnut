@@ -13,8 +13,9 @@
 class UserTask < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
+  belongs_to :self_task, class_name: "Task", foreign_key: :task_id
 
-  #创建者、负责人、协同者 
-  enum role: { creator: 1, principal: 2, helper: 3 }
-  Role = { creator: "创建者", principal: "负责人", helper: "协同者" }
+  #负责人、协同者 
+  enum role: { principal: 1, helper: 2 }
+  Role = { principal: "负责人", helper: "协同者" }
 end

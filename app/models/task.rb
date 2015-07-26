@@ -26,6 +26,8 @@ class Task < ActiveRecord::Base
   scope :completes, -> { where state: 3 }
   scope :acceprances, -> { where state: 4 }
 
+  validates :name, presence: true
+
   #序号No状态、优先级的初始化赋值
   before_create do
     self.No = Task.where(project_id: self.project_id).count + 1

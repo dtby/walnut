@@ -1,5 +1,5 @@
 class TrainingPlatform::TaskCategoriesController < TrainingPlatform::ApplicationController
-  before_action :set_task_category, only: [:edit, :update, :destroy]
+  before_action :set_task_category, only: [:edit, :update, :destroy, :show]
   before_action :set_project
 
   def new
@@ -29,6 +29,10 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
 
   def destroy
     respond_with @task_category.destroy
+  end
+
+  def show
+    respond_with @task_category
   end
 
   private

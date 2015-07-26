@@ -60,6 +60,7 @@ end
       resources :announces
       resources :courses
       resources :task_categories
+      resources :users, only: :show
     end
   end
 

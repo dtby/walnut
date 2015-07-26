@@ -11,18 +11,18 @@
         <li class="<%= 'active' if params[:controller] == "training_platform/announces"%>">
           <%= link_to(training_platform_project_announces_path(project_id: @project.id)) do %>
             <i class="icon-dashboard"></i>
-            <span class="menu-text">公告信息</span>
+            <span class="menu-text"> 公告信息 </span>
           <% end %>
         </li>
 
-        <li class="<%= 'active' if params[:controller] == ""%>">
-          <a href="#" class="dropdown-toggle">
+        <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) %>">
+          <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id)) do %>
             <i class="icon-user"></i>
             <span class="menu-text"> 我的任务 </span>
-          </a>
+          <% end %>
         </li>
 
-        <li class="<%= 'active' if params[:controller] == "training_platform/task_categories"%>">
+        <li class="<%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
           <a href="#" class="dropdown-toggle">
             <i class="icon-tasks"></i>
             <span class="menu-text"> 任务列表 </span>
@@ -32,10 +32,10 @@
             <ul class="submenu">
               <% @project.task_categories.each do |tc|%>
                 <li>
-                  <a href="#">
+                  <%= link_to(training_platform_project_task_category_path(tc, project_id: @project.id)) do%>
                     <i class="icon-double-angle-right"></i>
                     <%= tc.name %>
-                  </a>
+                  <% end %>
                 </li>
               <% end %>
             </ul>
@@ -52,10 +52,10 @@
             <ul class="submenu">
               <% @project.users.each do |member|%>
                 <li>
-                  <a href="#">
+                  <%= link_to(training_platform_project_user_path(member, project_id: @project.id)) do %>
                     <i class="icon-double-angle-right"></i>
                     <%= member.show_name %>
-                  </a>
+                  <% end %>
                 </li>
               <% end %>
             </ul>
