@@ -172,11 +172,24 @@
         margin: 10px 0;
       }
     }
+    //任务详情操作按钮组
+    .task-ops {
+      margin-left: 0px;
+      margin-right: 0px;
+      .btn {
+        width: 95%;
+      }
+
+      .task-description {
+        height: 100px;
+      }
+    }
     
   }
 
   //操作下拉
   .dropdown{
+    padding: 0px;
     .dropdown-btn {
       color: #2adcc9 !important;
       padding: 1px 8px;
