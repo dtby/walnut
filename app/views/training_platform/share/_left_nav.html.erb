@@ -1,110 +1,110 @@
-    <div class="sidebar" id="sidebar">
-      <script type="text/javascript">
-        try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-      </script>
-      
-      <div class="project_name">
-        <span class="project_name_t"><%= @project.name.truncate(5, omission: '')%></span>
+<div class="sidebar" id="sidebar">
+  <script type="text/javascript">
+    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+  </script>
+  
+  <div class="project_name">
+    <span class="project_name_t"><%= @project.name.truncate(5, omission: '')%></span>
+  </div>
+
+  <ul class="nav nav-list ace-nav-left">
+    <li class="<%= 'active' if params[:controller] == "training_platform/announces"%>">
+      <%= link_to(training_platform_project_announces_path(project_id: @project.id)) do %>
+        <i class="icon-dashboard"></i>
+        <span class="menu-text"> 公告信息 </span>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) %>">
+      <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id)) do %>
+        <i class="icon-user"></i>
+        <span class="menu-text"> 我的任务 </span>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
+      <a href="#" class="dropdown-toggle">
+        <i class="icon-tasks"></i>
+        <span class="menu-text"> 任务列表 </span>
+        <% if @project.task_categories.present? %><b class="arrow icon-angle-down"></b><% end %>
+      </a>
+      <% if @project.task_categories.present? %>
+        <ul class="submenu">
+          <% @project.task_categories.each do |tc|%>
+            <li>
+              <%= link_to(training_platform_project_task_category_path(tc, project_id: @project.id)) do%>
+                <i class="icon-double-angle-right"></i>
+                <%= tc.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if params[:controller] == ""%>">
+      <a href="javascript:void(0);" class="dropdown-toggle">
+        <i class="icon-group"></i>
+        <span class="menu-text"> 团队成员 </span>
+        <% if @project.users.present? %><b class="arrow icon-angle-down"></b><% end %>
+      </a>
+      <% if @project.users.present? %>
+        <ul class="submenu">
+          <% @project.users.each do |member|%>
+            <li>
+              <%= link_to(training_platform_project_user_path(member, project_id: @project.id)) do %>
+                <i class="icon-double-angle-right"></i>
+                <%= member.show_name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </li>
+
+    <li class="<%= 'active' if params[:controller] == "training_platform/courses"%>">
+      <%= link_to(training_platform_project_courses_path(project_id: @project.id)) do %>
+        <i class="icon-book"></i>
+        <span class="menu-text">相关课程</span>
+      <% end %>
+    </li>
+
+    <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+      <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+        <%= link_to( new_training_platform_project_task_category_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务列表", class: "btn btn-success", format: :js, remote: true) do %>
+          <i class="icon-tasks"></i>
+        <% end %>
+
+        <%#= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务", class: "btn btn-info") do %>
+          <!-- <i class="icon-plus"></i> -->
+        <%# end %>
+
+        <%= link_to( new_training_platform_project_user_project_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning", format: :js, remote: true) do %>
+          <i class="icon-group"></i>
+        <% end %>
+
+        <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "设置", class: "btn btn-danger") do %>
+          <i class="icon-cogs"></i>
+        <% end %>
       </div>
 
-      <ul class="nav nav-list ace-nav-left">
-        <li class="<%= 'active' if params[:controller] == "training_platform/announces"%>">
-          <%= link_to(training_platform_project_announces_path(project_id: @project.id)) do %>
-            <i class="icon-dashboard"></i>
-            <span class="menu-text"> 公告信息 </span>
-          <% end %>
-        </li>
+      <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+        <span class="btn btn-success"></span>
 
-        <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) %>">
-          <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id)) do %>
-            <i class="icon-user"></i>
-            <span class="menu-text"> 我的任务 </span>
-          <% end %>
-        </li>
+        <!-- <span class="btn btn-info"></span> -->
 
-        <li class="<%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
-          <a href="#" class="dropdown-toggle">
-            <i class="icon-tasks"></i>
-            <span class="menu-text"> 任务列表 </span>
-            <% if @project.task_categories.present? %><b class="arrow icon-angle-down"></b><% end %>
-          </a>
-          <% if @project.task_categories.present? %>
-            <ul class="submenu">
-              <% @project.task_categories.each do |tc|%>
-                <li>
-                  <%= link_to(training_platform_project_task_category_path(tc, project_id: @project.id)) do%>
-                    <i class="icon-double-angle-right"></i>
-                    <%= tc.name %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-        </li>
+        <span class="btn btn-warning"></span>
 
-        <li class="<%= 'active' if params[:controller] == ""%>">
-          <a href="javascript:void(0);" class="dropdown-toggle">
-            <i class="icon-group"></i>
-            <span class="menu-text"> 团队成员 </span>
-            <% if @project.users.present? %><b class="arrow icon-angle-down"></b><% end %>
-          </a>
-          <% if @project.users.present? %>
-            <ul class="submenu">
-              <% @project.users.each do |member|%>
-                <li>
-                  <%= link_to(training_platform_project_user_path(member, project_id: @project.id)) do %>
-                    <i class="icon-double-angle-right"></i>
-                    <%= member.show_name %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          <% end %>
-        </li>
-
-        <li class="<%= 'active' if params[:controller] == "training_platform/courses"%>">
-          <%= link_to(training_platform_project_courses_path(project_id: @project.id)) do %>
-            <i class="icon-book"></i>
-            <span class="menu-text">相关课程</span>
-          <% end %>
-        </li>
-
-        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
-          <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <%= link_to( new_training_platform_project_task_category_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务列表", class: "btn btn-success", format: :js, remote: true) do %>
-              <i class="icon-tasks"></i>
-            <% end %>
-
-            <%#= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务", class: "btn btn-info") do %>
-              <!-- <i class="icon-plus"></i> -->
-            <%# end %>
-
-            <%= link_to( new_training_platform_project_user_project_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning", format: :js, remote: true) do %>
-              <i class="icon-group"></i>
-            <% end %>
-
-            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "设置", class: "btn btn-danger") do %>
-              <i class="icon-cogs"></i>
-            <% end %>
-          </div>
-
-          <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-            <span class="btn btn-success"></span>
-
-            <!-- <span class="btn btn-info"></span> -->
-
-            <span class="btn btn-warning"></span>
-
-            <span class="btn btn-danger"></span>
-          </div>
-        </div><!-- #sidebar-shortcuts -->
-      </ul><!-- /.nav-list -->
-
-      <div class="sidebar-collapse" id="sidebar-collapse">
-        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+        <span class="btn btn-danger"></span>
       </div>
+    </div><!-- #sidebar-shortcuts -->
+  </ul><!-- /.nav-list -->
 
-      <script type="text/javascript">
-        try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
-      </script>
-    </div>
+  <div class="sidebar-collapse" id="sidebar-collapse">
+    <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+  </div>
+
+  <script type="text/javascript">
+    try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+  </script>
+</div>

@@ -1,30 +1,5 @@
-<div class="col-xs-6 ace_content_left_title">
-  <%= link_to new_training_platform_project_task_path(project_id: @project.id, task_category_id: @task_category.try(:id), user_id: @user.try(:id)), remote: true, format: :js do %>
-    <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加任务</span>
-  <% end %>
-</div>
-<!-- begin right-title -->
-<div class="col-xs-6 ace_content_right_title">
-  <div class="col-xs-7 ace-serch">
-      <form class="form-search col-xs-12 ace-form-serch">
-      <span class="input-icon">
-      <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
-      <i class="icon-search nav-search-icon"></i>
-      </span>
-      </form><!-- #nav-search -->
-  </div>
-  <div class="col-xs-5">
-      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-      <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
-      </a>
-      <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-      <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
-      </a>
-  </div>
-</div>
 
-<!-- end right-title -->
-<div class="col-xs-6 ace_content_page_left">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="my-task">
     <h3><%= @task_category.try(:name) || ((@user.id == current_user.id ? "我" : @user.try(:show_name)) + "的任务") %></h3>
     <hr class="my-line">
@@ -32,9 +7,9 @@
 
   <h4 class="my-progress">待办中（<%= waits.size %>）</h4>
   <% waits.each do |task|%>
-    <div class="row backlog">
-      <div class="dropdown col-xs-3">
-        <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="row task-list-row">
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           待办中
           <span class="caret my-caret"></span>
         </button>
@@ -43,16 +18,16 @@
           <li><a href="#">已完成</a></li>
         </ul>
       </div>
-      <div class="col-xs-3"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-6 text-right"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
     </div>
   <%end%>
 
   <h4 class="my-progress">进行中（<%= dos.size %>）</h4>
   <% dos.each do |task|%>
-    <div class="row backlog">
-      <div class="dropdown col-xs-3">
-        <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="row task-list-row">
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           进行中
           <span class="caret my-caret"></span>
         </button>
@@ -61,16 +36,16 @@
           <li><a href="#">已完成</a></li>
         </ul>
       </div>
-      <div class="col-xs-3"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-6 text-right"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
     </div>
   <%end%>
 
   <h4 class="my-progress">已完成（<%= completes.size %>）</h4>
   <% completes.each do |task|%>
-    <div class="row backlog">
-      <div class="dropdown col-xs-3">
-        <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="row task-list-row">
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           已完成
           <span class="caret my-caret"></span>
         </button>
@@ -81,16 +56,16 @@
           <li><a href="#">验收失败</a></li>
         </ul>
       </div>
-      <div class="col-xs-3"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-6 text-right"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
     </div>
   <%end%>
 
   <h4 class="my-progress">验收通过（<%= acceprances.size %>）</h4>
   <% acceprances.each do |task|%>
-    <div class="row backlog">
-      <div class="dropdown col-xs-3">
-        <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    <div class="row task-list-row">
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           验收通过
           <span class="caret my-caret"></span>
         </button>
@@ -101,8 +76,8 @@
           <li><a href="#">验收失败</a></li>
         </ul>
       </div>
-      <div class="col-xs-3"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-6 text-right"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
     </div>
   <%end%>
 </div>

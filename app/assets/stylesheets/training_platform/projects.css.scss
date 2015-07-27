@@ -88,6 +88,8 @@
   .ace_content_page_left, .ace_content_page_right{
     border: solid 0.5px #e1e1e1;
   }
+
+  //内容title
   .ace_content_right_title, .ace_content_left_title {
     background-color:#19B29F;
     .input-icon {
@@ -114,71 +116,73 @@
   .ace_content_right_title  {
     background-color:#00CBD2;
   }
-  .ace-form-serch {
-    margin-left:-40px;
+  
+  //左侧内容
+  .ace_content_page_left {
+    background-color: #fdfdfd;
+    min-height: 600px;
+
+    .my-task{
+      .my-line{
+        border-color: #A4A4A4;
+        margin: 10px 0;
+      }
+    }
+
+    h4.my-progress {
+      font-weight: normal;
+    }
+
+    //任务一览
+    .task-list-row {
+      background-color: #fff;
+      margin: 10px;
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+  }
+
+  //操作下拉
+  .dropdown{
+    .dropdown-btn {
+      color: #2adcc9 !important;
+      padding: 1px 8px;
+      border-radius: 20px;
+      background-color: #fff !important;
+      font-weight: normal;
+      .my-caret{
+        color: #000;
+      }
+    }
+    
+    .dropdown-menu {
+      min-width: 70px;
+    }
   }
 }
-.my-task{
-	font-weight: bold;
-	.my-line{
-		border-color: #A4A4A4;
-                margin: 10px 0;
-	}
-}
-.my-progress{
-	padding-left:20px; 
-}
-.backlog{
-	margin:10px 10px 10px 30px;
-	border:1px solid #ccc;
-	padding: 5px;
-	.col-xs-3{
-		padding: 0;
-	}
-	.business{
-		font-size: 16px;
-	}
-}
-.dropdown{
-	.my-blue{
-		color: #2adcc9 !important;
-	}
-	.my-black{
-		color: #000 !important;
-	}
-	.my-btn{
-		padding: 1px 8px;
-		border-radius: 20px;
-		background-color: #fff !important;
-		font-weight: normal;
-		.my-caret{
-			color: #000;
-		}
-	}
-        .right_dm1 {
-          margin-top:10px;
-        }
-}
-.task_d {
-  padding-bottom:40px;
-}.task_t {
-  padding-left:30px;
-}
-.percent_number {
-	font-size:25px;
-}
-.my-details{
-	padding: 0 20px;
-	.col-xs-2{
-		padding: 0;
-	}
-}
-.my-menu{
-	min-width: 50px;
-}
-.a-col{
-	padding: 10px 0 0 15px;
-}
-.my-bbtn{
-	padding: 15px 15px 20px;
-}
+
+
+// .task_d {
+//   padding-bottom:40px;
+// }.task_t {
+//   padding-left:30px;
+// }
+// .percent_number {
+// 	font-size:25px;
+// }
+// .my-details{
+// 	padding: 0 20px;
+// 	.col-xs-2{
+// 		padding: 0;
+// 	}
+// }
+// .my-menu{
+// 	min-width: 50px;
+// }
+// .a-col{
+// 	padding: 10px 0 0 15px;
+// }
+// .my-bbtn{
+// 	padding: 15px 15px 20px;
+// }

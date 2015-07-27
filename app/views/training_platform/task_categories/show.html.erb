@@ -12,135 +12,62 @@
 
     <div class="main-content">
       <div class="page-content">
-          <div class="col-xs-12">
-            <div class="row">
-              <!-- PAGE CONTENT BEGINS -->
-              <%= render partial: "training_platform/share/task_list", 
-                locals: {
-                  waits: @task_category.tasks.waits,
-                  dos: @task_category.tasks.dos,
-                  completes: @task_category.tasks.completes,
-                  acceprances: @task_category.tasks.acceprances
-                }%>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row">
+            <!-- <左侧> -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 task-left-content">
+              <div class="row ace_content_left_title">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <%= link_to new_training_platform_project_task_path(project_id: @project.id, task_category_id: @task_category.try(:id), user_id: @user.try(:id)), remote: true, format: :js do %>
+                    <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加任务</span>
+                  <% end %>
+                </div>
+              </div>
+              <div class="row ace_content_page_left">
+                <%= render partial: "training_platform/share/task_list", 
+                  locals: {
+                    waits: @task_category.tasks.waits,
+                    dos: @task_category.tasks.dos,
+                    completes: @task_category.tasks.completes,
+                    acceprances: @task_category.tasks.acceprances
+                  }%>
+              </div>
+            </div>
+            <!-- <左侧> -->
 
-            <div class="col-xs-6 ace_content_page_right">
-              <div class="my-task">
-                <h3>任务详情</h3>
-                <hr class="my-line">
-              </div>
-              <div class="my-details">
-                <div class="col-xs-2 dropdown">
-                  <botton class="my-btn my-black btn btn-default">所属任务</botton>
+            <!-- 右侧 -->
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class="row ace_content_right_title">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ace-serch">
+                  <form class="form-search ace-form-serch">
+                    <span class="input-icon">
+                    <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="icon-search nav-search-icon"></i>
+                    </span>
+                  </form>
                 </div>
-                <div class="col-xs-2 dropdown" style="padding-left:10px">
-                  <div class="dropdown">
-                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      负责人
-                      <span class="caret my-caret"></span>
-                    </button>
-                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">other</a></li>
-                      <li><a href="#">Some</a></li>
-                      <li><a href="#">Separate</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-xs-2 dropdown" style="padding-left:20px">
-                  <botton class="my-btn my-black btn btn-default">截止日期</botton>
-                </div>
-                <div class="col-xs-2 dropdown" style="padding-left:30px">
-                  <div class="dropdown">
-                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      优先级
-                      <span class="caret my-caret"></span>
-                    </button>
-                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">other</a></li>
-                      <li><a href="#">Some</a></li>
-                      <li><a href="#">Separate</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-xs-2 dropdown" style="padding-left:40px">
-                  <botton class="my-btn my-black btn btn-default">附件</botton>
-                </div>
-                <div class="col-xs-2 dropdown" style="padding-left:25px">
-                  <div class="dropdown">
-                    <button class="my-btn my-black btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                      操作
-                      <span class="caret my-caret"></span>
-                    </button>
-                    <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                      <li><a href="#">Action</a></li>
-                      <li><a href="#">other</a></li>
-                      <li><a href="#">Some</a></li>
-                      <li><a href="#">Separ</a></li>
-                    </ul>
-                  </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                  </a>
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                  </a>
                 </div>
               </div>
-            <div class="col-xs-12">
-              <div class="col-xs-4 a-col">
-                <h4>业务需求讨论</h4>
+
+              <div class="row ace_content_page_right">
+                <%= render partial: "training_platform/share/task_show"%>
               </div>
-              <div class="dropdown col-xs-8">
-                <button class="my-btn my-blue btn btn-default dropdown-toggle right_dm1" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  待办中
-                  <span class="caret my-caret"></span>
-                </button>
-                <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">other</a></li>
-                  <li><a href="#">Some</a></li>
-                  <li><a href="#">link</a></li>
-                </ul>
-              </div>
+
             </div>
-              <div class="col-xs-12 task_t">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <div class="col-xs-8">
-                      <input type="email" class="form-control" id="inputEmail3" placeholder="请输入任务描述或者任务标签">
-                    </div>
-                    <div class="col-xs-2">
-                      <botton class="btn btn-default">添加标签</botton>
-                    </div>
-                  </div>
-                </form>
-              </div>
-                                                        <div class="col-xs-12 task_d">
-              <div class="dropdown col-xs-4">
-                <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  请选择协作者
-                  <span class="caret my-caret"></span>
-                </button>
-                <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">other</a></li>
-                  <li><a href="#">Some</a></li>
-                  <li><a href="#">link</a></li>
-                </ul>
-              </div>
-              <div class="col-xs-2">
-                <button type="submit" class="btn btn-default">确认提交</button>
-              </div>
-              </div>
-              <h5>1、这里是任务的描述这里是任务的描述这里是任务的描述</h5>
-              <h5>1、这里是任务的描述这里是任务的描述这里是任务的描述</h5>
-              <div class="col-xs-12 my-task">
-                <h3>任务动态</h3>
-                <hr class="my-line">
-              </div>
-              <div class="my-trends">
-              </div>
-            </div>
-              <!-- PAGE CONTENT ENDS -->
-            </div>
-          </div><!-- /.col -->
-      </div><!-- /.page-content -->
-    </div><!-- /.main-content -->
+            <!-- 右侧 -->
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
   </div>
 
   <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
