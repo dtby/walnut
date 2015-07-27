@@ -14,7 +14,7 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 
 	def create
 		@project = Project.find(params[:project_id])   
-		@announce = @project.announces.create(announce_params)
+		@announce = @project.announces.new(announce_params)
 		@announce.user_id = current_user.id   
 
 		if @announce.save     
@@ -46,7 +46,7 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 
 	private
 	def announce_params
-		params.require(:announce).permit(:id, :title, :description, :user_id, :project_id)
+		params.require(:announce).permit(:title, :description, :project_id)
 	end
 
 	def set_announce

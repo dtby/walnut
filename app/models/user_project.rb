@@ -8,6 +8,7 @@
 #  role       :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  invite     :boolean
 #
 
 class UserProject < ActiveRecord::Base

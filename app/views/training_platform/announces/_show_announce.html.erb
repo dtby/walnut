@@ -1,15 +1,19 @@
-<ul class="nav nav-pills nav-stacked anno-ul">
-	<li >
-		<span class="col-xs-9 text-left"><%= @announce.title %></span>
-		<span class="col-xs-3 text-right"><%= @announce.updated_at == @announce.created_at ? @announce.created_at.strftime("%F") : @announce.updated_at.strftime("%F") %></span>
-	</li>
-</ul>
-<div class="col-xs-12">
-	<br>
-	<div class="announce-content">
-		<p><%= @announce.description %></p>
-	</div>
-</div>
-<%= link_to(edit_training_platform_project_announce_path(project_id: params[:project_id], id: @announce), remote: true, format: :js) do %>
-	<span class="glyphicon glyphicon-edit pull-right"></span>
+<% if @announce.blank? %>
+  这里显示公告详细信息
+<% else %>
+  <ul class="nav nav-pills nav-stacked anno-ul">
+    <li >
+      <span class="col-xs-9 text-left"><%= @announce.title %></span>
+      <span class="col-xs-3 text-right"><%= @announce.updated_at.try(:strftime, "%F") %></span>
+    </li>
+  </ul>
+  <div class="col-xs-12">
+    <br>
+    <div class="announce-content">
+      <p><%= @announce.description %></p>
+    </div>
+  </div>
+  <%= link_to(edit_training_platform_project_announce_path(project_id: params[:project_id], id: @announce), remote: true, format: :js) do %>
+    <span class="glyphicon glyphicon-edit pull-right"></span>
+  <% end %>
 <% end %>
