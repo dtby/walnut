@@ -146,6 +146,7 @@
 #trainingPlatformModal {
 	.modal-content {
 		border: 5px solid rgba(0, 203, 210,1);
+		margin:40px 35px;
 		border-radius:15px;
 		.tp-user-devise-form{
 			.tp_m {
@@ -168,7 +169,7 @@
 					text-align:center;
 				}
 				.btn {
-					width: 80%;
+					width: 50%;
 					border-radius: 8px;
 					line-height: 28px;
 					&.btn-info-tp {
@@ -180,20 +181,9 @@
 				}
 			}
 //add
-			form.form-inline {
-				padding: 10px 15px;
-				margin: 0px 15px;
-				.form-group {
-					width: 100%;
-					.form-control {
-						height: 38px;
-						width: 99%
-					}
 
-			.form-actions {
-				margin-bottom: 10px;
-				text-align:center;
-			}
+				.form-group {
+		
 			.btn {
 				width: 80%;
 				border-radius:8px;
@@ -211,7 +201,7 @@
 				}
 			}
 		}
-	}
+	
 
 		//modal中列表
 		.modal-list {
@@ -257,8 +247,10 @@
 	}
 }
 button  {
-	&.btn-info-tp {
-		background-color:rgba(0, 203, 210,0.8)!important;
+	&.btn-info-tp1 {
+		background-color:rgb(255,255 ,255 )!important;
+		border:1px solid #8B9AA3;
+		color:#8B9AA3;
 	}
 }
 .ace_modal_tab1 {
@@ -294,4 +286,18 @@ button  {
 	}
 }
 
+//traing_platform_modal3
 
+.ace_tp_m3 {
+	.ace_tp_m31 {
+		padding-left:120px;
+	}
+	.btn-info-tp2 {
+		background-color:rgba(85, 130, 237,0.6)!important;
+	}
+}
+.ace_form_dis {
+	.form-control & input {
+
+	}
+}

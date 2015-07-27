@@ -104,7 +104,7 @@
                 </div>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-info-tp" data-dismiss="modal">移除</button>
+                  <button type="button" class="btn btn-info-tp1" data-dismiss="modal">移除</button>
                 </td>
                 </tr>
                 <% end %>
@@ -117,12 +117,21 @@
                 <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
                 <%= f.input :name, as: :string, required: false, autofocus: true %>
-                <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
-                
+                <%= f.input :description, as: :text, required: false, input_html: {cols: 10} %>
+                <div class="form-group ace_form_dis">
+                <div class="col-xs-1">
+                <label for="exampleInputName2">Name</label>
+                </div>
+                <div class="col-xs-11">
+                <input class="form-control" id="disabledInput" type="text" placeholder="软件开发模板<br>任务周期：代办中--进行中--已完成--已验收" disabled>
+                </div>
+                </div>
 
-                <div class="row  ace_tp_m">
-                <div class="col-sm-6">
-                <button type="button" class="btn btn-danger-tp" data-dismiss="modal">编辑</button>
+                <div class="row  ace_tp_m3">
+                <div class="col-sm-12 ace_tp_m31">
+                <div class="col-xs-6">
+                <button type="button" class="btn btn-info-tp2" data-dismiss="modal">编辑</button>
+                </div>
                 <div class="col-sm-6">
                 <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
                 </div>
