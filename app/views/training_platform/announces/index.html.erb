@@ -46,16 +46,9 @@
 								<h3>公告信息</h3>
 								<hr class="my-line">
 							</div>
-							<% @announces.each do |announce| %>
-								<ul class="nav nav-pills nav-stacked anno-ul">
-									<li>
-										<a class="clearfix" href="#">
-											<span class="col-xs-9 text-left"><%= announce.description %></span>
-											<span class="col-xs-3 text-right"><%= announce.created_at %></span>
-										</a>
-									</li>
-								</ul>
-							<% end %>
+							<div id="anno-index">
+								<%= render partial: "announces", location: {announces: @announces} %>
+							</div>
 						</div>
 
 						<div class="col-xs-6 ace_content_page_right">

@@ -1,5 +1,5 @@
-<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
-<%= simple_form_for(@announce, url: is_edit_or_update? ? training_platform_project_announce_path(project_id: params[:project_id], id: @announce) : training_platform_project_announces_path(project_id: params[:project_id], id: @announce), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+<h3 class="text-center title"><span>创建公告<span></h3>
+<%= simple_form_for(@announce, url: training_platform_project_announces_path(project_id: params[:project_id], id: @announce), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
 	<%= f.input :title, as: :string, required: false, autofocus: true %>
 	<%= f.input :description, as: :text, required: false, input_html: {cols: 4, rows: 4} %>
