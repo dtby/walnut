@@ -1,8 +1,7 @@
 <div class="sub_head">
   <ol class="breadcrumb">
   	<li><span class="glyphicon glyphicon-home">&nbsp;</span>课程中心</li>
-  	<li><%= link_to "在线学习", "javascript:void(0)" %></li>
-  	<li><%= link_to "名师课程", "javascript:void(0)" %></li>
+  	<li><%= link_to params[:category], "javascript:void(0)" %></li>
   	<li><%= link_to course.title, course_path(course.id) %></li>
   </ol>
 </div>

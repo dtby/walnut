@@ -36,7 +36,8 @@
 	    <div class="line"></div>
 	  </div>
 	  <div id="courseList">
-		  <%= render @courses %>
+		  <%= render partial: "course", locals: {category:
+		  	'大学课程'} %>
 		</div>
 	</div>
 </div>
