@@ -1,4 +1,4 @@
-<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
+<!-- <h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
 <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
   <%= f.input :name, as: :string, required: false, autofocus: true %>
@@ -13,15 +13,15 @@
       <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
     </div>
   </div>
-<% end %>
-<!-- <div  class="my-nav">
-         Nav tabs
+<% end %> -->
+<div  class="my-nav1">
+         <!-- Nav tabs -->
           <ul class="nav nav-tabs ace_modal_ul" role="tablist">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
             <li role="presentation"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
           </ul>
-        Tab panes
+        <!-- Tab panes -->
         <div class="tab-content main">
 
             <div role="tabpanel" class="tab-pane active" id="home">
@@ -55,9 +55,13 @@
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile">
+            <div class="col-xs-8 ace_modal_tab1">
                <input type="text" placeholder="请输入关键字" class="ace_modal_form" id="ace_modal_form" autocomplete="off" />
+            </div>
+            <div class="col-xs-4">
                 <button type="submit" class="btn btn-default">Send invitation</button>
-
+            </div>
+            <div class="col-xs-8">
                   <div class="ace_modal_media">
                     <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
                     
@@ -65,10 +69,14 @@
                     <h4 class="media-heading">123456</h4>
                     邀请于2015-07-28</span>
                 </div>
-            
-                  <button type="button" class="btn btn-info-tp" data-dismiss="modal">创建者...</button>
+            </div>
+            <div class="col-xs-4">
+                  <button type="button" class="btn btn-info-tp1" data-dismiss="modal">创建者...</button>
+            </div>
+            <div class="col-xs-12">
             <hr>
             <h3>成员列表</h3>
+            </div>
                 <table class="table table-striped">
                 <tbody class="ace_modal_tbd">
                  <% 4.times do %>
@@ -123,4 +131,4 @@
 
             </div>
         </div>
-</div> -->
+</div>

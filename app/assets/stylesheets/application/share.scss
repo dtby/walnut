@@ -179,6 +179,7 @@
 					}
 				}
 			}
+//add
 			form.form-inline {
 				padding: 10px 15px;
 				margin: 0px 15px;
@@ -188,6 +189,17 @@
 						height: 38px;
 						width: 99%
 					}
+
+			.form-actions {
+				margin-bottom: 10px;
+				text-align:center;
+			}
+			.btn {
+				width: 80%;
+				border-radius:8px;
+				line-height: 15px;
+				&.btn-info-tp {
+					background-color:rgba(0, 203, 210,1)!important;
 				}
 				.btn {
 					border-radius: 8px;
@@ -210,15 +222,38 @@
 }
 
 //traing_platform_modal2
-.ace_modal_ul {
-	background-color:rgba(0, 203, 210,0.8);
-	text-align:center;
-	& ul {
-		padding-left:20px!important;
+.my-nav1{
+	border-radius: 10px;
+	.nav-tabs{
+		background-color:rgba(0, 203, 210,1);
+		padding:15px 0 1px 30px;
+		top:-2px;
+		border:0px;
+		box-shadow:none;
+		font-color:#000;
+		font-weight:bold;
+		a {
+			border-radius:15px 15px 0 0!important;
+			background-color:rgba(0, 203, 210,1);
+			border-bottom:#fff;
+			line-height:20px!important;
+			margin-right:0px;
+			&:hover, &:focus {
+				border-radius:15px 15px 0 0!important;
+				background-color:#fff;
+			
+			}
+		}
+	}
+	.tab-content {
+		border:0px;
 	}
 }
 .ace_modal_tab {
 	text-align:center;
+	th {
+		color:rgba(0, 203, 210,0.8);
+	}
 }
 button  {
 	&.btn-info-tp {
@@ -226,12 +261,14 @@ button  {
 	}
 }
 .ace_modal_tab1 {
+	padding-bottom:20px;
 	input  {
-		padding:7px 54px;
-		margin-right:20px;
+		padding:7px 54px!important;
 	}
-	button {
-		padding:10px;
+}
+.ace_modal_btn {
+	.btn {
+		padding:4px 6px;
 		background-color:#fff;
 		border:2px solid #F1F1F1;
 	}
