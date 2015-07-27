@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
     </div>
   <%end%>
   <!-- 代办中任务 -->
@@ -46,7 +46,7 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
     </div>
   <%end%>
   <!-- 进行中任务 -->
@@ -72,7 +72,7 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
     </div>
   <%end%>
   <!-- 已完成任务 -->
@@ -98,9 +98,9 @@
         </ul>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.created_at.strftime("%F") %></span></div>
+      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
     </div>
   <%end%>
   <!-- 验收通过任务 -->
-  
+
 </div>

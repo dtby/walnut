@@ -143,6 +143,19 @@
 
   }
 
+
+  //右侧内容
+  .ace_content_page_right {
+    //任务列表详细
+    .task-category-detail {
+      min-height: 200px;
+      .task-categoty-description {
+        text-indent: 2em;
+      }
+    }
+    
+  }
+
   //操作下拉
   .dropdown{
     .dropdown-btn {

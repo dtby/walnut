@@ -1,0 +1,22 @@
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  
+  <div class="row task-category-detail">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h3><%= @task_category.try(:name) %></h3>
+      <p class="task-categoty-description">
+        <%= @task_category.try(:description).blank? ? "添加描述" : @task_category.try(:description) %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-task">
+      <h3>动态</h3>
+      <hr class="my-line">
+    </div>
+    <div class="my-trends">
+    </div>
+  </div>
+
+</div>
