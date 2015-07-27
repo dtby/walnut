@@ -11,7 +11,7 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
     @user_project.user_id = User.where(["email = :value OR mobile = :value", { :value => params[:user_project][:user_id] }]).first.try(:id)
     if @user_project.save
       #邮件发送
-      UserMailer.invite_member(user_project).deliver_later
+      UserMailer.invite_member(@user_project).deliver_later
     end
     respond_with @user_project
   end
@@ -25,7 +25,7 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
     if ps.blank?
       flash[:notice] = "无效链接"
     else
-      @user_project = UserRecruitment.where(id: ps[0], updated_at: ps[1]).first
+      @user_project = UserProject.where(id: ps[0], updated_at: ps[1]).first
 
       if @user_project.blank?
         flash[:notice] = "链接失效"
