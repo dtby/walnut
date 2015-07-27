@@ -8,10 +8,26 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 
   def new
   	@announce = Announce.new
+  	respond_with @announce
   end
 
   def show
-  	
+  	respond_with @announce
+  end
+
+  def edit
+  	respond_with @announce
+  end
+
+  def update
+  	if @announce.update(announce_params)
+  		flash[:notice] = "公告更新成功"
+  	end
+  	respond_with @announce
+  end
+
+  def destroy
+  	respond_with @announce.destroy
   end
 
   def create

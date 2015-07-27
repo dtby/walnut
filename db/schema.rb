@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726171313) do
+ActiveRecord::Schema.define(version: 20150727032011) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -154,6 +154,16 @@ ActiveRecord::Schema.define(version: 20150726171313) do
 
   add_index "notifications", ["project_id"], name: "index_notifications_on_project_id", using: :btree
 
+  create_table "project_announces", force: :cascade do |t|
+    t.integer  "project_id",  limit: 4
+    t.integer  "announce_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "project_announces", ["announce_id"], name: "index_project_announces_on_announce_id", using: :btree
+  add_index "project_announces", ["project_id"], name: "index_project_announces_on_project_id", using: :btree
+
   create_table "projects", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
@@ -259,6 +269,16 @@ ActiveRecord::Schema.define(version: 20150726171313) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "user_announces", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "announce_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "user_announces", ["announce_id"], name: "index_user_announces_on_announce_id", using: :btree
+  add_index "user_announces", ["user_id"], name: "index_user_announces_on_user_id", using: :btree
+
   create_table "user_notifications", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
     t.integer  "notification_id", limit: 4
@@ -347,6 +367,10 @@ ActiveRecord::Schema.define(version: 20150726171313) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "announces", "users"
+  add_foreign_key "project_announces", "announces"
+  add_foreign_key "project_announces", "projects"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
+  add_foreign_key "user_announces", "announces"
+  add_foreign_key "user_announces", "users"
 end
