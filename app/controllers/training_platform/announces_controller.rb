@@ -4,6 +4,7 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 
 	def index
 		@announces = Announce.where(project_id: params[:project_id]).order(created_at: :DESC)
+		@announce = Announce.where(project_id: params[:project_id]).last
 	end
 
 	def new
@@ -15,11 +16,12 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 		@announce = Announce.create(announce_params)
 		@announce.project_id = params[:project_id]
 		@announce.user_id = current_user.id   
-		@announces = Announce.where(project_id: params[:project_id])
+		@announces = Announce.where(project_id: params[:project_id]).order(created_at: :DESC)
 		if @announce.save     
-			flash.now[:notice] = "公告创建成功"
-		end   
-		respond_with @announces
+			respond_with @announces
+		else
+			render :new
+		end
 	end
 
 	def show
@@ -32,9 +34,8 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 
 	def update
 		if @announce.update(announce_params)
-			flash[:notice] = "公告更新成功"
+			respond_with @announce
 		end
-		respond_with @announce
 	end
 
 	def destroy
@@ -47,16 +48,6 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 	end
 
 	def set_announce
-		@announce = Announce.where(id: params[:id]).first
-		if @announce.blank? 
-			flash[:notice] = "当前数据不存在"
-			if request.xhr?
-				respond_to do |format|
-					format.js {render js: "location.href='#{training_platform_root_path}'"}
-				end
-			else
-				return redirect_to training_platform_root_path
-			end
-		end
+		@announce = Announce.find(params[:id])
 	end 
 end

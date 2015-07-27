@@ -13,4 +13,6 @@
 class Announce < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
+
+  validates :title, :description, :user_id, :project_id, presence: true
 end

@@ -1,0 +1,12 @@
+<ul class="nav nav-pills nav-stacked anno-ul">
+	<li >
+		<span class="col-xs-9 text-left"><%= @announce.title %></span>
+		<span class="col-xs-3 text-right"><%= @announce.created_at.strftime("%F") %></span>
+	</li>
+</ul>
+<div class="col-xs-12">
+	<br>
+	<div class="announce-content">
+		<p><%= @announce.description %></p>
+	</div>
+</div>
