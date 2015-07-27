@@ -21,7 +21,7 @@
 			<span style="padding-left:20px"><%=image_tag"online-time.png"%><%= format_time(course.last_update_time) %></span>
 			<% if params[:controller]=="courses"&&params[:action]=="show"%>
 			<p><%= course.description %><a href="<%= detail_course_path(course)%>">[详细]</a></p>
-			<span style="font-weight:bold">总课时：<%= course.total_length %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已学习：1小时50分钟<botton class="btn btn-default">&nbsp;&nbsp;开始/继续学习&nbsp;&nbsp;</botton></span>
+			<span style="font-weight:bold">总课时：<%= course.total_length %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;已学习：1小时50分钟</span>
 			<% elsif  params[:controller]=="courses"&&params[:action]=="detail"%>
 			<p><%= course.description %></p>
 			<span><a href="<%= courses_path %>" class="btn btn-default" style="margin:20px 0 0 0;padding:6px 40px">我要学习</a></span>
