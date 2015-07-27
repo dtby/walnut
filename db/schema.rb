@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150727034038) do
+ActiveRecord::Schema.define(version: 20150727101002) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20150727034038) do
     t.integer  "project_id",  limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "announces", ["project_id"], name: "index_announces_on_project_id", using: :btree
+  add_index "announces", ["user_id"], name: "index_announces_on_user_id", using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
