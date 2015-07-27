@@ -1,0 +1,15 @@
+<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
+<%= simple_form_for(@announce, url: is_edit_or_update? ? training_platform_project_announce_path(projext_id: params[:projext_id], id: @announce) : training_platform_project_announces_path(projext_id: params[:projext_id], id: @announce), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+	<%= f.input :title, as: :string, required: false, autofocus: true %>
+	<%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+	
+	<div class="row tp_m">
+		<div class="col-sm-6">
+			<%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
+		</div>
+		<div class="col-sm-6">
+			<button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+		</div>
+	</div>
+<% end %>

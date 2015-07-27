@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
   has_many :user_projects, dependent: :destroy
   has_many :principal_tasks, class_name: "UserTask", dependent: :destroy #负责人任务
   has_many :self_tasks, class_name: "Task", through: :principal_tasks #负责人任务
+  has_many :announces
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create

@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20150726171313) do
     t.integer  "project_id",  limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "user_id",     limit: 4
   end
 
   add_index "announces", ["project_id"], name: "index_announces_on_project_id", using: :btree
+  add_index "announces", ["user_id"], name: "index_announces_on_user_id", using: :btree
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -344,6 +346,7 @@ ActiveRecord::Schema.define(version: 20150726171313) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "announces", "users"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
 end

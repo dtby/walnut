@@ -45,23 +45,23 @@
 								<h3 class="clearfix">
 									公告信息
 									<span class="pull-right anno-add">
-										<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-											<span class="glyphicon glyphicon-plus anno-plus" aria-hidden="true"></span>
+										<span class="glyphicon glyphicon-plus anno-plus" aria-hidden="true"></span>
+										<%= link_to(new_training_platform_project_announce_path, remote: true, format: :js) do %>
 											<span class="anno_plus_word">添加项目</span>
-										</a>
+										<% end %>
 									</span>
 								</h3>
 								<hr class="my-line">
 							</div>
-							<% (0..3).each do |announce| %>
-								<ul class="nav nav-pills nav-stacked anno-ul">
-									<li>
-										<a class="clearfix" href="#">
-											<span class="col-xs-9 text-left">这是公告这是公告这是公告这是公告这是公告</span>
-											<span class="col-xs-3 text-right">2014-07-07</span>
-										</a>
-									</li>
-								</ul>
+							<% @announces.each do |announce| %>
+							<ul class="nav nav-pills nav-stacked anno-ul">
+								<li>
+									<a class="clearfix" href="#">
+										<span class="col-xs-9 text-left"><%= announce.description %></span>
+										<span class="col-xs-3 text-right"><%= announce.created_at %></span>
+									</a>
+								</li>
+							</ul>
 							<% end %>
 						</div>
 
