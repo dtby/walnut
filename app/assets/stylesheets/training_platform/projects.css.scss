@@ -139,6 +139,18 @@
       margin: 10px;
       border: 1px solid #ccc;
       padding: 5px;
+      color: #000;
+      
+      &:hover, &.active {
+        background-color: #5ac3b7;
+        color: #fff;
+      }
+
+      &.no-hover:hover {
+        background-color: #fff;
+        cursor: default;
+        color: #000;
+      }
     }
 
   }

@@ -11,20 +11,23 @@
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有待办中的任务"} %>
   <% end %>
   <% waits.each do |task|%>
-    <div class="row task-list-row">
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          待办中
-          <span class="caret my-caret"></span>
-        </button>
-        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">进行中</a></li>
-          <li><a href="#">已完成</a></li>
-        </ul>
+    <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            待办中
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+            <li>进行中</li>
+            <li>已完成</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-    </div>
+    <% end %>
+    
   <%end%>
   <!-- 代办中任务 -->
 
@@ -34,20 +37,22 @@
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有进行中的任务"} %>
   <% end %>
   <% dos.each do |task|%>
-    <div class="row task-list-row">
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          进行中
-          <span class="caret my-caret"></span>
-        </button>
-        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">待办中</a></li>
-          <li><a href="#">已完成</a></li>
-        </ul>
+    <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            进行中
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+            <li>待办中</li>
+            <li>已完成</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-    </div>
+    <% end %>
   <%end%>
   <!-- 进行中任务 -->
 
@@ -58,22 +63,24 @@
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有已完成的任务"} %>
   <% end %>
   <% completes.each do |task|%>
-    <div class="row task-list-row">
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          已完成
-          <span class="caret my-caret"></span>
-        </button>
-        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">待办中</a></li>
-          <li><a href="#">进行中</a></li>
-          <li><a href="#">验收通过</a></li>
-          <li><a href="#">验收失败</a></li>
-        </ul>
+    <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            已完成
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+            <li>待办中</li>
+            <li>进行中</li>
+            <li>验收通过</li>
+            <li>验收失败</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-    </div>
+    <% end %>
   <%end%>
   <!-- 已完成任务 -->
 
@@ -84,23 +91,32 @@
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有验收通过的任务"} %>
   <% end %>
   <% acceprances.each do |task|%>
-    <div class="row task-list-row">
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          验收通过
-          <span class="caret my-caret"></span>
-        </button>
-        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">待办中</a></li>
-          <li><a href="#">进行中</a></li>
-          <li><a href="#">已完成</a></li>
-          <li><a href="#">验收失败</a></li>
-        </ul>
+    <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            验收通过
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+            <li>待办中</li>
+            <li>进行中</li>
+            <li>已完成</li>
+            <li>验收失败</li>
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-      <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-    </div>
+    <% end %>
   <%end%>
   <!-- 验收通过任务 -->
 
 </div>
+
+<%= content_for :scripts do %>
+  <%= javascript_tag do %>
+    
+  <% end %>
+  <%= javascript_include_tag "training_platform/tasks", 'data-turbolinks-track' => true  %>
+<% end %>

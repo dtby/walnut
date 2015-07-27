@@ -26,6 +26,10 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   def update
   end
 
+  def show
+    respond_with @task
+  end
+
   private 
     def task_params
       params.require(:task).permit(:name, :description, :task_category_id)
