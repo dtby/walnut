@@ -1,4 +1,4 @@
-<!-- <h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
+<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑项目" : "创建项目" %><span></h3>
 <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
   <%= f.input :name, as: :string, required: false, autofocus: true %>
@@ -13,15 +13,13 @@
       <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
     </div>
   </div>
-<% end %> -->
-<div  class="my-nav1">
-         <!-- Nav tabs -->
+<% end %>
+<!-- <div  class="my-nav1">
           <ul class="nav nav-tabs ace_modal_ul" role="tablist">
             <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
             <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
             <li role="presentation"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
           </ul>
-        <!-- Tab panes -->
         <div class="tab-content main">
 
             <div role="tabpanel" class="tab-pane active" id="home">
@@ -140,4 +138,5 @@
 
             </div>
         </div>
-</div>
+</div> -->
+
