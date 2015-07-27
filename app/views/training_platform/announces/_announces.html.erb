@@ -1,10 +1,22 @@
-<% @announces.each do |announce| %>
-	<ul class="nav nav-pills nav-stacked anno-ul">
-		<li>
-			<%= link_to(training_platform_project_announce_path(project_id: params[:project_id], id: announce), remote: true, format: :js, class: "clearfix") do %>
-				<span class="col-xs-9 text-left"><%= announce.description %></span>
-				<span class="col-xs-3 text-right"><%= announce.created_at.strftime("%Y-%m-%d") %></span>
-			<% end %>
-		</li>
-	</ul>
+<% if @announces.blank? %>
+	<div class="col-xs-12">
+		<div class="jumbotron tips">
+			<h5 class="text-muted">公告用来通知项目成员具体事宜，通过上方的<code><span class="glyphicon glyphicon-plus"></span></code>添加，或者按<kbd> n </kbd> 创建	</h5>
+		</div>
+	</div>
+<% else %>
+	<div class="my-task">
+		<h3>公告信息</h3>
+		<hr class="my-line">
+	</div>
+	<% @announces.each do |announce| %>
+		<ul class="nav nav-pills nav-stacked anno-ul">
+			<li>
+				<%= link_to(training_platform_project_announce_path(project_id: params[:project_id], id: announce), remote: true, format: :js, class: "clearfix") do %>
+					<span class="col-xs-9 text-left"><%= announce.description %></span>
+					<span class="col-xs-3 text-right"><%= announce.created_at.strftime("%Y-%m-%d") %></span>
+				<% end %>
+			</li>
+		</ul>
+	<% end %>
 <% end %>

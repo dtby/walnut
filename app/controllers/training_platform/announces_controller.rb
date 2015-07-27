@@ -3,8 +3,7 @@ class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationContr
 	before_action :set_announces, only: [:index, :create, :update]
 	before_action :set_project
 
-	def index
-		@announce = Announce.where(project_id: params[:project_id]).last
+	def index		
 	end
 
 	def new

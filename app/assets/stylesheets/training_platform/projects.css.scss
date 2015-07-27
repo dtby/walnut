@@ -84,7 +84,7 @@
 	}
 }
 .page-content {
-  padding:1px 1px 25px;
+  padding:0px 0px 25px;
   .ace_content_page_left, .ace_content_page_right{
     border: solid 0.5px #e1e1e1;
   }
@@ -92,6 +92,7 @@
   //内容title
   .ace_content_right_title, .ace_content_left_title {
     background-color:#19B29F;
+    padding: 1px;
     .input-icon {
       margin-top:3px;
       input {
