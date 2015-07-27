@@ -1,2 +1,2 @@
-$("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/task_categories/form') %>");
+$("#trainingPlatformModalContent").html("<%= escape_javascript(render partial: 'training_platform/task_categories/form', locals: {project: @project, task_categories: @task_categories}) %>");
 $("#trainingPlatformModal").modal('show');

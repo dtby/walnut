@@ -6,12 +6,17 @@
     <li role="presentation" class="with-33 text-center"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
   </ul>
   <div class="tab-content main">
-    <div role="tabpanel" class="tab-pane active" id="home">
-      <%= simple_form_for @task_category, url: training_platform_project_task_category_path, remote: true do |f|%>
-        <%= f.input :name, as: :string, placeholder: '请输入任务分类名称' %>
-        <%= f.input :description, as: :text, placeholder: '请输入任务分类描述' %>
-        <%= f.submit "修改", class: "btn btn-info-tp"%>
-      <% end %>
+    <div class="panel panel-default">
+      <div class="panel-heading">[<%= @task_category.name %>]修改</div>
+      <div class="panel-body">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <%= simple_form_for @task_category, url: training_platform_project_task_category_path, remote: true do |f|%>
+            <%= f.input :name, as: :string, placeholder: '请输入任务分类名称' %>
+            <%= f.input :description, as: :text, placeholder: '请输入任务分类描述' %>
+            <%= f.submit "修改", class: "btn btn-info-tp"%>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-$("<%= escape_javascript(render @task_category) %>").appendTo("#task_categories");
+$("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/task_categories/form') %>");
+$("#trainingPlatformModal").modal('show');
 //自动清空文本框中的值
 $('#task_category_name').val("");
 $('#task_category_description').val("");

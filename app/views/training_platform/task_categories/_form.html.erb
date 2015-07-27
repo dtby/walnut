@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody id="task_categories">
-            <%= render @task_categories %>
+            <%= render partial: "task_category", collection: @task_categories, locals: {project: @project} %>
           </tbody>
         </table>
 
