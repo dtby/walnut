@@ -1,0 +1,12 @@
+<tr>
+  <td><%= task_category.name %></td>
+  <td><%= truncate(task_category.description, length: 10) %></td>
+  <td>
+    <%= link_to "edit_training_platform_project_task_category_path(project.id, task_category.id)", remote: true do %>
+    编辑 &nbsp;|
+    <% end %>
+    <%= link_to "training_platform_project_task_category_path(project.id, task_category.id)", method: :delete, data: {confirm: '确认删除该分类吗？'}, remote: true do %>
+      &nbsp; 删除
+    <% end %>
+  </td>
+</tr>

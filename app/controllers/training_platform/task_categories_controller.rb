@@ -1,6 +1,7 @@
 class TrainingPlatform::TaskCategoriesController < TrainingPlatform::ApplicationController
   before_action :set_task_category, only: [:edit, :update, :destroy, :show]
   before_action :set_project
+  before_action :set_task_categories
 
   def new
     @task_category = TaskCategory.new
@@ -10,25 +11,37 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
   def create
     @task_category = TaskCategory.new task_category_params
     @task_category.project_id = params[:project_id]
-    if @task_category.save
-      flash[:notice] = "任务列表创建成功"
+    respond_to do |format|
+      if @task_category.save
+        flash[:notice] = "任务分类创建成功"
+        format.js
+      end
     end
-    respond_with @task_category
   end
 
 
   def edit
-    respond_with @task_category
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    @task_category = params[:project_id]
-    @task_category.update project_params
-    respond_with @task_category
+    respond_to do |format|
+      if @task_category.update task_category_params
+        flash[:notice] = "任务分类修改成功"
+        format.js
+      end
+    end
   end
 
   def destroy
-    respond_with @task_category.destroy
+    respond_to do |format|
+      if @task_category.destroy
+        flash[:notice] = "任务分类删除成功"
+        format.js
+      end
+    end
   end
 
   def show
@@ -36,13 +49,22 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
   end
 
   private
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+
+    def set_task_categories
+      @project = Project.find(params[:project_id])
+      @task_categories = @project.task_categories
+    end
 
     def task_category_params
       params.require(:task_category).permit(:name, :description)
     end
 
     def set_task_category
-      @task_category = TaskCategory.where(id: params[:id]).first
+      @project = Project.find(params[:project_id])
+      @task_category = @project.task_categories.find(params[:id])
       if @task_category.blank? 
         flash[:notice] = "当前数据不存在"
         if request.xhr?

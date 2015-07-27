@@ -59,7 +59,7 @@ end
       resources :tasks
       resources :announces
       resources :courses
-      resources :task_categories
+      resources :task_categories #任务分类
       resources :users, only: :show
       resources :user_projects do
         collection do

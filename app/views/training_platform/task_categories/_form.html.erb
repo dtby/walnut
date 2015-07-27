@@ -1,15 +1,116 @@
-<h3 class="text-center title"><span><%= is_edit_or_update? ? "编辑任务列表" : "创建任务列表" %><span></h3>
-<%= simple_form_for(@task_category, url: (is_edit_or_update? ? training_platform_project_task_category_path(@task_category,project_id: params[:project_id]) : training_platform_project_task_categories_path(@task_category, project_id: params[:project_id])), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+<div  class="my-nav1">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs ace_modal_ul" role="tablist">
+    <li role="presentation" class="active with-33 text-center"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务分类</a></li>
+    <li role="presentation" class="with-33 text-center"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
+    <li role="presentation" class="with-33 text-center"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content main">
+    <div role="tabpanel" class="tab-pane active" id="home">
+        <table class="table table-hover ace_modal_tab">
+          <thead>
+            <tr>
+              <th class="text-center">任务分类名称</th>
+              <th class="text-center">任务分类描述</th>
+              <th class="text-center">操作</th>
+            </tr>
+          </thead>
+          <tbody id="task_categories">
+            <%= render @task_categories %>
+          </tbody>
+        </table>
 
-  <%= f.input :name, as: :string, required: false, autofocus: true %>
-  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+        <%= simple_form_for TaskCategory.new, url: training_platform_project_task_categories_path, remote: true do |f|%>
+          <%= f.input :name, as: :string, placeholder: '请输入任务分类名称' %>
+          <%= f.input :description, as: :text, placeholder: '请输入任务分类描述' %>
+          <%= f.submit "添加", class: "btn btn-info-tp"%>
+        <% end %>
+      </div>
 
-  <div class="row tp_m">
-    <div class="col-sm-6">
-      <%= f.button :submit, is_edit_or_update? ? "变更" : "创建", class: "btn btn-info-tp" %>
+      <div role="tabpanel" class="tab-pane" id="profile">
+      <div class="col-xs-8 ace_modal_tab1">
+       <input type="text" placeholder="请输入关键字" class="ace_modal_form" id="ace_modal_form" autocomplete="off" />
+      </div>
+      <div class="col-xs-4">
+        <button type="submit" class="btn btn-default">Send invitation</button>
+      </div>
+
+      <!-- 创建者信息 -->
+      <div class="col-xs-8">
+        <div class="ace_modal_media">
+          <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+          <span class="pull-left">
+          <h4 class="media-heading"><%= current_user.name %></h4>
+          <%= current_user.email %></span>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <button type="button" class="btn btn-info-tp1 text-black" data-dismiss="modal">创建者...</button>
+      </div>
+      <!-- 成员列表 -->
+      <div class="col-xs-12">
+        <hr>
+        <h3>成员列表</h3>
+      </div>
+      <table class="table table-striped">
+        <tbody class="ace_modal_tbd">
+          <% @project.user_projects.each do |user_project|%>
+            <tr>
+              <td>
+                <div class="ace_modal_media">
+                  <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+                  <span class="pull-left">
+                  <h4 class="media-heading"><%= current_user.name%></h4>
+                  邀请于<%= user_project.created_at.strftime("%Y-%m-%d") %></span>
+                </div>
+              </td>
+              <td>
+                <div class="dropdown">
+                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    管理员
+                    <span class="caret my-caret"></span>
+                  </button>
+                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">参与人</a></li>
+                    <li><a href="#">负责人</a></li>
+                    <li><a href="#">创建者</a></li>
+                  </ul>
+                </div>
+              </td>
+              <td>
+                <button type="button" class="btn btn-info-tp1" data-dismiss="modal">移除</button>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-    <div class="col-sm-6">
-      <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+    <div role="tabpanel" class="tab-pane" id="profile1">
+
+        <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+        <%= f.input :name, as: :string, required: false, autofocus: true %>
+        <%= f.input :description, as: :text, required: false, input_html: {cols: 10} %>
+        <div class="form-group ace_form_dis">
+        <div class="col-xs-1">
+        <label for="exampleInputName2">Name</label>
+        </div>
+        <div class="col-xs-11">
+        <input class="form-control" id="disabledInput" type="text" placeholder="软件开发模板<br>任务周期：代办中--进行中--已完成--已验收" disabled>
+        </div>
+        </div>
+
+        <div class="row  ace_tp_m3">
+        <div class="col-sm-12 ace_tp_m31">
+        <div class="col-xs-6">
+        <button type="button" class="btn btn-info-tp2" data-dismiss="modal">编辑</button>
+        </div>
+        <div class="col-sm-6">
+        <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+        </div>
+        </div>
+        <% end %>
     </div>
   </div>
-<% end %>
+</div>
