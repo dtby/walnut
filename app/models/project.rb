@@ -18,6 +18,7 @@ class Project < ActiveRecord::Base
   has_many :user_projects, dependent: :destroy
   has_many :users, through: :user_projects
   has_many :announces
+  has_many :notifications
 
 
   enum is_public: { open: true, close: false }
@@ -30,6 +31,15 @@ class Project < ActiveRecord::Base
   def task_percentage
     return 0 if self.tasks.count == 0
     (self.tasks.completes.count + self.tasks.acceprances.count)/self.tasks.count
+  end
+
+  #检索用户项目状态
+  def on_invite_user_projects
+    self.user_projects.where(invite: false)
+  end
+
+  def invited_user_projects
+    self.user_projects.where(invite: true)
   end
 
 

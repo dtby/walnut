@@ -28,62 +28,26 @@
         <% end %>
       </div>
 
+      <!-- 项目成员类目 -->
       <div role="tabpanel" class="tab-pane" id="profile">
-      <div class="col-xs-8 ace_modal_tab1">
-       <input type="text" placeholder="请输入关键字" data-provide="typeahead" data-url=<%=api_users_path %> class="ace_modal_form" id="ace_modal_form" autocomplete="off" />
-      </div>
-      <div class="col-xs-4">
-        <button type="submit" class="btn btn-default">Send invitation</button>
-      </div>
+        <%= form_for Notification.new, url: validate_training_platform_project_notifications_path, remote: true do |f|%>
+          <div id="error-info"></div>
+          <div class="col-xs-8 ace_modal_tab1">
+            <div class="form-group">
+              <%= text_field_tag :user_name, nil, placeholder: "请输入被邀请人的用户名...", 'data-provide': "typeahead", 'data-url': "#{api_users_path}", class: "ace_modal_form form-control", id: "ace_modal_form", autocomplete: "off" %>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <%= f.submit "发送邀请", class: "btn" %>
+          </div>
+        <% end %>
 
-      <!-- 创建者信息 -->
-      <div class="col-xs-8">
-        <div class="ace_modal_media">
-          <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
-          <span class="pull-left">
-          <h4 class="media-heading"><%= current_user.name %></h4>
-          <%= current_user.email %></span>
-        </div>
+      <div id="user_projects_content">
+        <%= render partial: 'user_projects_content' %>
       </div>
-      <div class="col-xs-4">
-        <button type="button" class="btn btn-info-tp1 text-black" data-dismiss="modal">创建者...</button>
-      </div>
-      <!-- 成员列表 -->
-      <div class="col-xs-12">
-        <hr>
-        <h3>成员列表</h3>
-      </div>
-      <table class="table table-striped">
-        <tbody class="ace_modal_tbd">
-          <% @project.user_projects.each do |user_project|%>
-            <tr>
-              <td>
-                <div class="ace_modal_media">
-                  <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
-                  <span class="pull-left">
-                  <h4 class="media-heading"><%= current_user.name%></h4>
-                  邀请于<%= user_project.created_at.strftime("%Y-%m-%d") %></span>
-                </div>
-              </td>
-              <td>
-                <div class="dropdown">
-                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    管理员
-                    <span class="caret my-caret"></span>
-                  </button>
-                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">成员</a></li>
-                  </ul>
-                </div>
-              </td>
-              <td>
-                <button type="button" class="btn btn-info-tp1" data-dismiss="modal">移除</button>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
     </div>
+
+    <!-- 项目信息类目 -->
     <div role="tabpanel" class="tab-pane" id="profile1">
       <h3 class="text-center title"><span>编辑项目<span></h3>
       <%= simple_form_for(@project, url: training_platform_project_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
@@ -91,7 +55,6 @@
         <%= f.input :name, as: :string, required: false, autofocus: true %>
         <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
         <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
-
         <div class="row tp_m">
           <div class="col-sm-6">
             <%= f.button :submit, "变更", class: "btn btn-info-tp" %>

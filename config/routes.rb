@@ -63,6 +63,11 @@ end
         end
       end
       resources :announces
+      resources :notifications do
+        collection do
+          post :validate
+        end
+      end
       resources :courses
       resources :task_categories #任务分类
       resources :users, only: :show
