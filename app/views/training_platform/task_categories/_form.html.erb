@@ -72,9 +72,7 @@
                     <span class="caret my-caret"></span>
                   </button>
                   <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">参与人</a></li>
-                    <li><a href="#">负责人</a></li>
-                    <li><a href="#">创建者</a></li>
+                    <li><a href="#">成员</a></li>
                   </ul>
                 </div>
               </td>
@@ -87,31 +85,22 @@
       </table>
     </div>
     <div role="tabpanel" class="tab-pane" id="profile1">
-
-        <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+      <h3 class="text-center title"><span>编辑项目<span></h3>
+      <%= simple_form_for(@project, url: training_platform_project_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
         <%= f.input :name, as: :string, required: false, autofocus: true %>
-        <%= f.input :description, as: :text, required: false, input_html: {cols: 10} %>
-        <div class="form-group ace_form_dis">
-        <div class="col-xs-1">
-        <label for="exampleInputName2">Name</label>
-        </div>
-        <div class="col-xs-11">
-        <input class="form-control" id="disabledInput" type="text" placeholder="软件开发模板<br>任务周期：代办中--进行中--已完成--已验收" disabled>
-        </div>
-        </div>
+        <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+        <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
 
-        <div class="row  ace_tp_m3">
-        <div class="col-sm-12 ace_tp_m31">
-        <div class="col-xs-6">
-        <button type="button" class="btn btn-info-tp2" data-dismiss="modal">编辑</button>
+        <div class="row tp_m">
+          <div class="col-sm-6">
+            <%= f.button :submit, "变更", class: "btn btn-info-tp" %>
+          </div>
+          <div class="col-sm-6">
+            <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+          </div>
         </div>
-        <div class="col-sm-6">
-        <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
-        </div>
-        </div>
-        <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
