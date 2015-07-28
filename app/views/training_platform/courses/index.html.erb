@@ -46,7 +46,7 @@
 								<hr class="my-line">
 							</div>
 							<!-- begin courses -->
-							<div class="clearfix">
+							<div class="clearfix scollPart">
 								<% 4.times do %>
 									<div class="col-xs-6 plat-course-col">
 										<div class="bordered">
@@ -75,8 +75,8 @@
 								<hr class="my-line">
 							</div>
 							<!-- begin discuss -->
-							<div class="clearfix">
-								<% 3.times do %>
+							<div class="clearfix scollPart">
+								<% 6.times do %>
 									<!--begin local message -->
 									<div class="media">
 										<div class="media-left">
@@ -98,7 +98,7 @@
 									<div class="media">
 										<div class="media-body">
 											<div class="discuss-msg-right">
-												<div class="msg-bg msg-right">你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你</div>
+												<div class="msg-bg msg-right">你好啊你好啊你好啊你你好啊你好啊你</div>
 											</div>
 										</div>
 										<div class="media-right">
@@ -108,6 +108,16 @@
 										</div>
 									</div><!-- end remote message -->
 								<% end %>
+
+								<div class="addComment">
+									<form class="form-inline">
+										<div class="form-group">
+											<input type="text" class="form-control" id="discussComment" placeholder="">
+										</div>
+										<button type="submit" class="btn btn-default">发送</button>
+									</form>
+								</div>
+
 							</div><!-- end discuss -->
 						</div>
 						<!-- PAGE CONTENT ENDS -->
