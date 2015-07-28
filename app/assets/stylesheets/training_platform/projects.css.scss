@@ -161,8 +161,8 @@
         }
       }
 
-      &.no-hover:hover {
-        background-color: #fff;
+      &.task-list-blank,&.task-list-blank:hover {
+        background-color: #F7F9F9;
         cursor: default;
         color: #000;
       }

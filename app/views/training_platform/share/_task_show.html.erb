@@ -50,7 +50,9 @@
       </button>
       <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
         <% Task::Level.each do |k,v| %>
-          <li><a href="#"><%= v %></a></li>
+          <li>
+          <%= link_to v, level_training_platform_project_task_path(@project, @task, level: k) , remote: true, format: :js %>
+          </li>
         <% end %>
       </ul>
     </div>

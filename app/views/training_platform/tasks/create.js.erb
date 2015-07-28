@@ -1,5 +1,5 @@
 <% if @task.errors.blank? %>
-  location.href = "<%= training_platform_project_tasks_path(project_id: params[:project_id])%>";
+  location.href = "<%= training_platform_project_task_path(@project, @task)%>";
 <% else %>
   $("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/tasks/form') %>");
   $("#trainingPlatformModal").modal('show');

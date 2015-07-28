@@ -69,6 +69,7 @@ Rails.application.routes.draw do
           get :move_category
           post :tagged
           get :update_principal
+          get :level
         end
       end
       resources :announces

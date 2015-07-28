@@ -85,6 +85,18 @@ class User < ActiveRecord::Base
     self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "personal_head.png"
   end
 
+  #显示名字
+  def show_name
+    name || mobile
+  end
+
+
+  #取得用户的（不同状态的任务)
+  def principal_tasks state
+    Task.includes(:user_tasks).where(user_tasks: {user_id: self.id, role: 1}).send(state.to_sym) rescue []
+  end
+
+  #current_user在model中使用
   def self.current
     Thread.current[:user]
   end
@@ -93,8 +105,6 @@ class User < ActiveRecord::Base
     Thread.current[:user] = user
   end
 
-  def show_name
-    name || mobile
-  end
+  
   
 end

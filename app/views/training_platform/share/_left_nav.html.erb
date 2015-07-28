@@ -15,8 +15,8 @@
       <% end %>
     </li>
 
-    <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) %>">
-      <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id)) do %>
+    <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) && params[:s] == "my" %>">
+      <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id,s: "my")) do %>
         <i class="icon-user"></i>
         <span class="menu-text"> 我的任务 </span>
       <% end %>
@@ -42,7 +42,7 @@
       <% end %>
     </li>
 
-    <li class="<%= 'active' if params[:controller] == ""%>">
+    <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:s] != "my" %>">
       <a href="javascript:void(0);" class="dropdown-toggle">
         <i class="icon-group"></i>
         <span class="menu-text"> 团队成员 </span>

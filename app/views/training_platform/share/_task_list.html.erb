@@ -2,11 +2,12 @@
 <div id="taskList" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div class="my-task">
     <h3><%= @task_category.try(:name) || ((@user.id == current_user.id ? "我" : @user.try(:show_name)) + "的任务") %></h3>
-    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-                <% @task_category.tags.any? %>
-                <% @task_category.tags.each do |tag| %>
-                <%= link_to tag.name %>
-                <% end %>
+    <% if @task_category.try(:tags).try(:any?) %>
+      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+      <% @task_category.tags.each do |tag| %>
+        <%= link_to tag.name %>
+      <% end %>
+    <% end %>
     <hr class="my-line">
   </div>
 

@@ -26,10 +26,10 @@
               <div class="row ace_content_page_left">
                 <%= render partial: "training_platform/share/task_list", 
                   locals: {
-                    waits: (@user.principal_tasks "waits"),
-                    dos: (@user.principal_tasks "dos"),
-                    completes: (@user.principal_tasks "completes"),
-                    acceprances: (@user.principal_tasks "acceprances")
+                    waits: @task_category.tasks.waits,
+                    dos: @task_category.tasks.dos,
+                    completes: @task_category.tasks.completes,
+                    acceprances: @task_category.tasks.acceprances
                   }%>
               </div>
             </div>
@@ -57,7 +57,7 @@
               </div>
 
               <div id="taskDetailShow" class="row ace_content_page_right">
-                <%= render partial: "training_platform/users/task_blank"%>
+                <%= render partial: "training_platform/share/task_show"%>
               </div>
 
             </div>

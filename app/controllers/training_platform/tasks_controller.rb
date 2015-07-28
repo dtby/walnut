@@ -1,6 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
-  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, :move_category, :tagged, :update_principal]
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
+    :move_category, :tagged, :update_principal, :level]
   
 
   def index
@@ -28,7 +29,8 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   end
 
   def show
-    respond_with @task
+    @task_category = @task.task_category
+    respond_with @task,@task_category
   end
 
   #任务状态变更
@@ -62,6 +64,12 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     user_task = UserTask.find_or_initialize_by(user_id: params[:user], task_id: @task.id)
     user_task.role = "principal"
     user_task.save
+    respond_with @task
+  end
+
+  #修改任务重要级别
+  def level
+    @task.update_attribute("level", Task.levels[params[:level]])
     respond_with @task
   end
 
