@@ -176,5 +176,9 @@ image 图片管理
   ref: notification
   状态：state: 已读、未读
 
+相关课程：project_courses
+  ref :project
+  ref :course
+
 
 
