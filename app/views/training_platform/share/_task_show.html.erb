@@ -92,10 +92,10 @@
      </div> 
 
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-    <%= simple_form_for  @task, url: training_platform_project_task_path, remote: true, format: :js do |f| %>
+    <%= simple_form_for  :task, url: tagged_training_platform_project_task_path(@project, @task), remote: true, format: :js,method: :post do |f| %>
           <div class="form-group">
           <div class="col-xs-8">
-          <%= f.input :tag_list, placeholder: '请输入任务标签' %>
+          <%= text_field_tag :content, "",placeholder: '请输入任务标签' %>
           </div>
            <div class="col-xs-2">
           <%= f.submit "添加标签", class: "btn btn-success"%>

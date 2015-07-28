@@ -1,6 +1,6 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
-  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, :move_category]
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, :move_category, :tagged]
   
 
   def index
@@ -49,13 +49,11 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     respond_with @task, @task_category
   end
 
-  #
+  #添加标签
    def tagged
-    if params[:tag].present? 
-      @posts = Post.tagged_with(params[:tag])
-    else 
-      @posts = Post.postall
-    end  
+    @task.tag_list.add(params[:content] )  if params[:content].present? 
+    @task_category = @task.task_category
+    respond_with @task, @task_category
   end
 
   private 
