@@ -1,1 +1,3 @@
 $("#anno-show").html("<%= escape_javascript(render partial: 'show_announce' )%>");
+$("#anno-list ul li").filter(".active").removeClass("active");
+$("#anno-li-<%= params[:id]%>").addClass("active");
