@@ -30,7 +30,9 @@
       </button>
       <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
         <% @project.get_member.each do |member| %>
-          <li><a href="#"><%= member.show_name %></a></li>
+          <li>
+          <%= link_to member.show_name, update_principal_training_platform_project_task_path(@project, @task, user: member.id) , remote: true, format: :js %>
+          </li>
         <% end %>
       </ul>
     </div>

@@ -61,6 +61,7 @@ end
           get :aasm_state
           get :move_category
           post :tagged
+          get :update_principal
         end
       end
       resources :announces
