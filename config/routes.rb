@@ -69,6 +69,11 @@ end
     end
   end
 
+  #api管理
+  namespace :api do
+    resources :users, only: [:index]
+  end
+
   resources :projects
   resources :cooperations, only: [:index]
 
