@@ -23,4 +23,9 @@ module TrainingPlatform::ApplicationHelper
     end
   end
 
+  #通过用户，项目读取user_project对象
+  def query_user_project(user, project)
+    UserProject.find_by(user_id: user.id, project_id: project.id)
+  end
+
 end

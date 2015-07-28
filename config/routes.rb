@@ -36,7 +36,14 @@ Rails.application.routes.draw do
       get :my_recruits
       get :my_resumes
     end
-end
+  end
+
+  resources :user_projects do
+    member do
+      post :invited, :uninvited
+      patch :invited, :uninvited
+    end
+  end
 
   resources :votes, only: [:create]
   resources :ints, only: [:create]

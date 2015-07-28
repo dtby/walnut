@@ -13,37 +13,25 @@
 						</div>
 						<div class="col-md-5"><hr class="divider"></div>
 					</div>
-					<% 2.times do %>
-					<div class="row my_message">
-						<div class="col-md-2"><%=image_tag"user_mymessage.png"%></div>
-						<div class="col-md-6 message">
-							<span class="arrow"></span>
-							<p>《css3实现网页平滑过渡效果》的课程全局样式文件已上传，小伙伴们可以到课程播放页面去下载了。
-							<a href="#">http://www.imooc.com/video/7142</a>
-							</p>
-						</div>
-						<div class="col-md-4">19:30:30</div>
-					</div>
-					<%end%>
-					<div class="row">
-						<div class="col-md-5"><hr class="divider"></div>
-						<div class="col-md-2 text-center my_data">
-							<span>2015-07-07</span>
-						</div>
-						<div class="col-md-5"><hr class="divider"></div>
-					</div>
-					<% 4.times do %>
-					<div class="row my_message">
-						<div class="col-md-2"><%=image_tag"user_mymessage.png"%></div>
-						<div class="col-md-6 message">
-							<span class="arrow"></span>
-							<p>《css3实现网页平滑过渡效果》的课程全局样式文件已上传，小伙伴们可以到课程播放页面去下载了。
-							<a href="#">http://www.imooc.com/video/7142</a>
-							</p>
-						</div>
-						<div class="col-md-4">19:30:30</div>
-					</div>
-					<%end%>
+					<% @user_notifications.each do |user_notification| %>
+					  <% if user_notification.notification %>
+							<div class="row my_message">
+								<div class="col-md-2"><%= image_tag "user_mymessage.png" %></div>
+								<div class="col-md-6 message">
+									<span class="arrow"></span>
+									<p><%= user_notification.notification.content %></p>
+								</div>
+								<div class="col-md-2" ><%= user_notification.notification.created_at.strftime("%Y-%m-%d")%></div>
+								<% user_project = query_user_project(user_notification.user, user_notification.notification.project)%>
+								<% if user_project.invite %>
+								  <div class="col-md-2 text-info text-center" >已通过申请
+								  <p>[<%= link_to "退出项目", uninvited_user_project_path(user_project), method: :patch, data: {confirm: "确认退出项目吗？"}%>]</p></div>
+								<% else %>
+							    <div class="col-md-2" ><%= link_to "通过邀请", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%></div>
+							  <% end %>
+							</div>
+						<% end %>
+					<% end %>
 				</div>
 			</div>
 		</div>

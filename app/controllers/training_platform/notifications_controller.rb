@@ -4,7 +4,7 @@ module TrainingPlatform
 
   	def validate
   		user = User.find_by(name: params[:user_name])
-  		@notification = Notification.new(project_id: @project.id, content: "#{user.name}, 您好, 您被邀请参与#{@project.name}项目, 请前往个人中心查看。")
+  		@notification = Notification.new(project_id: @project.id, content: "#{user.name}, 您好, 您被邀请参与#{@project.name}项目。")
   		@notification.save
   		if user.blank?
   			return render js: "$('#error-info').html('* 用户不存在');"

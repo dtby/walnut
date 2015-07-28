@@ -46,7 +46,11 @@ class UserController < ApplicationController
     .includes(:company).where("user_recruitments.user_id = #{current_user.id}").order("user_recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
   end
 
-   private
+  def my_messages
+    @user_notifications = current_user.user_notifications
+  end
+
+  private
   def user_params
       params.require(:user).permit(:nickname, :name, :department, :major, :mobile, :email, :gender, :signature, :password)
     end

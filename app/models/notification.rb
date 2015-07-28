@@ -12,7 +12,9 @@
 class Notification < ActiveRecord::Base
   belongs_to :project
   has_many :user_notifications
+  has_one :user_project, through: :project
 
+  #创建用户通知
   def generate_user_notification(user)
   	user_notification = self.user_notifications.build(user_id: user.id, state: 1)
   	user_notification.save

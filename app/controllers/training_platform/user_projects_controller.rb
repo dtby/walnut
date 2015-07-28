@@ -39,8 +39,8 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
   end
 
 
-  private 
-    def user_project_params
-      params.require(:user_project).permit(:role, :project_id, :user_id)
-    end 
+  private
+  def user_project_params
+    params.require(:user_project).permit(:role, :project_id, :user_id)
+  end
 end

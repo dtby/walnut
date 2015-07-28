@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   has_many :tasks, through: :user_tasks
 
   has_many :announces
+  has_many :user_notifications
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create
@@ -54,7 +55,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true, on: :update
 
   enum department: {
-   '艺术设计系': 'yssj',
+  '艺术设计系': 'yssj',
   '商务管理系': 'swgl',
   '商务管理': 'swglx',
   '商务英语': 'swyy'
