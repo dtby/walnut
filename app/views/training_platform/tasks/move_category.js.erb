@@ -1,4 +1,5 @@
-$("#taskList").replaceWith("<%= escape_javascript(
+if($("#taskListMenuLi").attr("class") && ($("#taskListMenuLi").attr("class").indexOf("active") > -1)){
+  $("#taskList").replaceWith("<%= escape_javascript(
   render partial: 'training_platform/share/task_list', 
                   locals: {
                     waits: @task_category.tasks.waits,
@@ -6,5 +7,7 @@ $("#taskList").replaceWith("<%= escape_javascript(
                     completes: @task_category.tasks.completes,
                     acceprances: @task_category.tasks.acceprances
                   }) %>");
+  history.pushState({}, "<%= title %>", "<%= training_platform_project_task_category_url(@project, @task_category) %>")
+}
+
 $("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
-history.pushState({}, "<%= title %>", "<%= training_platform_project_task_category_url(@project, @task_category) %>")

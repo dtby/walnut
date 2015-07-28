@@ -1,9 +1,12 @@
+
 $("#taskList").replaceWith("<%= escape_javascript(
-  render partial: 'training_platform/share/task_list', 
-                  locals: {
-                    waits: @task_category.tasks.waits,
-                    dos: @task_category.tasks.dos,
-                    completes: @task_category.tasks.completes,
-                    acceprances: @task_category.tasks.acceprances
-                  }) %>");
+render partial: 'training_platform/share/task_list', 
+      locals: {
+        waits: @task_category.tasks.waits,
+        dos: @task_category.tasks.dos,
+        completes: @task_category.tasks.completes,
+        acceprances: @task_category.tasks.acceprances
+      }) %>");
+
 $("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
+

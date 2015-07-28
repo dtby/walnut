@@ -92,8 +92,8 @@ class User < ActiveRecord::Base
 
 
   #取得用户的（不同状态的任务)
-  def principal_tasks state
-    Task.includes(:user_tasks).where(user_tasks: {user_id: self.id, role: 1}).send(state.to_sym) rescue []
+  def principal_tasks state,project_id
+    Task.includes(:user_tasks).where(user_tasks: {user_id: self.id, role: 1},tasks: {project_id: project_id}).send(state.to_sym) rescue []
   end
 
   #current_user在model中使用

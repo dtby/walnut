@@ -22,7 +22,7 @@
       <% end %>
     </li>
 
-    <li class="<%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
+    <li id="taskListMenuLi" class="<%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
       <a href="#" class="dropdown-toggle">
         <i class="icon-tasks"></i>
         <span class="menu-text"> 任务列表 </span>

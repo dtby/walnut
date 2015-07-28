@@ -26,10 +26,10 @@
               <div class="row ace_content_page_left">
                 <%= render partial: "training_platform/share/task_list", 
                   locals: {
-                    waits: (@user.principal_tasks "waits"),
-                    dos: (@user.principal_tasks "dos"),
-                    completes: (@user.principal_tasks "completes"),
-                    acceprances: (@user.principal_tasks "acceprances")
+                    waits: (@user.principal_tasks "waits", @project.id),
+                    dos: (@user.principal_tasks "dos", @project.id),
+                    completes: (@user.principal_tasks "completes", @project.id),
+                    acceprances: (@user.principal_tasks "acceprances", @project.id)
                   }%>
               </div>
             </div>
