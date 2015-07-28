@@ -57,8 +57,8 @@ end
     root 'projects#index'
     resources :projects do
       resources :tasks do
-        collection do
-          post :aasm_state
+        member do
+          get :aasm_state
         end
       end
       resources :announces

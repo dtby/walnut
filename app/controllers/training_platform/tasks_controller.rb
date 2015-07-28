@@ -1,6 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
-  before_action :set_task, only: [:edit, :update, :destroy, :show]
   before_action :set_project
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state]
+  
 
   def index
   end
@@ -32,25 +33,13 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
 
   #任务状态变更
   def aasm_state
-    @task = Task.where(id: params[:task_id]).first
-
-    if @task.blank? 
-      flash[:notice] = "当前数据不存在"
-      if request.xhr?
-        respond_to do |format|
-          format.js {render js: "location.href='#{training_platform_project_announces_path(project_id: @project.id)}'"}
-        end
-      else
-        return redirect_to training_platform_project_announces_path(project_id: @project.id)
-      end
-    end
 
     #更新状态
     state = params[:state]
     if @task.try(:send, "may_#{state}?")
       @task.send "#{state}!"
-      @task_category = @task.task_category
     end
+    @task_category = @task.task_category
     respond_with @task, @task_category
   end
 
@@ -65,10 +54,10 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
         flash[:notice] = "当前数据不存在"
         if request.xhr?
           respond_to do |format|
-            format.js {render js: "location.href='#{training_platform_root_path}'"}
+            format.js {render js: "location.href='#{training_platform_project_announces_path(project_id: @project.id)}'"}
           end
         else
-          return redirect_to training_platform_root_path
+          return redirect_to training_platform_project_announces_path(project_id: @project.id)
         end
       end
     end 

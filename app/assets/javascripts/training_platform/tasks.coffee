@@ -2,16 +2,16 @@ $ ->
   #点击任务显示详情
   $(".task-link").click ->
     $(".task-list-row").removeClass("active")
-    $(this).find(".task-list-row").addClass("active")
+    $(this).parents(".task-list-row").addClass("active")
 
   #状态dropdown点击后，将其移入对应状态栏显示
-  $(".task-state-dropdown li").click -> 
-    task = $(this).parent(".task-state-dropdown").attr("data-task")
-    state = $(this).attr("data-status")
+  # $(".task-state-dropdown li").click -> 
+  #   task = $(this).parent(".task-state-dropdown").attr("data-task")
+  #   state = $(this).attr("data-status")
 
-    $.ajax change_state_path,
-      type: 'post'
-      data: { task_id: task, state: state } 
+  #   $.ajax change_state_path,
+  #     type: 'post'
+  #     data: { task_id: task, state: state } 
 
     # #当前task内容块
     # currentTaskContent = $(this).parents(".task-list-content")

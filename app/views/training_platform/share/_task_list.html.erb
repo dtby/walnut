@@ -12,21 +12,21 @@
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有待办中的任务", is_show: waits.blank? } %>
      <!-- 没有任务提示 -->
     <% waits.each do |task|%>
-      <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js, id: "taskListLink#{task.id}" do %>
-        <div class="row task-list-row">
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-            <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              待办中
-              <span class="caret my-caret"></span>
-            </button>
-            <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
-              <%= raw(staus_dropdown task.state)%>
-            </ul>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            待办中
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
+            <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(@project,task))%>
+          </ul>
         </div>
-      <% end %>
+        <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js, id: "taskListLink#{task.id}" do %>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+        <% end %>
+      </div>
     <%end%>
   </div>
   <!-- 代办中任务 -->
@@ -37,21 +37,21 @@
     <h4 class="my-progress">进行中(<%= dos.size %>)</h4>
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有进行中的任务", is_show: dos.blank?} %>
     <% dos.each do |task|%>
-      <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-        <div class="row task-list-row">
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-            <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              进行中
-              <span class="caret my-caret"></span>
-            </button>
-            <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
-              <%= raw(staus_dropdown task.state)%>
-            </ul>
-          </div>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            进行中
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
+            <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(@project,task))%>
+          </ul>
+        </div>
+        <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
           <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
           <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
   <!-- 进行中任务 -->
@@ -62,21 +62,21 @@
     <h4 class="my-progress">已完成(<%= completes.size %>)</h4>
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有已完成的任务", is_show: completes.blank?} %>
     <% completes.each do |task|%>
-      <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-        <div class="row task-list-row">
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-            <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              已完成
-              <span class="caret my-caret"></span>
-            </button>
-            <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
-              <%= raw(staus_dropdown task.state)%>
-            </ul>
-          </div>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            已完成
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
+            <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(@project,task))%>
+          </ul>
+        </div>
+        <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
           <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
           <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
   <!-- 已完成任务 -->
@@ -87,30 +87,26 @@
     <h4 class="my-progress">验收通过(<%= acceprances.size %>)</h4>
     <%= render partial: "training_platform/share/task_blank", locals: {info: "现在没有验收通过的任务", is_show: acceprances.blank?} %>
     <% acceprances.each do |task|%>
-      <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-        <div class="row task-list-row">
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
-            <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              验收通过
-              <span class="caret my-caret"></span>
-            </button>
-            <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
-              <%= raw(staus_dropdown task.state)%>
-            </ul>
-          </div>
+      <div class="row task-list-row">
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            验收通过
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
+            <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(@project,task))%>
+          </ul>
+        </div>
+        <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
           <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
           <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     <%end%>
   </div>
   <!-- 验收通过任务 -->
 
 </div>
 
-<%= content_for :scripts do %>
-  <%= javascript_tag do %>
-    change_state_path = "<%= aasm_state_training_platform_project_tasks_path(@project)%>.js"
-  <% end %>
-  <%= javascript_include_tag "training_platform/tasks", 'data-turbolinks-track' => true  %>
-<% end %>
+
+<%= javascript_include_tag "training_platform/tasks", 'data-turbolinks-track' => true  %>
