@@ -15,5 +15,6 @@
 class TaskCategory < ActiveRecord::Base
   belongs_to :project
   has_many :tasks, dependent: :destroy
+  acts_as_taggable_on :tags
   validates :name, presence: true
 end

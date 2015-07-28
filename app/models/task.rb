@@ -18,6 +18,7 @@
 class Task < ActiveRecord::Base
   include AASM
 
+  acts_as_taggable_on :tags
   belongs_to :project
   belongs_to :task_category
   has_many :user_tasks, dependent: :destroy 
@@ -27,7 +28,7 @@ class Task < ActiveRecord::Base
   scope :dos, -> { where state: 2 }
   scope :completes, -> { where state: 3 }
   scope :acceprances, -> { where state: 4 }
-
+  
   validates :name, presence: true
 
   #序号No状态、优先级的初始化赋值

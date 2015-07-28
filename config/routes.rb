@@ -60,6 +60,7 @@ end
         member do
           get :aasm_state
           get :move_category
+          get :tagged
         end
       end
       resources :announces
@@ -70,6 +71,7 @@ end
       end
       resources :courses
       resources :task_categories #任务分类
+        match 'tagged' => 'task_categories#tagged', :as => 'tagged', via: 'get'
       resources :users, only: :show
       resources :user_projects do
         collection do

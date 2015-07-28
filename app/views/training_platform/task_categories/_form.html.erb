@@ -24,6 +24,7 @@
         <%= simple_form_for TaskCategory.new, url: training_platform_project_task_categories_path, remote: true do |f|%>
           <%= f.input :name, as: :string, placeholder: '请输入任务分类名称' %>
           <%= f.input :description, as: :text, placeholder: '请输入任务分类描述' %>
+          <%= f.input :tag_list, placeholder: '请输入标签名称' %>
           <%= f.submit "添加", class: "btn btn-info-tp"%>
         <% end %>
       </div>

@@ -3,6 +3,7 @@
 
   <%= f.input :name, as: :string, required: false, autofocus: true %>
   <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+  <%= f.input :tag_list, placeholder: '请输入标签名称' %>
   <%= f.input :task_category_id, as: :hidden, input_html: {value: params[:task_category_id]} %>
   <%= f.input :user_id, as: :hidden, input_html: {value: params[:user_id]} %>
 

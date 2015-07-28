@@ -49,9 +49,18 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     respond_with @task, @task_category
   end
 
+  #
+   def tagged
+    if params[:tag].present? 
+      @posts = Post.tagged_with(params[:tag])
+    else 
+      @posts = Post.postall
+    end  
+  end
+
   private 
     def task_params
-      params.require(:task).permit(:name, :description, :task_category_id)
+      params.require(:task).permit(:name, :description, :task_category_id, :tag_list)
     end
 
     def set_task
