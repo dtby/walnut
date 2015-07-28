@@ -49,4 +49,9 @@ class Project < ActiveRecord::Base
       Project.includes(:user_projects).where(user_projects: {user_id: current_user.id})
     end
   end
+
+  #取得当前项目的所有成员
+  def get_member
+    User.includes(:user_projects).where(user_projects: { project_id: self.id, invite: true }).order("user_projects.role")
+  end
 end

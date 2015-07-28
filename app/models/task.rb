@@ -20,6 +20,8 @@ class Task < ActiveRecord::Base
 
   belongs_to :project
   belongs_to :task_category
+  has_many :user_tasks, dependent: :destroy 
+  has_many :users, through: :user_tasks
 
   scope :waits, -> { where state: 1 }
   scope :dos, -> { where state: 2 }
@@ -70,6 +72,12 @@ class Task < ActiveRecord::Base
     event :fail do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting
     end
+  end
+
+
+  #获取当前任务的负责人
+  def get_principal_user
+    User.includes(:user_tasks).where(user_tasks: {task_id: self.id, role: 1}).first
   end
 
 end

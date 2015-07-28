@@ -19,7 +19,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
     @project = Project.new project_params
     if @project.save
       flash[:notice] = "项目创建成功"
-      UserProject.create(user_id: current_user.id, project_id: @project.id, role: 1)
+      UserProject.create(user_id: current_user.id, project_id: @project.id, role: 1, invite: true)
     end
     respond_with @project
   end

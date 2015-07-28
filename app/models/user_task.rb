@@ -13,7 +13,9 @@
 class UserTask < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
-  belongs_to :self_task, class_name: "Task", foreign_key: :task_id
+
+  scope :principal, -> { where role: 1 }
+  scope :helpers, -> { where role: 2 }
 
   #负责人、协同者 
   enum role: { principal: 1, helper: 2 }

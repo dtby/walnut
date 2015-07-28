@@ -39,8 +39,10 @@ class User < ActiveRecord::Base
   has_many :recruitments, through: :user_recruitments
   has_one :image, as: :imageable
   has_many :user_projects, dependent: :destroy
-  has_many :principal_tasks, class_name: "UserTask", dependent: :destroy #负责人任务
-  has_many :self_tasks, class_name: "Task", through: :principal_tasks #负责人任务
+  
+  has_many :user_tasks, dependent: :destroy 
+  has_many :tasks, through: :user_tasks
+
   has_many :announces
 
 

@@ -23,8 +23,8 @@
           </ul>
         </div>
         <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js, id: "taskListLink#{task.id}" do %>
-        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span><%= task.name %></span></div>
+        <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span><%= task.end_time.try(:strftime, "%F") %></span></div>
         <% end %>
       </div>
     <%end%>
@@ -48,8 +48,8 @@
           </ul>
         </div>
         <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span><%= task.name %></span></div>
+          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span><%= task.end_time.try(:strftime, "%F") %></span></div>
         <% end %>
       </div>
     <%end%>
@@ -73,8 +73,8 @@
           </ul>
         </div>
         <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span><%= task.name %></span></div>
+          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span><%= task.end_time.try(:strftime, "%F") %></span></div>
         <% end %>
       </div>
     <%end%>
@@ -98,8 +98,8 @@
           </ul>
         </div>
         <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js do %>
-          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span class="business"><%= task.name %></span></div>
-          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span class="business"><%= task.end_time.try(:strftime, "%F") %></span></div>
+          <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span><%= task.name %></span></div>
+          <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span><%= task.end_time.try(:strftime, "%F") %></span></div>
         <% end %>
       </div>
     <%end%>
