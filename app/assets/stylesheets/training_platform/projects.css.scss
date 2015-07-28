@@ -134,6 +134,18 @@
       font-weight: normal;
     }
 
+    //状态dropdown
+    .task-state-dropdown {
+      color: #2adcc9;
+      li {
+        padding: 10px 10px;
+        &:hover {
+          color: #fff;
+          background-color: #61d5c7;
+        }
+      }
+    }
+
     //任务一览
     .task-list-row {
       background-color: #fff;

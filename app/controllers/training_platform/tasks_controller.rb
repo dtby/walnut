@@ -30,6 +30,30 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     respond_with @task
   end
 
+  #任务状态变更
+  def aasm_state
+    @task = Task.where(id: params[:task_id]).first
+
+    if @task.blank? 
+      flash[:notice] = "当前数据不存在"
+      if request.xhr?
+        respond_to do |format|
+          format.js {render js: "location.href='#{training_platform_project_announces_path(project_id: @project.id)}'"}
+        end
+      else
+        return redirect_to training_platform_project_announces_path(project_id: @project.id)
+      end
+    end
+
+    #更新状态
+    state = params[:state]
+    if @task.try(:send, "may_#{state}?")
+      @task.send "#{state}!"
+      @task_category = @task.task_category
+    end
+    respond_with @task, @task_category
+  end
+
   private 
     def task_params
       params.require(:task).permit(:name, :description, :task_category_id)

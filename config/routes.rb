@@ -56,7 +56,11 @@ end
   namespace :training_platform do
     root 'projects#index'
     resources :projects do
-      resources :tasks
+      resources :tasks do
+        collection do
+          post :aasm_state
+        end
+      end
       resources :announces
       resources :courses
       resources :task_categories #任务分类
