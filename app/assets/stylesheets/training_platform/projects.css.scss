@@ -82,6 +82,9 @@
 			padding:0 6px;
 		}
 	}
+  .tooltip {
+    width:80%;
+  }
 }
 .page-content {
   padding:0px 0px 25px;
@@ -232,6 +235,10 @@
   }
 }
 
+//training_platform/share/widget
+.ace_widget_box {
+  background-color:#fbffff;
+}
 
 // .task_d {
 //   padding-bottom:40px;

@@ -71,30 +71,36 @@
 
     <div class="sidebar-shortcuts" id="sidebar-shortcuts">
       <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-        <li class="<%= 'active' if params[:controller] == "training_platform/task_categories"%>">
+        <!-- <li class="<%= 'active' if params[:controller] == "training_platform/task_categories"%>">
           <%= link_to new_training_platform_project_task_category_path(@project.id), remote: true do %>
             <span class="glyphicon glyphicon-plus"></span>
             <span class="menu-text">任务分类</span>
           <% end %>
-        </li>
+        </li> -->
 
         <div class="sidebar-shortcuts" id="sidebar-shortcuts">
           <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-            <%= link_to( new_training_platform_project_task_category_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务列表", class: "btn btn-success", format: :js, remote: true) do %>
-              <i class="icon-tasks"></i>
-            <% end %>
+          <span class="btn btn-success btn-sm tooltip-success" data-rel="tooltip" data-placement="bottom" title="新建任务列表">
+              <%= link_to( new_training_platform_project_task_category_path,  "data-placement" => "opt", format: :js, remote: true) do %>
+              <i class="icon-tasks" style="color:#fff"></i>
+              <% end %>
+          </span>
+            
 
         <%#= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "新建任务", class: "btn btn-info") do %>
           <!-- <i class="icon-plus"></i> -->
         <%# end %>
-
-        <%= link_to( new_training_platform_project_user_project_path, "data-toggle" => "tooltip", "data-placement" => "opt", title: "邀请团队成员", class: "btn btn-warning", format: :js, remote: true) do %>
-          <i class="icon-group"></i>
-        <% end %>
-
-        <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt", title: "设置", class: "btn btn-danger") do %>
-          <i class="icon-cogs"></i>
-        <% end %>
+        <span class="btn btn-warning btn-sm tooltip-warning" data-rel="tooltip" data-placement="bottom" title="邀请团队成员">
+            <%= link_to( new_training_platform_project_user_project_path, "data-toggle" => "tooltip", "data-placement" => "opt",  format: :js, remote: true) do %>
+            <i class="icon-group" style="color:#fff"></i>
+            <% end %>
+        </span>
+        
+        <span class="btn btn-danger btn-sm tooltip-error" data-rel="tooltip" data-placement="bottom" title="设置">
+            <%= link_to( "#", "data-toggle" => "tooltip", "data-placement" => "opt") do %>
+            <i class="icon-cogs" style="color:#fff"></i>
+            <% end %>
+        </span>
       </div>
 
       <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
