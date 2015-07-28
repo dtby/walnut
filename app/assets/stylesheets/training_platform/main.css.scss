@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+html,body{
+	height: 100%;
+}
 $color-sign: #5582ED;
 $color-green: #11BD9E;
 

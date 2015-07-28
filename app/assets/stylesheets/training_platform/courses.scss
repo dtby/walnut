@@ -36,7 +36,6 @@
 	}
 	.scollPart{
 		position: relative;
-		height: 400px;
 		overflow: auto;
 	}
 	.discuss-msg-left{
@@ -85,8 +84,9 @@
 		}
 	}
 	.addComment{
-		position: fixed;
-		bottom: 0;
 		padding: 10px;
+		background-color: #fff;
+		position: fixed;
+		bottom: 1px;
 	}
 }

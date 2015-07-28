@@ -108,16 +108,15 @@
 										</div>
 									</div><!-- end remote message -->
 								<% end %>
-
-								<div class="addComment">
-									<form class="form-inline">
-										<div class="form-group">
-											<input type="text" class="form-control" id="discussComment" placeholder="">
+								<br><br><br>
+								<div class="addComment col-xs-5">
+									<form class="form-horizontal clearfix">
+										<div class="col-xs-10">
+											<input type="text" class="form-control input-sm" id="discussComment" placeholder="">
 										</div>
-										<button type="submit" class="btn btn-default">发送</button>
+										<button type="submit" class="btn btn-sm btn-danger col-xs-2">发送</button>
 									</form>
 								</div>
-
 							</div><!-- end discuss -->
 						</div>
 						<!-- PAGE CONTENT ENDS -->
@@ -126,10 +125,6 @@
 			</div><!-- /.page-content -->
 		</div><!-- /.main-content -->
 	</div>
-
-	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-		<i class="icon-double-angle-up icon-only bigger-110"></i>
-	</a>
 
 </div>
 <script type="text/javascript">
@@ -143,5 +138,14 @@
 
 		$('[data-rel="tooltip"]').tooltip();
 
+	});
+	$(document).ready(function(){
+		//计算左右模块高度
+		var a = $(".navbar").outerHeight();
+		var b = $(".ace_content_right_title").outerHeight();
+		var c = $(".my-task").outerHeight();
+		var wnd = document.body.clientHeight;
+		var d = wnd - (a + b + c + 21) - document.body.scrollTop;
+		$(".scollPart").height(d);
 	});
 </script>
