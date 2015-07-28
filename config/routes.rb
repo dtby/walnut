@@ -59,6 +59,7 @@ end
       resources :tasks do
         member do
           get :aasm_state
+          get :move_category
         end
       end
       resources :announces

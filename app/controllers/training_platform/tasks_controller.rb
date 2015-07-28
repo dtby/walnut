@@ -1,6 +1,6 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
-  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state]
+  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, :move_category]
   
 
   def index
@@ -33,12 +33,18 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
 
   #任务状态变更
   def aasm_state
-
     #更新状态
     state = params[:state]
     if @task.try(:send, "may_#{state}?")
       @task.send "#{state}!"
     end
+    @task_category = @task.task_category
+    respond_with @task, @task_category
+  end
+
+  #移动到新分类
+  def move_category
+    @task.update_attribute("task_category_id", params[:task_category])
     @task_category = @task.task_category
     respond_with @task, @task_category
   end

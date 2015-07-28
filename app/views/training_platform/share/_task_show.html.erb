@@ -16,7 +16,9 @@
       </button>
       <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
         <% @project.task_categories.each do |tc| %>
-          <li><a href="#"><%= tc.name %></a></li>
+          <li>
+            <%= link_to tc.name, move_category_training_platform_project_task_path(@project, @task, task_category: tc.id) , remote: true, format: :js %>
+          </li>
         <% end %>
       </ul>
     </div>

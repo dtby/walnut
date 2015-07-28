@@ -7,3 +7,4 @@ $("#taskList").replaceWith("<%= escape_javascript(
                     acceprances: @task_category.tasks.acceprances
                   }) %>");
 $("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
+history.pushState({}, "核桃在线", "<%= training_platform_project_task_category_url(@project, @task_category) %>")
