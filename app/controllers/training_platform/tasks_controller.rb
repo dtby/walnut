@@ -61,8 +61,8 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
 
   #更新负责人
   def update_principal
-    user_task = UserTask.find_or_initialize_by(user_id: params[:user], task_id: @task.id)
-    user_task.role = "principal"
+    user_task = UserTask.find_or_initialize_by(task_id: @task.id, role: 1)
+    user_task.user_id = params[:user] 
     user_task.save
     respond_with @task
   end

@@ -17,6 +17,10 @@ class UserTask < ActiveRecord::Base
   scope :principal, -> { where role: 1 }
   scope :helpers, -> { where role: 2 }
 
+  after_save do
+    Comment.add_comment_by_commentable self.try(:task),"assign" if self.user_id_changed? && self.role == "principal"
+  end
+
   #负责人、协同者 
   enum role: { principal: 1, helper: 2 }
   Role = { principal: "负责人", helper: "协同者" }
