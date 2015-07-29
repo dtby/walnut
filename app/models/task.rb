@@ -34,14 +34,20 @@ class Task < ActiveRecord::Base
   #序号No状态、优先级的初始化赋值
   before_create do
     self.No = Task.where(project_id: self.project_id).count + 1
-    self.state = 1
-    self.level = 2
+    self.state = 1 #状态默认为待办中
+    self.level = 2 #优先级默认是普通
   end
+  #创建时记录操作记录
+  after_create do
+    Comment.add_comment_by_commentable self,"create" 
+  end
+  #task更新后保存一些操作记录
+  after_update :add_comment
 
 
   #待办中、进行中、已完成、验收通过、验收失败
   enum state: { waiting: 1, doing: 2, completed: 3, acceptance: 4 }
-  State = { waiting: "待办中", doing: "进行中", completed: "已完成", acceptance: "验收通过", failure: "验收失败"  }
+  State = { waiting: "待办中", doing: "进行中", completed: "已完成", acceptance: "验收通过"  }
 
   #重要、普通、不重要 
   enum level: { high: 1, normal: 2, low: 3 }
@@ -52,7 +58,6 @@ class Task < ActiveRecord::Base
     state :doing
     state :completed
     state :acceptance
-    state :failure
 
     event :wait do
       transitions from: [:doing, :completed, :acceptance] , to: :waiting 
@@ -79,6 +84,23 @@ class Task < ActiveRecord::Base
   #获取当前任务的负责人
   def get_principal_user
     User.includes(:user_tasks).where(user_tasks: {task_id: self.id, role: 1}).first
+  end
+
+
+  #task更新后添加对应评论
+  def add_comment
+    
+    #分类变更
+    Comment.add_comment_by_commentable self,"move" if self.task_category_id_changed?
+
+    #截止日期设定
+    Comment.add_comment_by_commentable self,"settime" if self.end_time_changed?
+
+    #状态改变
+    Comment.add_comment_by_commentable self,self.state  if self.state_changed?
+
+    #优先级改变
+    Comment.add_comment_by_commentable self,"level"  if self.level_changed?
   end
 
 end

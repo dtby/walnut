@@ -67,7 +67,7 @@ class Comment < ActiveRecord::Base
     commentable_str.constantize.find(commentable_id)
   end
 
-  #添加评论
+  #根据添加的对象的类名已经添加对象的id添加评论
   #返回评论的对象
   def self.add_comment commentable_name, commentable_id, body
     promise_class = ["TaskCategory", "Task"]
@@ -80,6 +80,39 @@ class Comment < ActiveRecord::Base
       end
     end
     commentable
+  end
+
+  #保存创建等操作生成的评论
+  def self.add_comment_by_commentable commentable, type
+    body = get_comment_body commentable, type
+    comment = Comment.build_from( commentable, current_user.id, body)
+    comment.save
+  end
+
+  def self.get_comment_body commentable, type
+    case type.try(:to_sym)
+    when :create
+      name = {"Announce" => "公告", "TaskCategory" => "任务列表", "Task" => "任务"}
+      "创建了#{name[commentable.class.try(:to_s)]}"
+    when :move
+      "移动任务到 #{commentable.try(:task_category).try(:name)}"
+    when :assign
+      "把任务分配给 #{commentable.try(:get_principal_user).try(:show_name)}"
+    when :settime
+      "将截止日期设置为 #{commentable.try(:end_time).try(:strftime,'%Y年%m月%日')}"
+    when :waiting
+      "把任务置为”待办“"
+    when :doing
+      "开始了任务"
+    when :completed
+      "完成了任务"
+    when :acceptance
+      "验收了任务"
+    when :level
+      "将优先级设置为 #{Task::Level[commentable.try(:level).try(:to_sym)]}"
+    else
+      ""      
+    end
   end
 
 end
