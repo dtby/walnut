@@ -24,4 +24,6 @@
 	<%= link_to(edit_training_platform_project_announce_path(project_id: params[:project_id], id: @announce), remote: true, format: :js) do %>
 		<span class="glyphicon glyphicon-edit pull-right"></span>
 	<% end %>
+
+	<%= render partial: 'training_platform/share/comment', locals: {commentable: @announce}%>
 <% end %>

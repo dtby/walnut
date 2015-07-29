@@ -14,6 +14,8 @@ class Announce < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
 
+  acts_as_commentable
+
   #创建时记录操作记录
   after_create do
     Comment.add_comment_by_commentable self,"create" 

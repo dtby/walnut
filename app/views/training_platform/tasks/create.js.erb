@@ -1,5 +1,10 @@
 <% if @task.errors.blank? %>
-  location.href = "<%= training_platform_project_task_path(@project, @task)%>";
+  <% if params[:task][:user_id].present? %>
+    location.href = "<%= training_platform_project_user_path(@project, id: params[:task][:user_id],s: params[:s])%>";
+  <% else %>
+    location.href = "<%= training_platform_project_task_path(@project, @task)%>";
+  <% end %>
+  
 <% else %>
   $("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/tasks/form') %>");
   $("#trainingPlatformModal").modal('show');

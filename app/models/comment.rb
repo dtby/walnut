@@ -70,7 +70,7 @@ class Comment < ActiveRecord::Base
   #根据添加的对象的类名已经添加对象的id添加评论
   #返回评论的对象
   def self.add_comment commentable_name, commentable_id, body
-    promise_class = ["TaskCategory", "Task"]
+    promise_class = ["TaskCategory", "Task", "Announce"]
     commentable = nil
     if promise_class.include? commentable_name
       commentable = eval("#{commentable_name}.where(id: #{commentable_id}).first")
