@@ -86,6 +86,7 @@
 }
 .my-task{
 	padding: 0 10px;
+	font-weight: bold;
 	.my-line{
 		border-color: #A4A4A4;
 	}
@@ -105,11 +106,16 @@
 	}
 }
 .dropdown{
+	.my-blue{
+		color: #2adcc9 !important;
+	}
+	.my-black{
+		color: #000 !important;
+	}
 	.my-btn{
 		padding: 2px 16px;
 		border-radius: 20px;
 		background-color: #fff !important;
-		color: #2adcc9 !important;
 		font-weight: normal;
 		.my-caret{
 			color: #000;
@@ -118,4 +124,13 @@
 }
 .percent_number {
   font-size:25px;
+}
+.my-details{
+	padding: 0 20px;
+	.col-xs-2{
+		padding: 0;
+	}
+}
+.my-menu{
+	min-width: 50px;
 }
