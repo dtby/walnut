@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .main-bg{
+<<<<<<< HEAD
   padding: 20px 0;
   color: #fff;
   .main{
@@ -45,6 +46,26 @@
       } 
     }
   }
+=======
+	padding: 20px 0;
+	color: #fff;
+	.main{
+		margin:0 0px 15px 0px;
+		padding: 5px 0 20px;
+	}
+	.blue-bg{
+		background-color: #2EC8BA;
+	}
+	.yellow-bg{
+		background-color: #F6C22F;
+	}
+	.orange-bg{
+		background-color: #FF5A15;
+	}
+	.purple-bg{
+		background-color: #A600F9;
+	}
+>>>>>>> modify projects.css.scss
 } 
 //home/index page
 
@@ -56,32 +77,32 @@
 }
 
 .project_name {
-  text-align:center;
-  padding-bottom:5px;
-  padding-top:5px;
-  
-  .project_name_t {
-    font-size:18px;
-    color:#fff;
-  }
+	text-align:center;
+	padding-bottom:5px;
+	padding-top:5px;
+	
+	.project_name_t {
+		font-size:18px;
+		color:#fff;
+	}
 }
 .ace-nav-left {
-  i {
-    font-size:14px!important;
-  }
-  li.active> a {
-    background-color:#00ACAC!important;
-    color:#fff!important;
-  }
-  li {
-    border-color:#222A2D!important;
-    .submenu>li>a:hover{
-      color:#fff!important;
-    }
-    a {  
-      padding:0 6px;
-    }
-  }
+	i {
+		font-size:14px!important;
+	}
+	li.active> a {
+		background-color:#00ACAC!important;
+		color:#fff!important;
+	}
+	li {
+		border-color:#222A2D!important;
+		.submenu>li>a:hover{
+			color:#fff!important;
+		}
+		a {  
+			padding:0 6px;
+		}
+	}
 }
 .page-content {
   padding:1px 1px 25px;
@@ -157,7 +178,7 @@
 	}
 }
 .percent_number {
-  font-size:25px;
+	font-size:25px;
 }
 .my-details{
 	padding: 0 20px;
@@ -167,4 +188,13 @@
 }
 .my-menu{
 	min-width: 50px;
+}
+.a-col{
+	padding: 10px 0 0 15px;
+}
+.my-bbtn{
+	padding: 15px 15px 20px;
+}
+.my-controller{
+	width: 100%;
 }
