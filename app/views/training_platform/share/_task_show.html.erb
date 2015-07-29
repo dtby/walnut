@@ -122,20 +122,27 @@
     <%= render partial: 'training_platform/share/comment', locals: {commentable: @task}%>
   </div>
 <script type="text/javascript">
-/*$()function(){
-  $("#addTagInput").f(function(){
-   alert(123);
-  });
-};*/
-$('#profile-feed-1').slimScroll({
-        height: '250px',
-        alwaysVisible : true
-        });
 
-jQuery(".ggTagContainer").tags({
-   field: "tags1",                //field为保存tags的input(hidden)的name
-   fieldId: "tags1",              //field为保存tags的input(hidden)的id
-   tags: [],    //tags为热门标签
-   has: ["美丽","幸福"]            //has为已经存在的标签
-});
+  
+
+
+  $(function(){
+    //计算左右模块高度以及讨论区宽度
+    var a = $(".navbar").outerHeight();
+    var b = $(".ace_content_right_title").outerHeight();
+    var c = $(".my-task").outerHeight();
+    var wnd = document.body.clientHeight;
+    var d = wnd - (a + b + c + 21) - document.body.scrollTop;
+    $(".scoll-part").height(d);
+
+    $('#profile-feed-1').slimScroll({
+      height: '250px',
+      alwaysVisible : true
+    });
+    // var chat = $(".ace_content_page_right").width();
+    // $(".addComment").width(chat);
+
+    // $(".scoll-part").perfectScrollbar();
+    // $(".scoll-part").perfectScrollbar('update');
+  });
 </script>
