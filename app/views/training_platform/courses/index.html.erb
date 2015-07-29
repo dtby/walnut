@@ -46,9 +46,9 @@
 								<hr class="my-line">
 							</div>
 							<!-- begin courses -->
-							<div class="clearfix scollPart">
-								<% 4.times do %>
-									<div class="col-xs-6 plat-course-col">
+							<div class="clearfix scoll-part">
+								<% 7.times do %>
+									<div class="col-xs-12 col-md-6 plat-course-col">
 										<div class="bordered">
 											<%= link_to "#" do %>
 												<%= image_tag("course-index.gif", class: "img-responsive") %>
@@ -75,7 +75,7 @@
 								<hr class="my-line">
 							</div>
 							<!-- begin discuss -->
-							<div class="clearfix scollPart">
+							<div class="clearfix scoll-part">
 								<% 6.times do %>
 									<!--begin local message -->
 									<div class="media">
@@ -109,12 +109,12 @@
 									</div><!-- end remote message -->
 								<% end %>
 								<br><br><br>
-								<div class="addComment col-xs-5">
+								<div class="addComment">
 									<form class="form-horizontal clearfix">
 										<div class="col-xs-10">
 											<input type="text" class="form-control input-sm" id="discussComment" placeholder="">
 										</div>
-										<button type="submit" class="btn btn-sm btn-danger col-xs-2">发送</button>
+										<button type="submit" class="btn btn-sm btn-info col-xs-2">发送</button>
 									</form>
 								</div>
 							</div><!-- end discuss -->
@@ -140,12 +140,19 @@
 
 	});
 	$(document).ready(function(){
-		//计算左右模块高度
+		//计算左右模块高度以及讨论区宽度
 		var a = $(".navbar").outerHeight();
 		var b = $(".ace_content_right_title").outerHeight();
 		var c = $(".my-task").outerHeight();
 		var wnd = document.body.clientHeight;
 		var d = wnd - (a + b + c + 21) - document.body.scrollTop;
-		$(".scollPart").height(d);
+		$(".scoll-part").height(d);
+		var chat = $(".ace_content_page_right").width();
+		$(".addComment").width(chat);
 	});
+	$(document).ready(function(){
+		$(".scoll-part").perfectScrollbar();
+		$(".scoll-part").perfectScrollbar('update');
+	});
+
 </script>

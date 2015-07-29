@@ -13,4 +13,5 @@
  *= require_self
  *= require ./application/share
  *= require_tree ./training_platform/.
+ *= require ./style.min
  */
