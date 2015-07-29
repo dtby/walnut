@@ -1,0 +1,140 @@
+<div class="main-container" id="main-container">
+	<script type="text/javascript">
+		try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+	</script>
+
+	<div class="main-container-inner">
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+
+		<%= render 'training_platform/share/left_nav'%>
+
+		<div class="main-content">
+			<div class="page-content">
+				<div class="col-xs-12">
+					<div class="row">
+						<!-- PAGE CONTENT BEGINS -->
+						<div class="col-xs-6 ace_content_left_title">
+						  <%= link_to(new_training_platform_project_project_course_path, 'data-toggle': "dropdown", class: "dropdown-toggle", remote: true, format: :js) do %>
+								<span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加课程</span>
+							<% end %>
+						</div>
+						<!-- begin right-title -->
+						<div class="col-xs-6 ace_content_right_title">
+							<div class="col-xs-7 ace-serch">
+								<form class="form-search col-xs-12 ace-form-serch">
+									<span class="input-icon">
+										<input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+										<i class="icon-search nav-search-icon"></i>
+									</span>
+								</form><!-- #nav-search -->
+							</div>
+							<div class="col-xs-5">
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+									<span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+								</a>
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+									<i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+								</a>
+							</div>
+						</div>
+						<!-- end right-title -->
+						<div class="col-xs-6 ace_content_page_left">
+							<div class="my-task">
+								<h3>相关课程</h3>
+								<hr class="my-line">
+							</div>
+							<!-- begin courses -->
+							<div class="clearfix scoll-part">
+								<%= render "project_courses" %>
+							</div><!-- end courses -->
+						</div>
+
+						<div class="col-xs-6 ace_content_page_right">
+							<div class="my-task">
+								<h3>相关讨论</h3>
+								<hr class="my-line">
+							</div>
+							<!-- begin discuss -->
+							<div class="clearfix scoll-part">
+								<% 6.times do %>
+									<!--begin local message -->
+									<div class="media">
+										<div class="media-left">
+											<a href="#">
+												<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
+											</a>
+										</div>
+										<div class="media-body ">
+											<div class="discuss-msg-left">	
+												<div class="pre"></div>
+												<div class="msg-bg ntent msg-left">
+													你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你
+												</div>
+											</div>
+										</div>
+									</div><!-- end local message -->
+
+									<!-- remote message -->
+									<div class="media">
+										<div class="media-body">
+											<div class="discuss-msg-right">
+												<div class="msg-bg msg-right">你好啊你好啊你好啊你你好啊你好啊你</div>
+											</div>
+										</div>
+										<div class="media-right">
+											<a href="#">
+												<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
+											</a>
+										</div>
+									</div><!-- end remote message -->
+								<% end %>
+								<br><br><br>
+								<div class="addComment">
+									<form class="form-horizontal clearfix">
+										<div class="col-xs-10">
+											<input type="text" class="form-control input-sm" id="discussComment" placeholder="">
+										</div>
+										<button type="submit" class="btn btn-sm btn-info col-xs-2">发送</button>
+									</form>
+								</div>
+							</div><!-- end discuss -->
+						</div>
+						<!-- PAGE CONTENT ENDS -->
+					</div>
+				</div><!-- /.col -->
+			</div><!-- /.page-content -->
+		</div><!-- /.main-content -->
+	</div>
+
+</div>
+<script type="text/javascript">
+	jQuery(function($){
+
+		$('.dd').nestable();
+
+		$('.dd-handle a').on('mousedown', function(e){
+			e.stopPropagation();
+		});
+
+		$('[data-rel="tooltip"]').tooltip();
+
+	});
+	$(document).ready(function(){
+		//计算左右模块高度以及讨论区宽度
+		var a = $(".navbar").outerHeight();
+		var b = $(".ace_content_right_title").outerHeight();
+		var c = $(".my-task").outerHeight();
+		var wnd = document.body.clientHeight;
+		var d = wnd - (a + b + c + 21) - document.body.scrollTop;
+		$(".scoll-part").height(d);
+		var chat = $(".ace_content_page_right").width();
+		$(".addComment").width(chat);
+	});
+	$(document).ready(function(){
+		$(".scoll-part").perfectScrollbar();
+		$(".scoll-part").perfectScrollbar('update');
+	});
+
+</script>

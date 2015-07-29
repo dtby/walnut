@@ -62,8 +62,8 @@
       <% end %>
     </li>
 
-    <li class="<%= 'active' if params[:controller] == "training_platform/courses"%>">
-      <%= link_to(training_platform_project_courses_path(project_id: @project.id)) do %>
+    <li class="<%= 'active' if params[:controller] == "training_platform/project_courses"%>">
+      <%= link_to(training_platform_project_project_courses_path(project_id: @project.id)) do %>
         <i class="icon-book"></i>
         <span class="menu-text">相关课程</span>
       <% end %>

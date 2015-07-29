@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   #实训项目
   namespace :training_platform do
     root 'projects#index'
+    resources :courses, only: :index
     resources :projects do
       resources :tasks do
         member do
@@ -72,13 +73,17 @@ Rails.application.routes.draw do
           get :level
         end
       end
+      resources :project_courses do
+        collection do
+          post :batch_create
+        end
+      end
       resources :announces
       resources :notifications do
         collection do
           post :validate
         end
       end
-      resources :courses
       resources :task_categories #任务分类
         match 'tagged' => 'task_categories#tagged', :as => 'tagged', via: 'post'
       resources :users, only: :show

@@ -95,9 +95,14 @@ gem 'sprockets', '~> 2.12.3'
 
 gem 'streamio-ffmpeg', '~> 1.0.0'
 
+#Emberjs相关
 gem 'ember-rails'
 gem 'ember-source', '~> 1.9.0'
 gem 'handlebars_assets', '~> 0.20.2'
-gem 'inherited_resources'
+
+#搜索功能
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 
 

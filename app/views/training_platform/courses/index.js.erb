@@ -1,0 +1,2 @@
+$("#facets").html("<%= escape_javascript(render partial: 'training_platform/project_courses/search_result', locals: {search: @search, project: @project}) %>");
+$("#trainingPlatformModal").modal('show');

@@ -19,6 +19,7 @@ class Project < ActiveRecord::Base
   has_many :users, through: :user_projects
   has_many :announces
   has_many :notifications
+  has_many :project_courses
 
 
   enum is_public: { open: true, close: false }

@@ -1,10 +1,7 @@
 <div  class="my-nav1">
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs ace_modal_ul" role="tablist">
-    <li role="presentation" class="active with-33 text-center"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务分类</a></li>
-    <li role="presentation" class="with-33 text-center"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
-    <li role="presentation" class="with-33 text-center"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
-  </ul>
+  <%= render "tags" %>
+
   <div class="tab-content main">
     <div class="panel panel-default">
       <div class="panel-heading">[<%= @task_category.name %>]修改</div>

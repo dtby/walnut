@@ -22,6 +22,7 @@ class Course < ActiveRecord::Base
 	belongs_to :teacher
 	belongs_to :category
 	belongs_to :college
+	has_many :project_courses
 
   #子课程最后更新时间
 	def last_update_time
@@ -46,4 +47,12 @@ class Course < ActiveRecord::Base
 			return "-- -- --"
 		end
 	end
+
+	#搜索
+	searchable do
+    text :title
+    integer :teacher_id
+    integer :college_id
+  end
+
 end
