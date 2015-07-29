@@ -1,6 +1,5 @@
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  
   <div id="rightTopContent" class="row task-category-detail">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <h3><%= @task_category.try(:name) %></h3>
@@ -9,7 +8,5 @@
       </p>
     </div>
   </div>
-
-  <%= render partial: 'training_platform/share/comment', locals: {commentable: @task_category}%>
-
+   <%= render partial: 'training_platform/share/comment', locals: {commentable: @task_category}%>
 </div>
