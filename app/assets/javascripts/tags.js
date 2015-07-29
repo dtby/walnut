@@ -175,7 +175,7 @@ $(document).ready(function(){
                     mAddTag(false);
                 });
                 });
-            })
+            }
             })(jQuery);
              
             });

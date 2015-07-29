@@ -78,7 +78,6 @@
   <div class="row task-content">
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
       <h4> <%= @task.name %>
-   <div id="tag_container" class="ggTagContainer"></div>
      <!-- <span id="tagLIst">
          <span >ruby</span>
           <span >rails</span>
@@ -96,8 +95,8 @@
         </ul>
       </span> -->
       </h4>
+       <div id="tag_container" class="ggTagContainer"></div>
      </div> 
-    </div>
 
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
       <form class="form-horizontal">
@@ -119,16 +118,19 @@
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
       这里是任务描述
     </div>
+    </div>
+    <%= render partial: 'training_platform/share/comment', locals: {commentable: @task}%>
   </div>
-  <%= render partial: 'training_platform/share/comment', locals: {commentable: @task}%>
-</div>
-
 <script type="text/javascript">
 /*$()function(){
   $("#addTagInput").f(function(){
    alert(123);
   });
 };*/
+$('#profile-feed-1').slimScroll({
+        height: '250px',
+        alwaysVisible : true
+        });
 
 jQuery(".ggTagContainer").tags({
    field: "tags1",                //field为保存tags的input(hidden)的name
