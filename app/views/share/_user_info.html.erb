@@ -1,23 +1,28 @@
 <% if user_signed_in? %>
-  <li>
-    <%= link_to("#") do %>
-      <%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;<%= current_user.mobile %>
-    <% end %>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete do %>
-      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出
-    <% end %>
-  </li>
+	<li>
+		<a href="#">
+			<i class="icon-bell-alt icon-animated-bell"><span class="badge-count">6</span></i>
+		</a>
+	</li>
+	<li>
+		<%= link_to("#") do %>
+			<i class="icon-user"></i>&nbsp;&nbsp;<%= current_user.mobile %>
+		<% end %>
+	</li>
+	<li>
+		<%= link_to destroy_user_session_path, :method => :delete do %>
+			<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 退出
+		<% end %>
+	</li>
 <% else %>
-  <li>
-    <%= link_to(new_session_path(:user),remote: true, format: :js) do %>
-      <%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;登录
-    <% end %>
-  </li>
-  <li>
-    <%= link_to(new_registration_path(:user),remote: true, format: :js) do %>
-      <%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;注册
-    <% end %>
-  </li>
+	<li>
+		<%= link_to(new_session_path(:user),remote: true, format: :js) do %>
+			<%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;登录
+		<% end %>
+	</li>
+	<li>
+		<%= link_to(new_registration_path(:user),remote: true, format: :js) do %>
+			<%= image_tag "loginin.png", width: '18' %>&nbsp;&nbsp;注册
+		<% end %>
+	</li>
 <% end %>

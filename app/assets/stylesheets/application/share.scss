@@ -12,9 +12,29 @@
 		li > a{
 			color: $color-sign !important;
 		}
+		i,.glyphicon{
+			color: #fff;
+			font-size: 16px;
+		}
 	}
-
-
+	//徽章提示
+	.badge-count{
+		display: inline-block;
+		font-size: 10px;
+		color: #FFF;
+		white-space: nowrap;
+		border-radius: 9px;
+		min-width: 18px;
+		min-height: 18px;
+		line-height: 16px;
+		text-align: center;
+		position: absolute;
+		top: 14px;
+		left: 20px;
+		z-index: 10;
+		border: 1px solid #000;
+		background-color: #F00;
+	}
 	.sub_menu{
 		min-width: 96px;
 		background: #19B29F;

@@ -12,6 +12,8 @@
  *
  *= require_self
  *= require_tree ./application/.
+ *= require ./training_platform/ace/font-awesome-ie7.min
+ *= require ./training_platform/ace/font-awesome.min
  *= require mediaelement_rails
  *= require mediaelement_rails/mejs-skins
  */
