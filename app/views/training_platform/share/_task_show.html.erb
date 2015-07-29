@@ -78,11 +78,14 @@
   <div class="row task-content">
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
       <h4> <%= @task.name %>
-      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-                <% @task.tags.any? %>
-                <% @task.tags.each do |tag| %>
-                <%= link_to tag.name %>
-                <% end %>
+   <div id="tag_container" class="ggTagContainer"></div>
+     <!-- <span id="tagLIst">
+         <span >ruby</span>
+          <span >rails</span>
+     </span>
+     <input type="text" value="" id="addTagInput"> -->
+
+
       <!-- <span class="dropdown">
         <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           <%#= Task::State[@task.state.to_sym]%>
@@ -94,31 +97,6 @@
       </span> -->
       </h4>
      </div> 
-
-    <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-    <%= simple_form_for  :task, url: tagged_training_platform_project_task_path(@project, @task), remote: true, format: :js,method: :post do |f| %>
-          <div class="form-group">
-          <div class="col-xs-8">
-          <%= text_field_tag :content, "",placeholder: '请输入任务标签' %>
-          </div>
-           <div class="col-xs-2">
-          <%= f.submit "添加标签", class: "btn btn-success"%>
-          </div>
-          </div>
-      <% end %>
-
-
-
-     <!-- <form class="form-horizontal">
-       <div class="form-group">
-         <div class="col-xs-8">
-           <input class="form-control" id="inputEmail3" placeholder="请输入任务标签">
-         </div>
-         <div class="col-xs-2">
-           <botton class="btn btn-success">添加标签</botton>
-         </div>
-       </div>
-     </form> -->
     </div>
 
     <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
@@ -142,7 +120,20 @@
       这里是任务描述
     </div>
   </div>
-
   <%= render partial: 'training_platform/share/comment', locals: {commentable: @task}%>
-  
 </div>
+
+<script type="text/javascript">
+/*$()function(){
+  $("#addTagInput").f(function(){
+   alert(123);
+  });
+};*/
+
+jQuery(".ggTagContainer").tags({
+   field: "tags1",                //field为保存tags的input(hidden)的name
+   fieldId: "tags1",              //field为保存tags的input(hidden)的id
+   tags: [],    //tags为热门标签
+   has: ["美丽","幸福"]            //has为已经存在的标签
+});
+</script>

@@ -48,14 +48,6 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
     respond_with @task_category
   end
 
-   def tagged
-      if params[:tag].present? 
-        @tasks = Task.tagged_with(params[:tag])
-      else 
-        @tasks = Task.postall
-      end  
-    end
-
   private
     def set_project
       @project = Project.find(params[:project_id])
@@ -67,7 +59,7 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
     end
 
     def task_category_params
-      params.require(:task_category).permit(:name, :description, :tag_list)
+      params.require(:task_category).permit(:name, :description)
     end
 
     def set_task_category

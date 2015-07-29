@@ -52,11 +52,11 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   end
 
   #添加标签
-  def tagged
-    @task.tag_list.add(params[:content] )  if params[:content].present? 
-    @task_category = @task.task_category
-    respond_with @task, @task_category
-  end
+  # def tagged
+  #   @task.tag_list.add(params[:content] )  if params[:content].present? 
+  #   @task_category = @task.task_category
+  #   respond_with @task, @task_category
+  # end
 
 
   #更新负责人
@@ -75,7 +75,7 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
 
   private 
     def task_params
-      params.require(:task).permit(:name, :description, :task_category_id, :tag_list)
+      params.require(:task).permit(:name, :description, :task_category_id)
     end
 
     def set_task
