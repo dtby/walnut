@@ -88,6 +88,8 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    resources :comments, only: :create
   end
 
   #api管理

@@ -66,4 +66,20 @@ class Comment < ActiveRecord::Base
   def self.find_commentable(commentable_str, commentable_id)
     commentable_str.constantize.find(commentable_id)
   end
+
+  #添加评论
+  #返回评论的对象
+  def self.add_comment commentable_name, commentable_id, body
+    promise_class = ["TaskCategory", "Task"]
+    commentable = nil
+    if promise_class.include? commentable_name
+      commentable = eval("#{commentable_name}.where(id: #{commentable_id}).first")
+      if commentable.present?
+        comment = Comment.build_from( commentable, current_user.id, body)
+        comment.save
+      end
+    end
+    commentable
+  end
+
 end

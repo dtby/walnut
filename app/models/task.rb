@@ -19,6 +19,8 @@ class Task < ActiveRecord::Base
   include AASM
 
   acts_as_taggable_on :tags
+  acts_as_commentable
+  
   belongs_to :project
   belongs_to :task_category
   has_many :user_tasks, dependent: :destroy 

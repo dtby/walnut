@@ -16,7 +16,7 @@
           <div class="row">
             <!-- <左侧> -->
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 task-left-content">
-              <div class="row ace_content_left_title">
+              <div id="leftHead" class="row ace_content_left_title">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <%= link_to new_training_platform_project_task_path(project_id: @project.id, task_category_id: @task_category.try(:id), user_id: @user.try(:id)), remote: true, format: :js do %>
                     <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加任务</span>
@@ -38,7 +38,7 @@
             <!-- 右侧 -->
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <div class="row ace_content_right_title">
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ace-serch">
+                <div id="rightHead" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ace-serch">
                   <form class="form-search ace-form-serch">
                     <span class="input-icon">
                     <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
@@ -76,6 +76,7 @@
 
 </div>
 <script type="text/javascript">
+
   jQuery(function($){
   
     $('.dd').nestable();
@@ -93,6 +94,6 @@
         alwaysVisible : true
         });
       
-        $('.profile-social-links > a').tooltip();
+  $('.profile-social-links > a').tooltip();
     
 </script>

@@ -1,0 +1,60 @@
+  <div class="row comment-list">
+    <div class="widget-box transparent ace_widget_box">
+      <div class="widget-header widget-header-small">
+        <h4 class="blue smaller">
+          <i class="icon-rss orange"></i>
+          动态
+        </h4>
+
+        <div class="widget-toolbar action-buttons">
+          <a href="#" data-action="reload">
+            <i class="icon-refresh blue"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="widget-body">
+        <div class="widget-main padding-8">
+          <div id="profile-feed-1" class="profile-feed">
+            <% commentable.root_comments.each do |comment| %>
+              <div class="profile-activity clearfix">
+                <div>
+                  <%= image_tag(comment.try(:user).try(:show_image) , class: "pull-left") %>
+                  <a class="user" href="#"> <%= comment.try(:user).try(:show_name) %> </a>
+                  <%= comment.body %>
+                  <!-- 附件链接 -->
+                  <!-- <a href="#">Take a look</a> -->
+
+                  <div class="time">
+                    <i class="icon-time bigger-110"></i>
+                    <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
+                  </div>
+                </div>
+                <div class="tools action-buttons">
+                  <a href="#" class="red">
+                    <i class="icon-remove bigger-125"></i>
+                  </a>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <%= form_tag training_platform_comments_path, remote: true, format: :js do %>
+            <div class="form-actions">
+              <div class="input-group">
+                <%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
+                <%= hidden_field_tag "commentable_name", commentable.class %>
+                <%= hidden_field_tag "commentable_id",  commentable.id %>
+                <span class="input-group-btn">
+                  <button class="btn btn-md btn-info no-radius" type="submit">
+                    <i class="icon-share-alt"></i>
+                    发送
+                  </button>
+                </span>
+              </div>
+            </div>
+          <% end %>
+          
+        </div>
+      </div>
+    </div>
+  </div>

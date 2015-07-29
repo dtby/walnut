@@ -1,0 +1,5 @@
+<% if @commentable.present? %>
+$(".comment-list").replaceWith("<%= escape_javascript(render partial: 'training_platform/share/comment', locals: {commentable: @commentable})%>");
+<% else %>
+alert("请刷新页面后重试");
+<% end %>

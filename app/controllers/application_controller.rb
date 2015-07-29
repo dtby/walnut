@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
   # 将当前用户传递到Model中
     def set_current_user
       User.current = current_user
-      pp current_user
     end
 
   private
