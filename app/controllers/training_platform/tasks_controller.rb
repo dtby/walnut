@@ -28,6 +28,14 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   def update
   end
 
+  def destroy
+    task_category = @task.task_category
+    user = @task.get_principal_user
+    @task.destroy
+    flash[:notice] = "任务删除成功"
+    redirect_to training_platform_project_task_category_path(@project, task_category)
+  end
+
   def show
     @task_category = @task.task_category
     respond_with @task,@task_category

@@ -70,8 +70,9 @@
           <span class="caret my-caret"></span>
         </button>
         <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <li><a href="#">编辑</a></li>
-          <li><a href="#">删除</a></li>
+          <li>
+          <%= link_to("删除", training_platform_project_task_path(@project, @task), method: :delete) %>
+          </li>
         </ul>
       </div>
     </div>
