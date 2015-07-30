@@ -216,6 +216,13 @@
     }
 
     .task-content {
+      .tags-list {
+        background-color: #fbffff;
+        border: none;
+        padding-bottom: 10px;
+        width: 100%;
+      }
+
       .task-description {
         height: 80px;
       }

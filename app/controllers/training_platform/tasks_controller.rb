@@ -1,7 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
   before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
-    :move_category, :tagged, :update_principal, :level]
+    :move_category, :tag, :update_principal, :level, :remove]
   
 
   def index
@@ -52,11 +52,24 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   end
 
   #添加标签
-  # def tagged
-  #   @task.tag_list.add(params[:content] )  if params[:content].present? 
-  #   @task_category = @task.task_category
-  #   respond_with @task, @task_category
-  # end
+  def tag
+    if params[:tag].present?
+      @task.tag_list.add(params[:tag] ) 
+      @task.save
+    end
+     
+    respond_with @task
+  end
+
+  #删除标签
+  def remove
+    if params[:tag].present?
+      @task.tag_list.remove(params[:tag] ) 
+      @task.save
+    end
+    
+    respond_with @task
+  end
 
 
   #更新负责人

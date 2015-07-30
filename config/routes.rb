@@ -68,9 +68,10 @@ Rails.application.routes.draw do
         member do
           get :aasm_state
           get :move_category
-          post :tagged
+          post :tag
           get :update_principal
           get :level
+          get :remove
         end
       end
       resources :courses, only: :index
@@ -86,7 +87,6 @@ Rails.application.routes.draw do
         end
       end
       resources :task_categories #任务分类
-        match 'tagged' => 'task_categories#tagged', :as => 'tagged', via: 'post'
       resources :users, only: :show
       resources :user_projects do
         collection do

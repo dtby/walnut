@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-gem 'acts-as-taggable-on', '~> 3.5'
+
 # gem 'therubyracer', platforms: :ruby
 gem 'backstretch-rails'
 # Use jquery as the JavaScript library
@@ -59,6 +59,8 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails_kindeditor'
 
 gem 'acts_as_commentable_with_threading'
+
+gem 'acts-as-taggable-on', '~> 3.5'
 
 gem 'aasm', '~> 4.2.0'
 

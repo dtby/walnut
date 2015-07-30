@@ -87,10 +87,12 @@
 
     $('#commentList').slimScroll({
       height: scrollHeight + 'px',
+      start: 'bottom',
       alwaysVisible : true
     });
 
     var chat = $(".ace_content_page_right").width();
     $("#commentForm").width(chat);
+
   });
 </script>

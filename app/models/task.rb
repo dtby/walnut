@@ -18,6 +18,8 @@
 class Task < ActiveRecord::Base
   include AASM
   acts_as_commentable
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :interests
 
   belongs_to :project
   belongs_to :task_category

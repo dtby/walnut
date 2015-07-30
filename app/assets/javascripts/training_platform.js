@@ -6,5 +6,4 @@
 //= require ./mousewheel.min
 //= require ./scrollbar.min
 //= require_tree ./ace/.
-//= require ./tags
 
