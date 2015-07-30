@@ -68,7 +68,7 @@
 			border-top: 6px solid transparent;
 			border-bottom: 6px solid transparent;
 			border-right: 8px solid #fff;
-			z-index: 100;
+			z-index: 10;
 		}
 	}
 	.discuss-msg-right{
@@ -94,6 +94,7 @@
 		bottom: 1px;
 		right: 10px;
 		padding: 10px;
+		z-index: 11;
 		input[type="text"]{
 			border: 2px solid #19B29F;
 		}
