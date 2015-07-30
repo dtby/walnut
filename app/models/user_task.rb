@@ -19,6 +19,11 @@ class UserTask < ActiveRecord::Base
 
   after_save do
     Comment.add_comment_by_commentable self.try(:task),"assign" if self.user_id_changed? && self.role == "principal"
+    Comment.add_comment_by_commentable self.try(:task),"add_helper",self.try(:user).try(:show_name) if self.user_id_changed? && self.role == "helper"
+  end
+
+  after_destroy do
+    Comment.add_comment_by_commentable self.try(:task),"remove_helper",self.try(:user).try(:show_name) if self.role == "helper"
   end
 
   #负责人、协同者 

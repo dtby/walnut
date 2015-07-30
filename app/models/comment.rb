@@ -83,13 +83,13 @@ class Comment < ActiveRecord::Base
   end
 
   #保存创建等操作生成的评论
-  def self.add_comment_by_commentable commentable, type
-    body = get_comment_body commentable, type
+  def self.add_comment_by_commentable commentable, type, name = ""
+    body = get_comment_body commentable, type, name
     comment = Comment.build_from( commentable, current_user.id, body)
     comment.save
   end
 
-  def self.get_comment_body commentable, type
+  def self.get_comment_body commentable, type, name=""
     case type.try(:to_sym)
     when :create
       name = {"Announce" => "公告", "TaskCategory" => "任务列表", "Task" => "任务"}
@@ -110,6 +110,10 @@ class Comment < ActiveRecord::Base
       "验收了任务"
     when :level
       "将优先级设置为 #{Task::Level[commentable.try(:level).try(:to_sym)]}"
+    when :add_helper
+      "添加了协同者 #{name}"
+    when :remove_helper
+      "删除了协同者 #{name}"
     else
       ""      
     end

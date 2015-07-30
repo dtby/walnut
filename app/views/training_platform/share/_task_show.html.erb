@@ -97,7 +97,7 @@
             </span>
           <% end %>
           <select id="helperSelect">
-            <option>请选择协作者</option>
+            <option>请选择协同者</option>
             <% @project.get_member.each do |member| %>
               <option value="<%= member.id %>"><%= member.show_name %></option>
             <% end %>
