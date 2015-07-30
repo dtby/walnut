@@ -39,7 +39,8 @@
               </div>
             <% end %>
           </div>
-          <%= form_tag training_platform_comments_path, remote: true, format: :js, id: "commentForm" do %>
+        </div>
+        <%= form_tag training_platform_comments_path, remote: true, format: :js, id: "commentForm" do %>
             <div class="form-actions">
               <div class="input-group">
                 <%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
@@ -54,7 +55,6 @@
               </div>
             </div>
           <% end %>
-        </div>
       </div>
     </div>
   </div>
@@ -79,8 +79,11 @@
     //右侧上半部分内容高度
     var rightTopContent = $("#rightTopContent").outerHeight();
 
+    //评论表单
+    var commentForm = $("#commentForm").outerHeight();
+
     //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent +25) - document.body.scrollTop;
+    var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +50) - document.body.scrollTop;
 
     $('#commentList').slimScroll({
       height: scrollHeight + 'px',
