@@ -48,9 +48,9 @@ class Course < ActiveRecord::Base
 		end
 	end
 
-	#搜索
+	#solr搜索
 	searchable do
-    text :title
+    text :title, :description
     integer :teacher_id
     integer :college_id
   end
