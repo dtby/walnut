@@ -5,25 +5,27 @@
 		</div>
 	</div>
 <% else %>
-	<div class="my-task">
-		<h3 class="clearfix">公告详情</h3>
-		<hr class="my-line">
-	</div>
-	<ul class="nav nav-pills nav-stacked anno-ul">
-		<li >
-			<span class="col-xs-9 text-left"><%= @announce.title %></span>
-			<span class="col-xs-3 text-right"><%= @announce.updated_at.try(:strftime, "%F") %></span>
-		</li>
-	</ul>
-	<div class="col-xs-12">
-		<br>
-		<div class="announce-content">
-			<p><%= @announce.description %></p>
+	<div id="rightTopContent">
+		<div class="my-task">
+			<h3 class="clearfix">公告详情</h3>
+			<hr class="my-line">
 		</div>
+		<ul class="nav nav-pills nav-stacked anno-ul">
+			<li >
+				<span class="col-xs-9 text-left"><%= @announce.title %></span>
+				<span class="col-xs-3 text-right"><%= @announce.updated_at.try(:strftime, "%F") %></span>
+			</li>
+		</ul>
+		<div class="col-xs-12">
+			<br>
+			<div class="announce-content">
+				<p><%= @announce.description %></p>
+			</div>
+		</div>
+		<%= link_to(edit_training_platform_project_announce_path(project_id: params[:project_id], id: @announce), remote: true, format: :js) do %>
+			<span class="glyphicon glyphicon-edit pull-right"></span>
+		<% end %>
 	</div>
-	<%= link_to(edit_training_platform_project_announce_path(project_id: params[:project_id], id: @announce), remote: true, format: :js) do %>
-		<span class="glyphicon glyphicon-edit pull-right"></span>
-	<% end %>
 
 	<%= render partial: 'training_platform/share/comment', locals: {commentable: @announce}%>
 <% end %>
