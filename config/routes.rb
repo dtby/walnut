@@ -72,6 +72,8 @@ Rails.application.routes.draw do
           get :update_principal
           get :level
           get :remove
+          post :add_helper
+          delete :remove_helper
         end
       end
       resources :courses, only: :index

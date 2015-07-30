@@ -88,21 +88,27 @@ class Task < ActiveRecord::Base
     User.includes(:user_tasks).where(user_tasks: {task_id: self.id, role: 1}).first
   end
 
+  #获取协同者
+  def get_helpers
+    User.includes(:user_tasks).where(user_tasks: {task_id: self.id, role: 2})
+  end
+
 
   #task更新后添加对应评论
-  def add_comment
-    
-    #分类变更
-    Comment.add_comment_by_commentable self,"move" if self.task_category_id_changed?
+  private 
+    def add_comment
+      
+      #分类变更
+      Comment.add_comment_by_commentable self,"move" if self.task_category_id_changed?
 
-    #截止日期设定
-    Comment.add_comment_by_commentable self,"settime" if self.end_time_changed?
+      #截止日期设定
+      Comment.add_comment_by_commentable self,"settime" if self.end_time_changed?
 
-    #状态改变
-    Comment.add_comment_by_commentable self,self.state  if self.state_changed?
+      #状态改变
+      Comment.add_comment_by_commentable self,self.state  if self.state_changed?
 
-    #优先级改变
-    Comment.add_comment_by_commentable self,"level"  if self.level_changed?
-  end
+      #优先级改变
+      Comment.add_comment_by_commentable self,"level"  if self.level_changed?
+    end
 
 end

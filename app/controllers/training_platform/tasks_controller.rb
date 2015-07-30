@@ -1,7 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
   before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
-    :move_category, :tag, :update_principal, :level, :remove]
+    :move_category, :tag, :update_principal, :level, :remove, :add_helper, :remove_helper]
   
 
   def index
@@ -77,6 +77,20 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     user_task = UserTask.find_or_initialize_by(task_id: @task.id, role: 1)
     user_task.user_id = params[:user] 
     user_task.save
+    respond_with @task
+  end
+
+  #添加协同者
+  def add_helper
+    user_task = UserTask.find_or_initialize_by(task_id: @task.id, role: 2, user_id: params[:user]) 
+    user_task.save
+    respond_with @task
+  end
+
+  #删除协同者
+  def remove_helper
+    user_task = UserTask.where(task_id: @task.id, role: 2, user_id: params[:user]).first
+    user_task.destroy if user_task.present?
     respond_with @task
   end
 

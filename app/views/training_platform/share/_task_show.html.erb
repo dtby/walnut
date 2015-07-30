@@ -90,20 +90,19 @@
        </div> 
 
       <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-        <form class="form-horizontal">
-          <div class="form-group">
-            <div class="col-xs-8">
-              <select class="form-control">
-                <option>请选择协作者</option>
-                <option>樊伟</option>
-                <option>张留刚</option>
-              </select>
-            </div>
-            <div class="col-xs-2">
-              <botton class="btn btn-success">确认提交</botton>
-            </div>
-          </div>
-        </form>
+        <div class="tags tags-list">
+          <% @task.get_helpers.each do |user| %>
+            <span class="tag"><%= user.show_name %>
+            <%= link_to("x", remove_helper_training_platform_project_task_path(@project,@task, user: user.id) , class: "close", remote: true, format: :js, method: :delete) %>
+            </span>
+          <% end %>
+          <select id="helperSelect">
+            <option>请选择协作者</option>
+            <% @project.get_member.each do |member| %>
+              <option value="<%= member.id %>"><%= member.show_name %></option>
+            <% end %>
+          </select>
+        </div>
       </div>
 
       <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
@@ -123,6 +122,16 @@
           url: "<%= tag_training_platform_project_task_path(@project, @task)%>.js",
           type: "post",
           data: {tag: $(this).val()}
+        });
+      }
+    });
+
+    $("#helperSelect").change(function(){
+      if($(this).val() != ""){
+        $.ajax({
+          url: "<%= add_helper_training_platform_project_task_path(@project, @task)%>.js",
+          type: "post",
+          data: {user: $(this).val()}
         });
       }
     });
