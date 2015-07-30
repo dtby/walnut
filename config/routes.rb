@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   #实训项目
   namespace :training_platform do
     root 'projects#index'
-    resources :courses, only: :index
+
     resources :projects do
       resources :tasks do
         member do
@@ -73,6 +73,7 @@ Rails.application.routes.draw do
           get :level
         end
       end
+      resources :courses, only: :index
       resources :project_courses do
         collection do
           post :batch_create

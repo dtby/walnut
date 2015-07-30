@@ -1,26 +1,31 @@
 <h3>课程列表</h3>
-<table class="table">
-  <thead>
-  	<tr>
-  		<th class="text-center">课程名称</th>
-  		<th class="text-center">专业方向</th>
-  		<th class="text-center">学校</th>
-  		<th class="text-center">老师</th>
-  		<th class="text-center">操作</th>
-  	</tr>
-  </thead>
-  <tbody>
-    <% search.each_hit_with_result do |hit, course| %>
-	  	<tr>
-	  		<td class="text-center"><%= course.title %></td>
-	  		<td class="text-center"><%= course.category.present? ? course.try(:category).try(:name) : "***" %></td>
-	  		<td class="text-center"><%= course.college.present? ? course.try(:college).try(:name) : "***" %></td>
-	  		<td class="text-center"><%= course.teacher.present? ? course.try(:teacher).try(:name) : "***" %></td>
-	  		<td class="text-center"><input type="checkbox"></td>
-	  	</tr>
-	  <% end %>
-  </tbody>
-</table>
-<div class="text-center">
-  <%= link_to "添加课程", nil, class: "btn btn-danger-tp" %>
-</div>
+<%= form_tag batch_create_training_platform_project_project_courses_path(project), remote: true do %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">课程名称</th>
+        <th class="text-center">专业方向</th>
+        <th class="text-center">学校</th>
+        <th class="text-center">老师</th>
+        <th class="text-center">操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% search.each_hit_with_result do |hit, course| %>
+        <tr>
+          <td class="text-center"><%= course.title %></td>
+          <td class="text-center"><%= course.category.present? ? course.try(:category).try(:name) : "***" %></td>
+          <td class="text-center"><%= course.college.present? ? course.try(:college).try(:name) : "***" %></td>
+          <td class="text-center"><%= course.teacher.present? ? course.try(:teacher).try(:name) : "***" %></td>
+          <td class="text-center">
+            <%= check_box_tag("course_ids[]", course.id, course.id.in?(course.project_courses.collect(&:id))) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <hr>
+  <div class="text-center">
+    <%= submit_tag "创建", class: "btn btn-danger-tp" %>
+  </div>
+<% end %>

@@ -11,7 +11,19 @@ class TrainingPlatform::ProjectCoursesController < TrainingPlatform::Application
     end
   end
 
+  #批量添加课程
   def batch_create
+    @courses = Course.where(id: params[:course_ids])
+    @courses.each do |course|
+      @project_course = ProjectCourse.new
+      @project_course.course_id = course.id
+      @project_course.project_id = @project.id
+      @project_course.save
+    end
+    return render js: "window.location(history.go(0));"
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
