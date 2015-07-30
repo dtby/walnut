@@ -1,143 +1,126 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="my-task">
-        <h3>任务详情</h3>
-        <hr class="my-line">
+  <div id="rightTopContent">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="my-task">
+          <h3>任务详情</h3>
+          <hr class="my-line">
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row task-ops">
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <%= @task.try(:task_category).try(:name).try(:truncate, 5, omission: "..") || "所属任务"%>
-        <span class="caret my-caret"></span>
-      </button>
-      <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-        <% @project.task_categories.each do |tc| %>
-          <li>
-            <%= link_to tc.name, move_category_training_platform_project_task_path(@project, @task, task_category: tc.id) , remote: true, format: :js %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <%= @task.get_principal_user.try(:show_name) || "负责人" %>
-        <span class="caret my-caret"></span>
-      </button>
-      <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-        <% @project.get_member.each do |member| %>
-          <li>
-          <%= link_to member.show_name, update_principal_training_platform_project_task_path(@project, @task, user: member.id) , remote: true, format: :js %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        截止日期
-      </button>
-    </div>
-
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        <%= Task::Level[@task.level.to_sym]%>
-        <span class="caret my-caret"></span>
-      </button>
-      <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-        <% Task::Level.each do |k,v| %>
-          <li>
-          <%= link_to v, level_training_platform_project_task_path(@project, @task, level: k) , remote: true, format: :js %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        附件
-      </button>
-    </div>
-
-    <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-      <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        操作
-        <span class="caret my-caret"></span>
-      </button>
-      <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-        <li><a href="#">编辑</a></li>
-        <li><a href="#">删除</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="row task-content">
-    <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-      <h4> <%= @task.name %>
-     <!-- <span id="tagLIst">
-         <span >ruby</span>
-          <span >rails</span>
-     </span>
-     <input type="text" value="" id="addTagInput"> -->
-
-
-      <!-- <span class="dropdown">
+    <div class="row task-ops">
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
         <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          <%#= Task::State[@task.state.to_sym]%>
+          <%= @task.try(:task_category).try(:name).try(:truncate, 5, omission: "..") || "所属任务"%>
           <span class="caret my-caret"></span>
         </button>
         <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-          <%#= raw(staus_dropdown @task.state, aasm_state_training_platform_project_task_path(@project,@task))%>
+          <% @project.task_categories.each do |tc| %>
+            <li>
+              <%= link_to tc.name, move_category_training_platform_project_task_path(@project, @task, task_category: tc.id) , remote: true, format: :js %>
+            </li>
+          <% end %>
         </ul>
-      </span> -->
-      </h4>
-       <div id="tag_container" class="ggTagContainer"></div>
-     </div> 
+      </div>
 
-    <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-      <form class="form-horizontal">
-        <div class="form-group">
-          <div class="col-xs-8">
-            <select class="form-control">
-              <option>请选择协作者</option>
-              <option>樊伟</option>
-              <option>张留刚</option>
-            </select>
-          </div>
-          <div class="col-xs-2">
-            <botton class="btn btn-success">确认提交</botton>
-          </div>
-        </div>
-      </form>
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= @task.get_principal_user.try(:show_name) || "负责人" %>
+          <span class="caret my-caret"></span>
+        </button>
+        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+          <% @project.get_member.each do |member| %>
+            <li>
+            <%= link_to member.show_name, update_principal_training_platform_project_task_path(@project, @task, user: member.id) , remote: true, format: :js %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          截止日期
+        </button>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <%= Task::Level[@task.level.to_sym]%>
+          <span class="caret my-caret"></span>
+        </button>
+        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+          <% Task::Level.each do |k,v| %>
+            <li>
+            <%= link_to v, level_training_platform_project_task_path(@project, @task, level: k) , remote: true, format: :js %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          附件
+        </button>
+      </div>
+
+      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
+        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          操作
+          <span class="caret my-caret"></span>
+        </button>
+        <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#">编辑</a></li>
+          <li><a href="#">删除</a></li>
+        </ul>
+      </div>
     </div>
 
-    <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
-      这里是任务描述
+    <div class="row task-content">
+      <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
+        <h4> <%= @task.name %>
+       <!-- <span id="tagLIst">
+           <span >ruby</span>
+            <span >rails</span>
+       </span>
+       <input type="text" value="" id="addTagInput"> -->
+
+
+        <!-- <span class="dropdown">
+          <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <%#= Task::State[@task.state.to_sym]%>
+            <span class="caret my-caret"></span>
+          </button>
+          <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+            <%#= raw(staus_dropdown @task.state, aasm_state_training_platform_project_task_path(@project,@task))%>
+          </ul>
+        </span> -->
+        </h4>
+         <div id="tag_container" class="ggTagContainer"></div>
+       </div> 
+
+      <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <div class="col-xs-8">
+              <select class="form-control">
+                <option>请选择协作者</option>
+                <option>樊伟</option>
+                <option>张留刚</option>
+              </select>
+            </div>
+            <div class="col-xs-2">
+              <botton class="btn btn-success">确认提交</botton>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
+        这里是任务描述
+      </div>
     </div>
   </div>
-
+  
   <%= render partial: 'training_platform/share/comment', locals: {commentable: @task}%>
 </div>
-<script type="text/javascript">
-
-  $(function(){
-    //计算左右模块高度以及讨论区宽度
-    var a = $(".navbar").outerHeight();
-    var b = $(".ace_content_right_title").outerHeight();
-    var c = $(".my-task").outerHeight();
-    var wnd = document.body.clientHeight;
-    var d = wnd - (a + b + c + 21) - document.body.scrollTop;
-    $(".scoll-part").height(d);
-
-    $('#profile-feed-1').slimScroll({
-      height: '250px',
-      alwaysVisible : true
-    });
-    // var chat = $(".ace_content_page_right").width();
-    // $(".addComment").width(chat);
-  });
-</script>

@@ -88,11 +88,22 @@
   
   });
 
-  $('#profile-feed-1').slimScroll({
-        height: '250px',
-        alwaysVisible : true
-        });
-      
-        $('.profile-social-links > a').tooltip();
+  $(function(){
+    
+    //菜单栏高度
+    var head = $("#headerMenu").outerHeight();
+
+    //右侧检索通知栏高度
+    var rightTitle = $(".ace_content_right_title").outerHeight();
+
+    //屏幕可见高端
+    var clientHeight = document.body.clientHeight;
+
+    //高度计算
+    var scrollHeight = clientHeight - (head + rightTitle) - document.body.scrollTop;
+
+    $("#taskDetailShow").height(scrollHeight);
+
+  });
     
 </script>

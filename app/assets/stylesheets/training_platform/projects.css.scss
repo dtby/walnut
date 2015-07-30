@@ -124,7 +124,6 @@
   //左侧内容
   .ace_content_page_left {
     background-color: #fdfdfd;
-    //min-height: 600px;
 
     .my-task{
       h3{
@@ -189,6 +188,7 @@
 
   //右侧内容
   .ace_content_page_right {
+    background-color:#fbffff;
     //任务列表详细
     .task-category-detail {
       height: 150px;
@@ -241,9 +241,9 @@
   }
 }
 
-//training_platform/share/widget
-.ace_widget_box {
-  background-color:#fbffff;
+#commentForm {
+  position: absolute;
+  bottom: 0px;
 }
 
 // .task_d {
