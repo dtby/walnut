@@ -88,7 +88,8 @@ Rails.application.routes.draw do
           post :validate
         end
       end
-      resources :task_categories #任务分类
+      resources :task_categories #任务列表
+      match 'tagged' => 'task_categories#tagged', :as => 'tagged', via: 'post'
       resources :users, only: :show
       resources :user_projects do
         collection do

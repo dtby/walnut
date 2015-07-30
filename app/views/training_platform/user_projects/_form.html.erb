@@ -1,158 +1,114 @@
- <h3 class="text-center title"><span>邀请成员<span></h3>
-<%= simple_form_for(@user_project, url: training_platform_project_user_projects_path(@user_project, project_id: params[:project_id]),html: {id: "projectFormModal", class: "form-inline"}, remote: true, format: :js) do |f| %>
-  <div class="row">
-    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
-      <%= f.input :user_id, as: :string, required: false, label: false ,autofocus: true, placeholder: "请输入邮箱或者手机号" %>
+<div  class="my-nav1">
+  <ul class="nav nav-tabs ace_modal_ul" role="tablist">
+    <li role="presentation" class="active col-sm-4 text-center"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
+    <li role="presentation" class="col-sm-4 text-center"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
+    <li role="presentation" class="col-sm-4 text-center"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
+  </ul>
+  <div class="tab-content main">
+    <div role="tabpanel" class="tab-pane active" id="home">
+      <%= link_to "新增", "javascript:void(0);", id: "toggle-link", class: "btn btn-default"%>
+      <hr class="new-top">
+      <div class="new-task-category">
+        <%= simple_form_for TaskCategory.new, url: training_platform_project_task_categories_path, remote: true do |f|%>
+          <%= f.input :name, as: :string, placeholder: '请输入任务列表名称' %>
+          <%= f.input :description, as: :text, placeholder: '请输入任务列表描述' %>
+          <%= f.submit "添加", class: "btn btn-info-tp"%>
+        <% end %>
+      </div>
+      <hr class="new-bottom">
+      <% if @task_categories.present? %>
+        <table class="table table-hover ace_modal_tab">
+          <thead>
+            <tr>
+              <th class="text-center">任务列表名称</th>
+              <th class="text-center">任务列表描述</th>
+              <th class="text-center">操作</th>
+            </tr>
+          </thead>
+          <tbody id="task_categories">
+            <%= render partial: "training_platform/task_categories/task_category", collection: @task_categories, locals: {project: @project} %>
+          </tbody>
+        </table>
+      <% else %>
+        <div class="alert alert-warning" role="alert">暂无任务列表</div>
+      <% end %>
     </div>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
-      <%= f.input :role, as: :select, label: false ,collection: [["管理者", "admin"], ["成员", "member"]], include_blank: false %>
-    </div>
-    <%= f.input :project_id, as: :hidden, input_html: {value: params[:project_id]} %>
-    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
-      <div class="form-group">
-        <%= f.button :submit, "邀请", class: "btn btn-info-tp" %>
-      </div>
-    </div>
-  </div>
-<% end %>
 
-<hr class="my-line">
-<div class="modal-list">
-  <h4>成员列表</h4>
-  <% (1..10).each do |i| %>
-    <div class="row">
-      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
-        <%= image_tag("course-teacher.png", class: "img-circle", style: "width: 100%") %>
-      </div>
-      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 no-padding">
-        <div><%= "樊伟" %></div>
-        <div><%= "992273028@qq.com" %></div>
-      </div>
-      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 no-padding">
-        创建者
-      </div>
-      <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 no-padding">
-        移除
-      </div>
-    </div>
-  <% end %>
-<!-- </div> --> 
-
-
-<!-- <div  class="my-nav1">
-          <ul class="nav nav-tabs ace_modal_ul" role="tablist">
-            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
-            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
-            <li role="presentation"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
-          </ul>
-
-        <div class="tab-content main">
-
-            <div role="tabpanel" class="tab-pane active" id="home">
-              <table class="table table-hover ace_modal_tab">
-                  <thead>
-                    <tr>
-                      <th>任务列表名称</th>
-                      <th>所有任务（未完成/已完成）</th>
-                      <th>操作</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                      <td>这是任务列表的名称</td>
-                      <td>14/20</td>
-                      <td>删除 &nbsp| &nbsp 编辑</td>
-                    </tr>
-                    <tr>
-                      <td>这是任务列表的名称</td>
-                      <td>14/20</td>
-                      <td>删除 &nbsp| &nbsp 编辑</td>
-                    </tr>
-                    <tr>
-                      <td>这是任务列表的名称</td>
-                      <td>14/20</td>
-                      <td>删除 &nbsp| &nbsp 编辑</td>
-                    </tr>
-                    </tbody>
-              </table>
-              <button type="button" class="btn btn-info-tp" data-dismiss="modal">添加</button>
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <%= form_for Notification.new, url: validate_training_platform_project_notifications_path, remote: true do |f|%>
+          <div class="col-xs-8">
+            <div id="error-info" class="text-danger"></div>
+          </div>
+          <div class="col-xs-8 ace_modal_tab1">
+            <div class="form-group">
+              <%= text_field_tag :user_name, nil, placeholder: "请输入被邀请人的用户名...", 'data-provide': "typeahead", 'data-url': "#{api_users_path}", class: "ace_modal_form form-control", id: "ace_modal_form", autocomplete: "off" %>
             </div>
-
-            <div role="tabpanel" class="tab-pane" id="profile">
-            <div class="col-xs-8 ace_modal_tab1">
-               <input type="text" placeholder="请输入关键字" class="ace_modal_form" id="ace_modal_form" autocomplete="off" />
-            </div>
-            <div class="col-xs-4">
-                <button type="submit" class="btn btn-default">Send invitation</button>
-            </div>
-            <div class="col-xs-8">
-                  <div class="ace_modal_media">
-                    <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
-                    
-                    <span class="pull-left">
-                    <h4 class="media-heading">123456</h4>
-                    邀请于2015-07-28</span>
-                </div>
-            </div>
-            <div class="col-xs-4">
-                  <button type="button" class="btn btn-info-tp1" data-dismiss="modal">创建者...</button>
-            </div>
-            <div class="col-xs-12">
-            <hr>
-            <h3>成员列表</h3>
-            </div>
-                <table class="table table-striped">
-                <tbody class="ace_modal_tbd">
-                 <% 4.times do %>
-                 <tr>
-                 <td>
-                  <div class="ace_modal_media">
-                    <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
-                    
-                    <span class="pull-left">
-                    <h4 class="media-heading">123456</h4>
-                    邀请于2015-07-28</span>
-                </div>
-                </td>
-                <td>
-                <div class="dropdown">
-                  <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    管理员
-                    <span class="caret my-caret"></span>
-                  </button>
-                  <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="#">参与人</a></li>
-                    <li><a href="#">负责人</a></li>
-                    <li><a href="#">创建者</a></li>
-                  </ul>
-                </div>
-                </td>
-                <td>
-                  <button type="button" class="btn btn-info-tp" data-dismiss="modal">移除</button>
-                </td>
-                </tr>
-                <% end %>
-                </tbody>
-                </table>
-            </div>
-
-            <div role="tabpanel" class="tab-pane" id="profile1">
-
-                <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
-
-                <%= f.input :name, as: :string, required: false, autofocus: true %>
-                <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
-                
-
-                <div class="row  ace_tp_m">
-                <div class="col-sm-6">
-                <button type="button" class="btn btn-danger-tp" data-dismiss="modal">编辑</button>
-                <div class="col-sm-6">
-                <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
-                </div>
-                </div>
-                <% end %>
-
-            </div>
+          </div>
+          <div class="col-xs-4 text-center">
+            <%= f.submit "发送邀请", class: "btn" %>
+          </div>
+        <% end %>
+        <div id="user_projects_content">
+          <%= render partial: 'training_platform/task_categories/user_projects_content' %>
         </div>
-</div>  -->
+      </div>
+      <!-- 项目信息类目 -->
+      <div role="tabpanel" class="tab-pane" id="profile1">
+        <h3 class="text-center title"><span>编辑项目<span></h3>
+        <%= simple_form_for(@project, url: training_platform_project_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
+
+          <%= f.input :name, as: :string, required: false, autofocus: true %>
+          <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+          <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
+          <div class="row tp_m">
+            <div class="col-sm-6">
+              <%= f.button :submit, "变更", class: "btn btn-info-tp" %>
+            </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-danger-tp" data-dismiss="modal">取消</button>
+            </div>
+          </div>
+      <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+    $(".new-task-category").hide();
+    $("hr.new-top").hide();
+    $("#toggle-link").click(function(){
+      $(this).hide();
+      $("hr.new-bottom").show();
+      $(".new-task-category").show();
+    });
+  });
+</script>
+<!-- typeahead输入关键词自动提示效果 -->
+<script type="text/javascript">
+  $(document).ready(function(){
+    window.query_cache = {};
+    var url = $('#ace_modal_form').data("url");
+    $('#ace_modal_form').typeahead({
+      source:function(query,process){
+        if(query_cache[query]){
+          process(query_cache[query]);
+          return;
+        }
+        if( typeof searching != "undefined") {
+          clearTimeout(searching);
+          process([]);
+        }
+        searching = setTimeout(function() {
+          return $.getJSON(
+            url,
+            { q:query },
+            function(data){
+              query_cache[query] = data;
+              return process(data);
+            }
+          );
+        }, 300);
+      }
+    });
+  });
+</script>

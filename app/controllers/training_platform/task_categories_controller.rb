@@ -5,7 +5,9 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
 
   def new
     @task_category = TaskCategory.new
-    respond_with @task_category
+    respond_to do |format|
+      format.js
+    end
   end
 
   def create
@@ -13,7 +15,7 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
     @task_category.project_id = params[:project_id]
     respond_to do |format|
       if @task_category.save
-        flash[:notice] = "任务分类创建成功"
+        flash[:notice] = "任务列表创建成功"
         format.js
       end
     end
@@ -29,7 +31,7 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
   def update
     respond_to do |format|
       if @task_category.update task_category_params
-        flash[:notice] = "任务分类修改成功"
+        flash[:notice] = "任务列表修改成功"
         format.js
       end
     end
@@ -38,7 +40,7 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
   def destroy
     respond_to do |format|
       if @task_category.destroy
-        flash[:notice] = "任务分类删除成功"
+        flash[:notice] = "任务列表删除成功"
         format.js
       end
     end

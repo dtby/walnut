@@ -34,13 +34,13 @@ class Project < ActiveRecord::Base
     (((self.tasks.completes.count + self.tasks.acceprances.count).to_f/self.tasks.count)*100).to_i
   end
 
-  #检索用户项目状态
+  #检索用户项目状态(都要过滤掉当前用户)
   def on_invite_user_projects
-    self.user_projects.where(invite: false)
+    self.user_projects.where.not(user_id: current_user.id).where(invite: false)
   end
 
   def invited_user_projects
-    self.user_projects.where(invite: true)
+    self.user_projects.where.not(user_id: current_user.id).where(invite: true)
   end
 
 

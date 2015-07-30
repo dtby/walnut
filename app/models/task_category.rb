@@ -13,6 +13,10 @@
 #
 
 class TaskCategory < ActiveRecord::Base
+
+	#添加默认排序为id倒序
+	default_scope {order('id DESC')}
+
   belongs_to :project
   has_many :tasks, dependent: :destroy
   acts_as_commentable

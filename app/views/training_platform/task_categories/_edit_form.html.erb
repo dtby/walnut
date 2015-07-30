@@ -8,8 +8,8 @@
       <div class="panel-body">
         <div role="tabpanel" class="tab-pane active" id="home">
           <%= simple_form_for @task_category, url: training_platform_project_task_category_path, remote: true do |f|%>
-            <%= f.input :name, as: :string, placeholder: '请输入任务分类名称' %>
-            <%= f.input :description, as: :text, placeholder: '请输入任务分类描述' %>
+            <%= f.input :name, as: :string, placeholder: '请输入任务列表名称' %>
+            <%= f.input :description, as: :text, placeholder: '请输入任务列表描述' %>
             <%= f.submit "修改", class: "btn btn-info-tp"%>
           <% end %>
         </div>

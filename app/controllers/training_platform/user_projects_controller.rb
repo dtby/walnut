@@ -3,7 +3,7 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
 
   def new
     @user_project = UserProject.new
-    respond_with @user_project
+    @task_categories = @project.task_categories
   end
 
   def create
@@ -40,6 +40,9 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
 
 
   private
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
   def user_project_params
     params.require(:user_project).permit(:role, :project_id, :user_id)
   end

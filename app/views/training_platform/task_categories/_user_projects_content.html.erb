@@ -8,8 +8,8 @@
       <%= user_project.try(:user).email %></span>
     </div>
   </div>
-  <div class="col-xs-4">
-    <button type="button" class="btn text-black" data-dismiss="modal">邀请中...</button>
+  <div class="col-xs-4 text-center">
+    <button type="button" class="btn text-black" data-dismiss="modal">邀 请 中</button>
   </div>
 <% end %>
 
@@ -24,7 +24,7 @@
 
     <!-- 创建者 -->
     <tr>
-      <div class="col-xs-9">
+      <div class="col-xs-8">
         <div class="ace_modal_media">
           <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
           <span class="pull-left">
@@ -32,8 +32,8 @@
           <%= current_user.email %></span>
         </div>
       </div>
-      <div class="col-xs-3">
-        <button type="button" class="btn text-black" data-dismiss="modal">创建者...</button>
+      <div class="col-xs-4 text-center">
+        <button type="button" class="btn text-black" data-dismiss="modal">创 建 者</button>
       </div>
     </tr>
 
