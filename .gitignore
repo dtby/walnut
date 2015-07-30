@@ -45,3 +45,5 @@ app/assets/images/.DS_Store
 /log/*
 !/log/.keep
 /tmp
+
+/solr

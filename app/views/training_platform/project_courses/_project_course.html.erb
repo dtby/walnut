@@ -1,0 +1,19 @@
+<% project_courses.each do |project_course| %>
+	<div class="col-xs-12 col-md-6 plat-course-col">
+		<div class="bordered">
+			<%= link_to "#" do %>
+				<%= image_tag(project_course.try(:course).try(:image).try(:avatar).url(:c_360_200), class: "img-responsive") %>
+				<div class="col-sm-12 mt-10">
+					<p class="text-muted"><%= project_course.try(:course).try(:name) %></p>
+					<p class="text-muted"><%= project_course.try(:course).try(:description) %></p>
+				</div>
+				<div class="col-sm-12 infos">
+					<span class="glyphicon glyphicon-eye-open"></span> <%= project_course.try(:course).try(:view_count) %>
+					&nbsp;&nbsp;&nbsp;
+					<span class="glyphicon glyphicon-time"></span> <%= project_course.try(:course).created_at.strftime("%Y-%m-%d") %>
+					<b class="pull-right">免费</b>
+				</div>
+			<% end %>
+		</div>
+	</div>
+<% end %>
