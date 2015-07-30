@@ -31,11 +31,11 @@
                     <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
                   </div>
                 </div>
-                <div class="tools action-buttons">
-                  <a href="#" class="red">
-                    <i class="icon-remove bigger-125"></i>
-                  </a>
-                </div>
+                <%=link_to training_platform_comment_path(comment), method: :delete, class:"red", remote: true,format: :js do %>
+                  <div class="tools action-buttons">
+                      <i class="icon-remove bigger-125"></i>
+                  </div>
+                <% end %>
               </div>
             <% end %>
           </div>
