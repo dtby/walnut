@@ -1,0 +1,83 @@
+<div class="main-container" id="main-container">
+  <script type="text/javascript">
+    try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+  </script>
+
+  <div class="main-container-inner">
+    <a class="menu-toggler" id="menu-toggler" href="#">
+      <span class="menu-text"></span>
+    </a>
+
+    <%= render 'training_platform/share/left_nav'%>
+
+    <div class="main-content">
+      <div class="page-content">
+        <div class="col-xs-12">
+          <div class="row">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="col-xs-6 ace_content_left_title">
+              <%= link_to(new_training_platform_project_announce_path, remote: true, format: :js) do %>
+                <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span>
+                <span class="ace_plus_word">添加公告</span>
+              <% end %>
+            </div>
+            <!-- begin right-title -->
+            <div class="col-xs-6 ace_content_right_title">
+              <div class="col-xs-7 ace-serch">
+                <form class="form-search col-xs-12 ace-form-serch">
+                  <span class="input-icon">
+                    <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
+                    <i class="icon-search nav-search-icon"></i>
+                  </span>
+                </form><!-- #nav-search -->
+              </div>
+              <div class="col-xs-5">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
+                </a>
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
+                </a>
+              </div>
+            </div>
+            <!-- end right-title -->
+            <div class="col-xs-6 ace_content_page_left">
+              <!-- 公告列表 -->
+              <div id="anno-index">
+                <%= render partial: "announces" %>
+              </div>
+            </div>
+
+            <div class="col-xs-6 ace_content_page_right">
+              <!-- 显示公告信息 -->
+              <div id="anno-show">
+                <%= render partial: 'show_announce' %>
+              </div>
+              
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+          </div>
+        </div><!-- /.col -->
+      </div><!-- /.page-content -->
+    </div><!-- /.main-content -->
+  </div>
+
+  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+    <i class="icon-double-angle-up icon-only bigger-110"></i>
+  </a>
+
+</div>
+<script type="text/javascript">
+  jQuery(function($){
+
+    $('.dd').nestable();
+
+    $('.dd-handle a').on('mousedown', function(e){
+      e.stopPropagation();
+    });
+
+    $('[data-rel="tooltip"]').tooltip();
+
+  });
+</script>
+

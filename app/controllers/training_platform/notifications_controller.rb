@@ -20,7 +20,7 @@ module TrainingPlatform
   		@notification = Notification.new(project_id: @project.id, content: "#{user.name}, 您好, 您被邀请参与#{@project.name}项目。")
   		@notification.save
 			@notification.generate_user_notification(user)
-			UserProject.create(user_id: user.id, project_id: @project.id, role: 3, invite: false)
+			UserProject.create(user_id: user.id, project_id: @project.id, role: 2, invite: false)
   		respond_to do |format|
   			format.js
   		end

@@ -61,7 +61,7 @@ class Project < ActiveRecord::Base
     end
   end
 
-  #取得当前项目的所有成员
+  #取得当前项目的相对应成员
   def get_member
     User.includes(:user_projects).where(user_projects: { project_id: self.id, invite: true }).order("user_projects.role")
   end

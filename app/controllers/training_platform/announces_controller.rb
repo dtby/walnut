@@ -1,6 +1,6 @@
 class TrainingPlatform::AnnouncesController < TrainingPlatform::ApplicationController
 	before_action :set_announce, only: [:show, :edit, :destroy, :update]
-	before_action :set_announces, only: [:index, :create, :update]
+	before_action :set_announces, only: [:index, :create, :update, :show]
 	before_action :set_project
 
 	def index		

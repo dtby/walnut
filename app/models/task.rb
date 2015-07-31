@@ -42,9 +42,14 @@ class Task < ActiveRecord::Base
   #创建时记录操作记录
   after_create do
     Comment.add_comment_by_commentable self,"create" 
+    Notification.add_notification_on_project self.project, :task_create, self
   end
   #task更新后保存一些操作记录
   after_update :add_comment
+
+  after_destroy do
+    Notification.add_notification_on_project self.project, :task_delete, self
+  end
 
 
   #待办中、进行中、已完成、验收通过、验收失败

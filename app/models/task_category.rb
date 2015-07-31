@@ -24,6 +24,11 @@ class TaskCategory < ActiveRecord::Base
   #创建时记录操作记录
   after_create do
     Comment.add_comment_by_commentable self,"create" 
+    Notification.add_notification_on_project self.project, :task_category_create, self
+  end
+
+  after_destroy do
+    Notification.add_notification_on_project self.project, :task_category_delete, self
   end
 
   validates :name, presence: true

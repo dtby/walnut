@@ -18,7 +18,14 @@ class Announce < ActiveRecord::Base
 
   #创建时记录操作记录
   after_create do
+    #操作记录
     Comment.add_comment_by_commentable self,"create" 
+    #通知
+    Notification.add_notification_on_project self.project, :announce_create, self
+  end
+
+  after_destroy do
+    Notification.add_notification_on_project self.project, :announce_delete, self
   end
 
   validates :title, :description, :user_id, :project_id, presence: true

@@ -28,7 +28,7 @@
         <div class="ace_modal_media">
           <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
           <span class="pull-left">
-          <h4 class="media-heading"><%= current_user.name %></h4>
+          <h4 class="media-heading"><%= current_user.show_name %></h4>
           <%= current_user.email %></span>
         </div>
       </div>
@@ -44,7 +44,7 @@
           <div class="ace_modal_media">
             <%= image_tag user_project.try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
             <span class="pull-left">
-            <h4 class="media-heading"><%= user_project.try(:user).name%></h4>
+            <h4 class="media-heading"><%= user_project.try(:user).try(:show_name)%></h4>
             邀请于<%= user_project.created_at.strftime("%Y-%m-%d") %></span>
           </div>
         </td>

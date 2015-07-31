@@ -12,7 +12,7 @@
 	<div id="anno-list">
 		<% @announces.each do |announce| %>
 			<ul class="nav nav-pills nav-stacked anno-ul">
-				<li id="anno-li-<%= announce.id %>">
+				<li id="anno-li-<%= announce.id %>" class="<%= 'active' if  announce.id.try(:to_s) == params[:id]%>">
 					<%= link_to(training_platform_project_announce_path(project_id: params[:project_id], id: announce), remote: true, format: :js, class: "clearfix") do %>
 						<span class="col-xs-9 text-left"><%= announce.description %></span>
 						<span class="col-xs-3 text-right"><%= announce.created_at.strftime("%Y-%m-%d") %></span>
