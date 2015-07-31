@@ -83,7 +83,7 @@
     var commentForm = $("#commentForm").outerHeight();
 
     //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +50) - document.body.scrollTop;
+    var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +60) - document.body.scrollTop;
 
     $('#commentList').slimScroll({
       height: scrollHeight + 'px',
@@ -91,8 +91,8 @@
       alwaysVisible : true
     });
 
-    var chat = $(".ace_content_page_right").width();
-    $("#commentForm").width(chat);
+    // var chat = $(".ace_content_page_right").width();
+    // $("#commentForm").width(chat);
 
   });
 </script>

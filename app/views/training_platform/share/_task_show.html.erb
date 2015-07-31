@@ -37,12 +37,12 @@
           <% end %>
         </ul>
       </div>
-
-      <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-        <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          截止日期
-        </button>
-      </div>
+ 
+          <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 input-append date form_datetime">
+          <input size="12" type="text" value="截止日期" readonly>
+          <span class="add-on pull-right"><i class="icon-th hidden"></i></span>
+          </div>
+    
 
       <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
         <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -76,7 +76,6 @@
         </ul>
       </div>
     </div>
-
     <div class="row task-content">
       <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
         <h4> <%= @task.name %></h4>
@@ -116,6 +115,11 @@
 </div>
 
 <script type="text/javascript">
+
+  $(".form_datetime").datetimepicker({
+  format: "dd/MM/yyyy - hh:ii"
+  });
+
   $(function(){
     $("#addTag").blur(function(){
       if($(this).val() != ""){
