@@ -5,7 +5,7 @@
 		</div>
 	</div>
 <% else %>
-	<div id="rightTopContent">
+	<div id="rightTopContent" class="clearfix">
 		<div class="my-task">
 			<h3 class="clearfix">公告详情</h3>
 			<hr class="my-line">
@@ -29,3 +29,4 @@
 
 	<%= render partial: 'training_platform/share/comment', locals: {commentable: @announce}%>
 <% end %>
+

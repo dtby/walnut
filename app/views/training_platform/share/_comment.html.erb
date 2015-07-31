@@ -1,98 +1,92 @@
 <div class="row comment-list">
-  <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-    <div class="widget-box transparent ace_widget_box">
-      <div id="commentTitle" class="widget-header widget-header-small">
-        <h4 class="blue smaller">
-          <i class="icon-rss orange"></i>
-          动态
-        </h4>
+	<div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
+		<div class="widget-box transparent ace_widget_box">
+			<div id="commentTitle" class="widget-header widget-header-small">
+				<h4 class="blue smaller">
+					<i class="icon-rss orange"></i>
+					动态
+				</h4>
 
-        <div class="widget-toolbar action-buttons">
-        <%=link_to training_platform_comments_path(commentable_name: commentable.class, commentable_id: commentable.id), method: :get, remote: true, format: :js, "data-action" => "reload" do %>
-          <i class="icon-refresh blue"></i>
-          <% end %>
-        </div>
-      </div>
+				<div class="widget-toolbar action-buttons">
+					<%=link_to training_platform_comments_path(commentable_name: commentable.class, commentable_id: commentable.id), method: :get, remote: true, format: :js, "data-action" => "reload" do %>
+					<i class="icon-refresh blue"></i>
+					<% end %>
+				</div>
+			</div>
 
-      <div class="widget-body">
-        <div class="widget-main padding-8">
-          <div id="commentList" class="profile-feed">
-            <% commentable.root_comments.each do |comment| %>
-            <div class="profile-activity clearfix">
-              <div>
-                <%= image_tag(comment.try(:user).try(:show_image) , class: "pull-left") %>
-                <a class="user" href="#"> <%= comment.try(:user).try(:show_name) %> </a>
-                <%= comment.body %>
-                <!-- 附件链接 -->
-                <!-- <a href="#">Take a look</a> -->
+			<div class="widget-body">
+				<div class="widget-main padding-8">
+					<div id="commentList" class="profile-feed">
+						<% commentable.root_comments.each do |comment| %>
+						<div class="profile-activity clearfix">
+							<div>
+								<%= image_tag(comment.try(:user).try(:show_image) , class: "pull-left") %>
+								<a class="user" href="#"> <%= comment.try(:user).try(:show_name) %> </a>
+								<%= comment.body %>
+								<!-- 附件链接 -->
+								<!-- <a href="#">Take a look</a> -->
 
-                <div class="time">
-                  <i class="icon-time bigger-110"></i>
-                  <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
-                </div>
-              </div>
-              <%=link_to training_platform_comment_path(comment), method: :delete, class:"red", remote: true, format: :js do %>
-              <div class="tools action-buttons">
-                <i class="icon-remove bigger-125"></i>
-              </div>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
-        </div>
-        <%= form_tag training_platform_comments_path, remote: true, format: :js, id: "commentForm" do %>
-        <div class="form-actions">
-          <div class="input-group">
-            <%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
-            <%= hidden_field_tag "commentable_name", commentable.class %>
-            <%= hidden_field_tag "commentable_id",  commentable.id %>
-            <span class="input-group-btn">
-              <button class="btn btn-md btn-info no-radius" type="submit">
-                <i class="icon-share-alt"></i>
-                发送
-              </button>
-            </span>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+								<div class="time">
+									<i class="icon-time bigger-110"></i>
+									<%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S")%>
+								</div>
+							</div>
+							<%=link_to training_platform_comment_path(comment), method: :delete, class:"red", remote: true, format: :js do %>
+							<div class="tools action-buttons">
+								<i class="icon-remove bigger-125"></i>
+							</div>
+							<% end %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<%= form_tag training_platform_comments_path, remote: true, format: :js, id: "commentForm" do %>
+				<div class="form-actions">
+					<div class="input-group">
+						<%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
+						<%= hidden_field_tag "commentable_name", commentable.class %>
+						<%= hidden_field_tag "commentable_id",  commentable.id %>
+						<span class="input-group-btn">
+							<button class="btn btn-md btn-info no-radius" type="submit">
+								<i class="icon-share-alt"></i>
+								发送
+							</button>
+						</span>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
 
-  $(function(){
+	$(function(){
 
-    //菜单栏高度
-    var head = $("#headerMenu").outerHeight();
+		//菜单栏高度
+		var head = $("#headerMenu").outerHeight();
+		//右侧检索通知栏高度
+		var rightTitle = $(".ace_content_right_title").outerHeight();
+		//右侧上半部分内容高度
+		var rightTopContent = $("#rightTopContent").outerHeight();
+		//评论高度
+		var commentTitle = $("#commentTitle").outerHeight();
+		//评论表单
+		var commentForm = $("#commentForm").outerHeight();
+		//屏幕可见高端
+		var clientHeight = document.body.clientHeight;
+		//高度计算
+		var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +60) - document.body.scrollTop;
 
-    //右侧检索通知栏高度
-    var rightTitle = $(".ace_content_right_title").outerHeight();
+		$('#commentList').slimScroll({
+			height: scrollHeight + 'px',
+			start: 'bottom',
+			alwaysVisible : true
+		});
 
-    //屏幕可见高端
-    var clientHeight = document.body.clientHeight;
+		// var chat = $(".ace_content_page_right").width();
+		// $("#commentForm").width(chat);
 
-    //评论高度
-    var commentTitle = $("#commentTitle").outerHeight();
-
-    //右侧上半部分内容高度
-    var rightTopContent = $("#rightTopContent").outerHeight();
-
-    //评论表单
-    var commentForm = $("#commentForm").outerHeight();
-
-    //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +60) - document.body.scrollTop;
-
-    $('#commentList').slimScroll({
-      height: scrollHeight + 'px',
-      start: 'bottom',
-      alwaysVisible : true
-    });
-
-    // var chat = $(".ace_content_page_right").width();
-    // $("#commentForm").width(chat);
-
-  });
+	});
 </script>

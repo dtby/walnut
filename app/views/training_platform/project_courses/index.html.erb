@@ -123,12 +123,18 @@
 	});
 	$(document).ready(function(){
 		//计算左右模块高度以及讨论区宽度
-		var a = $(".navbar").outerHeight();
-		var b = $(".ace_content_right_title").outerHeight();
-		var c = $(".my-task").outerHeight();
+		var head = $(".navbar").outerHeight();
+
+		var searchTitle = $(".ace_content_right_title").outerHeight();
+
+		var subTitle = $(".my-task").outerHeight();
+
 		var wnd = document.body.clientHeight;
-		var d = wnd - (a + b + c + 21) - document.body.scrollTop;
-		$(".scoll-part").height(d);
+
+		var scollHight = wnd - (head + searchTitle + subTitle + 21) - document.body.scrollTop;
+
+		$(".scoll-part").height(scollHight);
+		
 		var chat = $(".ace_content_page_right").width();
 		$(".addComment").width(chat);
 	});
