@@ -16,6 +16,8 @@ class UserNotification < ActiveRecord::Base
   belongs_to :user
   belongs_to :notification
 
+  scope :unreads, -> { where state: 1 }
+
   enum state: { unread: 1, read: 2}
 
   aasm column: :state, enum: true do
