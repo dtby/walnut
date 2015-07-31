@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728123219) do
+ActiveRecord::Schema.define(version: 20150731074431) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -182,7 +182,7 @@ ActiveRecord::Schema.define(version: 20150728123219) do
     t.string   "city",             limit: 255
     t.string   "remuneration",     limit: 255
     t.string   "foreign_language", limit: 255
-    t.string   "others",           limit: 255
+    t.text     "others",           limit: 65535
     t.text     "description",      limit: 65535
     t.string   "hr_email",         limit: 255
     t.integer  "browse_count",     limit: 4,     default: 0

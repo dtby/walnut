@@ -92,9 +92,9 @@ class Spider
     com_infos = get_company_links index_url, paginate_url, page_count
     company_links = com_infos[0]
     index_other_infos = com_infos[1]
-pp company_links
+
     #根据官方link爬取数据并保存对应数据信息
-    #save_infos_by_company_link index_url, company_links, index_other_infos, 2
+    save_infos_by_company_link index_url, company_links, index_other_infos, 2
     
   end
 
@@ -160,13 +160,13 @@ pp company_links
 
         #保存公司信息根据公司主页link
         company = save_company "http://gs.haitou.cc" + doc.xpath('//*[@id="kz-web"]/div[3]/div/div[1]/ul/li[1]/a')[0]["href"]
-        # if company.present?
-        #   #当前公司所有职位处理
-        #   doc.css('ul[class="con_pos company_position"] a').each do |practice_link|
-        #     #依次save当前公司则职位
-        #     save_recruitment_by_link("http://company.haitou.cc" + practice_link["href"],company, index_other_infos[index],recruit_type)
-        #   end
-        # end
+        if company.present?
+          #当前公司所有职位处理
+          doc.css('div[class="ssjg_name text-success text_ellipsis"] a').each do |link|
+            #依次save当前公司则职位
+            save_recruitment_by_link("http:" + link["href"],company, index_other_infos[index],recruit_type)
+          end
+        end
       rescue Exception => e
         next
       end
@@ -191,28 +191,34 @@ pp company_links
       company = Company.find_or_create_by(name: name)
 
       #公司logo
-      logo_url = doc.css('.ssjg_logo img')[0].present? ? doc.xpath(".ssjg_logo img")[0]["src"] : ""
+      logo_url = doc.css('.ssjg_logo img')[0].present? ? doc.css(".ssjg_logo img")[0]["src"] : ""
 
-      logo_url = "" if logo_url.include? "etp.gif"
-      company.logo_url = company_pre_url + logo_url unless logo_url.blank?
+      logo_url = company_pre_url + logo_url unless logo_url.include?("http://")
+      logo_url = "" if logo_url.include? "default_logo.gif"
+
+      company.logo_url = logo_url 
+
       #公司介绍
-      description = doc.css('div[class="company_info"]')[0].try(:to_html)
-      company.description = description.split(":",2)[0] + ":100%" + description.split(":",2)[1].split("px",2)[1] unless description.blank?
+      description = doc.xpath('//*[@id="kz-web"]/div[3]/div[1]/div[2]/div[2]')[0].try(:to_html).split('<hr>', 2)[1]
+      company.description = (description[0,description.index("</div>",6)] rescue "")
 
       #其他字段处理
-      other_fileds = ["industry", "nature", "city", "scale", "address", "web_address"]
-      doc.css('ul[class="con_cell"] li font').each_with_index do |font,index|
-        unless font.try(:content).try(:strip) == "点击查看公司主页"
-          company[other_fileds[index]] = font.try(:content).try(:strip)
+      other_fileds = ["city" ,"industry", "scale", "web_address"]
+      doc.css('div[class="panel-body"] div[class="row"] p[class="col-xs-6"]').each_with_index do |con, index|
+        if index == 3
+          company[other_fileds[index]] = con.css('a')[0]["href"] unless con.css('a')[0].blank?
+        elsif index == 1
+          company["industry"] = con.try(:content).try(:split,":")[1].try(:split, "(")[0].try(:strip)
+          company["nature"] = con.try(:content).try(:split,":")[1].try(:split, "(")[1].try(:gsub, /公司\)/, "").try(:strip)
         else
-          company[other_fileds[index]] = font.css('a')[0]["href"] unless font.css('a')[0].blank?
+          company[other_fileds[index]] = con.try(:content).try(:split,":")[1].try(:strip)
         end
       end
 
       company.save(validate: false)
     rescue Exception => e
       pp "======================save_company error====================="
-      pp e.message
+      pp e
       pp "======================save_company error====================="
     end
     company
@@ -231,7 +237,7 @@ pp company_links
       page = agent.get link
       doc = Nokogiri::HTML(page.content)
 
-      name = doc.css('div[class="con_name"]')[0].try(:content)
+      name = doc.xpath('//*[@id="kz-web"]/div[3]/div/div[1]/div/h2')[0].try(:content)
       recruitment = Recruitment.find_or_create_by(name: name, company_id: company.try(:id))
 
       recruitment.recruit_type = recruit_type
@@ -243,43 +249,71 @@ pp company_links
       recruitment.hr_email = "dev@buoyantec.com"
 
       #工作地点等字段保存
-      some_fileds = ["city", "nature", "remuneration", "department", "need_person", "stop_time"]
-      doc.css('div[class="con_in"] p[class="part"]').each_with_index do |con, index|
-        infos = con.try(:content).try(:split,"：")
-        next unless infos.length == 2
-        if infos[0] == "职位性质"
-          two_values = infos[1].split("[")
-          next unless two_values.length == 2
-          recruitment[some_fileds[index]] = two_values[0].try(:strip)
-          recruitment.category = two_values[1].try(:gsub,"]","").try(:strip)
-        elsif infos[0] == "截止时间"
-          recruitment[some_fileds[index]] = infos[1].try(:strip).try(:to_time) 
-        else
-          recruitment[some_fileds[index]] = infos[1].try(:strip) 
+      doc.css('div[class="panel-body"] div[class="row"] p[class="col-xs-6"]').each do |con|
+        type = con.content.split("：")
+        case type[0].try(:strip)
+        when "工作地点"
+          recruitment.city = type[1].try(:strip)
+        when "工作性质"
+          recruitment.industry = type[1].try(:strip)
+        when "职位类型"
+          recruitment.nature = type[1].try(:strip) || ""
+          recruitment.recruit_type = 2 if recruitment.nature.include?("实习")
+        when "薪资水平"
+          recruitment.remuneration = type[1].try(:strip)
+        when "所属部门"
+          recruitment.department = type[1].try(:strip)
+        when "招聘人数"
+          recruitment.need_person = type[1].try(:strip)
+        when "发布时间"
+          recruitment.publish_time = type[1].try(:strip).try(:to_time)  if type[1].try(:strip).present?
+        when "截止时间"
+          recruitment.stop_time = type[1].try(:strip).try(:to_time) 
+        when "点击量"
+          recruitment.browse_count = type[1].try(:strip)
         end
       end
+
+      #some_fileds = ["city", "nature", "remuneration", "department", "need_person", "stop_time"]
+      # doc.css('div[class="panel-body"]').each_with_index do |con, index|
+      #   infos = con.try(:content).try(:split,"：")
+      #   next unless infos.length == 2
+      #   if infos[0] == "职位性质"
+      #     two_values = infos[1].split("[")
+      #     next unless two_values.length == 2
+      #     recruitment[some_fileds[index]] = two_values[0].try(:strip)
+      #     recruitment.category = two_values[1].try(:gsub,"]","").try(:strip)
+      #   elsif infos[0] == "截止时间"
+      #     recruitment[some_fileds[index]] = infos[1].try(:strip).try(:to_time) 
+      #   else
+      #     recruitment[some_fileds[index]] = infos[1].try(:strip) 
+      #   end
+      # end
 
       #工作职责、职位要求保存
-      doc.css('div[class="con_in"] div + p').each_with_index do |con, index|
-        if index == 0
-          recruitment.responsibility = con.try(:content).try(:gsub,/\r\n/,'<br>').try(:gsub,/[;；]/,'；<br>').try(:gsub,/。/,'。<br>').try(:gsub,/：/,':<br>')
-        elsif index == 1
-          recruitment.demand = con.try(:content).try(:gsub,/\r\n/,'<br>').try(:gsub,/[;；]/,'；<br>').try(:gsub,/。/,'。<br>').try(:gsub,/：/,':<br>')
-        end
-      end
+      # doc.css('div[class="con_in"] div + p').each_with_index do |con, index|
+      #   if index == 0
+      #     recruitment.responsibility = con.try(:content).try(:gsub,/\r\n/,'<br>').try(:gsub,/[;；]/,'；<br>').try(:gsub,/。/,'。<br>').try(:gsub,/：/,':<br>')
+      #   elsif index == 1
+      #     recruitment.demand = con.try(:content).try(:gsub,/\r\n/,'<br>').try(:gsub,/[;；]/,'；<br>').try(:gsub,/。/,'。<br>').try(:gsub,/：/,':<br>')
+      #   end
+      # end
+      recruitment.responsibility = doc.css('#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(12)')[0].try(:to_html)
+      recruitment.demand = doc.css('#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(15)')[0].try(:to_html)
+      recruitment.others = doc.css('#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(18)')[0].try(:to_html)
 
       #其他字段保存
-      other_fileds = ["must_school", "must_specialty1", "degree_id", "must_specialty2", 
-        "age", "experience", "foreign_language", "it_tec", "certificate"]
-      doc.css('ul[class="con_cell con_pos_cell"] li').each_with_index do |con, index|
-        infos = con.try(:content).try(:split,"：")
-        next unless infos.length == 2
-        if infos[0] == "学历"
-          recruitment[other_fileds[index]] = Degree.find_or_create_by(name: infos[1].try(:strip)).try(:id)
-        else
-          recruitment[other_fileds[index]] = infos[1].try(:strip) 
-        end
-      end
+      # other_fileds = ["must_school", "must_specialty1", "degree_id", "must_specialty2", 
+      #   "age", "experience", "foreign_language", "it_tec", "certificate"]
+      # doc.css('ul[class="con_cell con_pos_cell"] li').each_with_index do |con, index|
+      #   infos = con.try(:content).try(:split,"：")
+      #   next unless infos.length == 2
+      #   if infos[0] == "学历"
+      #     recruitment[other_fileds[index]] = Degree.find_or_create_by(name: infos[1].try(:strip)).try(:id)
+      #   else
+      #     recruitment[other_fileds[index]] = infos[1].try(:strip) 
+      #   end
+      # end
 
       recruitment.save(validate: false)
     rescue Exception => e
@@ -296,29 +330,37 @@ pp company_links
   #测试用
   def self.test
     agent = Mechanize.new
-    page = agent.get "http://gs.haitou.cc/2410"
+    page = agent.get "http://zw.haitou.cc/4364"
 
     doc = Nokogiri::HTML(page.content)
 
-     #公司名称
-    name = doc.xpath('//*[@id="kz-web"]/div[2]/div/div/h3')[0].try(:content).try(:strip)
-
-    #公司logo
-    logo_url = doc.css('.ssjg_logo img')[0]["src"]
-    pp name,logo_url
-
-    pp doc.xpath('//*[@id="kz-web"]/div[3]/div[1]/div[2]/div[2]')[0].try(:to_html).split('<hr>', 2)[1]
-
-    # doc.css('tbody[class="preach-tbody"] tr').each do |tr|
-    #   link = tr.css('td[class="preach-tbody-title"] a')[0]
-    #   if link.content.include?("官方")
-    #     #已经存在的link不选择
-    #        pp link['href']
-    #        pp tr.css('td span[class="hold-ymd"]')[0].try(:content)
-    #        pp tr.css('td:last-child')[0].try(:content)
-        
-    #   end
-    # end
+#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(15)
+#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(15)
+#kz-web > div:nth-child(3) > div > div:nth-child(1) > div > p:nth-child(18)
+    doc.css('div[class="panel-body"] div[class="row"] p[class="col-xs-6"]').each do |con|
+      type = con.content.split("：")
+      pp type
+      case type[0].try(:strip)
+      when "工作地点"
+        pp type[1].try(:strip)
+      when "工作性质"
+        pp type[1].try(:strip)
+      when "职位类型"
+        pp type[1].try(:strip) 
+      when "薪资水平"
+        pp type[1].try(:strip)
+      when "所属部门"
+        pp type[1].try(:strip)
+      when "招聘人数"
+        pp type[1].try(:strip)
+      when "发布时间"
+        pp type[1].try(:strip).try(:to_time) 
+      when "截止时间"
+        pp type[1].try(:strip).try(:to_time) 
+      when "点击量"
+        pp type[1].try(:strip)
+      end
+    end
   end
 
 
