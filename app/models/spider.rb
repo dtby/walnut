@@ -92,9 +92,9 @@ class Spider
     com_infos = get_company_links index_url, paginate_url, page_count
     company_links = com_infos[0]
     index_other_infos = com_infos[1]
-
+pp company_links
     #根据官方link爬取数据并保存对应数据信息
-    save_infos_by_company_link index_url, company_links, index_other_infos, 2
+    #save_infos_by_company_link index_url, company_links, index_other_infos, 2
     
   end
 
@@ -159,14 +159,14 @@ class Spider
         doc = Nokogiri::HTML(page.content)
 
         #保存公司信息根据公司主页link
-        company = save_company "http://company.haitou.cc" + doc.xpath("/html/body/div[1]/ul/li[1]/a")[0]["href"]
-        if company.present?
-          #当前公司所有职位处理
-          doc.css('ul[class="con_pos company_position"] a').each do |practice_link|
-            #依次save当前公司则职位
-            save_recruitment_by_link("http://company.haitou.cc" + practice_link["href"],company, index_other_infos[index],recruit_type)
-          end
-        end
+        company = save_company "http://gs.haitou.cc" + doc.xpath('//*[@id="kz-web"]/div[3]/div/div[1]/ul/li[1]/a')[0]["href"]
+        # if company.present?
+        #   #当前公司所有职位处理
+        #   doc.css('ul[class="con_pos company_position"] a').each do |practice_link|
+        #     #依次save当前公司则职位
+        #     save_recruitment_by_link("http://company.haitou.cc" + practice_link["href"],company, index_other_infos[index],recruit_type)
+        #   end
+        # end
       rescue Exception => e
         next
       end
@@ -179,20 +179,19 @@ class Spider
   def self.save_company link
     agent = Mechanize.new
     #logo url前缀
-    company_pre_url = "http://company.haitou.cc"
+    company_pre_url = "http://gs.haitou.cc/"
     company = nil 
     begin
       page = agent.get link
       doc = Nokogiri::HTML(page.content)
       
       #公司名称
-      name = doc.xpath("/html/body/div[1]/div[1]/text()")[0].try(:content).try(:strip)
+      name = doc.xpath('//*[@id="kz-web"]/div[2]/div/div/h3')[0].try(:content).try(:strip)
 
       company = Company.find_or_create_by(name: name)
 
       #公司logo
-      logo_xpath = "/html/body/div[1]/div[1]/div[1]/img"
-      logo_url = doc.xpath(logo_xpath)[0].present? ? doc.xpath(logo_xpath)[0]["src"] : ""
+      logo_url = doc.css('.ssjg_logo img')[0].present? ? doc.xpath(".ssjg_logo img")[0]["src"] : ""
 
       logo_url = "" if logo_url.include? "etp.gif"
       company.logo_url = company_pre_url + logo_url unless logo_url.blank?
@@ -236,7 +235,7 @@ class Spider
       recruitment = Recruitment.find_or_create_by(name: name, company_id: company.try(:id))
 
       recruitment.recruit_type = recruit_type
-      recruitment.recruit_type = 2 if name.include?("实习生")
+      recruitment.recruit_type = 2 if name.include?("实习")
 
       #招聘信息发布时间
       recruitment.publish_time = index_other_info[:publish_time]
@@ -297,20 +296,29 @@ class Spider
   #测试用
   def self.test
     agent = Mechanize.new
-    page = agent.get "http://xyzp.haitou.cc/sh/"
+    page = agent.get "http://gs.haitou.cc/2410"
 
     doc = Nokogiri::HTML(page.content)
 
-    doc.css('tbody[class="preach-tbody"] tr').each do |tr|
-      link = tr.css('td[class="preach-tbody-title"] a')[0]
-      if link.content.include?("官方")
-        #已经存在的link不选择
-           pp link['href']
-           pp tr.css('td span[class="hold-ymd"]')[0].try(:content)
-           pp tr.css('td:last-child')[0].try(:content)
+     #公司名称
+    name = doc.xpath('//*[@id="kz-web"]/div[2]/div/div/h3')[0].try(:content).try(:strip)
+
+    #公司logo
+    logo_url = doc.css('.ssjg_logo img')[0]["src"]
+    pp name,logo_url
+
+    pp doc.xpath('//*[@id="kz-web"]/div[3]/div[1]/div[2]/div[2]')[0].try(:to_html).split('<hr>', 2)[1]
+
+    # doc.css('tbody[class="preach-tbody"] tr').each do |tr|
+    #   link = tr.css('td[class="preach-tbody-title"] a')[0]
+    #   if link.content.include?("官方")
+    #     #已经存在的link不选择
+    #        pp link['href']
+    #        pp tr.css('td span[class="hold-ymd"]')[0].try(:content)
+    #        pp tr.css('td:last-child')[0].try(:content)
         
-      end
-    end
+    #   end
+    # end
   end
 
 
