@@ -16,7 +16,7 @@
 		</div>
 	</div>
 
-	<%= f.input :name %>
+	<%= f.input :name, label: "姓名" %>
 	<%= f.input :department, collection: User.departments, prompt: "请选择院系", label: "所属院系" %>
 	<%= f.input :major, collection: User.majors, prompt: "请选择专业", label: "所属专业" %>
 	<%= f.input :mobile, required: false %>
