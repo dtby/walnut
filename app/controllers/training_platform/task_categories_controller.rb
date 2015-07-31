@@ -50,6 +50,27 @@ class TrainingPlatform::TaskCategoriesController < TrainingPlatform::Application
     respond_with @task_category
   end
 
+  #添加标签
+  def tag
+    if params[:tag].present?
+      @task_category.tag_list.add(params[:tag] ) 
+      @task_category.save
+    end
+     
+    respond_with @task_category
+  end
+
+  #删除标签
+  def remove
+    if params[:tag].present?
+      @task_category.tag_list.remove(params[:tag] ) 
+      @task_category.save
+    end
+    
+    respond_with @task_category
+  end
+
+
   private
     def set_project
       @project = Project.find(params[:project_id])

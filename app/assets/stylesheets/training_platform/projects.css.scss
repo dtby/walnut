@@ -216,6 +216,9 @@
     }
 
     .task-content {
+      .dis {
+        text-indent:2em;
+      }
       .tags-list {
         background-color: #fbffff;
         border: none;
@@ -254,7 +257,7 @@
 .datepicker > input {
     padding: 3px;
     margin-left: -13px;
-    border-radius: 10px!important;
+    border-radius: 15px!important;
     background-color: #fff!important;
     color: #5AC3B7;
     text-align: center;
