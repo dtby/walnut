@@ -39,7 +39,7 @@
       </div>
  
           <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 input-append date form_datetime">
-          <input size="12" type="text" value="截止日期" readonly>
+          <strong class="datepicker"><input size="9" type="text" value="截止日期" readonly></strong>
           <span class="add-on pull-right"><i class="icon-th hidden"></i></span>
           </div>
     
@@ -77,8 +77,11 @@
       </div>
     </div>
     <div class="row task-content">
+      <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
+      <h4> <%= @task.name %></h4>
+        这里是任务描述
+      </div>
       <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
-        <h4> <%= @task.name %></h4>
          <div class="tags tags-list">
           <% @task.tag_list.each do |tag| %>
             <span class="tag"><%= tag %>
@@ -104,10 +107,6 @@
           </select>
         </div>
       </div>
-
-      <div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
-        这里是任务描述
-      </div>
     </div>
   </div>
   
@@ -117,7 +116,7 @@
 <script type="text/javascript">
 
   $(".form_datetime").datetimepicker({
-  format: "dd/MM/yyyy - hh:ii"
+  format: "yyyy-m-d"
   });
 
   $(function(){

@@ -250,7 +250,29 @@
   }
 }
 
+//截止日期样式/
+.datepicker > input {
+    padding: 3px;
+    margin-left: -13px;
+    border-radius: 10px!important;
+    background-color: #fff!important;
+    color: #5AC3B7;
+    text-align: center;
+}
 
+//打标签样式
+.tag {
+  border-radius: 20px;
+    padding: 3px 20px;
+    line-height:14px;
+    .close:hover {
+      color:red;
+       background-color:rgba(0,0,0,0.0)!important;
+    }
+}
+#addTag, #helperSelect {
+  border:0px;
+}
 
 // .task_d {
 //   padding-bottom:40px;
