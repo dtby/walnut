@@ -1,30 +1,31 @@
 <%= simple_form_for @user, url: user_path(@user),wrapper: :horizontal_form,  html: { class: "form-horizontal" } do |f| %>
-<%= f.input :nickname %>
-<div class="form-group">
-  <label for="inputPassword3" class="col-sm-3 control-label">我的头像</label>
-  <div class="col-sm-4">
-    <%=image_tag"personal_head.png"%>
-  </div>
-  <div class="col-sm-3">
-    图片大小不能超过2M，<br>
-    支持JPG，GIF，PNG图片格式
-  </div>
-</div>
-<%= f.input :name %>
-<%= f.input :department, collection: User.departments, prompt: "请选择院系", label: "所属院系" %>
-<%= f.input :major, collection: User.majors, prompt: "请选择专业", label: "所属专业" %>
-<%= f.input :mobile, required: false %>
-<%= f.input :email, placeholder: 'user@domain.com'%>
-<label for="inputPassword3" class="col-sm-3 control-label">性别</label>
-<%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last%>
-<%= f.input :signature ,label: '个性签名'%>
-<div class="form-group modify-btn">
-  <label for="inputPassword3" class="col-sm-1 control-label"></label>
-  <div class="col-sm-2">
-    <%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1"%>
-  </div>
-  <div class="col-sm-offset-2 col-sm-2">
-    <%= f.button :submit , '取消修改', class:"btn btn-default mybtn my_btn2"%>
-  </div>
-</div>
+	<%= f.input :nickname %>
+	<div class="form-group">
+		<label for="inputPassword3" class="col-sm-2 col-sm-offset-2 control-label">我的头像</label>
+		<div class="col-sm-4">
+			<%=image_tag"personal_head.png"%>
+		</div>
+		<div class="col-sm-2">
+			图片大小不能超过2M，<br>
+			支持JPG，GIF，PNG图片格式
+		</div>
+	</div>
+	<%= f.input :name %>
+	<%= f.input :department, collection: User.departments, prompt: "请选择院系", label: "所属院系" %>
+	<%= f.input :major, collection: User.majors, prompt: "请选择专业", label: "所属专业" %>
+	<%= f.input :mobile, required: false %>
+	<%= f.input :email, placeholder: 'user@domain.com'%>
+	<div class="form-group">
+		<label class="col-sm-2 col-sm-offset-2 control-label">性别</label>
+		<div class="col-sm-6">
+			<%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last, class: "col-xs-2"%>
+		</div>
+	</div>
+	<%= f.input :signature ,label: '个性签名'%>
+	<div class="form-group modify-btn">
+		<div class="col-sm-offset-4 col-sm-6">
+			<%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1"%>
+			<%= f.button :submit , '取消修改', class:"btn btn-default mybtn my_btn2 pull-right"%>
+		</div>
+	</div>
 <% end %>
