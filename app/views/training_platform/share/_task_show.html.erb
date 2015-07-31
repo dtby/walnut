@@ -116,7 +116,12 @@
 <script type="text/javascript">
 
   $(".form_datetime").datetimepicker({
-  format: "yyyy-m-d"
+    format: "yyyy/mm/dd",
+    viewSelect: 2,
+    minView: 2,
+    pickerPosition: 'bottom-left',
+    autoclose: true,
+    startDate: new Date()
   });
 
   $(function(){
