@@ -7,7 +7,7 @@ set :term_mode, nil
 
 set :domain, 'hetaoedu.cn'
 set :deploy_to, '/home/deploy/walnut'
-set :repository, 'git@github.com:dtby/walnut.git'
+set :repository, 'https://github.com/dtby/walnut'
 set :branch, 'master'
 
 # For system-wide RVM install.
