@@ -8,39 +8,39 @@
     </div>
 
     <ul class="nav nav-list ace-nav-left">
-      <li class="active">
-        <a href="#">
+      <li class="<%= 'active' if params[:type].blank? %>">
+        <%= link_to(training_platform_root_path ) do %>
           <i class="icon-book "></i>
           <span class="menu-text"> 全部项目</span>
-        </a>
+        <% end %>
       </li>
       
-      <li>
-        <a href="#" class="dropdown-toggle">
+      <li class="<%= 'active' if params[:type] == 'self' %>">
+        <%= link_to(training_platform_root_path(type: "self") ) do %>
           <i class="icon-bookmark"></i>
           <span class="menu-text"> 个人项目 </span>
-        </a>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#" class="dropdown-toggle">
+      <li class="<%= 'active' if params[:type] == 'join' %>">
+        <%= link_to(training_platform_root_path(type: "join") ) do %>
           <i class="icon-list"></i>
           <span class="menu-text"> 参与的项目</span>
-        </a>
+        <% end %>
       </li>
 
-      <li >
-        <a href="#">
+      <li class="<%= 'active' if params[:type] == 'collect' %>">
+        <%= link_to(training_platform_root_path(type: "collect") ) do %>
           <i class="icon-flag "></i>
           <span class="menu-text"> 关注的项目</span>
-        </a>
+        <% end %>
       </li>
 
-      <li>
-        <a href="#">
+      <li class="<%= 'active' if params[:type] == 'pigeonhole' %>">
+        <%= link_to(training_platform_root_path(type: "pigeonhole") ) do %>
           <i class="icon-folder-close "></i>
           <span class="menu-text"> 归档项目 </span>
-        </a>
+        <% end %>
       </li>
 
       
