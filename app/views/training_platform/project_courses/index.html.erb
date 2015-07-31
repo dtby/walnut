@@ -58,39 +58,38 @@
 							</div>
 							<!-- begin discuss -->
 							<div class="clearfix scoll-part">
-								<% 6.times do %>
-									<!--begin local message -->
-									<div class="media">
-										<div class="media-left">
-											<a href="#">
-												<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
-											</a>
-										</div>
-										<div class="media-body ">
-											<div class="discuss-msg-left">	
-												<div class="pre"></div>
-												<div class="msg-bg ntent msg-left">
-													你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你
-												</div>
+								<!--begin local message -->
+								<!-- <div class="media">
+									<div class="media-left">
+										<a href="#">
+											<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
+										</a>
+									</div>
+									<div class="media-body ">
+										<div class="discuss-msg-left">	
+											<div class="pre"></div>
+											<div class="msg-bg ntent msg-left">
+												你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你你好啊你好啊你好啊你
 											</div>
 										</div>
-									</div><!-- end local message -->
+									</div>
+								</div> --><!-- end local message -->
 
-									<!-- remote message -->
-									<div class="media">
-										<div class="media-body">
-											<div class="discuss-msg-right">
-												<div class="msg-bg msg-right">你好啊你好啊你好啊你你好啊你好啊你</div>
-											</div>
+								<!-- remote message -->
+								<!-- <div class="media">
+									<div class="media-body">
+										<div class="discuss-msg-right">
+											<div class="msg-bg msg-right">你好啊你好啊你好啊你你好啊你好啊你</div>
 										</div>
-										<div class="media-right">
-											<a href="#">
-												<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
-											</a>
-										</div>
-									</div><!-- end remote message -->
-								<% end %>
-								<br><br><br>
+									</div>
+									<div class="media-right">
+										<a href="#">
+											<%= image_tag("personal_head.png", width: '32', height: '32', class: "media-object", alt: "person") %>
+										</a>
+									</div>
+								</div> --><!-- end remote message -->
+
+								<!-- <br><br><br>
 								<div class="addComment">
 									<form class="form-horizontal clearfix">
 										<div class="col-xs-10">
@@ -98,7 +97,8 @@
 										</div>
 										<button type="submit" class="btn btn-sm btn-info col-xs-2">发送</button>
 									</form>
-								</div>
+								</div> -->
+								<%#= render partial: 'training_platform/share/comment', locals: {commentable: @project_course}%>
 							</div><!-- end discuss -->
 						</div>
 						<!-- PAGE CONTENT ENDS -->

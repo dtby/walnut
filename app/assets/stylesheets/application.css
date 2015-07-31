@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require_tree ./application/.
+ *= require ./admin/fileinput
  *= require ./training_platform/ace/font-awesome-ie7.min
  *= require ./training_platform/ace/font-awesome.min
  *= require mediaelement_rails

@@ -19,3 +19,4 @@
 //= require bootstrap-sprockets
 //= require jquery.remotipart
 //= require app/wow
+//= require admin/fileinput

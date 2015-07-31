@@ -1,8 +1,4 @@
 .training_platform__project_courses__index{
-	.scoll-part{
-		position: relative;
-		overflow: hidden;
-	}
 	.plat-course-col{
 		padding: 0 5px;
 	}
@@ -42,7 +38,11 @@
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
 	}
-
+	//相关课程右侧讨论区样式
+	.scoll-part{
+		position: relative;
+		overflow: hidden;
+	}
 	.discuss-msg-left{
 		position: relative;
 		margin-left: 7px;
