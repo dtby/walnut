@@ -1,7 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
   before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
-    :move_category, :tag, :update_principal, :level, :remove, :add_helper, :remove_helper]
+    :move_category, :tag, :date, :update_principal, :level, :remove, :add_helper, :remove_helper]
   
 
   def index

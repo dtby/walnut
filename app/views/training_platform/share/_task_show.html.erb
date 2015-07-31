@@ -37,12 +37,11 @@
           <% end %>
         </ul>
       </div>
- 
+
           <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 input-append date form_datetime">
-          <strong class="datepicker"><input size="9" type="text" value="截止日期" readonly></strong>
-          <span class="add-on pull-right"><i class="icon-th hidden"></i></span>
+            <strong class="datepicker"><input size="9" type="text" value="截止日期"  readonly></strong>
+            <span class="add-on pull-right"><i class="icon-th hidden"></i></span>
           </div>
-    
 
       <div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
         <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -123,10 +122,9 @@
     minView: 2,
     pickerPosition: 'bottom-left',
     autoclose: true,
-    startDate: new Date()
+    startDate: new Date(),
   });
 
- 
 
   $(function(){
     $("#addTag").blur(function(){
