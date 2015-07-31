@@ -5,10 +5,10 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :term_mode, nil
 
-set :domain, '218.244.134.146'
+set :domain, 'hetaoedu.cn'
 set :deploy_to, '/home/deploy/walnut'
-set :repository, 'https://github.com/dtby/walnut'
-set :branch, 'develop'
+set :repository, 'git@github.com:dtby/walnut.git'
+set :branch, 'master'
 
 # For system-wide RVM install.
 set :rvm_path, '/home/deploy/.rvm/scripts/rvm'
