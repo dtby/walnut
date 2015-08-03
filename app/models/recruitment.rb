@@ -12,7 +12,7 @@
 #  city             :string(255)
 #  remuneration     :string(255)
 #  foreign_language :string(255)
-#  others           :string(255)
+#  others           :text(65535)
 #  description      :text(65535)
 #  hr_email         :string(255)
 #  browse_count     :integer          default(0)

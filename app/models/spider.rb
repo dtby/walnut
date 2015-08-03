@@ -255,9 +255,9 @@ class Spider
         when "工作地点"
           recruitment.city = type[1].try(:strip)
         when "工作性质"
-          recruitment.industry = type[1].try(:strip)
+          recruitment.nature = type[1].try(:strip)
         when "职位类型"
-          recruitment.nature = type[1].try(:strip) || ""
+          recruitment.category = type[1].try(:strip) || ""
           recruitment.recruit_type = 2 if recruitment.nature.include?("实习")
         when "薪资水平"
           recruitment.remuneration = type[1].try(:strip)
