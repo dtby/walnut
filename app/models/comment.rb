@@ -99,7 +99,7 @@ class Comment < ActiveRecord::Base
     when :assign
       "把任务分配给 #{commentable.try(:get_principal_user).try(:show_name)}"
     when :settime
-      "将截止日期设置为 #{commentable.try(:end_time).try(:strftime,'%Y年%m月%日')}"
+      "将截止日期设置为 #{commentable.try(:end_time).try(:strftime,'%Y年%m月%d日')}"
     when :waiting
       "把任务置为”待办“"
     when :doing
