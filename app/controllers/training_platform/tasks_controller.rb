@@ -27,10 +27,8 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
 
   #更新任务截止时间
   def update
-    pp "111111111111111111111111111111111111111111111111111111"
     @project = Project.find(params[:project_id])
     @task.update(end_time: Time.at(params[:endTime].to_i / 1000))
-    pp "222222222222222222222222222222222222222222"
     respond_with @task
   end
 
