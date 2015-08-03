@@ -1,4 +1,6 @@
 require "pp"
+require "nokogiri"
+require "mechanize"
 
 class Spider
 
@@ -362,8 +364,6 @@ class Spider
       end
     end
   end
-
-
 
 end
 
