@@ -14,7 +14,7 @@
 						<div class="col-md-5"><hr class="divider"></div>
 					</div>
 					<% @user_notifications.each do |user_notification| %>
-					  <% if user_notification.notification %>
+					  <% if user_notification.notification.present? && user_notification.notification.project.present? %>
 							<div class="row my_message">
 								<div class="col-md-2"><%= image_tag "user_mymessage.png" %></div>
 								<div class="col-md-6 message">
