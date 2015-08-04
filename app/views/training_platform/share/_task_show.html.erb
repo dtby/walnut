@@ -79,6 +79,9 @@
 				</button>
 				<ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
 					<li>
+						<%= link_to("编辑", edit_training_platform_project_task_path(@project, @task, task_category_id: @task.task_category.try(:id)),format: :js, remote: true) %>
+					</li>
+					<li>
 						<%= link_to("删除", training_platform_project_task_path(@project, @task), method: :delete) %>
 					</li>
 				</ul>
@@ -87,7 +90,7 @@
 		<div class="row task-content">
 			<div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12 task-description">
 				<h4> <%= @task.name %></h4>
-				这里是任务描述
+				<%= @task.description %>
 			</div>
 			<div class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
 				<div class="tags tags-list">
@@ -133,8 +136,8 @@
 				startDate: new Date()
 			}).on('changeDate', function(ev){
 				$.ajax({
-					url: "<%= training_platform_project_task_path(@project, @task)%>.js",
-					type: "put",
+					url: "<%= set_end_time_training_platform_project_task_path(@project, @task)%>.js",
+					type: "post",
 					data: {endTime: ev.date.valueOf()}
 				});
 			});		

@@ -73,6 +73,7 @@ Rails.application.routes.draw do
           get :level
           get :remove
           post :add_helper
+          post :set_end_time
           delete :remove_helper
         end
       end

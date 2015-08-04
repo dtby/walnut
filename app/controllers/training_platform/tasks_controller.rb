@@ -1,7 +1,7 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
   before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
-    :move_category, :tag, :date, :update_principal, :level, :remove, :add_helper, :remove_helper]
+    :move_category, :tag, :date, :update_principal, :level, :remove, :add_helper, :remove_helper, :set_end_time]
   
 
   def index
@@ -23,11 +23,18 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   end
 
   def edit
+    respond_with @task
   end
 
   #更新任务截止时间
   def update
-    @project = Project.find(params[:project_id])
+    if @task.update task_params
+      flash[:notice] = "任务更新成功"
+    end
+    respond_with @task
+  end
+
+  def set_end_time
     @task.update(end_time: Time.at(params[:endTime].to_i / 1000))
     respond_with @task
   end

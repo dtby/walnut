@@ -1,1 +1,11 @@
-$("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
+<% if @task.errors.blank? %>
+  <% if @task.task_category.blank? %>
+    location.href = "<%= training_platform_project_user_path(@project, id: @task.get_principal_user.try(:id),s: params[:s])%>";
+  <% else %>
+    location.href = "<%= training_platform_project_task_path(@project, @task)%>";
+  <% end %>
+  
+<% else %>
+  $("#trainingPlatformModalContent").html("<%= escape_javascript(render 'training_platform/tasks/form') %>");
+  $("#trainingPlatformModal").modal('show');
+<% end %>
