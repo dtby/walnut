@@ -227,7 +227,11 @@
       }
 
       .task-description {
+        padding-top: 10px;
         height: 80px;
+        p {
+          text-indent: 2em;
+        }
       }
     }
     
@@ -254,49 +258,33 @@
 }
 
 //截止日期样式/
-.datepicker > input {
-    padding: 3px;
-    margin-left: -13px;
-    border-radius: 15px!important;
-    background-color: #fff!important;
-    color: #5AC3B7;
-    text-align: center;
+input.form_datetime {
+  padding: 3px;
+  border-radius: 15px!important;
+  background-color: #fff!important;
+  color: #5AC3B7;
+  text-align: center;
+  width: 95%;
+  cursor: pointer;
 }
 
 //打标签样式
 .tag {
   border-radius: 20px;
-    padding: 3px 20px;
-    line-height:14px;
-    .close:hover {
-      color:red;
-       background-color:rgba(0,0,0,0.0)!important;
-    }
+  padding: 20px 20px;
+  line-height:14px;
+  .close:hover {
+    color:red;
+     background-color:rgba(0,0,0,0.0)!important;
+  }
 }
-#addTag, #helperSelect {
+#addTag {
+  margin-left: 20px;
   border:0px;
+  background-color: #fbffff;
 }
-
-// .task_d {
-//   padding-bottom:40px;
-// }.task_t {
-//   padding-left:30px;
-// }
-// .percent_number {
-// 	font-size:25px;
-// }
-// .my-details{
-// 	padding: 0 20px;
-// 	.col-xs-2{
-// 		padding: 0;
-// 	}
-// }
-// .my-menu{
-// 	min-width: 50px;
-// }
-// .a-col{
-// 	padding: 10px 0 0 15px;
-// }
-// .my-bbtn{
-// 	padding: 15px 15px 20px;
-// }
+#helperSelect {
+  margin-left: 12px;
+  border:0px;
+  background-color: #fbffff;
+}

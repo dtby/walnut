@@ -2,7 +2,10 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   <div id="rightTopContent" class="row task-category-detail">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <h3><%= @task_category.try(:name) %></h3>
+      <div class="my-task">
+          <h3> <%= @task_category.try(:name) %></h3>
+          <hr class="my-line">
+      </div>
       <p class="task-categoty-description">
         <%= @task_category.try(:description).blank? ? "添加描述" : @task_category.try(:description) %>
       </p>
