@@ -82,7 +82,7 @@ class User < ActiveRecord::Base
 
    #页面头像显示
   def show_image
-    self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "personal_head.png"
+    self.image.present? ? self.try(:image).try(:avatar).try(:url, :u_202_202) : "default-user.jpg"
   end
 
   #显示名字
