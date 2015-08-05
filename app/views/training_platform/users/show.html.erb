@@ -71,17 +71,6 @@
 
 </div>
 <script type="text/javascript">
-  jQuery(function($){
-  
-    $('.dd').nestable();
-  
-    $('.dd-handle a').on('mousedown', function(e){
-      e.stopPropagation();
-    });
-    
-    $('[data-rel="tooltip"]').tooltip();
-  
-  });
 
   $(function(){
     
@@ -92,10 +81,10 @@
     var rightTitle = $(".ace_content_right_title").outerHeight();
 
     //屏幕可见高端
-    var clientHeight = document.body.clientHeight;
+    var clientHeight = window.screen.availHeight;
 
     //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle) - document.body.scrollTop;
+    var scrollHeight = clientHeight - (head + rightTitle + 100) - document.body.scrollTop;
 
     $("#taskDetailShow").height(scrollHeight);
 

@@ -41,19 +41,19 @@
 					</div>
 				</div>
 				<%= form_tag training_platform_comments_path, remote: true, format: :js, id: "commentForm" do %>
-				<div class="form-actions">
-					<div class="input-group">
-						<%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
-						<%= hidden_field_tag "commentable_name", commentable.class %>
-						<%= hidden_field_tag "commentable_id",  commentable.id %>
-						<span class="input-group-btn">
-							<button class="btn btn-md btn-info no-radius" type="submit">
-								<i class="icon-share-alt"></i>
-								发送
-							</button>
-						</span>
+					<div class="form-actions">
+						<div class="input-group">
+							<%= text_area_tag "body", "", placeholder: "讨论", class: "form-control", rows: 1 %>
+							<%= hidden_field_tag "commentable_name", commentable.class %>
+							<%= hidden_field_tag "commentable_id",  commentable.id %>
+							<span class="input-group-btn">
+								<button class="btn btn-md btn-info no-radius" type="submit">
+									<i class="icon-share-alt"></i>
+									发送
+								</button>
+							</span>
+						</div>
 					</div>
-				</div>
 				<% end %>
 			</div>
 		</div>
@@ -75,9 +75,9 @@
 		//评论表单
 		var commentForm = $("#commentForm").outerHeight();
 		//屏幕可见高端
-		var clientHeight = document.body.clientHeight;
+		var clientHeight = window.screen.availHeight;
 		//高度计算
-		var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm +60) - document.body.scrollTop;
+		var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm + 100) - document.body.scrollTop;
 
 		$('#commentList').slimScroll({
 			height: scrollHeight + 'px',
