@@ -107,6 +107,7 @@
   <script type="text/javascript">
     try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
     $(function(){
+      $(".dropdown-toggle-custom").unbind("click");
       $(".dropdown-toggle-custom").click(function(){
         if($(this).parent("li").attr("class").indexOf("open") > -1){
           $(this).parent("li").removeClass("open");
