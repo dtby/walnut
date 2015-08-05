@@ -7,7 +7,7 @@
     <span class="project_name_t"><%= @project.name.truncate(5, omission: '')%></span>
   </div>
 
-  <ul class="nav nav-list ace-nav-left">
+  <ul id="leftMenuUl" class="nav nav-list ace-nav-left">
     <li class="<%= 'active' if params[:controller] == "training_platform/announces"%>">
       <%= link_to(training_platform_project_announces_path(project_id: @project.id)) do %>
         <i class="icon-dashboard"></i>
@@ -69,7 +69,7 @@
       <% end %>
     </li>
   </ul>
-  
+
   <div class="sidebar-shortcuts" id="sidebar-shortcuts">
     <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
       <span class="btn btn-success btn-sm tooltip-success" data-rel="tooltip" data-placement="bottom" title="新建任务列表">
@@ -107,6 +107,25 @@
   <script type="text/javascript">
     try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
     $(function(){
+      //菜单栏高度
+      var head = $("#headerMenu").outerHeight();
+
+      //右侧检索通知栏高度
+      var rightTitle = $(".ace_content_right_title").outerHeight();
+
+      var sidebarShortcuts = $("#sidebar-shortcuts").outerHeight();
+
+      //屏幕可见高端
+      var clientHeight = window.screen.availHeight;
+
+      //高度计算
+      var scrollHeight = clientHeight - (head + rightTitle + 100 + sidebarShortcuts) - document.body.scrollTop;
+
+      $('#leftMenuUl').slimScroll({
+        height: scrollHeight + 'px',
+        alwaysVisible : false
+      });
+
       $(".dropdown-toggle-custom").unbind("click");
       $(".dropdown-toggle-custom").click(function(){
         if($(this).parent("li").attr("class").indexOf("open") > -1){
