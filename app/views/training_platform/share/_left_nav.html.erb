@@ -23,7 +23,7 @@
     </li>
 
     <li id="taskListMenuLi" class="open <%= 'active' if params[:controller] == "training_platform/task_categories" || params[:controller] == "training_platform/tasks"%>">
-      <a href="#" class="dropdown-toggle">
+      <a href="#" class="dropdown-toggle-custom">
         <i class="icon-tasks"></i>
         <span class="menu-text"> 任务列表 </span>
         <% if @project.task_categories.present? %><b class="arrow icon-angle-down"></b><% end %>
@@ -43,7 +43,7 @@
     </li>
 
     <li class="open <%= 'active' if params[:controller] == "training_platform/users" && params[:s] != "my" %>">
-      <a href="#" class="dropdown-toggle">
+      <a href="#" class="dropdown-toggle-custom">
         <i class="icon-group"></i>
         <span class="menu-text"> 团队成员 </span>
         <% if @project.users.present? %><b class="arrow icon-angle-down"></b><% end %>
@@ -106,5 +106,16 @@
 
   <script type="text/javascript">
     try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+    $(function(){
+      $(".dropdown-toggle-custom").click(function(){
+        if($(this).parent("li").attr("class").indexOf("open") > -1){
+          $(this).parent("li").removeClass("open");
+          $(this).next("ul").slideUp("fast");
+        }else{
+          $(this).parent("li").addClass("open");
+          $(this).next("ul").slideDown("fast");
+        }
+      });
+    });
   </script>
 </div>
