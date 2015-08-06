@@ -5,9 +5,7 @@ class UserRecruitmentsController < ApplicationController
   def create
 
     #投递记录保存
-    @user_recruitment = UserRecruitment.new 
-    @user_recruitment.user_id = current_user.id
-    @user_recruitment.recruitment_id = params[:recruitment_id]
+    @user_recruitment = UserRecruitment.find_or_initialize_by(user_id: current_user.id, recruitment_id: params[:recruitment_id]) 
     @user_recruitment.deliver_time = Time.now
     @user_recruitment.save
     
