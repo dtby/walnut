@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731074431) do
+ActiveRecord::Schema.define(version: 20150806023424) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -32,10 +32,8 @@ ActiveRecord::Schema.define(version: 20150731074431) do
     t.integer  "content_file_size",    limit: 4
     t.integer  "attachmentable_id",    limit: 4
     t.string   "attachmentable_type",  limit: 255
-    t.string   "file_url",             limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "sub_course_id",        limit: 4
   end
 
   create_table "categories", force: :cascade do |t|

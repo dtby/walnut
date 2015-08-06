@@ -58,9 +58,12 @@
 			</div>
 
 			<div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
-				<button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				<button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="accachmentBtn">
 					附件
 				</button>
+				<%= form_tag upload_training_platform_project_task_path(@project, @task), format: :js, remote: true, multipart: true, style: "display: none;" do %>
+				  <%= file_field_tag :attachment, id: "attachmentFileInput" %>
+				<% end %>
 			</div>
 
 			<div class="col-xs-4 col-sm-2 col-lg-2 col-lg-2 dropdown">
@@ -109,6 +112,17 @@
 					</select>
 				</div>
 			</div>
+
+			<div id="attacheShow" class="col-xs-12 col-sm-12 col-lg-12 col-lg-12">
+				<div class="tags tags-list attachment-list">
+					<% @task.attachments.each do |attachment| %>
+					<span class="tag">
+						<%= link_to(attachment.content_file_name, download_training_platform_project_task_path(@project,@task,attachment: attachment.id)) %>
+						<%= link_to("x", remove_attachment_training_platform_project_task_path(@project,@task,attachment: attachment.id) , class: "close", remote: true, format: :js, method: :delete) %>
+					</span>
+					<% end %>
+				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -136,6 +150,7 @@
 				});
 			});		
 
+			//标签
 			$("#addTag").blur(function(){
 				if($(this).val() != ""){
 					$.ajax({
@@ -146,6 +161,7 @@
 				}
 			});
 
+			//协同者
 			$("#helperSelect").change(function(){
 				if($(this).val() != ""){
 					$.ajax({
@@ -154,6 +170,14 @@
 						data: {user: $(this).val()}
 					});
 				}
+			});
+
+			//附件
+			$("#accachmentBtn").click(function(){
+				$("#attachmentFileInput").click();
+			});
+			$("#attachmentFileInput").change(function(){
+				$(this).parent("form").submit();
 			});
 		});
 

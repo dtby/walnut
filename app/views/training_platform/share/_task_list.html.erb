@@ -28,7 +28,7 @@
             <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
               <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(@project,task))%>
             </ul>
-            </div>
+          </div>
           <%= link_to training_platform_project_task_path(task, project_id: @project.id), class: "task-link", remote: true, format: :js, id: "taskListLink#{task.id}" do %>
           <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 no-padding"><span><%= task.name %></span></div>
           <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 no-padding"><span><%= task.end_time.try(:strftime, "%F") %></span></div>

@@ -224,6 +224,18 @@
         border: none;
         padding-bottom: 10px;
         width: 100%;
+        &.attachment-list {
+          .tag{
+            background-color: #2EC8BA;
+            border-radius: 0px;
+          }
+        } 
+        a {
+          color: #fff;
+          &.close:hover {
+            color: red;
+          }
+        }
       }
 
       .task-description {

@@ -25,6 +25,7 @@ class Task < ActiveRecord::Base
   belongs_to :task_category
   has_many :user_tasks, dependent: :destroy 
   has_many :users, through: :user_tasks
+  has_many :attachments, as: :attachmentable, dependent: :destroy
 
   scope :waits, -> { where state: 1 }
   scope :dos, -> { where state: 2 }

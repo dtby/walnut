@@ -1,7 +1,6 @@
 class TrainingPlatform::TasksController < TrainingPlatform::ApplicationController
   before_action :set_project
-  before_action :set_task, only: [:edit, :update, :destroy, :show, :aasm_state, 
-    :move_category, :tag, :date, :update_principal, :level, :remove, :add_helper, :remove_helper, :set_end_time]
+  before_action :set_task, except: [:index, :new, :create]
   
 
   def index
@@ -117,6 +116,35 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
   def level
     @task.update_attribute("level", Task.levels[params[:level]])
     respond_with @task
+  end
+
+  #附件上传
+  def upload
+    attachment = Attachment.new 
+    attachment.attachmentable = @task
+    attachment.content = params[:attachment]
+    attachment.save
+    respond_with @task
+  end
+
+  #附件删除
+  def remove_attachment
+    attachment = Attachment.where(id: params[:attachment]).first
+    attachment.destroy if attachment.present?
+    respond_with @task
+  end
+
+  #附件下载
+  def download
+    attachment = Attachment.where(id: params[:attachment]).first
+    if attachment.present?
+      send_file attachment.content.path,
+        type: attachment.content.content_type,
+        x_sendfile: true
+    else
+      flash[:notice] = "附件已被删除"
+      redirect_to training_platform_project_task_path(@project, @task)
+    end
   end
 
   private 

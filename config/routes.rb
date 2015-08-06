@@ -75,6 +75,9 @@ Rails.application.routes.draw do
           post :add_helper
           post :set_end_time
           delete :remove_helper
+          post :upload
+          delete :remove_attachment
+          get :download
         end
       end
       resources :courses, only: :index

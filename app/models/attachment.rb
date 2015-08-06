@@ -9,10 +9,8 @@
 #  content_file_size    :integer
 #  attachmentable_id    :integer
 #  attachmentable_type  :string(255)
-#  file_url             :string(255)
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  sub_course_id        :integer
 #
 
 class Attachment < ActiveRecord::Base
