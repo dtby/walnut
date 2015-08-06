@@ -20,3 +20,4 @@
 //= require jquery.remotipart
 //= require app/wow
 //= require admin/fileinput
+//= require_tree ./ace/.

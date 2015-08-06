@@ -50,6 +50,8 @@ class Project < ActiveRecord::Base
     case type
     when "self"
       Project.includes(:user_projects).where(user_projects: {user_id: current_user.id})
+    when "create"
+      Project.joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role = 1")
     when "join"
       Project.joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role <> 1")
     when "collect"

@@ -39,7 +39,7 @@
                     <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %> yellow-start" aria-hidden="true"></span>
                   <% end %>
                   <div class="dropdown project-set-btn">
-                    <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">

@@ -46,8 +46,15 @@ class UserController < ApplicationController
     .includes(:company).where("user_recruitments.user_id = #{current_user.id}").order("user_recruitments.created_at DESC,recruitments.id ASC").page(params[:page])
   end
 
+  #我的消息
   def my_messages
     @user_notifications = current_user.user_notifications
+  end
+
+  #我项目
+  def my_projects
+    @join_projects = Project.list_projects "join"
+    @create_projects = Project.list_projects "create"
   end
 
   private

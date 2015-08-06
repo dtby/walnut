@@ -14,51 +14,53 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="joinProjects">
             <div class="row right_content">
-              <div class="col-md-8 col-md-offset-2 tab1">
-                <div class="col-md-3">
-                  <%=image_tag "progress_chart.png" %>
+              <% @join_projects.each do |project| %>
+                <div class="col-md-8 col-md-offset-2 tab1">
+                  <div class="col-md-3 percent-content">
+                    <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
+                      <span class="percent percent_number">
+                        <%= project.task_percentage %>
+                      </span>%
+                    </div>
+                  </div>
+                  <div class="col-md-9 content_text">
+                  <!-- <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span> -->
+                  <!-- <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br> -->
+                    <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
+                      <h3><%= project.name %></h3>（总任务：<%= project.tasks.count %>   
+                      已完成：<%= project.tasks.completes.count %>   
+                      待办中：<%= project.tasks.waits.count %>   
+                      验收通过：<%= project.tasks.acceprances.count %> ）
+                    <% end %>
+                  </div>
                 </div>
-                <div class="col-md-9 content_text">
-                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-                  <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
-                </div>
-              </div>
-              <div class="col-md-8 col-md-offset-2 tab2">
-                <div class="col-md-3">
-                  <%=image_tag "progress_chart.png" %>
-                </div>
-                <div class="col-md-9 content_text">
-                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-                  <h3>在线教育平台建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
 
           <div role="tabpanel" class="tab-pane" id="createProjects">
             <div class="row right_content">
-              <div class="col-md-8 col-md-offset-2 tab1">
-                <div class="col-md-3">
-                  <%=image_tag "progress_chart.png" %>
+              <% @create_projects.each do |project| %>
+                <div class="col-md-8 col-md-offset-2 tab2">
+                  <div class="col-md-3 percent-content">
+                    <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
+                      <span class="percent percent_number">
+                        <%= project.task_percentage %>
+                      </span>%
+                    </div>
+                  </div>
+                  <div class="col-md-9 content_text">
+                  <!-- <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span> -->
+                  <!-- <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br> -->
+                    <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
+                      <h3><%= project.name %></h3>（总任务：<%= project.tasks.count %>   
+                      已完成：<%= project.tasks.completes.count %>   
+                      待办中：<%= project.tasks.waits.count %>   
+                      验收通过：<%= project.tasks.acceprances.count %> ）
+                    <% end %>
+                  </div>
                 </div>
-                <div class="col-md-9 content_text">
-                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-                  <h3>课程中心建设</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
-                </div>
-              </div>
-              <div class="col-md-8 col-md-offset-2 tab2">
-                <div class="col-md-3">
-                  <%=image_tag "progress_chart.png" %>
-                </div>
-                <div class="col-md-9 content_text">
-                <span class="glyphicon glyphicon-cog right_icon pull-right" aria-hidden="true"></span>
-                <span class="glyphicon glyphicon-signal right_icon pull-right" aria-hidden="true"></span><br>
-                  <h3>在线商城开发</h3>（总任务：20 已完成：15 代办中：5 验收通过：3）
-                </div>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -67,3 +69,18 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  var oldie = /msie\s*(8|7|6)/.test(navigator.userAgent.toLowerCase());
+  $('.easy-pie-chart.percentage').each(function(){
+    $(this).easyPieChart({
+      barColor: $(this).data('color'),
+      trackColor: 'rgba(255,255,255,0.4)',
+      scaleColor: false,
+      lineCap: 'butt',
+      lineWidth: 10,
+      animate: oldie ? false : 1000,
+      size:100
+    }).css('color', $(this).data('color'));
+  });
+</script>

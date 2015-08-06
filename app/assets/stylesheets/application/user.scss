@@ -105,6 +105,48 @@
 			}
 		}
 	}
+	.percent-content {
+		padding: 5px;
+		.easyPieChart {
+	    position: relative;
+	    text-align: center;
+		}
+		.percentage {
+	    font-size: 14px;
+	    font-weight: bold;
+	    display: inline-block;
+	    vertical-align: top;
+		}
+		.easyPieChart canvas {
+		    position: absolute;
+		    top: 0;
+		    left: 0;
+		}
+		canvas {
+	    display: inline-block;
+	    vertical-align: baseline;
+		}
+	}
+	
+	.right_content {
+		.tab1, .tab2{
+			background-color:#00CBD2;
+			margin-bottom:20px;
+			.content_text {
+				color:#fff;
+				.right_icon {
+					margin:10px 0 0 10px;
+				}
+				a {
+					color: #fff;
+				}
+			}
+		}
+		.tab2 {
+			background-color:#f56935;
+		}
+	}
+
 }
 
 .user__my_recruits {
@@ -225,21 +267,7 @@
 		border-width:4px 2px 0 2px;
 		}
 }
-.right_content {
-	.tab1, .tab2{
-		background-color:#00CBD2;
-		margin-bottom:20px;
-		.content_text {
-			color:#fff;
-			.right_icon {
-		margin:10px 0 0 10px;
-	}
-		}
-	}
-	.tab2 {
-		background-color:#f56935;
-	}
-}
+
 /* my_courses page*/
 .courses_tent {
 	margin-top:20px;
