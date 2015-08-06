@@ -40,8 +40,29 @@ class Recruitment < ActiveRecord::Base
   scope :recruits, -> { where(recruit_type: 1) } #招聘信息
   scope :practices, -> { where(recruit_type: 2) } #实习信息
   acts_as_votable
-  
+
   belongs_to :degree
   belongs_to :company
   has_many :user_recruitments, dependent: :destroy
+
+  enum cities: {
+    '上海': 'shanghai',
+    '北京': 'beijing'
+  }
+
+  enum categories: {
+    '全职': 'fulltime',
+    '实习': 'parttime'
+  }
+
+  #solr搜索
+	searchable do
+    text :name, :stored => true
+		text :category
+		text :city
+		text :remuneration
+    text :company do
+      company.name
+    end
+	end
 end

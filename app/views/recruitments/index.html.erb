@@ -9,24 +9,22 @@
   </div>
   <div class="row recruit_class">
     <div class="col-md-12">
-      <div class="col-md-3">
-        <select class="form-control">
-          <option>请选择职位类别</option>
-        </select>
-      </div>
-      <div class="col-md-3">
-        <select class="form-control">
-          <option>请选择行业类别</option>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <input class="form-control" placeholder="请输入职位名、公司名等关键字"/>
-      </div>
-      <div class="col-md-2">
-        <%= link_to("找工作", recruitments_path  , class: "btn find_job") %>
-      </div>
+      <%= form_tag recruitments_path, method: :get do %>
+        <div class="col-md-3">
+          <%= select_tag :category, options_for_select(['全职','实习']), selected: params[:category], prompt: "请选择职位类别", class: "form-control"%>
+        </div>
+        <div class="col-md-3">
+          <%= select_tag :city, options_for_select(['北京','上海','广州','深圳','天津']), selected: params[:category], prompt: "请选择工作区域", class: "form-control"%>
+        </div>
+        <div class="col-md-4">
+          <%= text_field_tag :q, nil, class: "form-control",  placeholder: "请输入职位名、公司名等关键字" %>
+        </div>
+        <div class="col-md-2">
+          <%= submit_tag "找工作", class: "btn find_job" %>
+        </div>
+      <% end %>
     </div>
-    <div class="col-md-12">
+    <!-- <div class="col-md-12">
       <div class="col-md-3">
         <select class="form-control">
           <option>上海</option>
@@ -48,9 +46,9 @@
         </select>
       </div>
       <div class="col-md-2">
-        <%= link_to("实习信息",recommend_recruitments_path  , class: "btn find_job recommend") %>
+        <%#= link_to("实习信息",recommend_recruitments_path  , class: "btn find_job recommend") %>
       </div>
-    </div>
+    </div> -->
     <div class="container">
     <div class="row recruit_title">
       <div class="col-md-5"><hr class="divider"></div>
@@ -79,31 +77,31 @@
         </tr>
         </thead>
         <tbody class="recruit_list_text">
-        <% @recruitments.each do |recruitment| %>
-        <tr>
-          <td><%=link_to truncate(recruitment.name, length: 12), recruitment_path(recruitment) %></td>
-          <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "delo.jpg", style: "max-height: 45px;" %></td>
-          <td><%=truncate(recruitment.try(:company).try(:name), length: 12) %></td>
-          <td><%=recruitment.city %></td>
-          <td><%=recruitment.publish_time.try(:strftime, "%F") %></td>
-          <td><%=recruitment.browse_count %></td>
-          <td>
-            <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, style_type: "recruitment-list") do %>
-              <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
-            <% end %>
-          </td>
-          <td>
-            <% if recruitment.state.present? && current_user.present? %>
-              <span class="text-muted">已投简历</span>
-            <% else %>
-              <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
-            <% end %>
-          </td>
-        </tr>
+        <% @search.each_hit_with_result do |hit, recruitment| %>
+          <tr>
+            <td><%=link_to truncate(recruitment.name, length: 12), recruitment_path(recruitment) %></td>
+            <td><%=image_tag recruitment.try(:company).try(:logo_url).present? ? recruitment.try(:company).try(:logo_url) : "delo.jpg", style: "max-height: 45px;" %></td>
+            <td><%=truncate(recruitment.try(:company).try(:name), length: 12) %></td>
+            <td><%=recruitment.city %></td>
+            <td><%=recruitment.publish_time.try(:strftime, "%F") %></td>
+            <td><%=recruitment.browse_count %></td>
+            <td>
+              <%= link_to("javascript:void(0);" , title: "收藏", class: "vote-create-a", voteable_id: recruitment.id, voteable_type: recruitment.class, style_type: "recruitment-list") do %>
+                <span id="voteRecruitmentSpan<%= recruitment.id %>" class="glyphicon <%= (current_user.try(:voted_up_on?,recruitment)) ? "glyphicon-star" : "glyphicon-star-empty" %> iconstar" aria-hidden="true"></span>
+              <% end %>
+            </td>
+            <td>
+              <% if recruitment.user_recruitments.present? && current_user.present? %>
+                <span class="text-muted">已投简历</span>
+              <% else %>
+                <%=link_to "投递简历", 'javascript:void(0);' ,class: "deliver recruitment-deliver", deliver_id: recruitment.id, style_type: "recruitment-list", id: "deliverRecruitment#{recruitment.id}" %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
         </tbody>
       </table>
-      <div class="text-center"><%= paginate @recruitments %></div>
+      <div class="text-center"><%= paginate @search.hits %></div>
     </div>
 </div>
 
