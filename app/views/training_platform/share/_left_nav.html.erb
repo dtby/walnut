@@ -20,7 +20,7 @@
         <i class="icon-user"></i>
         <span class="menu-text"> 我的任务 </span>
         <span class="label label-sm label-grey arrowed arrowed-right">
-          <%= (current_user.principal_tasks "waits",@project.id).count + (current_user.principal_tasks "waits",@project.id).count %> / <%= (current_user.principal_tasks "all",@project.id).count %>
+          <%= (current_user.principal_tasks "waits",@project.id).count + (current_user.principal_tasks "dos",@project.id).count %> / <%= (current_user.principal_tasks "all",@project.id).count %>
         </span>
       <% end %>
     </li>
@@ -62,7 +62,7 @@
                 <i class="icon-double-angle-right"></i>
                 <%= member.show_name %>
                 <span class="label label-sm label-grey arrowed arrowed-right">
-                <%= (member.principal_tasks "waits",@project.id).count + (member.principal_tasks "waits",@project.id).count %> / <%= (member.principal_tasks "all",@project.id).count %>
+                <%= (member.principal_tasks "waits",@project.id).count + (member.principal_tasks "dos",@project.id).count %> / <%= (member.principal_tasks "all",@project.id).count %>
               </span>
               <% end %>
             </li>
