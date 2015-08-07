@@ -75,9 +75,9 @@
 		//评论表单
 		var commentForm = $("#commentForm").outerHeight();
 		//屏幕可见高端
-		var clientHeight = window.screen.availHeight;
+		var clientHeight = document.body.clientHeight;
 		//高度计算
-		var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm + 100) - document.body.scrollTop;
+		var scrollHeight = clientHeight - (head + rightTitle + commentTitle + rightTopContent + commentForm + 25) - document.body.scrollTop;
 
 		$('#commentList').slimScroll({
 			height: scrollHeight + 'px',

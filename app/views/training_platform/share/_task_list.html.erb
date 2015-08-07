@@ -127,12 +127,12 @@
     var rightTitle = $(".ace_content_right_title").outerHeight();
 
     //屏幕可见高端
-    var clientHeight = window.screen.availHeight;
+    var clientHeight = document.body.clientHeight;
 
     var h4Title = $(".my-task").outerHeight();
 
     //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle + h4Title + 100) - document.body.scrollTop;
+    var scrollHeight = clientHeight - (head + rightTitle + h4Title + 25) - document.body.scrollTop;
 
     $('#taskListAllContent').slimScroll({
       height: scrollHeight + 'px',

@@ -18,10 +18,10 @@
     <li class="<%= 'active' if params[:controller] == "training_platform/users" && params[:id] == current_user.id.try(:to_s) && params[:s] == "my" %>">
       <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id,s: "my")) do %>
         <i class="icon-user"></i>
-        <span class="menu-text"> 我的任务 </span>
+        <span class="menu-text"> 我的任务 
         <span class="label label-sm label-grey arrowed arrowed-right">
           <%= (current_user.principal_tasks "waits",@project.id).count + (current_user.principal_tasks "dos",@project.id).count %> / <%= (current_user.principal_tasks "all",@project.id).count %>
-        </span>
+        </span></span>
       <% end %>
     </li>
 
@@ -125,10 +125,10 @@
       var sidebarShortcuts = $("#sidebar-shortcuts").outerHeight();
 
       //屏幕可见高端
-      var clientHeight = window.screen.availHeight;
+      var clientHeight = document.body.clientHeight;
 
       //高度计算
-      var scrollHeight = clientHeight - (head + rightTitle + 100 + sidebarShortcuts) - document.body.scrollTop;
+      var scrollHeight = clientHeight - (head + rightTitle + 50 + sidebarShortcuts) - document.body.scrollTop;
 
       $('#leftMenuUl').slimScroll({
         height: scrollHeight + 'px',

@@ -81,10 +81,10 @@
     var rightTitle = $(".ace_content_right_title").outerHeight();
 
     //屏幕可见高端
-    var clientHeight = window.screen.availHeight;
+    var clientHeight = document.body.clientHeight;
 
     //高度计算
-    var scrollHeight = clientHeight - (head + rightTitle + 100) - document.body.scrollTop;
+    var scrollHeight = clientHeight - (head + rightTitle + 25) - document.body.scrollTop;
 
     $("#taskDetailShow").height(scrollHeight);
 
