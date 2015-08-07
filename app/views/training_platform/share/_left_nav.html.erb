@@ -19,6 +19,9 @@
       <%= link_to(training_platform_project_user_path(current_user, project_id: @project.id,s: "my")) do %>
         <i class="icon-user"></i>
         <span class="menu-text"> 我的任务 </span>
+        <span class="label label-sm label-grey arrowed arrowed-right">
+          <%= (current_user.principal_tasks "waits",@project.id).count + (current_user.principal_tasks "waits",@project.id).count %> / <%= (current_user.principal_tasks "all",@project.id).count %>
+        </span>
       <% end %>
     </li>
 
@@ -34,7 +37,10 @@
             <li>
               <%= link_to(training_platform_project_task_category_path(tc, project_id: @project.id)) do%>
                 <i class="icon-double-angle-right"></i>
-                <%= tc.name %>
+                <%= tc.name.truncate(6, omission: ".") %>
+                <span class="label label-sm label-grey arrowed arrowed-right">
+                  <%= tc.tasks.waits.count + tc.tasks.dos.count %> / <%= tc.tasks.count%>
+                </span>
               <% end %>
             </li>
           <% end %>
@@ -55,6 +61,9 @@
               <%= link_to(training_platform_project_user_path(member, project_id: @project.id)) do %>
                 <i class="icon-double-angle-right"></i>
                 <%= member.show_name %>
+                <span class="label label-sm label-grey arrowed arrowed-right">
+                <%= (member.principal_tasks "waits",@project.id).count + (member.principal_tasks "waits",@project.id).count %> / <%= (member.principal_tasks "all",@project.id).count %>
+              </span>
               <% end %>
             </li>
           <% end %>
