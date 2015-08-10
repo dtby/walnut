@@ -43,7 +43,11 @@ class TrainingPlatform::TasksController < TrainingPlatform::ApplicationControlle
     user = @task.get_principal_user
     @task.destroy
     flash[:notice] = "任务删除成功"
-    redirect_to training_platform_project_task_category_path(@project, task_category)
+    if task_category.present? 
+      redirect_to training_platform_project_task_category_path(@project, task_category)
+    else
+      redirect_to training_platform_project_user_path(@project, user)
+    end
   end
 
   def show
