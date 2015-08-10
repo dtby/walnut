@@ -38,22 +38,7 @@
             <!-- 右侧 -->
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
               <div class="row ace_content_right_title">
-                <div id="rightHead" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ace-serch">
-                  <form class="form-search ace-form-serch">
-                    <span class="input-icon">
-                    <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
-                    <i class="icon-search nav-search-icon"></i>
-                    </span>
-                  </form>
-                </div>
-                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <span class="glyphicon glyphicon-question-sign ace_ques pull-right" aria-hidden="true"></span>
-                  </a>
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <i class="icon-bell-alt icon-animated-bell pull-right ace_bell"></i>
-                  </a>
-                </div>
+                <%= render partial: "training_platform/share/right_header"%>
               </div>
 
               <div id="taskDetailShow" class="row ace_content_page_right">

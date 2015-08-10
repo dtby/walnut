@@ -17,24 +17,6 @@
 			font-size: 16px;
 		}
 	}
-	//徽章提示
-	.badge-count{
-		display: inline-block;
-		font-size: 10px;
-		color: #FFF;
-		white-space: nowrap;
-		border-radius: 9px;
-		min-width: 18px;
-		min-height: 18px;
-		line-height: 16px;
-		text-align: center;
-		position: absolute;
-		top: 14px;
-		left: 20px;
-		z-index: 10;
-		border: 1px solid #000;
-		background-color: #F00;
-	}
 	.sub_menu{
 		min-width: 96px;
 		background: #19B29F;
@@ -48,6 +30,29 @@
 			color: #000;
 			background-color:#19B29F!important;
 		}
+	}
+}
+
+//徽章提示
+.badge-count{
+	display: inline-block;
+	font-size: 10px;
+	color: #FFF;
+	white-space: nowrap;
+	border-radius: 9px;
+	min-width: 18px;
+	min-height: 18px;
+	line-height: 16px;
+	text-align: center;
+	position: absolute;
+	top: 14px;
+	left: 20px;
+	z-index: 10;
+	border: 1px solid #f00;
+	background-color: #f00;
+	&.project {
+		top: 0px;
+		left: 30px;
 	}
 }
 
@@ -328,5 +333,16 @@ button  {
 .ace_form_dis {
 	.form-control & input {
 
+	}
+}
+
+
+//通知栏
+.notification-list {
+	min-width: 300px;
+	li {
+		a {
+			padding: 10px;
+		}
 	}
 }

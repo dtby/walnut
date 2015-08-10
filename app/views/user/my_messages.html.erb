@@ -38,17 +38,13 @@
 								<% unless user_project.invite %>
 									<div class="col-md-2" ><%= link_to "通过邀请", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%></div>
 								<% else %>
-									<% if user_notification.read? %>
-										<span class="text-info">已读</span>
-									<% else %>
-										<%= link_to("未读", read_user_notification_path(user_notification), class: "text-warning") %>
+									<% unless user_notification.read? %>
+										<%= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
 									<% end %>
 								<% end %>
 							<% else %>
-									<% if user_notification.read? %>
-										<span class="text-info">已读</span>
-									<% else %>
-										<%= link_to("未读", read_user_notification_path(user_notification), class: "text-warning") %>
+									<% unless user_notification.read? %>
+										<%= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
 									<% end %>
 							<% end %>
 						</div>
