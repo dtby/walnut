@@ -22,4 +22,10 @@ class UserProject < ActiveRecord::Base
   validates :user_id, presence: {message: "不存在该用户"}
   validates_uniqueness_of :user_id, scope: :project_id, message: "该成员已经存在"
 
+
+  #通过用户，项目读取user_project对象
+  def self.get_user_project(user, project)
+    UserProject.find_by(user_id: user.id, project_id: project.id)
+  end
+
 end

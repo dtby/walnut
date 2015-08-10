@@ -1,3 +1,7 @@
 <li>
-  <%= link_to_unless current_page.last?, t('views.pagination.last').html_safe, url, :remote => remote %>
+  <% if current_page.last? %>
+    <span><%= t('views.pagination.last').html_safe %></span>
+  <% else %>
+    <%= link_to_unless current_page.last?, t('views.pagination.last').html_safe, url, :remote => remote %>
+  <% end %>
 </li>

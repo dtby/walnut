@@ -43,8 +43,11 @@ class User < ActiveRecord::Base
   has_many :user_tasks, dependent: :destroy 
   has_many :tasks, through: :user_tasks
 
-  has_many :announces
-  has_many :user_notifications
+  has_many :announces, dependent: :destroy 
+  
+  has_many :user_notifications, dependent: :destroy 
+  has_many :notifications, through: :user_notifications
+
 
 
   validates :mobile, presence: true, uniqueness: true, on: :create
@@ -109,6 +112,4 @@ class User < ActiveRecord::Base
     Thread.current[:user] = user
   end
 
-  
-  
 end

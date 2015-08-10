@@ -17,7 +17,7 @@ module TrainingPlatform
       if user.mobile == current_user.mobile
         return render js: "$('#error-info').html('* 用户不能邀请自己!');"
       end
-  		@notification = Notification.new(project_id: @project.id, content: "#{user.name}, 您好, 您被邀请参与[ #{@project.name} ]项目。")
+  		@notification = Notification.new(project_id: @project.id, content: "#{user.name}, 您好, 您被邀请参与[ #{@project.name} ]项目。", category: 1)
   		@notification.save
 			@notification.generate_user_notification(user)
 			UserProject.create(user_id: user.id, project_id: @project.id, role: 2, invite: false)
