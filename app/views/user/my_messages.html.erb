@@ -6,7 +6,7 @@
 					<%=render "left_nav" %>
 				</div>
 				<div class="col-md-9 main">
-					<% show_date = @notifications.try(:first).try(:created_at).try(:strftime, "%F") %>
+					<% show_date = @user_notifications.try(:first).try(:created_at).try(:strftime, "%F") %>
 					<% if show_date.present? %>
 						<div class="row">
 							<div class="col-md-5"><hr class="divider"></div>
@@ -16,32 +16,44 @@
 							<div class="col-md-5"><hr class="divider"></div>
 						</div>
 					<% end %>
-					<% @notifications.each do |notification| %>
-						<% unless notification.created_at.strftime("%F") == show_date %>
+					<% @user_notifications.each do |user_notification| %>
+						<% unless user_notification.created_at.strftime("%F") == show_date %>
 							<div class="row">
 								<div class="col-md-5"><hr class="divider"></div>
 								<div class="col-md-2 text-center my_data">
-									<span><%= show_date = notification.created_at.strftime("%F") %></span>
+									<span><%= show_date = user_notification.created_at.strftime("%F") %></span>
 								</div>
 								<div class="col-md-5"><hr class="divider"></div>
 							</div>
 						<% end %>
 						<div class="row my_message">
-							<div class="col-md-1"><%= image_tag notification.try(:user).try(:show_image) ||  "user_mymessage.png", style: "width: 100%;" %></div>
+							<div class="col-md-1"><%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "user_mymessage.png", style: "width: 100%;" %></div>
 							<div class="col-md-7 message">
 								<span class="arrow"></span>
-								<p><%= notification.try(:user).try(:show_name)%> <%= notification.content %></p>
+								<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= user_notification.try(:notification).try(:content) %></p>
 							</div>
-							<div class="col-md-2" ><%= notification.created_at.strftime("%Y-%m-%d")%></div>
-							<% if notification.category == "invite" && notification.project.present? %>
-								<% user_project = UserProject.get_user_project(current_user, notification.project)%>
+							<div class="col-md-2" ><%= user_notification.created_at.strftime("%Y-%m-%d")%></div>
+							<% if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
+								<% user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
 								<% unless user_project.invite %>
 									<div class="col-md-2" ><%= link_to "通过邀请", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%></div>
+								<% else %>
+									<% if user_notification.read? %>
+										<span class="text-info">已读</span>
+									<% else %>
+										<%= link_to("未读", read_user_notification_path(user_notification), class: "text-warning") %>
+									<% end %>
 								<% end %>
+							<% else %>
+									<% if user_notification.read? %>
+										<span class="text-info">已读</span>
+									<% else %>
+										<%= link_to("未读", read_user_notification_path(user_notification), class: "text-warning") %>
+									<% end %>
 							<% end %>
 						</div>
 					<% end %>
-					<div class="text-center"><%= paginate @notifications %></div>
+					<div class="text-center"><%= paginate @user_notifications %></div>
 				</div>
 			</div>
 		</div>

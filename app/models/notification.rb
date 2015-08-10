@@ -50,4 +50,8 @@ class Notification < ActiveRecord::Base
     end
   end
 
+  def get_user_notification user
+    UserNotification.where(user_id: user.try(:id), notification_id: self.id).first
+  end
+
 end

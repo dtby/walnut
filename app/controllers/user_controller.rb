@@ -48,7 +48,7 @@ class UserController < ApplicationController
 
   #我的消息
   def my_messages
-    @notifications = current_user.notifications.order("created_at DESC").page(params[:page])
+    @user_notifications = current_user.user_notifications.includes(:notification).order("created_at DESC").page(params[:page])
   end
 
   #我项目

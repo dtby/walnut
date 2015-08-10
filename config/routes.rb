@@ -44,6 +44,11 @@ Rails.application.routes.draw do
       patch :invited, :uninvited
     end
   end
+  resources :user_notifications do
+    member do
+      get :read
+    end
+  end
 
   resources :votes, only: [:create]
   resources :ints, only: [:create]
