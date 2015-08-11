@@ -1,8 +1,8 @@
 $ ->
   #点击任务显示详情
-  $(".task-link").click ->
-    $(".task-list-row").removeClass("active")
-    $(this).parents(".task-list-row").addClass("active")
+  # $(".task-link").click ->
+  #   $(".task-list-row").removeClass("active")
+  #   $(this).parents(".task-list-row").addClass("active")
 
   #状态dropdown点击后，将其移入对应状态栏显示
   # $(".task-state-dropdown li").click -> 

@@ -1,0 +1,19 @@
+<div id="taskListItem<%= task.id %>" class="row task-list-row task-list-row-content">
+  <div class="col-xs-12 col-sm-3 col-lg-2 col-lg-2 dropdown text-center">
+    <button class="btn btn-default dropdown-toggle dropdown-btn" type="button" id="taskdropDown<%= task.id %>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <%= Task::State[task.state.to_sym] %>
+      <span class="caret my-caret"></span>
+    </button>
+    <ul class="dropdown-menu task-state-dropdown" aria-labelledby="dropdownMenu1" data-task="<%= task.id%>">
+      <%= raw(staus_dropdown task.state, aasm_state_training_platform_project_task_path(project,task))%>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-sm-9 col-lg-10 col-lg-10">
+    <%= link_to training_platform_project_task_path(task, project_id: project.id), class: "task-link", remote: true, format: :js do %>
+      <div>
+        <span><%= task.name %></span>
+        <span class="pull-right"><span><%= task.end_time.try(:strftime, "%F") %></span>
+      </div>
+    <% end %>
+  </div>
+</div>

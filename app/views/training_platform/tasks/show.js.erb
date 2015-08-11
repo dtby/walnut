@@ -1,1 +1,3 @@
 $("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
+$(".task-list-row-content").removeClass("active");
+$("#taskListItem<%= @task.id %>").addClass("active");

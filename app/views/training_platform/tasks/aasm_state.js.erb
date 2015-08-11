@@ -1,12 +1,46 @@
 
-$("#taskList").replaceWith("<%= escape_javascript(
-render partial: 'training_platform/share/task_list', 
-      locals: {
-        waits: @task_category.tasks.waits,
-        dos: @task_category.tasks.dos,
-        completes: @task_category.tasks.completes,
-        acceprances: @task_category.tasks.acceprances
-      }) %>");
-
 $("#taskDetailShow").html("<%= escape_javascript(render partial: "training_platform/share/task_show")%>");
 
+var state = "<%= params[:state]%>";
+
+var task = "<%= escape_javascript(render partial: 'training_platform/share/task', 
+      locals: { project: @project, task: @task }) %>";
+
+var taskContent = $("#taskListItem<%= @task.id %>").parent(".task-list-content");
+
+if(taskContent.find(".task-list-row").length == 2){
+  taskContent.find(".task-list-blank").first().show();
+}
+
+var title = taskContent.find(".my-progress").first();
+var count = parseInt(title.attr("task-count")) - 1;
+var content = title.attr("title");
+title.text(content + "(" + count + ")");
+title.attr("task-count", count);
+
+
+$("#taskListItem<%= @task.id %>").remove();
+var eq = 0;
+if(state == "wait"){
+  eq = 0;
+}else if(state == "do"){
+  eq = 1;
+}else if(state == "complete"){
+  eq = 2;
+}else if(state == "accept"){
+  eq = 3;
+}
+
+$(".task-list-content").eq(eq).append(task);
+$(".task-list-blank").eq(eq).hide();
+
+title = $(".task-list-content").eq(eq).find(".my-progress").first();
+count = parseInt(title.attr("task-count")) + 1;
+content = title.attr("title");
+title.text(content + "(" + count + ")");
+title.attr("task-count", count);
+
+$(".task-list-row-content").removeClass("active");
+$("#taskListItem<%= @task.id %>").addClass("active");
+
+ 
