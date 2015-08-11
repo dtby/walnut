@@ -67,4 +67,9 @@ class Project < ActiveRecord::Base
   def get_member
     User.includes(:user_projects).where(user_projects: { project_id: self.id, invite: true }).order("user_projects.role")
   end
+
+  #solr搜索
+  searchable do
+    text :name, :description
+  end
 end

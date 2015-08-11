@@ -3,7 +3,9 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
 
   def index
     @projects = Project.list_projects params[:type]
-    respond_with @projects
+    @search = @projects.search do
+      keywords(params[:q])
+    end
   end
 
   def show
