@@ -69,6 +69,7 @@ Rails.application.routes.draw do
     root 'projects#index'
 
     resources :projects do
+      
       resources :tasks do
         member do
           get :aasm_state
@@ -85,26 +86,37 @@ Rails.application.routes.draw do
           get :download
         end
       end
+
       resources :courses, only: :index
+
       resources :project_courses do
         collection do
           post :batch_create
         end
       end
+
       resources :announces
+
       resources :notifications do
         collection do
           post :validate
         end
       end
+
       resources :task_categories #任务列表
+
       match 'tagged' => 'task_categories#tagged', :as => 'tagged', via: 'post'
+
       resources :users, only: :show
+
       resources :user_projects do
         collection do
           get :invite_member
         end
       end
+
+      resources :user_notifications, only: :index
+
     end
 
     resources :comments, only: [:create, :destroy, :index]

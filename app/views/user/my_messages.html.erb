@@ -27,7 +27,7 @@
 							</div>
 						<% end %>
 						<div class="row my_message">
-							<div class="col-md-1"><%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "user_mymessage.png", style: "width: 100%;" %></div>
+							<div class="col-md-1"><%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", style: "width: 100%;" %></div>
 							<div class="col-md-7 message">
 								<span class="arrow"></span>
 								<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= user_notification.try(:notification).try(:content) %></p>

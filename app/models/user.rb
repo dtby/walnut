@@ -103,6 +103,19 @@ class User < ActiveRecord::Base
     end
   end
 
+
+  #某一项目下通知统计
+  def notifications_group_by_project project_id
+    self.user_notifications.includes(:notification)
+    .where(notifications: {project_id: project_id}).count
+  end 
+
+  #某一项目下通知统计
+  def unread_notifications_group_by_project project_id
+    self.user_notifications.includes(:notification)
+    .where(notifications: {project_id: project_id}).unread.count
+  end
+
   #current_user在model中使用
   def self.current
     Thread.current[:user]

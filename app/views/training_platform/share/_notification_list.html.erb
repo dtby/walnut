@@ -1,0 +1,31 @@
+<li class="dropdown-header">
+  <i class="icon-warning-sign"></i>
+  <%= current_user.try(:notifications_group_by_project, @project.id) %> 条通知
+  <span class="pull-right"><a href="#">全部已读</a></span>
+</li>
+
+<% @user_notifications.each do |user_notification| %>
+  <li>
+    <a href="#">
+    <%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", class: "msg-photo" %>
+      <span class="msg-body">
+        <span class="msg-title">
+          <span class="blue"><%= user_notification.try(:notification).try(:user).try(:show_name) %></span>
+          <%= user_notification.try(:notification).try(:content).try(:truncate,25) %>
+        </span>
+
+        <span class="msg-time">
+          <i class="icon-time"></i>
+          <span><%= user_notification.created_at.strftime("%F %H:%M")%></span>
+        </span>
+      </span>
+    </a>
+  </li>
+<% end %>
+
+<li>
+  <%= link_to(my_messages_user_index_path) do %>
+    查看全部
+    <i class="icon-arrow-right"></i>
+  <% end %>
+</li>

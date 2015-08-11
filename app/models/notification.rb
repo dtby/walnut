@@ -46,7 +46,7 @@ class Notification < ActiveRecord::Base
     notification = self.create(project_id: project.try(:id), content: content, user_id: current_user.id)
 
     project.get_member.each do |user|
-      notification.user_notifications.build(user_id: user.id, state: 1).save
+      notification.user_notifications.build(user_id: user.id, state: 1).save unless user.id == current_user.id
     end
   end
 

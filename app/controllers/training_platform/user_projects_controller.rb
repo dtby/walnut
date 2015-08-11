@@ -40,10 +40,7 @@ class TrainingPlatform::UserProjectsController < TrainingPlatform::ApplicationCo
 
 
   private
-  def set_project
-    @project = Project.find(params[:project_id])
-  end
-  def user_project_params
-    params.require(:user_project).permit(:role, :project_id, :user_id)
+    def user_project_params
+      params.require(:user_project).permit(:role, :project_id, :user_id)
   end
 end

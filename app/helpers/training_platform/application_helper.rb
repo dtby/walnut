@@ -22,5 +22,4 @@ module TrainingPlatform::ApplicationHelper
       dropdown[0] << dropdown[1] << dropdown[2] << dropdown[4]
     end
   end
-
 end
