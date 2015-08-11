@@ -1,7 +1,12 @@
 <% if user_signed_in? %>
 	<li>
 		<%= link_to(my_messages_user_index_path, class: "dropdown-toggle", "data-toggle" => "") do %>
-			<i class="icon-bell-alt icon-animated-bell"><span class="badge-count"><%= current_user.user_notifications.unreads.count %></span></i>
+			<i class="icon-bell-alt icon-animated-bell">
+				<% unread = current_user.user_notifications.unreads.count %>
+				<% if unread > 0 %>
+				<span class="badge-count"><%= unread %></span>
+				<% end %>
+			</i>
 		<% end %>
 	</li>
 	<li>

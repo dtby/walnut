@@ -1,4 +1,4 @@
-<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 ace-serch">
+<div id="projectRightHeader" class="col-xs-10 col-sm-10 col-md-10 col-lg-10 ace-serch">
   <form class="form-search ace-form-serch">
     <span class="input-icon">
     <input type="text" placeholder="请输入关键字" class="nav-search-input" id="nav-search-input" autocomplete="off" />
@@ -9,9 +9,14 @@
 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
     
     <%= link_to training_platform_project_user_notifications_path(@project), remote: true, format: :js, class: "dropdown-toggle", "data-toggle" => "dropdown"  do %>
-      <i class="icon-bell-alt icon-animated-bell ace_bell"><span class="badge-count project">
-        <%= current_user.try(:unread_notifications_group_by_project, @project.id) %>
-      </span></i>
+      <i class="icon-bell-alt icon-animated-bell ace_bell">
+        <% unread = current_user.try(:unread_notifications_group_by_project, @project.id) %>
+        <% if unread > 0 %>
+          <span class="badge-count project">
+            <%= unread %>
+          </span>
+        <% end %>
+      </i>
     <% end %>
 
     <ul id="projectNotificationList" class="pull-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close project-notification-list">

@@ -115,7 +115,15 @@ Rails.application.routes.draw do
         end
       end
 
-      resources :user_notifications, only: :index
+      #实训项目通知读取
+      resources :user_notifications, only: :index do
+        collection do
+          get :read_all
+        end
+        member do
+          get :read
+        end
+      end
 
     end
 

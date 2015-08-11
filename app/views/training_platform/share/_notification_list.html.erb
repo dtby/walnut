@@ -1,13 +1,15 @@
 <li class="dropdown-header">
   <i class="icon-warning-sign"></i>
   <%= current_user.try(:notifications_group_by_project, @project.id) %> 条通知
-  <span class="pull-right"><a href="#">全部已读</a></span>
+  <span class="pull-right">
+  <%= link_to("全部已读", read_all_training_platform_project_user_notifications_path(@project),remote: true, format: :js) %>
+  </span>
 </li>
 
 <% @user_notifications.each do |user_notification| %>
-  <li>
-    <a href="#">
-    <%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", class: "msg-photo" %>
+  <li class="<%= "notification-unread" if user_notification.unread? %>">
+    <%= link_to( read_training_platform_project_user_notification_path(@project, user_notification), remote: true, format: :js) do %>
+      <%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", class: "msg-photo" %>
       <span class="msg-body">
         <span class="msg-title">
           <span class="blue"><%= user_notification.try(:notification).try(:user).try(:show_name) %></span>
@@ -19,7 +21,7 @@
           <span><%= user_notification.created_at.strftime("%F %H:%M")%></span>
         </span>
       </span>
-    </a>
+    <% end %>
   </li>
 <% end %>
 

@@ -111,6 +111,9 @@
       right: 62%;
       padding: 0px;
       min-width: 300px;
+      .notification-unread {
+        background-color: #f3f9fd;
+      }
     }
     .ace_plus {
       margin:6.5px 5px;
