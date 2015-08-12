@@ -339,10 +339,64 @@ button  {
 
 //通知栏
 .notification-list {
-	min-width: 300px;
-	li {
-		a {
-			padding: 10px;
+	min-width: 300px!important;
+	padding: 0px!important;
+	li.dropdown-header {
+    background-color: #ecf2f7;
+    color: #8090a0;
+    text-shadow: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    line-height: 34px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: none;
+    border-bottom: 1px solid;
+    border-bottom-color: #bcd4e5;
+	}
+	li.notification-unread {
+    background-color: #f3f9fd;
+	}
+	a {
+    margin: 0;
+    border-bottom: 1px solid;
+    border-bottom-color: #e4ecf3;
+    font-size: 12px;
+    color: #333333;
+    background-color: transparent;
+	}	
+	li:last-child>a {
+    border-bottom: 0 solid #DDD;
+    border-top: 1px dotted transparent;
+    color: #4f99c6;
+    text-align: center;
+    font-size: 13px;
+	}
+	.msg-photo {
+    margin-right: 6px;
+    max-width: 42px;
+	}
+	.msg-body {
+    display: inline-block;
+    line-height: 20px;
+    white-space: normal;
+    vertical-align: middle;
+    max-width: 175px;
+	}
+	.msg-title {
+    display: inline-block;
+    line-height: 14px;
+    color: #333333;
+    .blue {
+	    color: #478fca;
 		}
 	}
+	.msg-time {
+    display: block;
+    font-size: 11px;
+    color: #777;
+	}
+	.icon-arrow-right, .icon-time {
+    	color: #777!important;
+  }
 }

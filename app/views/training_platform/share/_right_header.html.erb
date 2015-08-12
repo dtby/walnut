@@ -12,7 +12,7 @@
       <i class="icon-bell-alt icon-animated-bell ace_bell">
         <% unread = current_user.try(:unread_notifications_group_by_project, @project.id) %>
         <% if unread > 0 %>
-          <span class="badge-count project">
+          <span id="projectNptificationCountSpan" class="badge-count project">
             <%= unread %>
           </span>
         <% end %>

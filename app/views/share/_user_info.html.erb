@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 	<li>
-		<%= link_to(my_messages_user_index_path, class: "dropdown-toggle", "data-toggle" => "") do %>
+		<%= link_to(user_notifications_path, class: "dropdown-toggle", "data-toggle" => "dropdown", "aria-expanded" => "false", remote: true, format: :js, id: "notificationListLink") do %>
 			<i class="icon-bell-alt icon-animated-bell">
 				<% unread = current_user.user_notifications.unreads.count %>
 				<% if unread > 0 %>
@@ -8,6 +8,9 @@
 				<% end %>
 			</i>
 		<% end %>
+		<ul id="notificationList" class="dropdown-menu notification-list">
+
+    </ul>
 	</li>
 	<li>
 		<%= link_to(my_courses_user_index_path) do %>
@@ -31,3 +34,10 @@
 		<% end %>
 	</li>
 <% end %>
+<script type="text/javascript">
+	$(function(){
+		$('#notificationListLink').click(function(){
+			$('#notificationListLink').dropdown()
+		});
+	});
+</script>

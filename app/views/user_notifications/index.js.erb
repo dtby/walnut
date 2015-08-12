@@ -1,0 +1,1 @@
+$("#notificationList").html("<%= escape_javascript(render partial:  'share/notification_list', locals: {user_notifications: @user_notifications, project: nil, is_training_platform: false }) %>");

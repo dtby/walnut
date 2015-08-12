@@ -1,1 +1,1 @@
-$("#projectNotificationList").html("<%= escape_javascript(render 'training_platform/share/notification_list') %>");
+$("#projectNotificationList").html("<%= escape_javascript(render partial: 'share/notification_list', locals: {user_notifications: @user_notifications, project: @project, is_training_platform: true }) %>");

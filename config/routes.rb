@@ -45,6 +45,9 @@ Rails.application.routes.draw do
     end
   end
   resources :user_notifications do
+    collection do
+      get :read_all
+    end
     member do
       get :read
     end
