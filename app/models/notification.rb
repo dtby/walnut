@@ -33,15 +33,15 @@ class Notification < ActiveRecord::Base
     when :announce_create
       content = "创建了公告“#{ notificationable.title }”"
     when :announce_delete
-      content = "删除了公告“#{ notificationable.title }“"
+      content = "删除了公告“#{ notificationable.title }”"
     when :task_category_create
-      content = "创建了任务列表“#{ notificationable.name }“"
+      content = "创建了任务列表“#{ notificationable.name }”"
     when :task_category_delete
-      content = "删除了任务列表“#{ notificationable.name }“"
+      content = "删除了任务列表“#{ notificationable.name }”"
     when :task_create
-      content = "创建了任务“#{ notificationable.name }“"
+      content = "创建了任务“#{ notificationable.name }”"
     when :task_delete
-      content = "删除了任务“#{ notificationable.name }“"
+      content = "删除了任务“#{ notificationable.name }”"
     end
     notification = self.create(project_id: project.try(:id), content: content, user_id: current_user.id)
 

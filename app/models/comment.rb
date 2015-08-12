@@ -101,7 +101,7 @@ class Comment < ActiveRecord::Base
     when :settime
       "将截止日期设置为 #{commentable.try(:end_time).try(:strftime,'%Y年%m月%d日')}"
     when :waiting
-      "把任务置为”待办“"
+      "把任务置为“待办”"
     when :doing
       "开始了任务"
     when :completed
