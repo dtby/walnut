@@ -30,10 +30,10 @@
       <div class="col-sm-12 member-list border-bottom">
         <div class="col-xs-6 pull-left">
           <div class="ace_modal_media">
-            <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+            <%= image_tag current_user_project(@project).try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
             <span class="pull-left">
-            <h4 class="media-heading"><%= current_user.show_name %></h4>
-            <%= current_user.email %></span>
+            <h4 class="media-heading"><%= current_user_project(@project).try(:user).show_name %></h4>
+            <%= current_user_project(@project).try(:user).email %></span>
           </div>
         </div>
         <div class="col-xs-3 text-center margin-tb pull-right">
