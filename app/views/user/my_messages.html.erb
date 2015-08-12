@@ -29,8 +29,8 @@
 						<div class="row my_message">
 							<div class="col-md-1"><%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", style: "width: 100%;" %></div>
 							<div class="col-md-10 message <%= "unread" unless user_notification.read? %>">
-								<% path = user_notification.try(:notification).try(:project).present? ? training_platform_project_announces_path(user_notification.try(:notification).try(:project)) : "#" %>
-								<%= link_to(path, class: "message-link", "read-url" => (user_notification.read? ? "" : "#{read_user_notification_path(user_notification)}.js")) do %>
+								<% path = user_notification.try(:notification).try(:project).present? ? training_platform_project_announces_path(user_notification.try(:notification).try(:project)) : "" %>
+								<%= link_to(path, class: "message-link", "read-url" => (user_notification.read? ? "javascript:void(0);" : "#{read_user_notification_path(user_notification)}.js")) do %>
 									<div class="row">
 										<div class="col-md-10">
 											<span class="arrow"></span>
@@ -62,6 +62,7 @@
 <script type="text/javascript">
 	$(function(){
 		$(".message-link").click(function(){
+			$(this).parent().removeClass("unread");
 			if($(this).attr("read-url") != ""){
 				$.ajax({
 					url: $(this).attr("read-url"),
