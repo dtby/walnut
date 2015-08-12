@@ -28,25 +28,45 @@
 						<% end %>
 						<div class="row my_message">
 							<div class="col-md-1"><%= image_tag user_notification.try(:notification).try(:user).try(:show_image) ||  "default-user.jpg", style: "width: 100%;" %></div>
-							<div class="col-md-7 message">
-								<span class="arrow"></span>
-								<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= user_notification.try(:notification).try(:content) %></p>
+							<div class="col-md-10 message <%= "unread" unless user_notification.read? %>">
+								<% path = user_notification.try(:notification).try(:project).present? ? training_platform_project_announces_path(user_notification.try(:notification).try(:project)) : "#" %>
+								<%= link_to(path, class: "message-link", "read-url" => (user_notification.read? ? "" : read_user_notification_path(user_notification))) do %>
+									<div class="row">
+										<div class="col-md-10">
+											<span class="arrow"></span>
+											<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= user_notification.try(:notification).try(:content) %></p>
+										</div>
+										<div class="col-md-2" >
+											<%= user_notification.created_at.strftime("%H:%M")%>
+										</div>
+									</div>
+								<% end %>
 							</div>
-							<div class="col-md-2" ><%= user_notification.created_at.strftime("%Y-%m-%d")%></div>
-							<% if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
-								<% user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
-								<% unless user_project.invite %>
-									<div class="col-md-2" ><%= link_to "通过邀请", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%></div>
-								<% else %>
-									<% unless user_notification.read? %>
-										<%= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
+							<!-- <div class="pull-right">
+											<%# if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
+												<%# user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
+												<%# unless user_project.invite %>
+													<%#= link_to "接受", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%>
+												<%# else %>
+													<%# unless user_notification.read? %>
+														<%#= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
+													<%# end %>
+												<%# end %>
+											<%# else %>
+													<%# unless user_notification.read? %>
+														<%#= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
+													<%# end %>
+											<%# end %>
+										</div> -->
+							<div class="col-md-1">
+								<% if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
+									<% user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
+									<% unless user_project.invite %>
+										<%= link_to "接受", invited_user_project_path(user_project), class: "btn btn-success", method: :patch, data: {confirm: "确认通过邀请吗？"}%>
 									<% end %>
 								<% end %>
-							<% else %>
-									<% unless user_notification.read? %>
-										<%= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
-									<% end %>
-							<% end %>
+							</div>
+							
 						</div>
 					<% end %>
 					<div class="text-center"><%= paginate @user_notifications %></div>
@@ -55,3 +75,16 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$(".message-link").click(function(){
+			if($(this).attr("read-url") != ""){
+				$.ajax({
+					url: $(this).attr("read-url"),
+					type: "get"
+				});
+			}
+		});
+	});
+</script>

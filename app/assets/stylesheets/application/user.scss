@@ -77,6 +77,13 @@
 			padding-top: 10px;
 			background-color: #deedff;
 			position: relative;
+			&.unread {
+				background-color: #bfd4eb;
+			}
+			a {
+				display: block;
+				color: #777;
+			}
 		}
 	}
 }
