@@ -24,7 +24,7 @@ class TrainingPlatform::ApplicationController < ApplicationController
 
   private
     def current_user_in_project?
-      unless params[:controller] == "training_platform/projects" && params[:action] == "index"
+      unless params[:controller] == "training_platform/projects"
         if UserProject.where(user_id: current_user.id, project_id: params[:project_id], invite: true).blank?
           flash[:notice] = "没有权限访问该项目"
           redirect_to training_platform_root_path 

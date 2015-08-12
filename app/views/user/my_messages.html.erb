@@ -34,7 +34,7 @@
 									<div class="row">
 										<div class="col-md-10">
 											<span class="arrow"></span>
-											<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= user_notification.try(:notification).try(:content) %></p>
+											<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= "在项目“#{user_notification.try(:notification).try(:project).try(:name)}”中" if user_notification.try(:notification).try(:project).present?%><%= user_notification.try(:notification).try(:content) %></p>
 										</div>
 										<div class="col-md-2" >
 											<%= user_notification.created_at.strftime("%H:%M")%>
@@ -42,31 +42,14 @@
 									</div>
 								<% end %>
 							</div>
-							<!-- <div class="pull-right">
-											<%# if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
-												<%# user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
-												<%# unless user_project.invite %>
-													<%#= link_to "接受", invited_user_project_path(user_project), method: :patch, data: {confirm: "确认通过邀请吗？"}%>
-												<%# else %>
-													<%# unless user_notification.read? %>
-														<%#= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
-													<%# end %>
-												<%# end %>
-											<%# else %>
-													<%# unless user_notification.read? %>
-														<%#= link_to("已读", read_user_notification_path(user_notification), class: "text-info") %>
-													<%# end %>
-											<%# end %>
-										</div> -->
 							<div class="col-md-1">
-								<% if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification)..try(:project).present? %>
+								<% if user_notification.try(:notification).try(:category) == "invite" && user_notification.try(:notification).try(:project).present? %>
 									<% user_project = UserProject.get_user_project(current_user, user_notification.notification.project)%>
 									<% unless user_project.invite %>
-										<%= link_to "接受", invited_user_project_path(user_project), class: "btn btn-success", method: :patch, data: {confirm: "确认通过邀请吗？"}%>
+										<%= link_to "接受", invited_user_project_path(user_project), class: "btn btn-success", method: :patch, data: {confirm: "确认接受该邀请吗？"}%>
 									<% end %>
 								<% end %>
 							</div>
-							
 						</div>
 					<% end %>
 					<div class="text-center"><%= paginate @user_notifications %></div>
