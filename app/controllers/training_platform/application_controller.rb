@@ -1,5 +1,6 @@
 class TrainingPlatform::ApplicationController < ApplicationController
-  before_action :authenticate_user!, excep: :invite_member
+  before_action :authenticate_user!
+  before_action :current_user_in_project?
   layout 'training_platform'
 
   # Prevent CSRF attacks by raising an exception.
@@ -20,4 +21,14 @@ class TrainingPlatform::ApplicationController < ApplicationController
       end
     end
   end
+
+  private
+    def current_user_in_project?
+      unless params[:controller] == "training_platform/projects" && params[:action] == "index"
+        if UserProject.where(user_id: current_user.id, project_id: params[:project_id], invite: true).blank?
+          flash[:notice] = "没有权限访问该项目"
+          redirect_to training_platform_root_path 
+        end
+      end
+    end
 end
