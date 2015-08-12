@@ -118,7 +118,7 @@
 					<% @task.attachments.each do |attachment| %>
 					<span class="tag">
 						<%= link_to(attachment.content_file_name, download_training_platform_project_task_path(@project,@task,attachment: attachment.id),title: "下载") %>
-						<%= link_to("x", remove_attachment_training_platform_project_task_path(@project,@task,attachment: attachment.id) , class: "close", remote: true, format: :js, method: :delete) %>
+						<%= link_to("x", remove_attachment_training_platform_project_task_path(@project,@task,attachment: attachment.id) , class: "close", remote: true, format: :js, method: :delete, data: {confirm: "确定删除当前附件？"}) %>
 					</span>
 					<% end %>
 				</div>
