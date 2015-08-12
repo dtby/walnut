@@ -34,7 +34,11 @@
 									<div class="row">
 										<div class="col-md-10">
 											<span class="arrow"></span>
-											<p><%= user_notification.try(:notification).try(:user).try(:show_name)%> <%= "在项目“#{user_notification.try(:notification).try(:project).try(:name)}”中" if user_notification.try(:notification).try(:project).present?%><%= user_notification.try(:notification).try(:content) %></p>
+											<p>
+												<span class="text-primary"><%= user_notification.try(:notification).try(:user).try(:show_name)%></span> 
+												<%= "在项目“#{user_notification.try(:notification).try(:project).try(:name)}”中" if user_notification.try(:notification).try(:project).present?%>
+												<%= user_notification.try(:notification).try(:content) %>
+											</p>
 										</div>
 										<div class="col-md-2" >
 											<%= user_notification.created_at.strftime("%H:%M")%>

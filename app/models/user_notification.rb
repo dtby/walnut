@@ -32,7 +32,7 @@ class UserNotification < ActiveRecord::Base
 
   #当前用户、某项目的所有通知
   def self.read_all_by_current_user project = nil 
-    user_notifications = project.present? ? self.joins(:notification).where(user_notifications: { user_id: current_user.id }, notifications: { project_id: project.id, state: 1 }) : current_user.user_notifications.unread
+    user_notifications = project.present? ? self.joins(:notification).where(user_notifications: { user_id: current_user.id, state: 1 }, notifications: { project_id: project.id }) : current_user.user_notifications.unread
     user_notifications.each do |user_notification|
       user_notification.reading! if user_notification.may_reading?
     end
