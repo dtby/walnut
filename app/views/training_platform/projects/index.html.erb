@@ -7,22 +7,20 @@
     <a class="menu-toggler" id="menu-toggler" href="#">
       <span class="menu-text"></span>
     </a>
-
     <%= render 'training_platform/projects/left_nav'%>
-
     <div class="main-content">
       <div class="page-content">
         <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12">
           <div class="row">
             <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6 ace_content_left_title">
-              <%= link_to(new_training_platform_project_path,remote: true, format: :js) do %>
+              <%= link_to(new_training_platform_project_path, remote: true, format: :js) do %>
                 <span class="glyphicon glyphicon-plus ace_plus" aria-hidden="true"></span><span class="ace_plus_word">添加项目</span>
               <% end %>
             </div>
             <div class="col-xs-6 col-md-6 col-sm-6 col-lg-6 ace_content_right_title">
               <!-- 搜索框 -->
               <div class="col-sm-7 ace-serch">
-                <%= form_tag training_platform_root_path, method: :get, class: "form-search col-xs-12 ace-form-serch", style: "padding: 6px 0;" do %>
+                <%= form_tag training_platform_root_path, method: :get, class: "form-search col-xs-12 ace-form-serch" do %>
                   <span class="input-icon">
                     <%= text_field_tag :q, nil, placeholder: "请输入关键字", class: "nav-search-input", id: "nav-search-input" %>
                     <i class="icon-search nav-search-icon"></i>
@@ -41,56 +39,61 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 main-bg">
-          <% @search.each_hit_with_result do |hit, project| %>
-            <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 project-title-show">
-              <div class="row blue-bg main">
-                <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-right">
-                  <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?, project, vote_scope: "collect") ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}", scope: "collect") do %>
-                    <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %> yellow-start" aria-hidden="true"></span>
-                  <% end %>
-                  <div class="dropdown project-set-btn">
-                    <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="dLabel">
-                      <li><%= link_to "打开项目", training_platform_project_announces_path(project_id: project.id) %></li>
-                      <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
-                      </li>
-                      <li>
-                        <%= link_to("javascript:void(0);", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-pigeonhole", scope: "pigeonhole", id: "") do %>
-                          <%= (current_user.try(:voted_up_on?,project, vote_scope: "pigeonhole")) ? "取消归档" : "归档项目" %>
-                        <% end %>
-                      </li>
-                      <li><%= link_to "删除项目", training_platform_project_path(project), method: :delete, remote: true, format: :js, id: "deleteProjectLink#{project.id}",data: { confirm: "确定删除选择的项目？" } %></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 text-center">
-                  <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
-                    <span class="percent percent_number">
-                      <%= project.task_percentage %>
-                    </span>%
-                  </div>
-                </div>
-                <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
-                  <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
-                    <h4><%= project.name %></h4>
-                    <p>
-                      （总任务：<%= project.tasks.count %>   
-                      已完成：<%= project.tasks.completes.count %>   
-                      待办中：<%= project.tasks.waits.count %>   
-                      验收通过：<%= project.tasks.acceprances.count %> ）
-                    </p>
-                  </div>
-                <% end %>
-              </div>
+          <% unless @search.results.present? %>
+            <div class="col-sm-12">
+              <div class="alert alert-warning" role="alert">抱歉！没有找到包含关键词&nbsp;&nbsp;<span class="text-muted">[ <%= params[:q] %> ]</span>&nbsp;&nbsp;的项目</div>
             </div>
+          <% else %>
+            <% @search.each_hit_with_result do |hit, project| %>
+              <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 project-title-show">
+                <div class="row blue-bg main">
+                  <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-right">
+                    <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?, project, vote_scope: "collect") ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}", scope: "collect") do %>
+                      <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %> yellow-start" aria-hidden="true"></span>
+                    <% end %>
+                    <div class="dropdown project-set-btn">
+                      <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        <li><%= link_to "打开项目", training_platform_project_announces_path(project_id: project.id) %></li>
+                        <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
+                        </li>
+                        <li>
+                          <%= link_to("javascript:void(0);", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-pigeonhole", scope: "pigeonhole", id: "") do %>
+                            <%= (current_user.try(:voted_up_on?, project, vote_scope: "pigeonhole")) ? "取消归档" : "归档项目" %>
+                          <% end %>
+                        </li>
+                        <li><%= link_to "删除项目", training_platform_project_path(project), method: :delete, remote: true, format: :js, id: "deleteProjectLink#{project.id}",data: { confirm: "确定删除选择的项目？" } %></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 text-center">
+                    <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
+                      <span class="percent percent_number">
+                        <%= project.task_percentage %>
+                      </span>%
+                    </div>
+                  </div>
+                  <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
+                    <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
+                      <h4><%= project.name %></h4>
+                      <p>
+                        （总任务：<%= project.tasks.count %>
+                        已完成：<%= project.tasks.completes.count %>
+                        待办中：<%= project.tasks.waits.count %>
+                        验收通过：<%= project.tasks.acceprances.count %> ）
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
 <script type="text/javascript">
