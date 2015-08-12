@@ -1,9 +1,5 @@
 <div  class="my-nav1">
-  <ul class="nav nav-tabs ace_modal_ul" role="tablist">
-    <li role="presentation" class="active col-sm-4 text-center"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">任务列表</a></li>
-    <li role="presentation" class="col-sm-4 text-center"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">项目成员</a></li>
-    <li role="presentation" class="col-sm-4 text-center"><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">项目信息</a></li>
-  </ul>
+  <%= render "training_platform/share/tags" %>
   <div class="tab-content main">
     <div role="tabpanel" class="tab-pane active" id="home">
       <%= link_to "新增", "javascript:void(0);", id: "toggle-link", class: "btn btn-default", style: "background: #5ac3b7!important;"%>
