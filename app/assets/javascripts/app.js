@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require mediaelement_rails
 //= require jquery.backstretch
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require jquery.remotipart
 //= require app/wow
 //= require admin/fileinput
