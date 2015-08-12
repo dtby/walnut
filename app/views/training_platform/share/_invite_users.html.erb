@@ -1,0 +1,13 @@
+<%= form_for Notification.new, url: validate_training_platform_project_notifications_path, remote: true do |f|%>
+  <div class="col-xs-8">
+    <div id="error-info" class="text-danger"></div>
+  </div>
+  <div class="col-xs-9 ace_modal_tab1">
+    <div class="form-group">
+      <%= text_field_tag :user_name, nil, placeholder: "请输入被邀请人的用户名...", 'data-provide': "typeahead", 'data-url': "#{api_users_path}", class: "form-control", id: "ace_modal_form", autocomplete: "off" %>
+    </div>
+  </div>
+  <div class="col-xs-3 text-center">
+    <%= f.submit "发送邀请", class: "btn", style: "background: #5ac3b7!important;" %>
+  </div>
+<% end %>

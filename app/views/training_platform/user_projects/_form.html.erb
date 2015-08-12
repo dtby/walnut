@@ -6,13 +6,13 @@
   </ul>
   <div class="tab-content main">
     <div role="tabpanel" class="tab-pane active" id="home">
-      <%= link_to "新增", "javascript:void(0);", id: "toggle-link", class: "btn btn-default"%>
+      <%= link_to "新增", "javascript:void(0);", id: "toggle-link", class: "btn btn-default", style: "background: #5ac3b7!important;"%>
       <hr class="new-top">
       <div class="new-task-category">
         <%= simple_form_for TaskCategory.new, url: training_platform_project_task_categories_path, remote: true do |f|%>
           <%= f.input :name, as: :string, placeholder: '请输入任务列表名称' %>
           <%= f.input :description, as: :text, placeholder: '请输入任务列表描述' %>
-          <%= f.submit "添加", class: "btn btn-info-tp"%>
+          <%= f.submit "添加", class: "btn btn-info-tp", style: "background: #5ac3b7!important;"%>
         <% end %>
       </div>
       <hr class="new-bottom">
@@ -34,20 +34,10 @@
       <% end %>
     </div>
 
+      <!-- 项目成员类目 -->
       <div role="tabpanel" class="tab-pane" id="profile">
-        <%= form_for Notification.new, url: validate_training_platform_project_notifications_path, remote: true do |f|%>
-          <div class="col-xs-8">
-            <div id="error-info" class="text-danger"></div>
-          </div>
-          <div class="col-xs-8 ace_modal_tab1">
-            <div class="form-group">
-              <%= text_field_tag :user_name, nil, placeholder: "请输入被邀请人的用户名...", 'data-provide': "typeahead", 'data-url': "#{api_users_path}", class: "ace_modal_form form-control", id: "ace_modal_form", autocomplete: "off" %>
-            </div>
-          </div>
-          <div class="col-xs-4 text-center">
-            <%= f.submit "发送邀请", class: "btn" %>
-          </div>
-        <% end %>
+        <%= render "training_platform/share/invite_users"%>
+
         <div id="user_projects_content">
           <%= render partial: 'training_platform/task_categories/user_projects_content' %>
         </div>

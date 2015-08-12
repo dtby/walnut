@@ -1,67 +1,74 @@
 <!-- 添加中...成员列表 -->
-<% @project.on_invite_user_projects.each do |user_project|%>
-  <div class="col-xs-8">
-    <div class="ace_modal_media">
-      <%= image_tag user_project.try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
-      <span class="pull-left">
-      <h4 class="media-heading"><%= user_project.try(:user).name %></h4>
-      <%= user_project.try(:user).email %></span>
+<div class="col-sm-12 member-list">
+  <% @project.on_invite_user_projects.each do |user_project|%>
+    <div class="col-xs-9">
+      <div class="ace_modal_media">
+        <%= image_tag user_project.try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
+        <span class="pull-left">
+        <h4 class="media-heading"><%= user_project.try(:user).name %></h4>
+        <%= user_project.try(:user).email %></span>
+      </div>
     </div>
-  </div>
-  <div class="col-xs-4 text-center">
-    <button type="button" class="btn text-black" data-dismiss="modal">邀 请 中</button>
-  </div>
-<% end %>
+    <div class="col-xs-3 text-center margin-tb">
+      <button type="button" class="btn btn-xs text-black">邀&nbsp;&nbsp;请&nbsp;&nbsp;中</button>
+    </div>
+  <% end %>
+</div>
+
 
 <!-- 成员列表 -->
-<div class="col-xs-12">
-  <hr>
-  <h3>成员列表</h3>
+<div class="col-sm-12">
+  <hr style="margin: 5px 0;">
+  <h4>成员列表</h4>
 </div>
 
 <table class="table table-striped">
   <tbody class="ace_modal_tbd">
 
     <!-- 创建者 -->
-    <tr>
-      <div class="col-xs-8">
-        <div class="ace_modal_media">
-          <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
-          <span class="pull-left">
-          <h4 class="media-heading"><%= current_user.show_name %></h4>
-          <%= current_user.email %></span>
+    <tr class="member-list">
+      <div class="col-sm-12 member-list border-bottom">
+        <div class="col-xs-6 pull-left">
+          <div class="ace_modal_media">
+            <%= image_tag current_user.show_image , class: "img-rounded media-object img-circle pull-left" %>
+            <span class="pull-left">
+            <h4 class="media-heading"><%= current_user.show_name %></h4>
+            <%= current_user.email %></span>
+          </div>
         </div>
-      </div>
-      <div class="col-xs-4 text-center">
-        <button type="button" class="btn text-black" data-dismiss="modal">创 建 者</button>
+        <div class="col-xs-3 text-center margin-tb pull-right">
+          <button type="button" class="btn btn-xs text-black">创&nbsp;建&nbsp;者</button>
+        </div>
       </div>
     </tr>
 
     <!-- 成员列表 -->
     <% @project.invited_user_projects.each do |user_project|%>
       <tr>
-        <td>
-          <div class="ace_modal_media">
-            <%= image_tag user_project.try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
-            <span class="pull-left">
-            <h4 class="media-heading"><%= user_project.try(:user).try(:show_name)%></h4>
-            邀请于<%= user_project.created_at.strftime("%Y-%m-%d") %></span>
+        <div class="col-sm-12 member-list border-bottom">
+          <div class="col-xs-6 pull-left">
+            <div class="ace_modal_media">
+              <%= image_tag user_project.try(:user).show_image , class: "img-rounded media-object img-circle pull-left" %>
+              <span class="pull-left">
+              <h4 class="media-heading"><%= user_project.try(:user).try(:show_name)%></h4>
+              邀请于<%= user_project.created_at.strftime("%Y-%m-%d") %></span>
+            </div>
           </div>
-        </td>
-        <td>
-          <div class="dropdown">
-            <button class="my-btn my-blue btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              管理员
-              <span class="caret my-caret"></span>
-            </button>
-            <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="#">成员</a></li>
-            </ul>
+          <div class="col-xs-3 margin-tb text-center">
+            <div class="dropdown">
+              <button class="my-btn my-blue btn btn-xs btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                管理员
+                <span class="caret my-caret"></span>
+              </button>
+              <ul class="dropdown-menu my-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="javascript:void(0)">成员</a></li>
+              </ul>
+            </div>
           </div>
-        </td>
-        <td>
-          <button type="button" class="btn btn-info-tp1" data-dismiss="modal">移除</button>
-        </td>
+          <div class="col-xs-3 pull-right margin-tb text-center">
+            <button type="button" class="btn btn-xs" data-dismiss="modal">移&nbsp;&nbsp;&nbsp;&nbsp;除</button>
+          </div>
+        </div>
       </tr>
     <% end %>
   </tbody>
