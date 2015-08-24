@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount WeixinRailsMiddleware::Engine, at: "/"
   root "home#index"
   
   devise_for :users, controllers: {
