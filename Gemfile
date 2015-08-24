@@ -64,6 +64,10 @@ gem 'acts-as-taggable-on', '~> 3.5'
 
 gem 'aasm', '~> 4.2.0'
 
+gem 'weixin_rails_middleware'
+
+gem 'weixin_authorize', git: "https://github.com/shtzr840329/weixin_authorize.git", branch: 'news_message_api'
+
 #mina部署
 group :development do
   gem 'mina'
