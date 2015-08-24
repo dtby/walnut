@@ -58,16 +58,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true, on: :update
 
   enum department: {
-  '艺术设计系': 'yssj',
-  '商务管理系': 'swgl',
-  '商务管理': 'swglx',
-  '商务英语': 'swyy'
+    '艺术设计系' => 'yssj',
+    '商务管理系' => 'swgl',
+    '商务管理' => 'swglx',
+    '商务英语' => 'swyy'
   }
   enum major: {
-    '设计': 'sj',
-  '商务': 'sw',
-  '管理': 'gl',
-  '英语': 'yy'
+    '设计' => 'sj',
+    '商务' => 'sw',
+    '管理' => 'gl',
+    '英语' => 'yy'
   }
 
   def mobile_reg?
