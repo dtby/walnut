@@ -1,6 +1,12 @@
 html, body{
 	height: 100%;
 }
+.no-padding{
+	padding: 0;
+}
+.no-margin{
+	margin: 0;
+}
 .wechat__applies__home{
   .wrap{
 		height: 100%;
@@ -22,9 +28,8 @@ html, body{
 			right: 20px;
 
 		}
-		ul{
-			padding-left: 0;
-		}
+		.my_ul{
+			padding-left: 0;			
 		ul li{
 			list-style: none; 
 		}
@@ -36,6 +41,7 @@ html, body{
 			color: #fff;
 			text-decoration: underline;
 		}
+	}
 		.content{
 			position: absolute;
 			bottom: 10px;
@@ -43,8 +49,41 @@ html, body{
   }
 }
 .wechat__applies__index{
-	.container{
-		padding-top: 200px;
+	.main{
+			position:absolute;
+			bottom:0;
+			width: 100%;
+			padding: 0 20px;
+			.frame{
+				margin:10px 0;
+				font-size: 16px;
+				background-color: #fff;
+				padding: 5px 15px;
+				border: 2px #FFEE00 solid;
+			.cancel-btn{
+				padding: 2px 12px;
+				
+			}
+		}
+		.my-title{
+			color:#fff;
+			padding-bottom:10px; 
+		}
+		.my_ul{
+				padding-left: 0;
+				margin:20px 0;			
+			 li{
+				list-style: none; 
+			}
+			li a:hover{
+				color: #fff;
+				text-decoration: underline;
+			}
+			a{
+				color: #fff;
+				text-decoration: underline;
+			}
+		}
 	}
 }
 
