@@ -8,7 +8,7 @@
 	<%= csrf_meta_tags %>
 </head>
 
-<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %> skin-1" >
+<body class="<%= controller.controller_path.gsub('/','__') + '__' + controller.action_name %>" >
 	<%= yield %>
 </body>
 </html>
