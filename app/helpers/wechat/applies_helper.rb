@@ -1,0 +1,2 @@
+module Wechat::AppliesHelper
+end
