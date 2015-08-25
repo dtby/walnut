@@ -156,8 +156,9 @@ Rails.application.routes.draw do
   end
   #微信平台培训报名
   namespace :wechat do
-    root to: "applies#home"
-    resources :applies,only: [:home, :new, :show, :index] do
+    root "applies#home"
+    get 'applies/error', as: 'error'
+    resources :applies do
       collection do
         get :home
       end

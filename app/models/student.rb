@@ -26,6 +26,6 @@ class Student < ActiveRecord::Base
 		'校园宣讲' => 'school',
 		'朋友介绍' => 'friend',
 		'邦彦网站' => 'buoyantec',
-		'其他' => 'other'
+		'其它' => 'another'
 	}
 end
