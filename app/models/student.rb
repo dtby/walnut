@@ -1,6 +1,4 @@
 class Student < ActiveRecord::Base
-	has_and_belongs_to_many :practices
-
 	validates :openid, :sex, :phone, :qq, :email, :address, :situation, :degree, :way, presence: true
 	validates :phone, :qq , numericality:  { only_integer: true }
 
