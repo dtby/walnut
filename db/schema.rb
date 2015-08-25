@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810014736) do
+ActiveRecord::Schema.define(version: 20150825075156) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -155,6 +155,12 @@ ActiveRecord::Schema.define(version: 20150810014736) do
   add_index "notifications", ["project_id"], name: "index_notifications_on_project_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
+  create_table "practices", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "project_courses", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "course_id",  limit: 4
@@ -215,6 +221,30 @@ ActiveRecord::Schema.define(version: 20150810014736) do
   end
 
   add_index "sms", ["mobile"], name: "index_sms_on_mobile", unique: true, using: :btree
+
+  create_table "students", force: :cascade do |t|
+    t.string   "openid",     limit: 255
+    t.boolean  "sex",                    default: true
+    t.string   "phone",      limit: 255
+    t.string   "qq",         limit: 255
+    t.string   "email",      limit: 255
+    t.string   "address",    limit: 255
+    t.string   "situation",  limit: 255
+    t.string   "degree",     limit: 255
+    t.string   "way",        limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+  end
+
+  create_table "students_practices", force: :cascade do |t|
+    t.integer  "student_id",  limit: 4
+    t.integer  "practice_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "students_practices", ["practice_id"], name: "index_students_practices_on_practice_id", using: :btree
+  add_index "students_practices", ["student_id"], name: "index_students_practices_on_student_id", using: :btree
 
   create_table "sub_courses", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -377,6 +407,8 @@ ActiveRecord::Schema.define(version: 20150810014736) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "students_practices", "practices"
+  add_foreign_key "students_practices", "students"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
 end

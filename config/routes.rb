@@ -156,6 +156,7 @@ Rails.application.routes.draw do
   end
 
   namespace :wechat do
+    root to: "applies#new"
     resources :applies
   end
   # The priority is based upon order of creation: first created -> highest priority.
