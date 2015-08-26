@@ -25,16 +25,17 @@
 		}
 	}
 	.frame{
-		margin: 5px 0;
+		margin: 3px 0;
+		height: 36px;
+		line-height: 36px;
 		font-size: 16px;
 		background-color: #fff;
-		padding: 5px 15px;
 		border: 2px #FFEE00 solid;
 		.cancel-btn{
 			padding: 2px 12px;
 		}
 	}
-	/**wechat/applies/new**/
+	/**wechat/applies/home**/
 	.wrap{
 		height: 100%;
 		padding: 0 15px;
@@ -95,6 +96,11 @@
 				border-radius: 0;
 				background-color: #E5BF13;
 				border:1px solid #DBA40A;
+			}
+			.select-way{
+				background: image_url("apply_select.png") no-repeat;
+				background-size: 32px 32px;
+				background-position: 95% 20%;
 			}
 		}
 	}
