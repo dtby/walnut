@@ -4,7 +4,7 @@
   <%#= f.input :email, placeholder: 'user@domain.com' %>
   <%#= f.button :submit %>
 <%# end %>
-<div class="container my-main"  id="my_way" style="display:none">
+<div class="container my-main"  id="my_way">
 	<div class="row my-row text-center">
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
@@ -59,7 +59,7 @@
 	</ul>
 </div>
 <!-- personal information -->
-<div class="container my-main" id="my_info">
+<div class="container my-main" id="my_info" style="display:none">
 	<div class="row my-row text-center">
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
@@ -139,23 +139,23 @@
 		$.backstretch("<%= image_url "apply_info3.png"%>");
 	});
 	// new.html
-	// $(function(){
-	// 	$(".new1").click(function(){
-	// 		$("#my_course").show();
-	// 		$("#my_way").hide( );
-	// 	});
-	// 	$(".new2").click(function(){
-	// 		$("#my_info").show();
-	// 		$("#my_course").hide();
-	// 	});
-	// 	$("#back-way").click(function(){
-	// 		$("#my_course").hide();
-	// 		$("#my_way").show();
-	// 	});
-	// 	$("#back-course").click(function(){
-	// 		$("#my_info").hide();
-	// 		$("#my_course").show();
-	// 	})
-	// })	
+	$(function(){
+		$(".new1").click(function(){
+			$("#my_course").show();
+			$("#my_way").hide( );
+		});
+		$(".new2").click(function(){
+			$("#my_info").show();
+			$("#my_course").hide();
+		});
+		$("#back-way").click(function(){
+			$("#my_course").hide();
+			$("#my_way").show();
+		});
+		$("#back-course").click(function(){
+			$("#my_info").hide();
+			$("#my_course").show();
+		})
+	})	
 </script>
 
