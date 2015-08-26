@@ -1,6 +1,26 @@
+<<<<<<< Updated upstream
 <%#= simple_form_for :student, url: wechat_applies_path, method: :post do |f| %>
   <%#= f.input :phone, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
   <%#= f.input :qq, hint: 'No special characters.' %>
   <%#= f.input :email, placeholder: 'user@domain.com' %>
   <%#= f.button :submit %>
 <%# end %>
+=======
+<div class="container">
+	<div class="row text-center">
+		<p class="text-center">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
+		<h3 class="text-center">您是如何知道我们的？</h3>
+		<div class="col-xs-12 frame">老师推荐</div>
+		<div class="col-xs-12 frame">校园宣讲</div>
+		<div class="col-xs-12 frame">朋友介绍</div>
+		<div class="col-xs-12 frame">邦彦网站</div>
+		<div class="col-xs-12 frame">其他</div>
+		<div class="col-xs-12 frame">下一步</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		$.backstretch("<%= image_url "apply_bg2.png"%>");
+	});
+</script>
+>>>>>>> Stashed changes
