@@ -88,15 +88,48 @@ html, body{
 	}
 }
 .wechat__applies__new{
-	.row{
-		padding:150px 20px 20px 20px;
-		
-	}
-	.frame{
-		margin:5px 0;
-		font-size: 16px;
-		background-color: #fff;
-		padding: 5px 15px;
-		border: 2px #FFEE00 solid;
+	.my-main{
+		position:fixed;
+		bottom:20px;
+		.my-row{
+			padding: 20px;
+				h3{
+					margin-top: 20px;
+					margin-bottom: 20px;
+				}
+				.my-p{
+					color:#fff;
+					margin-bottom: 30px;
+					font-size: 16px;
+				}
+			.frame{
+				margin:5px 0;
+				font-size: 16px;
+				background-color: #fff;
+				padding: 5px 15px;
+				border: 2px #FFEE00 solid;
+			}
+			.my-lg{
+				padding:6px 0;
+				border-radius: 0;
+				background-color: #E5BF13;
+				border:1px solid #DBA40A;
+			}
+		}
+		.my-ul{
+			padding-left: 0;
+			margin:0 0 10px;			
+			li{
+				list-style: none; 
+			}
+			li a:hover{
+				color: #fff;
+				text-decoration: underline;
+			}
+			a{
+				color: #fff;
+				text-decoration: underline;
+			}
+		}
 	}
 }
