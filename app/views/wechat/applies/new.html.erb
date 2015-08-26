@@ -4,7 +4,7 @@
   <%#= f.input :email, placeholder: 'user@domain.com' %>
   <%#= f.button :submit %>
 <%# end %>
-<div class="container my-main"  id="my-way">
+<div class="container my-main"  id="my_way">
 	<div class="row my-row text-center">
 		<p class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
 		<h3 class="text-center">您是如何知道我们的 ？</h3>
@@ -26,126 +26,125 @@
 		<button type="button" class="btn btn-lg btn-block my-lg new1">下一步</button>
 		<ul class="my-ul text-center">
 			<li>
-				<a href="#" onclick="javascript:history.back(-1);">返回上一页</a>
+				<a href="javascript: void(0);" onclick="javascript:history.back(-1);">返回上一页</a>
 			</li>
 		</ul>
 	</div>
+</div>
 
-	<!-- select course -->
-	<div class="container my-main" id="my-course" style="display:none">
-		<div class="row my-row text-center">
-			<p class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
-			<h3>请选择一门意向课程</h3>
-			<div class="col-xs-12 frame">ios开发</div>
-			<div class="col-xs-12 frame">安卓开发</div>
-			<div class="col-xs-12 frame">WEB全栈</div>	
-			<button type="button" class="btn btn-lg btn-block my-lg new2">下一步</button>
+<!-- select course -->
+<div class="container my-main" id="my_course" style="display:none">
+	<div class="row my-row text-center">
+		<p class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
+		<h3>请选择一门意向课程</h3>
+		<div class="col-xs-12 frame">
+			<div class="course">ios开发</div>
 		</div>
-		<ul class="my-ul text-center">
-			<li>
-				<a href="#" id="back-way">返回上一页</a>
-			</li>
-		</ul>
+		<div class="col-xs-12 frame">
+			<div class="course">安卓开发</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="course">WEB全栈</div>
+		</div>	
+		<button type="button" class="btn btn-lg btn-block my-lg new2">下一步</button>
 	</div>
-	<!-- apply online -->
+	<ul class="my-ul text-center">
+		<li><a href="javascript: void(0);" id="back-way">返回上一页</a></li>
+	</ul>
+</div>
 
-	<div class="container my-main" id="my-info" style="display:none">
-		<div class="row my-row text-center">
-			<h3>在线报名</h3>
-			<div class="col-xs-8">
-				<form class="form-inline">
-					<div class="form-group">
-					  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="姓名＊">
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-4">
-				<div class="checkbox">性别＊男／女
-				  </div>
-			</div>
-			<div class="col-xs-12">
-				<form class="form-inline">
-					<div class="form-group">
-					  <input type="number" class="form-control frame" id="exampleInputPassword3" placeholder="手机＊">
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-12">
-				<form class="form-inline">
-					<div class="form-group">
-					  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="QQ邮箱＊">
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-12">
-				<form class="form-inline">
-					<div class="form-group">
-					  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="地址＊">
-					</div>
-				</form>
-			</div>
-			<div class="col-xs-6">
-				<div class="dropdown">
-				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    在校学生
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a href="#">Action</a></li>
-				  </ul>
+<!-- apply online -->
+<div class="container my-main" id="my_info" style="display:none">
+	<div class="row my-row text-center">
+		<h3>在线报名</h3>
+		<div class="col-xs-8">
+			<form class="form-inline">
+				<div class="form-group">
+				  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="姓名＊">
 				</div>
-			</div>
-			<div class="col-xs-6">
-				<div class="dropdown">
-				  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-				    研究生
-				    <span class="caret"></span>
-				  </button>
-				  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-				    <li><a href="#">Action</a></li>
-				  </ul>
+			</form>
+		</div>
+		<div class="col-xs-4">
+			<div class="checkbox">性别＊男／女
+			  </div>
+		</div>
+		<div class="col-xs-12">
+			<form class="form-inline">
+				<div class="form-group">
+				  <input type="number" class="form-control frame" id="exampleInputPassword3" placeholder="手机＊">
 				</div>
-			</div>
-			<div class="col-xs-12">
-				<form class="form-inline">
-					<div class="form-group">
-					  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="最高院校">
-					</div>
-				</form>
+			</form>
+		</div>
+		<div class="col-xs-12">
+			<form class="form-inline">
+				<div class="form-group">
+				  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="QQ邮箱＊">
+				</div>
+			</form>
+		</div>
+		<div class="col-xs-12">
+			<form class="form-inline">
+				<div class="form-group">
+				  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="地址＊">
+				</div>
+			</form>
+		</div>
+		<div class="col-xs-6">
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    在校学生
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="#">Action</a></li>
+			  </ul>
 			</div>
 		</div>
-		<ul class="my-ul text-center">
-			<li>
-				<a href="#" id="back-course">返回上一页</a>
-			</li>
-		</ul>
+		<div class="col-xs-6">
+			<div class="dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    研究生
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="#">Action</a></li>
+			  </ul>
+			</div>
+		</div>
+		<div class="col-xs-12">
+			<form class="form-inline">
+				<div class="form-group">
+				  <input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="最高院校">
+				</div>
+			</form>
+		</div>
 	</div>
-	<!-- js -->
-	<script>
-	$(function(){
-		$.backstretch("<%= image_url "apply_bg2.png"%>");
-	});
-	</script>
+	<ul class="my-ul text-center">
+		<li><a href="javascript: void(0);" id="back-course">返回上一页</a></li>
+	</ul>
+</div>
+<!-- js -->
 
 <script type="text/javascript">
 	$(function(){
+		$.backstretch("<%= image_url "apply_bg2.png"%>");
+
 		$(".new1").click(function(){
-			$("#my-course").show();
-			$("#my-way").hide( );
+			$("#my_course").show();
+			$("#my_way").hide( );
 		});
 		$(".new2").click(function(){
-			$("#my-info").show();
-			$("#my-course").hide();
+			$("#my_info").show();
+			$("#my_course").hide();
 		})
 		$("#back-way").click(function(){
-			$("#my-course").hide();
-			$("#my-way").show();
+			$("#my_course").hide();
+			$("#my_way").show();
 		});
 		$("#back-course").click(function(){
-			$("#my-info").hide();
-			$("#my-course").show();
+			$("#my_info").hide();
+			$("#my_course").show();
 		})
-
 	})	
 </script>
 
