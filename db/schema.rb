@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826034350) do
+ActiveRecord::Schema.define(version: 20150826154609) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -26,18 +26,20 @@ ActiveRecord::Schema.define(version: 20150826034350) do
   add_index "announces", ["user_id"], name: "index_announces_on_user_id", using: :btree
 
   create_table "applies", force: :cascade do |t|
-    t.string   "openid",     limit: 255
-    t.boolean  "sex",                    default: true
-    t.string   "phone",      limit: 255
-    t.string   "qq",         limit: 255
-    t.string   "email",      limit: 255
-    t.string   "address",    limit: 255
-    t.string   "situation",  limit: 255
-    t.string   "degree",     limit: 255
-    t.string   "way",        limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "train_name", limit: 255
+    t.string   "openid",      limit: 255
+    t.boolean  "sex",                     default: true
+    t.string   "phone",       limit: 255
+    t.string   "qq",          limit: 255
+    t.string   "email",       limit: 255
+    t.string   "address",     limit: 255
+    t.string   "situation",   limit: 255
+    t.string   "degree",      limit: 255
+    t.string   "way",         limit: 255
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "train_name",  limit: 255
+    t.string   "name",        limit: 255
+    t.string   "school_name", limit: 255
   end
 
   create_table "attachments", force: :cascade do |t|

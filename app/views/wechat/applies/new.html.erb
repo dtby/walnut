@@ -1,11 +1,6 @@
-<%#= simple_form_for :student, url: wechat_applies_path, method: :post do |f| %>
-  <%#= f.input :phone, label: 'Your username please', error: 'Username is mandatory, please specify one' %>
-  <%#= f.input :qq, hint: 'No special characters.' %>
-  <%#= f.input :email, placeholder: 'user@domain.com' %>
-  <%#= f.button :submit %>
-<%# end %>
+<!-- begin: 选择了解渠道 -->
 <div class="container my-main"  id="my_way">
-	<div class="row my-row text-center">
+	<div class="my-row text-center clearfix">
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
 		</div>
@@ -33,11 +28,11 @@
 			</li>
 		</ul>
 	</div>
-</div>
+</div><!-- end: 选择了解渠道 -->
 
-<!-- select course -->
+<!-- begin: 选择报名的课程 -->
 <div class="container my-main" id="my_course" style="display:none">
-	<div class="row my-row text-center">
+	<div class="my-row text-center clearfix">
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
 		</div>
@@ -57,88 +52,44 @@
 	<ul class="my-ul text-center">
 		<li><a href="javascript: void(0);" id="back-way">返回上一页</a></li>
 	</ul>
-</div>
-<!-- personal information -->
+</div><!-- end: 选择报名的课程 -->
+
+<!-- begin: 填写个人信息 -->
 <div class="container my-main" id="my_info" style="display:none">
-	<div class="row my-row text-center">
+	<div class="my-row text-center clearfix">
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
 		</div>
 		<h3>在线报名</h3>
-		<div class="col-xs-8">
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="姓名＊">
-				</div>
-			</form>
-		</div>
-		<div class="col-xs-4">
-			<div class="checkbox">性别＊男／女
-			</div>
-		</div>
-		<div class="col-xs-12">
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="手机＊">
-				</div>
-			</form>
-		</div>
-		<div class="col-xs-12">
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="QQ邮箱＊">
-				</div>
-			</form>
-		</div>
-		<div class="col-xs-12">
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="地址＊">
-				</div>
-			</form>
-		</div>
-		<div class="col-xs-6">
-			<div class="dropdown">
-				<button class="col-xs-12 btn btn-default dropdown-toggle my-frame" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					在校学生
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					<li><a href="#">Action</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-xs-6">
-			<div class="dropdown">
-				<button class="col-xs-12 btn btn-default dropdown-toggle my-frame" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-					研究生
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					<li><a href="#">Action</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-xs-12">
-			<form class="form-inline">
-				<div class="form-group">
-					<input type="name" class="form-control frame" id="exampleInputPassword3" placeholder="最高院校">
-				</div>
-			</form>
-		</div>
+		<!-- begin: 报名表单 -->
+		<%= simple_form_for([:wechat, @apply], html: {class: "form-horizontal"}, wrapper: :wechat_apply_form) do |f| %>
+			<%= f.hidden_field :openid, value: session[:openid] %>
+			<%= f.hidden_field :way %>
+			<%= f.hidden_field :train_name %>
+			<%= f.input :name, label: false, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-9 no-padding'} %>
+			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-3 no-padding'} %>
+			<%= f.input :phone, label: false, placeholder: "手机＊" %>
+			<%= f.input :qq, label: false, placeholder: "QQ＊" %>
+			<%= f.input :email, label: false, placeholder: "邮箱＊" %>
+			<%= f.input :address, label: false, placeholder: "地址＊" %>
+			<%= f.input :situation, collection: Apply::SITUATION, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "目前状态" %>
+			<%= f.input :degree, collection: Apply::DEGREE, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "教育状况" %>
+			<%= f.input :school_name, label: false, placeholder: "最高院校" %>
+			<%= f.submit "提交信息" %>
+		<% end %><!-- end: 报名表单 -->
 	</div>
 	<ul class="my-ul text-center">
 		<li><a href="javascript: void(0);" id="back-course">返回上一页</a></li>
 	</ul>
-</div>
+</div><!-- end: 填写个人信息 -->
 
 <!-- js -->
 <script type="text/javascript">
-	// background
+	// 设置背景图
 	$(function(){
 		$.backstretch("<%= image_url "apply_info3.png"%>");
 	});
-	// new.html
+	// 显示不同步骤
 	$(function(){
 		$(".new1").click(function(){
 			$("#my_course").show();
@@ -156,6 +107,24 @@
 			$("#my_info").hide();
 			$("#my_course").show();
 		})
-	})	
+	});
+	//了解渠道的点击效果
+	$(function(){
+		$(".way").click(function(){
+			$(".way").removeClass("selected");
+			$(this).addClass("selected");
+			var way = $(this).text();
+			$("#apply_way").val(way);
+		});
+	});
+	//选择课程的点击效果
+	$(function(){
+		$(".course").click(function(){
+			$(".course").removeClass("selected");
+			$(this).addClass("selected");
+			var course = $(this).text();
+			$("#apply_train_name").val(course);
+		});
+	});
 </script>
 

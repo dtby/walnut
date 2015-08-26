@@ -1,0 +1,35 @@
+<!-- begin: 填写个人信息 -->
+<div class="container my-main">
+	<div class="my-row text-center clearfix">
+		<div class="text-center">
+			<%=image_tag"apply2.png",width:"90%"%>
+		</div>
+		<p class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
+		<!-- begin: 报名表单 -->
+		<%= simple_form_for([:wechat, @apply], html: {class: "form-horizontal"}, wrapper: :wechat_apply_form) do |f| %>
+			<%= f.hidden_field :openid, value: session[:openid] %>
+			<%= f.hidden_field :way %>
+			<%= f.hidden_field :train_name %>
+			<%= f.input :name, label: false, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :phone, label: false, placeholder: "手机＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :qq, label: false, placeholder: "QQ＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :email, label: false, placeholder: "邮箱＊" %>
+			<%= f.input :address, label: false, placeholder: "地址＊" %>
+			<%= f.input :situation, collection: Apply::SITUATION, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "目前状态" %>
+			<%= f.input :degree, collection: Apply::DEGREE, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "教育状况" %>
+			<%= f.input :school_name, label: false, placeholder: "最高院校" %>
+			<%= f.input :way, label: false, placeholder: "了解渠道＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :train_name, wrapper_html: {class: 'col-xs-6 no-padding'} %>
+		<% end %><!-- end: 报名表单 -->
+	</div>
+	<ul class="my-ul text-center">
+		<li>><%= link_to("返回报名页面", wechat_root_path) %></li>
+	</ul>
+</div><!-- end: 填写个人信息 -->
+<script>
+	// 设置背景图
+	$(function(){
+		$.backstretch("<%= image_url "apply_info3.png"%>");
+	});
+</script>

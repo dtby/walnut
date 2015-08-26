@@ -1,6 +1,5 @@
 class Apply < ActiveRecord::Base
 	validates :openid, :sex, :phone, :qq, :email, :address, :situation, :degree, :way, :train_name, presence: true
-	validates :phone, :qq , numericality:  { only_integer: true }
 
 	#性别
 	enum sex: { open: true, close: false }
@@ -11,6 +10,7 @@ class Apply < ActiveRecord::Base
 		'待业' => 'wait_work',
 		'学生' => 'student'
 	}
+	SITUATION = ['在职', '待业', '学生']
 	#教育状况
 	enum degree: {
 		'研究生' => 'graduate',
@@ -18,6 +18,7 @@ class Apply < ActiveRecord::Base
 		'高职' => 'vocational',
 		'其他' => 'other'
 	}
+	DEGREE = ['研究生', '本科', '高职', '其他']
 	#了解渠道
 	enum way: {
 		'老师推荐' => 'teacher',

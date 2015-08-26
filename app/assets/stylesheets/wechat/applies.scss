@@ -35,7 +35,10 @@
 		background-color: #fff;
 		border: 2px #FFEE00 solid;
 		.cancel-btn{
-			padding: 2px 12px;
+			padding: 2px 10px;
+			margin-bottom: 5px;
+			background-color: #FE3434;
+			border: none;
 		}
 	}
 	img{
@@ -78,6 +81,10 @@
 		.my-title{
 			color:#fff;
 			padding-bottom:10px; 
+		}
+		.train-name{
+			text-align: left;
+			text-indent: 32px;
 		}
 	}
 	/**wecaht/applies/new**/

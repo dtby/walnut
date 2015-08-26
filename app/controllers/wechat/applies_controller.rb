@@ -10,7 +10,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	def create
 		@apply = Apply.new(apply_params)
 		if @apply.save
-			redirect_to :index
+			redirect_to wechat_apply_path(@apply)
 		else
 			render :new
 		end
@@ -21,16 +21,21 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def index
-		@applies = Apply.where(openid: params[:openid])
+		@applies = Apply.where(openid: session[:openid])
+	end
+
+	def destroy
+		@apply = Apply.find(params[:id])
+		@apply.destroy
+		redirect_to wechat_applies_path
 	end
 
 	def error
-		
 	end
 
 	private
 		def apply_params
-			params.require(:apply).permit(:phone, :email, :qq)
+			params.require(:apply).permit(:openid, :name,  :sex, :phone, :email, :qq, :address, :situation, :degree, :way, :train_name, :school_name)
 		end
 
 		def is_subscriber?
