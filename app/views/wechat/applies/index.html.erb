@@ -1,25 +1,25 @@
 <div class="main">
 	<h3 class="my-title text-center">您的历史报名纪录</h3>
-	<% 6.times do %>
-		<div class="frame">
-			<div class="row text-center">
-				<div class="col-xs-4 no-padding">
-					<span>01. ios开发</span>
-				</div>
-				<div class="col-xs-4 no-padding">
-					<span>2015-04-03</span>
-				</div>
-				<div class="col-xs-4 no-padding">
-					<button class="btn btn-default cancel-btn">取消报名</button>
+	<% if @applies.present? %>
+		<% @applies.each_with_index do |apply, index| %>
+			<div class="frame">
+				<div class="row text-center">
+					<div class="col-xs-4 no-padding">
+						<span><%= index + 1%>. <%= apply.train_name %></span>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<span><%= apply.updated_at.strftime("%F") %></span>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<button class="btn btn-default cancel-btn">取消报名</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		<% end %>
+	<% else %>
+		<h4 class="text-center text-info">没有报名记录，赶快去报名吧！</h3>
 	<% end %>
-	<ul class="my_ul text-center">
-		<li>
-			<a href="#">返回上一页</a>
-		</li>
-	</ul>
+	<%= render partial: 'back' %>
 </div>	
 
 <script>

@@ -1,13 +1,30 @@
-html, body{
-	height: 100%;
-}
-.no-padding{
-	padding: 0;
-}
-.no-margin{
-	margin: 0;
-}
-.wechat__applies__home{
+.wechat__applies{
+	/**global**/
+	html, body{
+		height: 100%;
+	}
+	.no-padding{
+		padding: 0;
+	}
+	.no-margin{
+		margin: 0;
+	}
+	.my_ul{
+		padding-left: 0;		
+		list-style: none;	
+		ul li{
+			list-style: none; 
+		}
+		li a:hover{
+			color: #fff;
+			text-decoration: underline;
+		}
+		a{
+			color: #fff;
+			text-decoration: underline;
+		}
+	}
+	/**wechat/applies/new**/
 	.wrap{
 		height: 100%;
 		padding: 0 15px;
@@ -28,34 +45,21 @@ html, body{
 			right: 20px;
 
 		}
-		.my_ul{
-			padding-left: 0;			
-			ul li{
-				list-style: none; 
-			}
-			li a:hover{
-				color: #fff;
-				text-decoration: underline;
-			}
-			a{
-				color: #fff;
-				text-decoration: underline;
-			}
-		}
 		.content{
 			position: absolute;
 			bottom: 10px;
 			left: 0;
 		}
 	}
-}
-.wechat__applies__index{
+	/**wechat/applies**/
 	.main{
 		position:absolute;
 		bottom:0;
 		left: 0;
 		width: 100%;
+		height: 73%;
 		padding: 0 20px;
+		overflow: auto;
 		.frame{
 			margin:10px 0;
 			font-size: 16px;
@@ -69,21 +73,6 @@ html, body{
 		.my-title{
 			color:#fff;
 			padding-bottom:10px; 
-		}
-		.my_ul{
-			padding-left: 0;
-			margin:20px 0;			
-			li{
-				list-style: none; 
-			}
-			li a:hover{
-				color: #fff;
-				text-decoration: underline;
-			}
-			a{
-				color: #fff;
-				text-decoration: underline;
-			}
 		}
 	}
 }

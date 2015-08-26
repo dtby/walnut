@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826010903) do
+ActiveRecord::Schema.define(version: 20150826034350) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -24,6 +24,21 @@ ActiveRecord::Schema.define(version: 20150826010903) do
 
   add_index "announces", ["project_id"], name: "index_announces_on_project_id", using: :btree
   add_index "announces", ["user_id"], name: "index_announces_on_user_id", using: :btree
+
+  create_table "applies", force: :cascade do |t|
+    t.string   "openid",     limit: 255
+    t.boolean  "sex",                    default: true
+    t.string   "phone",      limit: 255
+    t.string   "qq",         limit: 255
+    t.string   "email",      limit: 255
+    t.string   "address",    limit: 255
+    t.string   "situation",  limit: 255
+    t.string   "degree",     limit: 255
+    t.string   "way",        limit: 255
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "train_name", limit: 255
+  end
 
   create_table "attachments", force: :cascade do |t|
     t.string   "content",              limit: 255
@@ -215,21 +230,6 @@ ActiveRecord::Schema.define(version: 20150826010903) do
   end
 
   add_index "sms", ["mobile"], name: "index_sms_on_mobile", unique: true, using: :btree
-
-  create_table "students", force: :cascade do |t|
-    t.string   "openid",     limit: 255
-    t.boolean  "sex",                    default: true
-    t.string   "phone",      limit: 255
-    t.string   "qq",         limit: 255
-    t.string   "email",      limit: 255
-    t.string   "address",    limit: 255
-    t.string   "situation",  limit: 255
-    t.string   "degree",     limit: 255
-    t.string   "way",        limit: 255
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
-    t.string   "train_name", limit: 255
-  end
 
   create_table "sub_courses", force: :cascade do |t|
     t.string   "title",       limit: 255

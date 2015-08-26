@@ -1,17 +1,15 @@
 class Wechat::AppliesController < Wechat::ApplicationController
+	before_action :is_subscriber?, only: [:home]
 	def home
-		if  params[:openid].nil?
-			render wechat_error_path
-		end
 	end
 
 	def new
-		@student = Student.new
+		@apply = Apply.new
 	end
 
 	def create
-		@student = Student.new(student_params)
-		if @student.save
+		@apply = Apply.new(apply_params)
+		if @apply.save
 			redirect_to :index
 		else
 			render :new
@@ -19,11 +17,11 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def show
-		
+		@apply = Apply.find(params[:id])
 	end
 
 	def index
-		
+		@applies = Apply.where(openid: params[:openid])
 	end
 
 	def error
@@ -31,7 +29,15 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	private
-	 def student_params
-	 	params.require(:student).permit(:phone, :email, :qq)
-	 end
-end
+		def apply_params
+			params.require(:apply).permit(:phone, :email, :qq)
+		end
+
+		def is_subscriber?
+			if params[:openid].present?
+				session[:openid] = params[:openid]
+			else
+				redirect_to wechat_error_path
+			end
+		end
+	end

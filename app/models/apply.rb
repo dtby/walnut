@@ -1,6 +1,6 @@
-class Student < ActiveRecord::Base
-	validates :openid, :sex, :phone, :qq, :email, :address, :situation, :degree, :way, presence: true
-	validates :phone, :qq , numericality:  { only_integer: true }
+class Apply < ActiveRecord::Base
+	#validates :openid, :sex, :phone, :qq, :email, :address, :situation, :degree, :way, :train_name, presence: true
+	#validates :phone, :qq , numericality:  { only_integer: true }
 
 	#性别
 	enum sex: { open: true, close: false }
