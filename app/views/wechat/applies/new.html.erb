@@ -38,7 +38,7 @@
 		</div>
 		<ul class="my-ul text-center">
 			<li>
-				<a href="#" onclick="javascript:history.back(-1);">返回上一页</a>
+				<a href="#" id="back-way">返回上一页</a>
 			</li>
 		</ul>
 	</div>
@@ -111,7 +111,7 @@
 		</div>
 		<ul class="my-ul text-center">
 			<li>
-				<a href="#" onclick="javascript:history.back(-1);">返回上一页</a>
+				<a href="#" id="back-course">返回上一页</a>
 			</li>
 		</ul>
 	</div>
@@ -131,6 +131,14 @@
 		$(".new2").click(function(){
 			$("#my-info").show();
 			$("#my-course").hide();
+		})
+		$("#back-way").click(function(){
+			$("#my-course").hide();
+			$("#my-way").show();
+		});
+		$("#back-course").click(function(){
+			$("#my-info").hide();
+			$("#my-course").show();
 		})
 
 	})	
