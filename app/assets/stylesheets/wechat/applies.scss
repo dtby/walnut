@@ -102,5 +102,9 @@
 				background-position: 95% 20%;
 			}
 		}
+		.my-frame{
+			@extend .frame;
+			line-height: 0;
+		}
 	}
 }
