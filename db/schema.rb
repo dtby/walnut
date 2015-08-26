@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825065547) do
+ActiveRecord::Schema.define(version: 20150826010903) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -228,6 +228,7 @@ ActiveRecord::Schema.define(version: 20150825065547) do
     t.string   "way",        limit: 255
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.string   "train_name", limit: 255
   end
 
   create_table "sub_courses", force: :cascade do |t|

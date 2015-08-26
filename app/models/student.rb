@@ -26,4 +26,10 @@ class Student < ActiveRecord::Base
 		'邦彦网站' => 'buoyantec',
 		'其它' => 'another'
 	}
+	#培训课程
+	enum train_name: {
+		'ios开发' => 'ios',
+		'安卓开发' => 'android',
+		'web全栈' => 'web'
+	}
 end

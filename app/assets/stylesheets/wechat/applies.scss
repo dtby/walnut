@@ -8,7 +8,7 @@ html, body{
 	margin: 0;
 }
 .wechat__applies__home{
-  .wrap{
+	.wrap{
 		height: 100%;
 		padding: 0 15px;
 		.my-btn{
@@ -30,39 +30,40 @@ html, body{
 		}
 		.my_ul{
 			padding-left: 0;			
-		ul li{
-			list-style: none; 
+			ul li{
+				list-style: none; 
+			}
+			li a:hover{
+				color: #fff;
+				text-decoration: underline;
+			}
+			a{
+				color: #fff;
+				text-decoration: underline;
+			}
 		}
-		li a:hover{
-			color: #fff;
-			text-decoration: underline;
-		}
-		a{
-			color: #fff;
-			text-decoration: underline;
-		}
-	}
 		.content{
 			position: absolute;
 			bottom: 10px;
+			left: 0;
 		}
-  }
+	}
 }
 .wechat__applies__index{
 	.main{
-			position:absolute;
-			bottom:0;
-			width: 100%;
-			padding: 0 20px;
-			.frame{
-				margin:10px 0;
-				font-size: 16px;
-				background-color: #fff;
-				padding: 5px 15px;
-				border: 2px #FFEE00 solid;
+		position:absolute;
+		bottom:0;
+		left: 0;
+		width: 100%;
+		padding: 0 20px;
+		.frame{
+			margin:10px 0;
+			font-size: 16px;
+			background-color: #fff;
+			padding: 5px 15px;
+			border: 2px #FFEE00 solid;
 			.cancel-btn{
 				padding: 2px 12px;
-				
 			}
 		}
 		.my-title{
@@ -70,9 +71,9 @@ html, body{
 			padding-bottom:10px; 
 		}
 		.my_ul{
-				padding-left: 0;
-				margin:20px 0;			
-			 li{
+			padding-left: 0;
+			margin:20px 0;			
+			li{
 				list-style: none; 
 			}
 			li a:hover{
