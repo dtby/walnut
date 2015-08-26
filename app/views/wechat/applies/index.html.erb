@@ -1,4 +1,7 @@
-<div class="main">
+<div class="main my-row">
+	<div class="text-center">
+		<%=image_tag"apply2.png",width:"90%"%>
+	</div>
 	<h3 class="my-title text-center">您的历史报名纪录</h3>
 	<% if @applies.present? %>
 		<% @applies.each_with_index do |apply, index| %>
@@ -26,6 +29,6 @@
 
 <script>
 	$(function(){
-		$.backstretch("<%= image_url "apply_bg2.png"%>");
+		$.backstretch("<%= image_url "apply_info3.png"%>");
 	});
 </script>
