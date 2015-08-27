@@ -78,8 +78,8 @@
 			<%= f.input :email, placeholder: "邮箱＊" %>
 			<%= f.input :address, placeholder: "地址＊" %>
 			<div class="row">
-				<%= f.input :situation, collection: Apply::SITUATION, wrapper_html: {class: 'col-xs-6 rpadding'}, placeholder: "目前状态" %>
-				<%= f.input :degree, collection: Apply::DEGREE, wrapper_html: {class: 'col-xs-6 lpadding'}, placeholder: "教育状况" %>
+				<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::SITUATION.invert["在职"], placeholder: "目前状态" %>
+				<%= f.input :degree, collection: Apply::DEGREE.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::DEGREE.invert["本科"], placeholder: "教育状况" %>
 			</div>
 			<%= f.input :school_name, placeholder: "最高院校" %>
 			<%= f.button :button, class: "my-btn" do %>
@@ -101,12 +101,22 @@
 	// 显示不同步骤
 	$(function(){
 		$(".new1").click(function(){
-			$("#my_course").show();
-			$("#my_way").hide( );
+			if($(".way.selected").length>0){
+				$("#my_course").show();
+				$("#my_way").hide( );
+			}
+			else{
+				alert("请选择了解渠道");
+			}
 		});
 		$(".new2").click(function(){
-			$("#my_info").show();
-			$("#my_course").hide();
+			if($(".course.selected").length>0){
+				$("#my_info").show();
+				$("#my_course").hide();
+			}
+			else{
+				alert("请选择意向课程");
+			}		
 		});
 		$("#back-way").click(function(){
 			$("#my_course").hide();
