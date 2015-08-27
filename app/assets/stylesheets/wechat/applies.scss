@@ -129,5 +129,19 @@
 			@extend .frame;
 			line-height: 0;
 		}
+		.my-border{
+			background-color: #FFEE00;
+			color:#fff;
+			border:2px #FFEE00 solid;
+			padding:5px;
+		}
+		.wcolor{
+			background-color:#fff;
+			color:#000;
+			border:2px #FFEE00 solid;
+			padding:5px;
+
+		}
+
 	}
 }

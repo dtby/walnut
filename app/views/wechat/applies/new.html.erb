@@ -66,9 +66,13 @@
 			<%= f.hidden_field :openid, value: session[:openid] %>
 			<%= f.hidden_field :way %>
 			<%= f.hidden_field :train_name %> 
-			<%= f.input :name, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-7 no-padding'} %>
+			<%= f.input :name, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
 			<label class="col-xs-2 no-padding">性别*</label>
-			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-3 no-padding'}, label: "性别*" %>
+			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-2 no-padding'}, label: "性别*" %>
+
+			<div class="col-xs-1 no-padding my-border" id="bsex">男</div>
+			<div class="col-xs-1 no-padding my-border" id="gsex">女</div>
+
 			<%= f.input :phone, placeholder: "手机＊" %>
 			<%= f.input :qq, placeholder: "QQ＊" %>
 			<%= f.input :email, placeholder: "邮箱＊" %>
@@ -131,5 +135,27 @@
 			$("#apply_train_name").val(course);
 		});
 	});
+	// 性别点击按钮效果
+	 $(function(){
+	 	$("#bsex").click(function(){
+	 		if($("#gsex").hasClass("wcolor"))
+	 		{
+	 			$("#gsex").removeClass("wcolor");
+ 				$("#bsex").addClass("wcolor");
+	 		}else{
+	 			$("#bsex").addClass("wcolor");
+	 		}	 	
+	 	});
+ 			$("#gsex").click(function(){
+	 		if($("#bsex").hasClass("wcolor"))
+	 		{
+	 			$("#bsex").removeClass("wcolor");
+ 				$("#gsex").addClass("wcolor");
+	 		}else{
+	 			$("#gsex").addClass("wcolor");
+	 		}	 	
+	 	});
+
+	 })
 </script>
 
