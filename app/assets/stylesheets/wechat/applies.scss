@@ -39,15 +39,7 @@
 			border: none;
 		}
 	}
-	img{
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-	/**wechat/applies/home**/
-	.wrap{
-		height: 100%;
-		padding: 0 15px;
-		.my-btn{
+	.my-btn{
 			color: #9B2D00;
 			background-color: #FFF47E;
 			margin:10px 0;
@@ -60,10 +52,18 @@
 		}
 		.my-icon{
 			position: absolute;
-			bottom: 7px;
+			bottom: 3px;
 			right: 20px;
 
 		}
+	img{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	/**wechat/applies/home**/
+	.wrap{
+		height: 100%;
+		padding: 0 15px;
 		.content{
 			position: absolute;
 			bottom: 10px;
@@ -113,6 +113,12 @@
 		.my-frame{
 			@extend .frame;
 			line-height: 0;
+		}
+		.sub-btn{
+			@extend .my-btn;
+			.my-icon{
+				bottom:3px;
+			}
 		}
 	}
 }

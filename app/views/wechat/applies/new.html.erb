@@ -75,7 +75,12 @@
 			<%= f.input :situation, collection: Apply::SITUATION, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "目前状态" %>
 			<%= f.input :degree, collection: Apply::DEGREE, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "教育状况" %>
 			<%= f.input :school_name, label: false, placeholder: "最高院校" %>
-			<%= f.submit "提交信息" %>
+			<botton class="btn btn-default my-btn" type="submit">
+				提交信息
+				<div class="my-icon">
+					<%=image_tag"apply_icon.png",width:"10px"%>
+				</div>	
+			</botton>
 		<% end %><!-- end: 报名表单 -->
 	</div>
 	<ul class="my-ul text-center">
