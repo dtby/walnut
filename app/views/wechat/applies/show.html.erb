@@ -10,17 +10,17 @@
 			<%= f.hidden_field :openid, value: session[:openid] %>
 			<%= f.hidden_field :way %>
 			<%= f.hidden_field :train_name %>
-			<%= f.input :name, label: false, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
-			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-6 no-padding'} %>
-			<%= f.input :phone, label: false, placeholder: "手机＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
-			<%= f.input :qq, label: false, placeholder: "QQ＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :name, label: false, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
+			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
+			<%= f.input :phone, label: false, placeholder: "手机＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
+			<%= f.input :qq, label: false, placeholder: "QQ＊", wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
 			<%= f.input :email, label: false, placeholder: "邮箱＊" %>
 			<%= f.input :address, label: false, placeholder: "地址＊" %>
-			<%= f.input :situation, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "目前状态" %>
-			<%= f.input :degree, wrapper_html: {class: 'col-xs-6 no-padding'}, placeholder: "教育状况" %>
+			<%= f.input :situation, wrapper_html: {class: 'col-xs-6 no-padding rpadding'}, placeholder: "目前状态" %>
+			<%= f.input :degree, wrapper_html: {class: 'col-xs-6 no-padding lpadding'}, placeholder: "教育状况" %>
 			<%= f.input :school_name, label: false, placeholder: "最高院校" %>
-			<%= f.input :way, label: false, placeholder: "了解渠道＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
-			<%= f.input :train_name, wrapper_html: {class: 'col-xs-6 no-padding'} %>
+			<%= f.input :way, label: false, placeholder: "了解渠道＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
+			<%= f.input :train_name, wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
 		<% end %><!-- end: 报名表单 -->
 	</div>
 	<ul class="my-ul text-center">

@@ -29,7 +29,7 @@
 		}
 	}
 	.frame{
-		margin: 3px 0;
+		margin: 5px 0;
 		height: 36px;
 		line-height: 36px;
 		font-size: 16px;
@@ -42,6 +42,12 @@
 			border: none;
 		}
 	}
+		.rpadding{
+			padding-right: 5px;
+		}
+		.lpadding{
+			padding-left: 5px;
+		}
 	.my-btn{
 		color: #9B2D00;
 		background-color: #FFF47E;
