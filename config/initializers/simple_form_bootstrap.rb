@@ -168,7 +168,7 @@ SimpleForm.setup do |config|
     b.optional :min_max
     b.optional :readonly
 
-    b.wrapper tag: 'div', class: 'col-xs-12' do |ba|
+    b.wrapper tag: 'div' do |ba|
       ba.use :input, class: 'form-control frame'
       ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }

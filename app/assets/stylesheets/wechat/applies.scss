@@ -39,7 +39,18 @@
 			border: none;
 		}
 	}
-	.my-btn{
+	.form-group{
+		margin: 0;		
+	}
+	img{
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	/**wechat/applies/home**/
+	.wrap{
+		height: 100%;
+		padding: 0 15px;
+		.my-btn{
 			color: #9B2D00;
 			background-color: #FFF47E;
 			margin:10px 0;
@@ -108,6 +119,11 @@
 				background: image_url("apply_select.png") no-repeat;
 				background-size: 32px 32px;
 				background-position: 95% 20%;
+			}
+			label{
+				color: #fff;
+				line-height: 40px;
+				font-size: 16px;
 			}
 		}
 		.my-frame{
