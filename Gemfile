@@ -1,5 +1,5 @@
 source 'http://ruby.taobao.org'
-#source 'https://rubygems.org'
+# source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -44,13 +44,13 @@ gem 'kaminari'
 
 gem 'china_sms'
 
-gem "responders"
+gem 'responders'
 
 gem 'logger', '~> 1.2.8'
 
-gem "mediaelement_rails"
+gem 'mediaelement_rails'
 
-gem "paperclip", "~> 4.2.1"
+gem 'paperclip', '~> 4.2.1'
 
 gem 'remotipart', '~> 1.2'
 
@@ -91,22 +91,24 @@ group :development, :test do
   gem 'factory_girl_rails', '4.2.1'
   gem 'ffaker'
   gem 'rspec-rails'
+
+  gem 'better_errors'
 end
 
 
 gem 'nokogiri'
 gem 'mechanize'
-#生产环境下解决rails_kindeditor编译问题
+# 生产环境下解决rails_kindeditor编译问题
 gem 'sprockets', '~> 2.12.3'
 
 gem 'streamio-ffmpeg', '~> 1.0.0'
 
-#Emberjs相关
+# Emberjs相关
 gem 'ember-rails'
 gem 'ember-source', '~> 1.9.0'
 gem 'handlebars_assets', '~> 0.20.2'
 
-#搜索功能
+# 搜索功能
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 

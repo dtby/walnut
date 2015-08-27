@@ -13,8 +13,8 @@
 #
 
 class Image < ActiveRecord::Base
-	belongs_to :imageable, polymorphic: true
-	has_attached_file :avatar, :styles => {
+  belongs_to :imageable, polymorphic: true
+	has_attached_file :avatar, styles: {
   	                                    :t_98 => "98x98", #教师头像
   	                                    :c_460_350 => "460x350",  #课程详情页图片
   	                                    :c_360_200 => "360x200",  #课程列表页图片

@@ -5,14 +5,14 @@ class CoursesController < ApplicationController
     @categories = Category.all
     category = Category.find_by(id: params[:category_id])
     if params[:category_id]
-  	  @courses = category.courses
+      @courses = category.courses
     else
       @courses = Course.all
     end
   end
 
   def show
-  	@course.update(view_count: @course.view_count + 1)
+    @course.update(view_count: @course.view_count + 1)
   end
 
   def detail
@@ -29,6 +29,7 @@ class CoursesController < ApplicationController
   end
 
   private
+  
   def set_courses
     @course = Course.find(params[:id])
     @sub_courses = @course.sub_courses

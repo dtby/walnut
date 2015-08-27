@@ -37,9 +37,9 @@
 #
 
 class Recruitment < ActiveRecord::Base
-  scope :recruits, -> { where(recruit_type: 1) } #招聘信息
-  scope :practices, -> { where(recruit_type: 2) } #实习信息
   acts_as_votable
+  scope :recruits,  -> { where(recruit_type: 1) } 
+  scope :practices, -> { where(recruit_type: 2) } 
 
   belongs_to :degree
   belongs_to :company
@@ -55,9 +55,9 @@ class Recruitment < ActiveRecord::Base
     '实习': 'parttime'
   }
 
-  #solr搜索
+  #  solr search
 	searchable do
-    text :name, :stored => true
+    text :name, stored: true
 		text :category
 		text :city
 		text :remuneration
