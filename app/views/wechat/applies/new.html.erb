@@ -78,7 +78,9 @@
 				<%= f.input :degree, collection: Apply::DEGREE, wrapper_html: {class: 'col-xs-6 '}, placeholder: "教育状况" %>
 			</div>
 			<%= f.input :school_name, placeholder: "最高院校" %>
-			<botton class="btn btn-default my-btn"><div class="text-left">&nbsp;&nbsp;提交信息</div></botton>
+			<%= f.button :button, class: "my-btn" do %>
+			<%= content_tag(:div, "提交信息", class: "text-center") %>
+			<% end %>
 		<% end %><!-- end: 报名表单 -->
 	</div>
 	<ul class="my-ul text-center">

@@ -160,7 +160,7 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
-  config.wrappers :wechat_apply_form, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+  config.wrappers :wechat_apply_form, tag: 'div', class: 'form-group no-margin', error_class: 'has-error' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength

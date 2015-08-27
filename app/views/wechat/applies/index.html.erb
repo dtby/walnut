@@ -5,7 +5,7 @@
 	<h3 class="my-title text-center">您的历史报名纪录</h3>
 	<% if @applies.present? %>
 		<% @applies.each_with_index do |apply, index| %>
-			<div class="frame">
+			<div class="frame margin-b-10">
 				<div class="clearfix text-center">
 					<div class="col-xs-4 no-padding train-name">
 						<span><%= index + 1%>. <%= apply.train_name %></span>

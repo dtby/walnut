@@ -21,7 +21,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def index
-		@applies = Apply.where(openid: session[:openid])
+		@applies = Apply.where(openid: session[:openid]).order(created_at: :desc)
 	end
 
 	def destroy

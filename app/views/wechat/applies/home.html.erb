@@ -2,12 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 text-center content">
 			<%= link_to new_wechat_apply_path do %>
-				<botton class="btn btn-default my-btn">
-					我要报名
-					<div class="my-icon">
-						<%=image_tag"apply_icon.png",width:"10px"%>
-					</div>	
-				</botton>
+				<botton class="btn btn-default my-btn"><div class="text-left">&nbsp;&nbsp;我要报名</div></botton>
 			<% end %>
 			<ul class="my-ul">
 				<li><%= link_to("历史报名情况", wechat_applies_path ) %></li>
