@@ -12,7 +12,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 		if @apply.save
 			redirect_to wechat_apply_path(@apply)
 		else
-			render :new
+			respond_with @apply
 		end
 	end
 

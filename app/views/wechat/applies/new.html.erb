@@ -62,30 +62,9 @@
 		</div>
 		<h3>在线报名</h3>
 		<!-- begin: 报名表单 -->
-		<%= simple_form_for([:wechat, @apply], html: {class: "form-horizontal"}, wrapper: :wechat_apply_form) do |f| %>
-			<%= f.hidden_field :openid, value: session[:openid] %>
-			<%= f.hidden_field :way %>
-			<%= f.hidden_field :train_name %> 
-			<%= f.input :name, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding'} %>
-			<label class="col-xs-2 no-padding">性别*</label>
-			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-2 no-padding'}, label: "性别*" %>
-
-			<div class="col-xs-1 no-padding my-border wcolor " id="bsex">男</div>
-			<div class="col-xs-1 no-padding my-border" id="gsex">女</div>
-
-			<%= f.input :phone, placeholder: "手机＊" %>
-			<%= f.input :qq, placeholder: "QQ＊" %>
-			<%= f.input :email, placeholder: "邮箱＊" %>
-			<%= f.input :address, placeholder: "地址＊" %>
-			<div class="row">
-				<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::SITUATION.invert["在职"], placeholder: "目前状态" %>
-				<%= f.input :degree, collection: Apply::DEGREE.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::DEGREE.invert["本科"], placeholder: "教育状况" %>
-			</div>
-			<%= f.input :school_name, placeholder: "最高院校" %>
-			<%= f.button :button, class: "my-btn" do %>
-			<%= content_tag(:div, "提交信息", class: "text-center") %>
-			<% end %>
-		<% end %><!-- end: 报名表单 -->
+		<div id="apply_form">
+			<%= render partial: "form" %>
+		</div><!-- end: 报名表单 -->
 	</div>
 	<ul class="my-ul text-center">
 		<li><a href="javascript: void(0);" id="back-course">返回上一页</a></li>
@@ -145,27 +124,5 @@
 			$("#apply_train_name").val(course);
 		});
 	});
-	// 性别点击按钮效果
-	 $(function(){
-	 	$("#bsex").click(function(){
-	 		if($("#gsex").hasClass("wcolor"))
-	 		{
-	 			$("#gsex").removeClass("wcolor");
- 				$("#bsex").addClass("wcolor");
-	 		}else{
-	 			$("#bsex").addClass("wcolor");
-	 		}	 	
-	 	});
- 			$("#gsex").click(function(){
-	 		if($("#bsex").hasClass("wcolor"))
-	 		{
-	 			$("#bsex").removeClass("wcolor");
- 				$("#gsex").addClass("wcolor");
-	 		}else{
-	 			$("#gsex").addClass("wcolor");
-	 		}	 	
-	 	});
-
-	 })
 </script>
 
