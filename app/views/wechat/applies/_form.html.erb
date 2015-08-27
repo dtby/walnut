@@ -17,8 +17,8 @@
 	<%= f.input :email, placeholder: "邮箱＊" %>
 	<%= f.input :address, placeholder: "地址＊" %>
 	<div class="row">
-		<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 '}, selected: Apply::SITUATION.invert["在职"], placeholder: "目前状态" %>
-		<%= f.input :degree, collection: Apply::DEGREE.invert, wrapper_html: {class: 'col-xs-6 '}, selected: Apply::DEGREE.invert["本科"], placeholder: "教育状况" %>
+		<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::SITUATION.invert["在职"], placeholder: "目前状态" %>
+		<%= f.input :degree, collection: Apply::DEGREE.invert, wrapper_html: {class: 'col-xs-6 lpadding'}, selected: Apply::DEGREE.invert["本科"], placeholder: "教育状况" %>
 	</div>
 	<%= f.input :school_name, placeholder: "最高院校" %>
 	<%= f.button :button, class: "my-btn" do %>
