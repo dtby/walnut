@@ -68,6 +68,9 @@ Rails.application.routes.draw do
     resources :sub_courses, only: [:index, :show, :create]
   end
 
+  #职前培训
+  resources :worktrains, only: [:index, :show]
+
   #实训项目
   namespace :training_platform do
     root 'projects#index'

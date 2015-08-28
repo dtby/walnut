@@ -1,0 +1,2 @@
+module WorktrainsHelper
+end
