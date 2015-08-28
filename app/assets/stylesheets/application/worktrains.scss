@@ -1,0 +1,57 @@
+.worktrains__index{
+	.title-bar {
+		width: 100%;
+		height: 80px;
+		position: relative;
+		.title {
+      background-color: #fff;
+		  width: 120px;
+		  left: 50%;
+		  margin-left: -40px;
+		  position: absolute;
+		  top: 20px;
+		  z-index: 1;
+		  font-size: 22px;
+
+		}
+		.line {
+			height: 2px;
+			width: 97.5%;
+			position: absolute;
+      			top: 38px;
+			background: #797a7a;
+		}
+	}
+	.courses_tent {
+	margin-top:20px;
+}
+	.bordered {
+		background-color: #F0F0F0;
+		border: solid 1px #e3e3e3;
+		margin-bottom: 20px;
+		padding: 10px 10px 20px;
+		position: relative;
+		overflow: hidden;
+		img.avatar {
+			top: 100px;
+			left: 20px;
+			position: absolute;
+		}
+		.mt-10 {
+			margin-top: 10px;
+		}
+		.infos {
+			color: #9b9b9b;
+			span {
+				color: #19b29f;
+			}
+		}
+	}
+	.next-btn{
+		padding: 10px 45.35%;
+		background-color: #F0F0F0;
+		border: 1px solid #BFBFBF;
+		border-radius: 0;
+		font-weight: bold;
+	}
+}
