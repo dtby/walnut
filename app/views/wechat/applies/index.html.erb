@@ -1,4 +1,4 @@
-<div class="main my-row">
+<div class="main my-row clearfix">
 	<div class="text-center">
 		<%=image_tag"apply2.png",width:"90%"%>
 	</div>
@@ -24,9 +24,7 @@
 	<% else %>
 		<h4 class="text-center text-info">没有报名记录，赶快去报名吧！</h3>
 	<% end %>
-	<ul class="my-ul text-center">
-		<li><a href="javascript: void(0);" onclick="javascript:history.back(-1);">返回上一页</a></li>
-	</ul>
+	<div class="col-xs-12 turn-back"><a href="javascript: void(0);" onclick="javascript:history.back(-1);">返回上一页</a></div>
 </div>	
 
 <script>

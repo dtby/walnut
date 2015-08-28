@@ -1,5 +1,4 @@
 <%= simple_form_for([:wechat, @apply], remote: true, format: :js, html: {class: "form-horizontal"}, wrapper: :wechat_apply_form) do |f| %>
-	<p class="sr-only"><%= @apply.errors.any? %></p>
 	<%= f.hidden_field :openid, value: session[:openid] %>
 	<%= f.hidden_field :way %>
 	<%= f.hidden_field :train_name %>

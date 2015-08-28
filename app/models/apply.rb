@@ -17,10 +17,10 @@ class Apply < ActiveRecord::Base
 	SITUATION = { work: '在职', diswork: '待业', student: '学生' }
 	#教育状况
 	enum degree: {
-		master: 'w1',
-		university: 'w2',
-		vocation: 'w3',
-		other: 'w4'
+		master: 'd1',
+		university: 'd2',
+		vocation: 'd3',
+		other: 'd4'
 	}
 	DEGREE = { master: '研究生', university: '本科', vocation: '高职', other: '其他' }
 	#了解渠道
@@ -29,7 +29,7 @@ class Apply < ActiveRecord::Base
 		'校园宣讲' => 'school',
 		'朋友介绍' => 'friend',
 		'邦彦网站' => 'buoyantec',
-		'其它' => 'another'
+		'其他' => 'another'
 	}
 	#培训课程
 	enum train_name: {

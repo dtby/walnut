@@ -10,7 +10,9 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	def create
 		@apply = Apply.new(apply_params)
 		if @apply.save
-			redirect_to wechat_apply_path(@apply)
+			respond_to do |format|
+				format.js {render js: "location.href='#{ wechat_apply_path(@apply)}'"}
+			end
 		else
 			respond_with @apply
 		end

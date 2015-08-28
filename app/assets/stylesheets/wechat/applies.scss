@@ -12,24 +12,16 @@
 	.no-margin{
 		margin: 0;
 	}
-	.my-ul{
-		padding-bottom: 10px;
-		padding-left: 0;		
-		list-style: none;	
-		ul li{
-			list-style: none; 
-		}
-		li a:hover{
-			color: #fff;
-			text-decoration: underline;
-		}
-		a{
+	.turn-back{
+		margin-top: 10px;
+		text-align: center;
+		a, a:hover{
 			color: #fff;
 			text-decoration: underline;
 		}
 	}
 	.frame{
-		margin: 5px 0;
+		margin-bottom: 5px;
 		height: 36px;
 		line-height: 36px;
 		font-size: 16px;
@@ -42,31 +34,27 @@
 			border: none;
 		}
 	}
-		.rpadding{
-			padding-right: 5px;
-		}
-		.lpadding{
-			padding-left: 5px;
-		}
+	.rpadding{
+		padding-right: 5px;
+	}
+	.lpadding{
+		padding-left: 5px;
+	}
 	.my-btn{
 		color: #9B2D00;
 		background-color: #FFF47E;
 		margin:10px 0;
 		border-color: #FFF47E;
-		border-radius: 20px;
-		font-size: 20px;
+		border-radius: 18px;
+		font-size: 18px;
 		box-shadow: 0px 4px  #E6BC40;
-		width: 150px;
-		height: 42px;
+		width: 140px;
+		height: 36px;
 		> div{
 			background: image_url("apply_icon.png") no-repeat;
-			background-size: 12px 18px;
-			background-position: 95% 50%;
+			background-size: 10px 16px;
+			background-position: 100% 35%;
 		}
-	}
-	img{
-		padding-top: 10px;
-		padding-bottom: 10px;
 	}
 	/**wechat/applies/home**/
 	.wrap{
@@ -104,15 +92,12 @@
 	/**wecaht/applies/new**/
 	.my-main{
 		.my-row{
-			padding: 20px;
-			h3{
-				margin-top: 20px;
-				margin-bottom: 20px;
-			}
+			padding: 15px 15px 0;
 			.my-p{
 				color:#fff;
-				margin-bottom: 20px;
+				margin: 15px 0;
 				font-size: 16px;
+				line-height: 22px;
 			}
 			.my-lg{
 				padding:6px 0;
@@ -127,7 +112,7 @@
 			}
 			label{
 				color: #fff;
-				line-height: 40px;
+				line-height: 36px;
 				font-size: 16px;
 			}
 		}
@@ -140,7 +125,6 @@
 			color:#fff;
 			border:2px #FFEE00 solid;
 			padding:6px 5px;
-			margin: 3px 0;
 		}
 		.wcolor{
 			background-color:#fff;

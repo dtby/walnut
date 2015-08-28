@@ -4,28 +4,22 @@
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
 		</div>
-		<p class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写一下信息</p>
-		<!-- begin: 报名表单 -->
-		<%= simple_form_for([:wechat, @apply], html: {class: "form-horizontal"}, wrapper: :wechat_apply_form) do |f| %>
-			<%= f.hidden_field :openid, value: session[:openid] %>
-			<%= f.hidden_field :way %>
-			<%= f.hidden_field :train_name %>
-			<%= f.input :name, label: false, placeholder: "姓名＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
-			<%= f.input :sex, collection: Apply::SEX.invert, wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
-			<%= f.input :phone, label: false, placeholder: "手机＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
-			<%= f.input :qq, label: false, placeholder: "QQ＊", wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
-			<%= f.input :email, label: false, placeholder: "邮箱＊" %>
-			<%= f.input :address, label: false, placeholder: "地址＊" %>
-			<%= f.input :situation, wrapper_html: {class: 'col-xs-6 no-padding rpadding'}, placeholder: "目前状态" %>
-			<%= f.input :degree, wrapper_html: {class: 'col-xs-6 no-padding lpadding'}, placeholder: "教育状况" %>
-			<%= f.input :school_name, label: false, placeholder: "最高院校" %>
-			<%= f.input :way, label: false, placeholder: "了解渠道＊", wrapper_html: {class: 'col-xs-6 no-padding rpadding'} %>
-			<%= f.input :train_name, wrapper_html: {class: 'col-xs-6 no-padding lpadding'} %>
-		<% end %><!-- end: 报名表单 -->
+		<p class="text-center my-p">您好，<%= @apply.name %><br>你已经提交成功，请耐心等待<br>我们将尽快和您联系</p>
+		<!-- begin: 报名信息 -->
+		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.name %></div></div>		
+		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= Apply::SEX[@apply.sex.to_sym] %></div></div>
+		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.phone %></div></div>
+		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= @apply.qq %></div></div>
+		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.email %></div></div>
+		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.address %></div></div>
+		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= Apply::SITUATION[@apply.situation.to_sym] %></div></div>
+		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= Apply::DEGREE[@apply.degree.to_sym] %></div></div>
+		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.school_name %></div></div>
+		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.way %></div></div>
+		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= @apply.train_name %></div></div>
+		<!-- end: 报名信息 -->
 	</div>
-	<ul class="my-ul text-center">
-		<li><%= link_to("返回报名页面", wechat_root_path(openid: session[:openid])) %></li>
-	</ul>
+	<div class="col-xs-12 turn-back"><%= link_to("返回报名页面", wechat_root_path(openid: session[:openid])) %></div>
 </div><!-- end: 填写个人信息 -->
 <script>
 	// 设置背景图
