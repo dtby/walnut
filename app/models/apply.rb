@@ -37,4 +37,9 @@ class Apply < ActiveRecord::Base
 		'安卓开发' => 'android',
 		'WEB全栈' => 'web'
 	}
+
+	#查询各班报名情况
+	scope :ios_class, -> { where( train_name: 'ios' ) }
+	scope :android_class, -> { where( train_name: 'android' ) }
+	scope :web_class, -> { where( train_name: 'web' ) }
 end
