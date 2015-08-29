@@ -1,0 +1,24 @@
+<%= content_for :nav do%>
+	<li>
+		<a href="#{admin_root_path}">后台</a>
+	</li>
+	<li class="active">报名统计</li>
+<%end%>
+
+<%= content_for :toolbar do %>
+	<div class="col-xs-12">
+		<a href="<%= admin_applies_path %>" class="btn btn-<%= params[:train_name].nil? ? "success" : "default"%>">全部</a>
+		<a href="<%= admin_applies_path(train_name: 'ios') %>" class="btn btn-<%= params[:train_name] == "ios" ? "success" : "default" %>">ios开发</a>
+		<a href="<%= admin_applies_path(train_name: 'android') %>" class="btn btn-<%= params[:train_name] == "android" ? "success" : "default" %>">安卓开发</a>
+		<a href="<%= admin_applies_path(train_name: 'web') %>" class="btn btn-<%= params[:train_name] == "web" ? "success" : "default" %>">WEB全栈</a>
+		<div class="col-xs-3 pull-right">
+			<div class="form-group">
+				<%= render partial: 'admin/common/keyword', locals: {path: ""} %>
+			</div>
+		</div>
+	</div>
+<%end%>
+
+<div class="col-xs-12">
+	<%= render partial: "data", locals: { applies: @applies } %>
+</div>

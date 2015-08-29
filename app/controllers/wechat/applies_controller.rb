@@ -3,13 +3,6 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	before_action :set_applies, only: [:index, :destroy]
 	def home
 	end
-	#报名统计
-	def data
-		@applies = Apply.all
-		@ioses = Apply.ios_class
-		@androids = Apply.android_class
-		@webs = Apply.web_class
-	end
 
 	def new
 		@apply = Apply.new

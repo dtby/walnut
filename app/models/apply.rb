@@ -39,7 +39,11 @@ class Apply < ActiveRecord::Base
 	}
 
 	#查询各班报名情况
-	scope :ios_class, -> { where( train_name: 'ios' ) }
-	scope :android_class, -> { where( train_name: 'android' ) }
-	scope :web_class, -> { where( train_name: 'web' ) }
+	def self.students train_name
+		if train_name.nil?
+			return self.all
+		else
+			where( train_name: train_name )
+		end
+	end
 end

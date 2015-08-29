@@ -165,7 +165,6 @@ Rails.application.routes.draw do
     resources :applies do
       collection do
         get :home
-        get :data
       end
     end
   end
