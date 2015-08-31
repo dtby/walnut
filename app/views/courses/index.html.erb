@@ -12,13 +12,13 @@
 		<div class="search-course">
 			<div class="col-sm-3">
 				<%= link_to courses_path, class: "link-lg active", param: "" do %>
-				<span><span class="courses-iconfont"><i class="iconfont">&#xe603;</i></span>全部课程</span>
+				<i class="courses-iconfont iconfont">&#xe603;</i><span class="courses-cate">全部课程</span>
 				<% end %>
 			</div>
 			<% @categories.each_with_index do |category, index|%>
 				<div class="col-sm-3">
-					<%= link_to courses_path(category_id: category.id), class: "link-lg" do %>
-					  <span><%= category.name %></span>
+					<%= link_to courses_path(category_id: category.id), class: "link-lg no-active" do %>
+					  <i class="courses-iconfont iconfont">&#xe607;</i><span class="courses-cate"><%= category.name %></span>
 					<% end %>
 				</div>
 			<% end %>

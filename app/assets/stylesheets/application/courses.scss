@@ -2,35 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.courses__index {
+.courses__index, .courses__list, .courses__system {
 	.courses-bread {
 		padding-left: -15px;
 		background-color: #fff;
 		margin: 0 0 0 -25px;
 		padding-bottom: 0;
+		.icon-home {
+			padding-bottom: 10px;
+		}
 		li {
 			line-height: 16px;
 		}
-		.courses-iconfont {
-			padding-right: 5px;
-			font-size: 20px;
-		}
 	}
+	.courses-iconfont {
+			padding-right: 15px;
+			font-size: 32px;
+		}
 	.category a {
-		height: 60px;
-		line-height: 60px;
+		line-height: 90px;
 		width: 100%;
 		text-align: center;
 		margin: 5px 0px;
 		border: solid 1px #e1e1e1;
+		font-size: 20px;
+		// color: #3CB29F;
 		display: block;
+		color: #000;
+		i {
+			color: #3CB29F;
+		}
 		&:hover, &.active {
 			background: #19b29f;
 			color: #fff;
+			font-size: 20px;
+			text-decoration: none;
+			margin-bottom: 26px;
+			i {
+				color: #fff;
+			}
 		}
 	}
 }
-.courses__list {
+.courses__list, .courses__system {
 	.category a {
 		height: 130px;
 		line-height: 130px;
@@ -49,12 +63,23 @@
 			color: #fff;
 		}
 	}
+	#CollegeList {
+		padding: 0 7.5px;
+		margin-bottom: 25px;
+		.college-list {
+			padding: 0 7.5px;
+		}
+		.college_img {
+			border: solid 1px #e1e1e1;
+			margin-bottom: 25px;
+		}
+	}
 }
 
-.courses__index, .courses__list {
+.courses__index, .courses__list, .courses__system {
 	.title-bar {
 		width: 100%;
-		height: 80px;
+		height: 60px;
 		position: relative;
 		.title {
       background-color: #fff;
@@ -62,6 +87,7 @@
 		  left: 50%;
 		  margin-left: -40px;
 		  position: absolute;
+		  font-size: 22px;
 		  // top: 20px;
 		  z-index: 1;
 		}
@@ -89,6 +115,10 @@
 		}
 		.infos {
 			color: #9b9b9b;
+			.icon-tubiao, .icon-shizhong {
+				color: #53AA41;
+				padding-right: 5px;
+			}
 			b, span {
 				color: #19b29f;
 			}
@@ -97,6 +127,60 @@
 			color: #9b9b9b;
 			padding-right: 20px;
 			padding-top: 10px;
+		}
+	}
+	.show-more {
+		border: solid 1px #e3e3e3;
+		width: 100%;
+		padding: 8px 0;
+		color: #5DC2B8;
+		.icon-xiangxiazhankai {
+			font-size: 12px;
+		}
+	}
+}
+.courses__system {
+	.system {
+		padding: 0;
+		img:hover { 
+				transition:All 1s;
+			   	transform:scale(1.2);    
+				-webkit-transform:scale(1.2);    
+				-moz-transform:scale(1.2);    
+				-o-transform:scale(1.2);    
+				-ms-transform:scale(1.2);
+				
+			// overflow: hidden;
+			// width: 110%;
+			// height: 110%;
+			// transition: width 2s ,height 2s;
+			// -moz-transition: width 2s ,height 2s;	/* Firefox 4 */
+			// -webkit-transition: width 2s ,height 2s;	/* Safari 和 Chrome */
+			// -o-transition: width 2s ,height 2s;
+		}
+		.system-list {
+			padding: 0 15px;
+			.system-list-pic {
+				padding: 0;
+				overflow: hidden;
+			}
+			.system-list-pictip {
+				padding: 0;
+				color: #fff;
+				background-color: rgba(0,0,0,0.4);
+				line-height: 48px;
+				position: relative;
+					left: 0;
+					top: -50px;
+				.class-title {
+					font-size: 18px;
+				}
+				.system-icon {
+					font-size: 15px;
+					padding-right: 5px;
+					color: #37B4A0;
+				}
+			}
 		}
 	}
 }

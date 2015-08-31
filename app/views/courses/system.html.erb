@@ -16,12 +16,12 @@
 				<% end %>
 			</div>
 			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg active" do %>
+				<%= link_to "#", class: "link-lg no-active" do %>
 				  <i class="courses-iconfont iconfont">&#xe607;</i><span class="courses-cate">大学课程</span>
 				<% end %>
 			</div>
 			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg no-active" do %>
+				<%= link_to "#", class: "link-lg active" do %>
 				  <i class="courses-iconfont iconfont">&#xe60c;</i><span class="courses-cate">技术体系</span>
 				<% end %>
 			</div>
@@ -34,14 +34,23 @@
 	</div>
 	<div class="row">
 		<div class="title-bar">
-			<h4 class="text-center title">院校选择</h4>
+			<h4 class="text-center title">体系选择</h4>
 			<div class="line"></div>
 		</div>
-		<div class="col-xs-12" id="CollegeList">
-		<%(0..8).each do |f| %>
-			<div class="col-xs-3 college-list">
-				<%= image_tag "course_college.png", width:"100%", class:"college_img" %>
+		<div class="col-xs-12 system">
+		<%(0..3).each do |f| %>
+			<%=link_to "#" do %>
+			<div class="col-xs-6 system-list">
+				<div class="col-xs-12 system-list-pic">
+				<%= image_tag "system_picture.png", width:"100%", class:"system_img" %>
+				</div>
+				<div class="col-xs-12 system-list-pictip">
+				<div class="col-xs-5"><strong class="class-title">Java语言</strong></div>
+				<div class="col-xs-3"><span><i class="system-icon iconfont">&#xe609;</i>40门</span></div>
+				<div class="col-xs-4"><i class="system-icon iconfont">&#xe600;</i><span>12345人在学习</span></div>
+				</div>
 			</div>
+			<% end %>
 		<% end %>
 		</div>
 	</div>

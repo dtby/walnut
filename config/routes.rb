@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show] do
     collection do
       get :list
+      get :system
     end
     member do
       get :detail

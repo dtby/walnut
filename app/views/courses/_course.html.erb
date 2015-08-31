@@ -6,16 +6,19 @@
 				<%#= image_tag(course.try(:teacher).try(:image).avatar.url(:t_98), class: "img-responsive avatar") if course.teacher %>
 				<!-- <span class="pull-right name"><%= course.try(:teacher).try(:name) %></span> -->
 				<div class="col-sm-12 mt-10">
-					<p class="text-muted"><%= course.try(:teacher).try(:description) %></p>
-					<p class="text-muted"><%= course.title %></p>
+					<p class="text-muted course-descrip"><%= course.try(:teacher).try(:description) %></p>
+					<p class="text-muted course-title"><%= course.title %></p>
 				</div>
 				<div class="col-sm-12 infos">
-					<span class="glyphicon glyphicon-eye-open"></span> <%= course.view_count %>
+					<i class="icon-tubiao iconfont"></i> <%= course.view_count %>
 					&nbsp;&nbsp;&nbsp;
-					<span class="glyphicon glyphicon-time"></span><%= format_time(course.last_update_time) %>
+					<i class="icon-shizhong iconfont"></i><%= format_time(course.last_update_time) %>
 					<b class="pull-right">免费</b>
 				</div>
 			<% end %>
 		</div>
 	</div>
+<% end %>
+<%= link_to "#" do %>
+<div class="show-more col-sm-12 text-center"><span class="">显示更多</span><i class="icon-xiangxiazhankai iconfont"></i></div>
 <% end %>
