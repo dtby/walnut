@@ -261,6 +261,9 @@
 }
 
 .system__show {
+	.system-bordered {
+		border-left: 2px solid #36B39E;
+	}
 	.system-intro {
 		text-indent: 2em;
 		line-height: 40px;
@@ -273,5 +276,8 @@
 		border: 5px solid #36B29E;
 		width: 100px;
 		transform:rotate(90deg);
+	}
+	.system-icon {
+		padding: 0 5px; 
 	}
 }
