@@ -1,2 +1,201 @@
-<h1>Worktrains#show</h1>
-<p>Find me in app/views/worktrains/show.html.erb</p>
+<%=image_tag"workt-banner.png",width:"100%"%>
+<div class="container">
+<!-- 培训简介 -->
+	<div class="row">
+		<div class="title-bar col-md-12">
+			<h4 class="text-center title">培训简介</h4>
+			<div class="line"></div>
+		</div>
+	</div>
+	<div class="my-border col-md-12">
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+					<%=image_tag"workt1.png"%>
+				</a>
+			</div>
+			<div class="media-body">
+				<h3 class="media-heading">我是课程名称</h3>
+				<div class="infos">
+          <span class="glyphicon glyphicon-eye-open"></span> 1549
+          &nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+        </div>
+        <h4>培训简介：</h4>
+				<p class="train-main">我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述我是一句话的描述	
+				</p>
+				<h4>招生对象：</h4>
+				<p class="train-main">1.招生对象招生对象招生对象招生对象招生对象</p>
+				<p class="train-main">2.招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象</p>
+				<div class="col-md-6 text-left">
+					<button class="btn btn-default my-btn mybtn1">在线报名</button>
+				</div>
+				<div class="col-md-6 text-left">
+					<button class="btn btn-default my-btn mybtn2">试听/咨询</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- 名师介绍 -->
+	<div class="row">
+		<div class="title-bar col-md-12">
+			<h4 class="text-center title">名师介绍</h4>
+			<div class="line"></div>
+		</div>
+	</div>
+	<div class="my-border col-md-12">
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		<!--   <ol class="carousel-indicators">
+		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+		    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		  </ol> -->
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+			    <div class="col-md-offset-1 col-md-10">
+			    	<div class="col-md-3 text-center">
+				    	<%=image_tag"jjteacher.png"%>
+				    	<h4>江江老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学向核桃网校留学方向核桃网校留学</p>
+	        	</div>
+	        	<div class="col-md-3 text-center">
+				    	 <%=image_tag"iris.png"%>
+				      <h4>Iris老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校</p>
+				    </div>
+				    <div class="col-md-3 text-center">
+				    	 <%=image_tag"judy.png"%>
+				      <h4>Judy老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向<a href="#">更多></a></p>
+				    </div>
+				    <div class="col-md-3 text-center">
+				    	 <%=image_tag"landy.png"%>
+				      <h4>Landy老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方校留学方向核桃网校留校留学方向核桃网校留</p>
+				    </div>		 
+			    </div>    
+		    </div>
+		    <div class="item">
+			    <div class="col-md-offset-1 col-md-10">
+			    	<div class="col-md-3 text-center">
+				    	<%=image_tag"jjteacher.png"%>
+				    	<h4>江江老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学向核桃网校留学方向核桃网校留学</p>
+	        	</div>
+	        	<div class="col-md-3 text-center">
+				    	 <%=image_tag"iris.png"%>
+				      <h4>Iris老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校</p>
+				    </div>
+				    <div class="col-md-3 text-center">
+				    	 <%=image_tag"judy.png"%>
+				      <h4>Judy老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向<a href="#">更多></a></p>
+				    </div>
+				    <div class="col-md-3 text-center">
+				    	 <%=image_tag"landy.png"%>
+				      <h4>Landy老师</h4>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方校留学方向核桃网校留校留学方向核桃网校留</p>
+				    </div>		 
+			    </div>		     
+		    </div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control my-control" href="#carousel-example-generic" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		  </a>
+		  <a class="right carousel-control my-control" href="#carousel-example-generic" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="title-bar col-md-12">
+			<h4 class="text-center title">就业前景</h4>
+			<div class="line"></div>
+		</div>
+	</div>
+	<div class="my-border col-md-12">
+		<div class="list-icon text-center" style="visibility: visible;">1</div>
+		<div class="list-text">从总体上讲,社会对计算机人才总需求量没有明显变化,但毕业生就业岗位分布和岗位层次将更宽泛,需求的主体由政府机关、金融单位、电信系统、国有企业转向教育系统、非公有制经济实体等中小用人单位.由于毕业生人数剧增,就业率与供求比例明显走低.</div>
+		<div class="list-icon text-center" style="visibility: visible;">2</div>
+		<div class="list-text">企业是吸纳人才的主力.随着国有企业改革步伐加大,对高新技术人才、计算机专业大学生的需求将迅速增长.高新技术企业每年产值增长在20以上,迅速发展和这一行业要求员工素质高的特点,成为吸收计算机专业大学生的主要企业单位.加入WTO,外国资本、公司的涌入,需要招聘大批高素质的计算机专业人才,毕业生的就业选择和人才流动会偏向外资企业.</div>
+		<div class="list-icon text-center" style="visibility: visible;">3</div>
+		<div class="list-text">教师职业倍受青睐.2002年我国教育经费占国内生产总值的比例已上升到3.6,高等教育大众化、现代教学技术的普及,需要大量的计算机专业人才.2001年全国高校和中小学教职工的年平均工资分别为18054元、10194元,成为近十年来工资增幅最大的职业之一.2000年全国计算机专业师范生有79.35的毕业生到各类学校任教,非师范生从事教育工作的也占到10.38,教师职业越来越热.</div>
+	</div>
+	<!-- 课程内容 -->
+	<div class="row">
+		<div class="title-bar col-md-12">
+			<h4 class="text-center title">课程内容</h4>
+			<div class="line"></div>
+		</div>
+	</div>
+	<%2.times do%>
+	<div class="col-md-12 text-center my-col">
+		<div class="col-md-1 my-orange my-day">Day1</div>
+		<div class="col-md-1 my-blue my-day">Day2</div>
+		<div class="col-md-1 my-blue my-day">Day3</div>
+		<div class="col-md-1 my-blue my-day">Day4</div>
+		<div class="col-md-1 my-blue my-day">Day5</div>
+		<div class="col-md-1 my-blue my-day">Day6</div>
+		<div class="col-md-1 my-blue my-day">Day7</div>
+		<div class="col-md-1 my-blue my-day">Day8</div>
+		<div class="col-md-1 my-blue my-day">Day9</div>
+		<div class="col-md-1 my-red my-day">Day10</div>
+		<div class="col-md-1 my-red my-day">Day11</div>
+		<div class="col-md-1 my-red my-day">Day12</div>
+	</div>
+	<div class="col-md-12 text-center my-col">
+		<div class="col-md-1 my-content">1对1综合诊断全科模考1</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考2</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考3</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考4</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考5</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考6</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考7</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考8</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考9</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考1</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考2</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考3</div>
+	</div>
+	<%end%>
+	<div class="col-md-12 text-center my-col">
+		<div class="col-md-1 my-blue my-day">Day7</div>
+		<div class="col-md-1 my-blue my-day">Day8</div>
+		<div class="col-md-1 my-blue my-day">Day9</div>
+		<div class="col-md-1 my-red my-day">Day10</div>
+		<div class="col-md-1 my-red my-day">Day11</div>
+		<div class="col-md-1 my-red my-day">Day12</div>
+	</div>
+	<div class="col-md-12 text-center my-col">
+		<div class="col-md-1 my-content">听力内容学习听力模考7</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考8</div>
+		<div class="col-md-1 my-content">听力内容学习听力模考9</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考1</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考2</div>
+		<div class="col-md-1 my-content">阅读内容学习听力模考3</div>
+	</div>
+	<!-- 课程特色 -->
+	<div class="row">
+		<div class="title-bar col-md-12">
+			<h4 class="text-center title">课程特色</h4>
+			<div class="line"></div>
+		</div>
+	</div>
+	<div class="col-md-12 my-pic">
+		<%=image_tag"special3.png",width:"100%"%>
+	</div>
+	<div class="col-md-12 my-pic">
+		<%=image_tag"special1.png",width:"100%"%>
+	</div>
+	<div class="col-md-12 my-pic">
+		<%=image_tag"special2.png",width:"100%"%>
+	</div>
+</div>

@@ -1,27 +1,35 @@
-.worktrains__index{
-	.title-bar {
-		width: 100%;
-		height: 80px;
-		position: relative;
-		.title {
-      background-color: #fff;
-		  width: 120px;
-		  left: 50%;
-		  margin-left: -40px;
-		  position: absolute;
-		  top: 20px;
-		  z-index: 1;
-		  font-size: 22px;
-
-		}
-		.line {
-			height: 2px;
-			width: 97.5%;
-			position: absolute;
-      			top: 38px;
-			background: #797a7a;
-		}
+// global.scss
+.title-bar {
+	width: 100%;
+	height: 80px;
+	position: relative;
+	.title {
+    background-color: #fff;
+	  width: 120px;
+	  left: 50%;
+	  margin-left: -40px;
+	  position: absolute;
+	  top: 20px;
+	  z-index: 1;
+	  font-size: 22px;
 	}
+	.line {
+		height: 2px;
+		width: 97.5%;
+		position: absolute;
+    			top: 38px;
+		background: #797a7a;
+	}
+}
+.infos {
+	padding: 30px 0;
+	color: #9b9b9b;
+	span {
+		color: #19b29f;
+	}
+}
+
+.worktrains__index{
 	.courses_tent {
 	margin-top:20px;
 }
@@ -40,12 +48,6 @@
 		.mt-10 {
 			margin-top: 10px;
 		}
-		.infos {
-			color: #9b9b9b;
-			span {
-				color: #19b29f;
-			}
-		}
 	}
 	.next-btn{
 		padding: 10px 45.35%;
@@ -53,5 +55,90 @@
 		border: 1px solid #BFBFBF;
 		border-radius: 0;
 		font-weight: bold;
+	}
+}
+.worktrains__show{
+	.my-border{
+		padding: 10px;
+		border:1px solid #D4D4D4;
+	}
+	// 培训简介
+	.media-left{
+		padding-right: 40px;
+	}
+	.media-heading{
+		padding-top: 20px;
+	}
+	.train-main{
+		line-height: 30px;
+		font-weight: 500;
+		padding-right: 20px;
+	}
+	.my-btn{
+		padding: 12px 70px;
+		font-size: 22px;
+		color: #fff;
+		border-radius: 0;
+		margin-top: 20px;
+	}
+	.mybtn1{
+		background: #D82425;
+	}
+	.mybtn2{
+		background: #0F8C8E;
+	}
+	// 名师介绍
+	.item{
+		line-height: 30px;
+	}
+	.my-control{
+		background-image: none;
+		color: #c7c7c7;
+		.glyphicon-chevron-left{
+			margin-left: -60px;
+		}
+		.glyphicon-chevron-right{
+			margin-right: -60px;
+		}
+	}
+	// 就业前景
+	.list-icon{
+		width: 32px;
+		height: 32px;
+		position: absolute;
+		left: 0;
+		font-size: 16px;
+		line-height: 32px;
+		color: #efe;
+		background: image-url("list-icon.png") no-repeat;
+	}
+	// 课程内容
+	.my-col{
+		padding: 0;
+	}
+	.my-orange{
+		background: #EE6924;
+		color: #fff;
+	}ßß
+	.my-blue{
+		background: #0E9DC5;
+		color: #fff;
+	}
+	.my-red{
+		background: #D82425;
+		color: #fff;
+	}
+	.my-content{
+		padding: 10px 0;
+		background: #E8E6D0;
+		color: #6B5C49;
+	}
+	.my-day{
+		height: 40px;
+		line-height: 40px;
+	}
+	// 课程特色
+	.my-pic{
+		padding: 10px 0;
 	}
 }
