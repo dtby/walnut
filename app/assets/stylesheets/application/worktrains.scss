@@ -73,6 +73,7 @@
 		line-height: 30px;
 		font-weight: 500;
 		padding-right: 20px;
+		font-size: 16px;
 	}
 	.my-btn{
 		padding: 12px 70px;
@@ -106,11 +107,18 @@
 		width: 32px;
 		height: 32px;
 		position: absolute;
-		left: 0;
+		left: 40px;
+		top:15px;
 		font-size: 16px;
 		line-height: 32px;
 		color: #efe;
 		background: image-url("list-icon.png") no-repeat;
+	}
+	.list-text{
+			padding: 10px 20px 20px 90px;
+			line-height: 30px;
+			font-weight: 500;
+			font-size: 16px;
 	}
 	// 课程内容
 	.my-col{
@@ -119,7 +127,7 @@
 	.my-orange{
 		background: #EE6924;
 		color: #fff;
-	}ßß
+	}
 	.my-blue{
 		background: #0E9DC5;
 		color: #fff;
