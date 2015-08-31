@@ -61,13 +61,14 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show] do
     collection do
       get :list
-      get :system
     end
     member do
       get :detail
     end
     resources :sub_courses, only: [:index, :show, :create]
   end
+  
+  resources :system, only: [:index, :show]
 
   #职前培训
   resources :worktrains, only: [:index, :show]
