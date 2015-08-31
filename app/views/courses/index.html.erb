@@ -1,4 +1,9 @@
 <div class="container">
+	<ol class="courses-bread breadcrumb">
+	<span><i class="iconfont">&#xe60a;</i></span>
+	<li><a href="#">课程中心</a></li>
+	<li class="active">全部课程</li>
+	</ol>
 	<div class="row category">
 		<div class="title-bar">
 			<h4 class="text-center title">课程分类</h4>
@@ -7,7 +12,7 @@
 		<div class="search-course">
 			<div class="col-sm-3">
 				<%= link_to courses_path, class: "link-lg active", param: "" do %>
-				<span>全部课程</span>
+				<span><span class="courses-iconfont"><i class="iconfont">&#xe603;</i></span>全部课程</span>
 				<% end %>
 			</div>
 			<% @categories.each_with_index do |category, index|%>

@@ -3,6 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .courses__index {
+	.courses-bread {
+		padding-left: -15px;
+		background-color: #fff;
+		margin: 0 0 0 -25px;
+		padding-bottom: 0;
+		li {
+			line-height: 16px;
+		}
+		.courses-iconfont {
+			padding-right: 5px;
+			font-size: 20px;
+		}
+	}
 	.category a {
 		height: 60px;
 		line-height: 60px;
@@ -49,14 +62,14 @@
 		  left: 50%;
 		  margin-left: -40px;
 		  position: absolute;
-		  top: 20px;
+		  // top: 20px;
 		  z-index: 1;
 		}
 		.line {
 			height: 2px;
 			width: 100%;
 			position: absolute;
-      			top: 38px;
+      			top: 18px;
 			background: #797a7a;
 		}
 	}
