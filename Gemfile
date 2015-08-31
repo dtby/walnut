@@ -112,5 +112,8 @@ gem 'handlebars_assets', '~> 0.20.2'
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
+#导出成 .xls 文件
+gem "spreadsheet_on_rails"
+
 
 

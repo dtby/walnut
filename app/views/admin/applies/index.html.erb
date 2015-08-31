@@ -19,6 +19,5 @@
 	</div>
 <%end%>
 
-<div class="col-xs-12">
-	<%= render partial: "data", locals: { applies: @applies } %>
-</div>
+<%= render partial: "data", locals: { applies: @applies } %>
+<%= link_to("导出为Excel", admin_applies_path(train_name: params[:train_name], format: 'xls'), class: "btn btn-success") %>

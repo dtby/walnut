@@ -275,6 +275,7 @@ GEM
       rspec-mocks (~> 3.2.0)
       rspec-support (~> 3.2.0)
     rspec-support (3.2.2)
+    ruby-ole (1.2.11.8)
     sass (3.4.15)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -288,6 +289,11 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    spreadsheet (1.0.4)
+      ruby-ole (>= 1.0)
+    spreadsheet_on_rails (1.0.0)
+      rails (>= 3.0.1)
+      spreadsheet
     spring (1.3.6)
     sprockets (2.12.4)
       hike (~> 1.2)
@@ -382,6 +388,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   simple_form (~> 3.1.0)
+  spreadsheet_on_rails
   spring
   sprockets (~> 2.12.3)
   sqlite3
