@@ -306,3 +306,106 @@
 		}
 	}
 }
+
+.user__my_home{		
+	.my-banner{
+			background: image-url("user_banner.png") no-repeat; 
+			background-size: 100% 100%;
+			.my-shadow{
+				background: rgba(0,0,0,0.5);
+				.info-pic{
+					color: #fff;
+					padding: 20px;
+				}
+		}
+	}
+	.main{
+			background: #D3D3D3;
+			padding-top: 20px;
+			.main-content{
+				background-color: #fff;
+				padding: 20px 25px;
+				margin-bottom: 20px;
+				h3{
+					margin-top: 0px;
+				}
+				// 完成任务
+				.finish-text{
+					font-size: 20px;
+					font-weight: 500;
+					margin-top: 20px; 
+				}
+				.finish-icon{
+					width: 145px;
+					height: 145px;
+					font-size: 72px;
+					line-height: 140px;
+					color: #efe;
+				}
+				.courses-icon{
+					background: image-url("user_finish1.png") no-repeat;
+				}
+				.task-icon{
+					background: image-url("user_finish2.png") no-repeat;
+				}
+				.project-icon{
+					background: image-url("user_finish3.png") no-repeat;
+				}
+				.train-icon{
+					background: image-url("user_finish4.png") no-repeat;
+				}
+
+
+				// 我的勋章
+				.my-medal{
+					display: inline;
+					padding: 0 20px;
+				}
+
+
+				// 我的积分
+				.my-integral{
+					height: 3px;
+					margin: 60px 0;
+					.my-bar{
+					background-color: #15A16D;
+					}
+				}
+
+
+				// 印象评价
+				.my-impression{
+					margin: 20px 0;
+					.my-comment{
+						background: #49A39B;
+						padding: 10px 20px;
+						font-size: 18px;
+						color: #fff;
+					}
+					.my-add{
+						border: 1px solid #49A39B;
+						padding: 9px 20px;
+						font-size: 18px;
+						a {
+							color: #49A39B;
+						}
+					}
+				}
+
+
+				// 作品展示
+				.my-display{
+					padding:2px;
+					font-size: 36px;
+					.my-link{
+						background: #49A39B;
+						height: 90px;
+						line-height: 90px;
+						a{
+							color: #fff;
+						}
+					}
+				}
+			}
+	}
+}
