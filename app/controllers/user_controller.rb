@@ -57,6 +57,18 @@ class UserController < ApplicationController
     @create_projects = Project.list_projects "create"
   end
 
+  def my_home
+    
+  end
+
+  def my_comment
+    
+  end
+  
+  def my_infos
+    
+  end
+
   private
   def user_params
       params.require(:user).permit(:nickname, :name, :department, :major, :mobile, :email, :gender, :signature, :password)

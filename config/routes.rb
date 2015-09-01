@@ -36,6 +36,9 @@ Rails.application.routes.draw do
       get :my_messages
       get :my_recruits
       get :my_resumes
+      get :my_home
+      get :my_comment
+      get :my_infos
     end
   end
 
