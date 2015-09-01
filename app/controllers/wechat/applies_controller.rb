@@ -1,11 +1,9 @@
 class Wechat::AppliesController < Wechat::ApplicationController
-	# before_action :is_subscriber?
 	before_action :set_applies, only: [:index, :destroy]
 	def home
 	end
 
 	def new
-		p session[:openid]
 		@apply = Apply.new
 	end
 
@@ -46,15 +44,5 @@ class Wechat::AppliesController < Wechat::ApplicationController
 
 		def set_applies
 			@applies = Apply.where(openid: session[:openid]).order(created_at: :desc)
-		end
-
-		def is_subscriber?
-			if session[:openid].present?
-				
-			elsif params[:openid].present?
-				session[:openid] = params[:openid]
-			else
-				redirect_to wechat_error_path
-			end
 		end
 	end
