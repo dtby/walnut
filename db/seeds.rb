@@ -2,7 +2,20 @@
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
 # Examples:
-#
+Diymenu.delete_all
+Diymenu.create(id: 1, name: '微课', is_show: true, sort: 0)
+Diymenu.create(id: 2, name: '找工作', url: 'http://www.hetaoedu.cn/recruitments/recommend', is_show: true, sort: 1)
+Diymenu.create(id: 3, name: '我的核桃', is_show: true, sort:2)
+Diymenu.create(id: 4, parent_id: 1, name: '本月热推', key: '本月热推', is_show: true, sort:0)
+Diymenu.create(id: 5, parent_id: 1, name: '往期课程', key: '往期课程', is_show: true, sort:1)
+Diymenu.create(id: 6, parent_id: 1, name: '通信技术', key: '通信技术', is_show: true, sort:2)
+Diymenu.create(id: 7, parent_id: 1, name: '互联网技术', key: '互联网技术', is_show: true, sort:3)
+Diymenu.create(id: 8, parent_id: 3, name: '官网', url: 'http://www.hetaoedu.cn/', is_show: true, sort:0)
+Diymenu.create(id: 9, parent_id: 3, name: '待办任务', url: 'http://www.hetaoedu.cn/training_platform', is_show: true, sort:1)
+Diymenu.create(id: 10, parent_id: 3, name: '在线报名', url: 'http://shtzr840329.tunnel.mobi/wechat', is_show: true, sort:2)
+Diymenu.create(id: 11, parent_id: 3, name: '在线购买', url: 'http://weidian.com/?userid=189978489', is_show: true, sort:3)
+
+# 
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 

@@ -401,6 +401,3 @@ DEPENDENCIES
   web-console (~> 2.0)
   weixin_authorize!
   weixin_rails_middleware
-
-BUNDLED WITH
-   1.10.2

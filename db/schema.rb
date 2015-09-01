@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150826154609) do
+ActiveRecord::Schema.define(version: 20150901065227) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -118,6 +118,20 @@ ActiveRecord::Schema.define(version: 20150826154609) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end
+
+  create_table "diymenus", force: :cascade do |t|
+    t.integer  "parent_id",  limit: 4
+    t.string   "name",       limit: 255
+    t.string   "key",        limit: 255
+    t.string   "url",        limit: 255
+    t.boolean  "is_show"
+    t.integer  "sort",       limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "diymenus", ["key"], name: "index_diymenus_on_key", using: :btree
+  add_index "diymenus", ["parent_id"], name: "index_diymenus_on_parent_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "avatar_file_name",    limit: 255

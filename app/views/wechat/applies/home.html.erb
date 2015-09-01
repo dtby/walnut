@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div class="row">
 		<div class="col-xs-12 text-center content">
-			<%= link_to new_wechat_apply_path do %>
+			<%= link_to "/wechat/oauths?recurl=/wechat/applies/new" do %>
 				<botton class="btn btn-default my-btn"><div class="text-left">&nbsp;&nbsp;我要报名</div></botton>
 			<% end %>	
 			<div class="col-xs-12 turn-back"><%= link_to("历史报名情况", wechat_applies_path ) %></div>

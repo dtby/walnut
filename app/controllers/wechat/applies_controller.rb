@@ -1,5 +1,5 @@
 class Wechat::AppliesController < Wechat::ApplicationController
-	before_action :is_subscriber?
+	# before_action :is_subscriber?
 	before_action :set_applies, only: [:index, :destroy]
 	def home
 	end
