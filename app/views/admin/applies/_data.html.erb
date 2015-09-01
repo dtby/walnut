@@ -17,22 +17,29 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% applies.each_with_index do |apply, index| %>
-			<tr>
-				<th><%= index + 1 %></th>
-				<td><%= apply.name %></td>
-				<td><%= Apply::SEX[apply.sex.to_sym] %></td>
-				<td><%= apply.phone %></td>
-				<td><%= apply.qq %></td>
-				<td><%= apply.email %></td>
-				<td><%= apply.address %></td>
-				<td><%= Apply::SITUATION[apply.situation.to_sym] %></td>
-				<td><%= Apply::DEGREE[apply.degree.to_sym] %></td>
-				<td><%= apply.school_name %></td>
-				<td><%= apply.way %></td>
-				<td><%= apply.train_name %></td>
-			</tr>
+			<% if applies.empty? %>
+				<tr>
+					<td colspan="12" class="text-center">暂时还没有报名的学生</td>
+				</tr>
+			<% else %>
+				<% applies.each_with_index do |apply, index| %>
+					<tr>
+						<th><%= index + 1 %></th>
+						<td><%= apply.name %></td>
+						<td><%= Apply::SEX[apply.sex.to_sym] %></td>
+						<td><%= apply.phone %></td>
+						<td><%= apply.qq %></td>
+						<td><%= apply.email %></td>
+						<td><%= apply.address %></td>
+						<td><%= Apply::SITUATION[apply.situation.to_sym] %></td>
+						<td><%= Apply::DEGREE[apply.degree.to_sym] %></td>
+						<td><%= apply.school_name %></td>
+						<td><%= apply.way %></td>
+						<td><%= apply.train_name %></td>
+					</tr>
+				<% end %>
 			<% end %>
+
 		</tbody>
 	</table>
 </div>
