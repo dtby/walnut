@@ -399,3 +399,105 @@ button  {
     	color: #777!important;
   }
 }
+
+// 课程中心分类导航部分
+.category a {
+		line-height: 90px;
+		width: 100%;
+		text-align: center;
+		margin: 5px 0px;
+		border: solid 1px #e1e1e1;
+		font-size: 20px;
+		// color: #3CB29F;
+		display: block;
+		color: #000;
+		i {
+			color: #3CB29F;
+		}
+		&:hover, &.active {
+			background: #19b29f;
+			color: #fff;
+			font-size: 20px;
+			text-decoration: none;
+			margin-bottom: 26px;
+			i {
+				color: #fff;
+			}
+		}
+		.courses-iconfont {
+			padding-right: 15px;
+			font-size: 32px;
+	}
+}
+.title-bar {
+	width: 100%;
+	height: 60px;
+	position: relative;
+	.title {
+  		background-color: #fff;
+	    width: 120px;
+	    left: 50%;
+	    margin-left: -40px;
+	    position: absolute;
+	    font-size: 22px;
+	    z-index: 1;
+	    top: 0;
+	}
+	.line {
+		height: 2px;
+		width: 100%;
+		position: absolute;
+  			top: 18px;
+		background: #797a7a;
+	}
+}
+
+// 面包屑部分
+.courses-bread {
+	padding-left: -15px;
+	background-color: #fff;
+	margin: 0 0 0 -25px;
+	padding-bottom: 0;
+	.icon-home {
+		padding-bottom: 10px;
+	}
+	li {
+		line-height: 16px;
+	}
+}
+
+// 课程中心视频缩略图部分
+.bordered {
+	border: solid 1px #e3e3e3;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+	position: relative;
+	overflow: hidden;
+	.iconfont, b {
+		color: #399F22;
+		padding: 0 5px;
+	}
+	img.avatar {
+		top: 150px;
+		left: 20px;
+		position: absolute;
+	}
+	.mt-10 {
+		margin-top: 10px;
+	}
+	.infos {
+		color: #9b9b9b;
+		.icon-tubiao, .icon-shizhong {
+			color: #53AA41;
+			padding-right: 5px;
+		}
+		b, span {
+			color: #19b29f;
+		}
+	}
+	.name {
+		color: #9b9b9b;
+		padding-right: 20px;
+		padding-top: 10px;
+	}
+}

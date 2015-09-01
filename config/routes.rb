@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   end
   
   resources :system, only: [:index, :show]
+  resources :career, only: [:index, :show]
 
   #职前培训
   resources :worktrains, only: [:index, :show]

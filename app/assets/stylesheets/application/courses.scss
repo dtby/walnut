@@ -2,67 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.courses__index, .courses__list, .system__index, .system__show {
-	.courses-bread {
-		padding-left: -15px;
-		background-color: #fff;
-		margin: 0 0 0 -25px;
-		padding-bottom: 0;
-		.icon-home {
-			padding-bottom: 10px;
-		}
-		li {
-			line-height: 16px;
-		}
-	}
-	.courses-iconfont {
-			padding-right: 15px;
-			font-size: 32px;
-		}
-	.category a {
-		line-height: 90px;
-		width: 100%;
-		text-align: center;
-		margin: 5px 0px;
-		border: solid 1px #e1e1e1;
-		font-size: 20px;
-		// color: #3CB29F;
-		display: block;
-		color: #000;
-		i {
-			color: #3CB29F;
-		}
-		&:hover, &.active {
-			background: #19b29f;
-			color: #fff;
-			font-size: 20px;
-			text-decoration: none;
-			margin-bottom: 26px;
-			i {
-				color: #fff;
-			}
-		}
-	}
-}
-.courses__list, .system__index, .system__show {
-	.category a {
-		height: 130px;
-		line-height: 130px;
-		width: 100%;
-		font-size: 28px;
-		text-align: center;
-		margin: 5px 0px;
-		border: solid 1px #e1e1e1;
-		display: block;
-		&.all-active {
-			background: #19b29f;
-			color: #fff;
-		}
-		&:hover, &.active {
-			border: solid 1px #19b29f;
-			color: #fff;
-		}
-	}
+.courses__list {
 	#CollegeList {
 		padding: 0 7.5px;
 		margin-bottom: 25px;
@@ -76,59 +16,7 @@
 	}
 }
 
-.courses__index, .courses__list, .system__index, .system__show {
-	.title-bar {
-		width: 100%;
-		height: 60px;
-		position: relative;
-		.title {
-      background-color: #fff;
-		  width: 120px;
-		  left: 50%;
-		  margin-left: -40px;
-		  position: absolute;
-		  font-size: 22px;
-		  z-index: 1;
-		  top: 0;
-		}
-		.line {
-			height: 2px;
-			width: 100%;
-			position: absolute;
-      			top: 18px;
-			background: #797a7a;
-		}
-	}
-	.bordered {
-		border: solid 1px #e3e3e3;
-		margin-bottom: 20px;
-		padding-bottom: 10px;
-		position: relative;
-		overflow: hidden;
-		img.avatar {
-			top: 150px;
-			left: 20px;
-			position: absolute;
-		}
-		.mt-10 {
-			margin-top: 10px;
-		}
-		.infos {
-			color: #9b9b9b;
-			.icon-tubiao, .icon-shizhong {
-				color: #53AA41;
-				padding-right: 5px;
-			}
-			b, span {
-				color: #19b29f;
-			}
-		}
-		.name {
-			color: #9b9b9b;
-			padding-right: 20px;
-			padding-top: 10px;
-		}
-	}
+.courses__index, .system__show {
 	.show-more {
 		border: solid 1px #e3e3e3;
 		width: 100%;
@@ -180,62 +68,62 @@
 	.sub_head{
 		margin: 10px 0;
 	}
-.wrapper{
-	border:1px solid #ccc;
-	//padding: 20px;
-	background-color:#ECECEC;
-	margin-bottom: 20px;	
-	.media-body{
-		padding-left: 10px;
-		h2{
-			margin-bottom: 20px;
-		}
-		.name{
-			font-size: 18px;
-		}
-		span{color: #9D9B9C;}
-		.click{
-			padding: 0 20px 0 40px;
-			a{
-				color: #FFC500;
-				text-decoration: none;
-				font-size: 16px;
+	.wrapper{
+		border:1px solid #ccc;
+		//padding: 20px;
+		background-color:#ECECEC;
+		margin-bottom: 20px;	
+		.media-body{
+			padding-left: 10px;
+			h2{
+				margin-bottom: 20px;
 			}
-		}
-		p{
-			font-weight: bold;
-			font-family: "微软雅黑";
-			line-height: 2;
-			padding-top: 20px;
-			a{
-				color: #FF0000;
+			.name{
+				font-size: 18px;
 			}
-		}
-		.btn{
-			margin-left: 80px;
-			border-radius:0;
-			background-color: #2DC8B8;
-			color: #fff;
-			border:1px solid #ccc;
+			span{color: #9D9B9C;}
+			.click{
+				padding: 0 20px 0 40px;
+				a{
+					color: #FFC500;
+					text-decoration: none;
+					font-size: 16px;
+				}
+			}
+			p{
+				font-weight: bold;
+				font-family: "微软雅黑";
+				line-height: 2;
+				padding-top: 20px;
+				a{
+					color: #FF0000;
+				}
+			}
+			.btn{
+				margin-left: 80px;
+				border-radius:0;
+				background-color: #2DC8B8;
+				color: #fff;
+				border:1px solid #ccc;
 
-		}
-	}
-	.col-xs-3{
-		padding:10px 0;
-		position: relative;
-		.shadow{
-			color: #fff;
-			padding: 5px 10px 5px 20px;
-			background: rgba(0,0,0,0.6);
-			position: absolute;
-			bottom: 11px;
-			span{
-				color:#FD0013;
-				font-size: 20px;
-				padding-left: 20px;
 			}
 		}
-	}
+		.col-xs-3{
+			padding:10px 0;
+			position: relative;
+			.shadow{
+				color: #fff;
+				padding: 5px 10px 5px 20px;
+				background: rgba(0,0,0,0.6);
+				position: absolute;
+				bottom: 11px;
+				span{
+					color:#FD0013;
+					font-size: 20px;
+					padding-left: 20px;
+				}
+			}
+		}
 	}
 	.online{
 		padding: 20px;
@@ -260,9 +148,28 @@
 	}
 }
 
-.system__show {
+.system__show, .career__show {
 	.system-bordered {
-		border-left: 2px solid #36B39E;
+		border-left: 8px solid #36B39E;
+		span {
+			font-size: 20px;
+
+		}
+		.system-dtsgixinyuan {
+			// margin-left: -20px;
+			background-color: #fff;
+			font-size: 30px;
+			position: relative;
+				top: -10px;
+				left: -34px;
+		}
+	}
+	.system-xinyuan {
+		color: #36B39E;
+		font-size: 30px;
+		position: relative;
+			top: -15px;
+			left: -27px;
 	}
 	.system-intro {
 		text-indent: 2em;
@@ -279,5 +186,48 @@
 	}
 	.system-icon {
 		padding: 0 5px; 
+	}
+}
+
+.career__show {
+	.career-title {
+		background-color: #fff;
+		width: 160px;
+		left: 50%;
+		margin-left: -77px;
+		position: absolute;
+		font-size: 22px;
+		z-index: 1;
+		top: 15px;
+	}
+	.career-t {
+		color: #36B29E;
+	}
+	.career-blank {
+		height: 20px;
+		width: 11px;
+		background-color: #fff;
+		z-index: 2;
+		position: relative;
+			left: 549px;
+			top: -40px;
+	}
+	.career-i {
+		font-size: 40px;
+		line-height: 14px;
+		color: #36B29E;
+		position: relative;
+			top: 10px;
+	}
+	.career-icon {
+		font-size: 40px;
+		line-height: 14px;
+		color: #36B29E;
+		position: relative;
+			bottom: -55px
+	}
+	.career-media {
+		border: 1px solid #36B29E;
+		padding-top: 40px;
 	}
 }
