@@ -5,10 +5,12 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def new
+		p session[:openid]
 		@apply = Apply.new
 	end
 
 	def create
+
 		@apply = Apply.new(apply_params)
 		if @apply.save
 			respond_to do |format|

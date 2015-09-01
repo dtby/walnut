@@ -17,12 +17,12 @@ module Wechat
       result = $client.get_oauth_access_token(params[:code])
       openid = result.result["openid"]
       session[:openid] = openid
-      subscriber = Subscriber.where(openid: openid).first
-      if subscriber.present?
+      # subscriber = Subscriber.where(openid: openid).first
+      # if subscriber.present?
         redirect_to session[:recurl] || wechat_root_path
-      else
-        redirect_to wechat_error_path
-      end
+      # else
+        # redirect_to wechat_error_path
+      # end
     end
 
     private
