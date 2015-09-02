@@ -1,6 +1,11 @@
 class Wechat::AppliesController < Wechat::ApplicationController
 	before_action :set_applies, only: [:index, :destroy]
 	def home
+		log = Logger.new(File.join Rails.root, 'log/client_weixin.log')
+		log.info $client
+		$client = WeixinAuthorize::Client.new("wxe3605f6d3f8d52e1", "a5fde3f35e9ee6ade3e12b6eaeecaa70")
+		log.info "123333333333333"
+		log.info $client
 	end
 
 	def new
