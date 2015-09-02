@@ -1,0 +1,31 @@
+<div class="waperbg">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-3">
+       <%=render "left_nav" %>
+    </div>
+      <div class="col-md-9 right_nav_c">
+        <div class="my-nav">
+          <ul class="nav nav-tabs right_nav">
+            <li role="presentation" class="active"><a href="#joinProjects" aria-controls="joinProjects" role="tab" data-toggle="tab">电子简历</a></li>
+            <li role="presentation"><a href="#createProjects" aria-controls="createProjects" role="tab" data-toggle="tab">编辑简历</a></li>
+          </ul>
+        </div>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane text-center active" id="joinProjects">
+            <%= image_tag "default-user.jpg",style:"width:100px;height:100px;" %>
+            <p>张某某</p>
+            <p>个性签名：不忘初心，方得始终！</p>
+            <p>北京大学&nbsp;&nbsp;&nbsp;计算机专业</p>
+            <p>上海&nbsp;&nbsp;123456789@qq.com</p>
+            <p>Java专业&nbsp;&nbsp;Java工程师</p>
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="createProjects">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
