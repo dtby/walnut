@@ -436,7 +436,7 @@ button  {
 	.title {
   		background-color: #fff;
 	    width: 120px;
-	    left: 50%;
+	    left: 48%;
 	    margin-left: -40px;
 	    position: absolute;
 	    font-size: 22px;
@@ -484,6 +484,13 @@ button  {
 	}
 	.mt-10 {
 		margin-top: 10px;
+		.course-descrip {
+			color: #000;
+			font-size: 15px;
+		}
+		.course-title {
+			font-size: 12px;
+		}
 	}
 	.infos {
 		color: #9b9b9b;

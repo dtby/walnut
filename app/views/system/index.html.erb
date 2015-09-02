@@ -1,37 +1,10 @@
 <div class="container">
 	<ol class="courses-bread breadcrumb">
 	<span><i class="iconfont">&#xe60a;</i></span>
-	<li><a href="#">课程中心</a></li>
+	<li><%= link_to "课程中心", courses_path %></li>
 	<li class="active">技术体系</li>
 	</ol>
-	<div class="row category">
-		<div class="title-bar">
-			<h4 class="text-center title">课程分类</h4>
-			<div class="line"></div>
-		</div>
-		<div class="search-course">
-			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg no-active", param: "" do %>
-				<i class="courses-iconfont iconfont">&#xe603;</i><span class="courses-cate">全部课程</span>
-				<% end %>
-			</div>
-			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg no-active" do %>
-				  <i class="courses-iconfont iconfont">&#xe607;</i><span class="courses-cate">大学课程</span>
-				<% end %>
-			</div>
-			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg active" do %>
-				  <i class="courses-iconfont iconfont">&#xe60c;</i><span class="courses-cate">技术体系</span>
-				<% end %>
-			</div>
-			<div class="col-sm-3">
-				<%= link_to "#", class: "link-lg no-active" do %>
-				  <i class="courses-iconfont iconfont">&#xe608;</i><span class="courses-cate">职业路径</span>
-				<% end %>
-			</div>
-		</div>
-	</div>
+	<%= render partial: "share/category" %>
 	<div class="row">
 		<div class="title-bar">
 			<h4 class="text-center title">体系选择</h4>
@@ -39,7 +12,7 @@
 		</div>
 		<div class="col-xs-12 system">
 		<%(0..3).each do |f| %>
-			<%=link_to "system/show" do %>
+			<%=link_to system_path(:id) do %>
 			<div class="col-xs-6 system-list">
 				<div class="col-xs-12 system-list-pic">
 				<%= image_tag "system_picture.png", width:"100%", class:"system_img" %>

@@ -1,9 +1,9 @@
 <div class="container">
 	<ol class="courses-bread breadcrumb">
 	<span><i class="iconfont">&#xe60a;</i></span>
-	<li><a href="#">课程中心</a></li>
-	<li><a href="#">技术体系</a></li>
-	<li class="active">Java语言开发知识体系</li>
+	<li><%= link_to "课程中心", courses_path %></li>
+	<li><%= link_to "职业路径", career_index_path %></li>
+	<li class="active">Android工程师</li>
 	</ol>
 	<div class="row category">
 		<div class="title-bar">
@@ -54,5 +54,6 @@
 				</div>
 				<% end %>
 			</div>
+		</div>
 	</div>
 </div>
