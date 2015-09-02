@@ -1,18 +1,4 @@
-<!-- 背景图&头像 -->
-<div class="my-banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10 my-shadow">
-				<div class="info-pic text-center">
-					<%= image_tag"my_photo.png"%>
-					<h3>张三丰</h3>
-					<p>大唐邦彦信息学院  &nbsp;&nbsp; &nbsp;&nbsp; 计算机信息专业</p>
-					<p>印象评价   &nbsp;&nbsp; ｜  &nbsp;&nbsp;  个人资料</p>
-				</div>
-			</div>
-		</div>
-	</div>	
-</div>
+<%= render partial: "my_homehead" %>
 <div class="main">
 	<!-- 个人资料 -->
 	<div class="container">
@@ -79,30 +65,7 @@
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10 main-content">
 				<h3>印象评价</h3>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
-				<div class="col-md-2 my-impression text-center">
-					<span class="my-comment">棒棒哒(20)</span>
-				</div>
+				<%= render partial: "user_comment" %>
 				<div class="col-md-2 my-impression text-center">
 					<span class="my-add">
 						<a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 添加印象</a>

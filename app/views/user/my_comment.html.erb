@@ -1,0 +1,74 @@
+<%= render partial: "my_homehead" %>
+<div class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10 main-content">
+				<h3>印象评价</h3>
+				<div class="row">
+					<div class="col-md-5 my-divider">
+						<hr class="my-line">
+					</div>
+					<div class="col-md-2 my-divider text-center">
+						<h4>大家对我的印象</h4>
+					</div>
+					<div class="col-md-5 my-divider">
+						<hr class="my-line">
+					</div>
+				</div>
+				<%= render partial: "user_comment" %>
+				<div class="col-md-12 my-form">
+					<form class="form-horizontal">
+					  <div class="form-group">
+					    <div class="col-md-5">
+					      <input type="email" class="form-control" id="inputEmail3" placeholder=
+					      " 请输入您的描述，不超过10个字">
+					    </div>
+					    <div class="col-md-1">
+					    	<button class="btn btn-default my-btn">确定</button>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-offset-1 col-md-10 main-content">
+				<div class="row">
+					<div class="col-md-5 my-divider">
+						<hr class="my-line">
+					</div>
+					<div class="col-md-2 my-divider text-center">
+						<h4>大家对我的评价</h4>
+					</div>
+					<div class="col-md-5 my-divider">
+						<hr class="my-line">
+					</div>
+					<div class="col-md-12 my-text">
+						<textarea class="form-control" rows="3" placeholder=" 请输入您的描述，超过10个字"></textarea>
+					</div>
+					<div class="my-confire">
+						<button class="btn btn-default my-btn">确定</button>
+					</div>
+					<div class="col-md-12">
+						<hr class="my-dotted">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-offset-1 col-md-10">
+						<div class="my-comment">
+							<%= image_tag"user_comment2.png"%>
+							第六日 <span class="gray-text">说：</span><br>
+							回过头来看，觉得夸张，哈哈，那时候迷的不要不要的<br>
+							<div class="gray-bg">
+								<span class="gray-text">Mocie：</span>手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款
+							</div>
+							<p class="gray-text">
+								<span>22小时前</span>
+								<span>回复</span>
+							</p>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
