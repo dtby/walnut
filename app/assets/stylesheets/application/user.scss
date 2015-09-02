@@ -338,8 +338,7 @@
 }
 
 .user__my_home{		
-		
-h3{
+	h3{
 		margin-top: 0px;
 		color: #49A39B
 	}
@@ -406,6 +405,10 @@ h3{
 }	
 
 .user__my_comment{
+	.main-title{
+		margin-top: 0px;
+		color: #49A39B
+	}
 	.my-divider{
 		padding: 0 5px;
 		.my-line{
@@ -439,5 +442,12 @@ h3{
 	.gray-bg{
 		background: #F2F2F2;
 		padding: 10px;
+		margin-left: 40px;
+	}
+	.comment-text{
+		padding: 10px 40px;
+		.my-reply{
+			float: right;
+		}
 	}
 }
