@@ -5,19 +5,23 @@
 		<!-- 完成任务 -->
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10 main-content">				
-				<div class="col-md-3 text-center">
+				<div class="col-md-3 text-center task-text">
 					<div class="finish-icon courses-icon">5</div>
 					<span class="finish-text">完成课程</span>
 				</div>
-				<div class="col-md-3 text-center">
+				<!-- <div class="col-md-3 text-center">
+					<div class="finish-icon1 courses-icon1">5</div>
+					<span class="finish-text">完成课程</span>
+				</div> -->
+				<div class="col-md-3 text-center task-text">
 					<div class="finish-icon task-icon">17</div>
 					<span class="finish-text">完成任务</span>
 				</div>
-				<div class="col-md-3 text-center">
+				<div class="col-md-3 text-center task-text">
 					<div class="finish-icon project-icon">5</div>
 					<span class="finish-text">参与项目</span>
 				</div>
-				<div class="col-md-3 text-center">
+				<div class="col-md-3 text-center task-text">
 					<div class="finish-icon train-icon">5</div>
 					<span class="finish-text">完成培训</span>
 				</div>
@@ -77,12 +81,20 @@
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10 main-content">
 				<h3>作品展示</h3>
-				<div class="col-md-6 my-display">
+				<div class="col-md-6 my-display hover-info" id="display1">
 					<%= image_tag"user_display1.png" ,width:"100%" %>
+					<div class="hover1" id="details1">
+						<h4 class="display-title text-center">作品名称</h4>
+						<p>作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍</p>
+					</div>
 				</div>
 				<div class="col-md-6 my-display">
-					<div class="col-md-12 my-display">
+					<div class="col-md-12 my-display hover-info" id="display2">
 						<%= image_tag"user_display2.png" ,width:"100%" %>
+						<div class="hover1" id="details2">
+							<h4 class="display-title text-center">作品名称</h4>
+							<p>作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作品介绍作</p>
+						</div>
 					</div>
 					<div class="col-md-12 my-link my-display text-center">
 						<a href="#">www.buoyantec.com</a>
@@ -92,3 +104,19 @@
 		</div>
 	</div>
 </div>
+
+
+<script type="text/javascript">
+	$(function(){
+		$("#display1").mouseover(function(){
+			$("#details1").show();
+		}).mouseleave(function(){
+			$("#details1").hide();
+		});
+		$("#display2").mouseover(function(){
+			$("#details2").show();
+		}).mouseleave(function(){
+			$("#details2").hide();
+		});
+	})
+</script>

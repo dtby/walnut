@@ -343,30 +343,49 @@
 		color: #49A39B
 	}
 	// 完成任务
-	.finish-text{
-		font-size: 20px;
-		font-weight: 500;
-		margin-top: 20px; 
+	.task-text{
+		padding-left: 50px;
+		.finish-text{
+			font-size: 20px;
+			font-weight: 500;
+			margin-top: 20px; 
+		}
+		.finish-icon{
+			width: 145px;
+			height: 145px;
+			font-size: 72px;
+			line-height: 140px;
+			color: #efe;
+			margin-bottom: 20px;
+		}
+		.courses-icon{
+			background: image-url("user_finish1.png") no-repeat;
+		}
+		.task-icon{
+			background: image-url("user_finish2.png") no-repeat;
+		}
+		.project-icon{
+			background: image-url("user_finish3.png") no-repeat;
+		}
+		.train-icon{
+			background: image-url("user_finish4.png") no-repeat;
+		}
+		.finish-text{
+			padding-top:20px;
+		}
 	}
-	.finish-icon{
-		width: 145px;
-		height: 145px;
-		font-size: 72px;
-		line-height: 140px;
-		color: #efe;
-	}
-	.courses-icon{
-		background: image-url("user_finish1.png") no-repeat;
-	}
-	.task-icon{
-		background: image-url("user_finish2.png") no-repeat;
-	}
-	.project-icon{
-		background: image-url("user_finish3.png") no-repeat;
-	}
-	.train-icon{
-		background: image-url("user_finish4.png") no-repeat;
-	}
+	// .finish-icon1{
+	// 	background: #338C8E;
+	// 	border-radius: 70px;
+	// 	width: 140px;
+	// 	height: 140px;
+	// 	line-height: 140px;
+	// 	font-size: 72px;
+	// 	color: #fff;
+	// }
+	
+
+
 	// 我的勋章
 	.my-medal{
 		display: inline;
@@ -402,13 +421,31 @@
 			}
 		}
 	}
+	.hover-info{
+		position: relative;
+		.hover1{
+		display: none;
+		position: absolute;
+		bottom: 0;
+		background: rgba(0,0,0,0.5);
+		padding:0 20px 20px;
+		height: 100%;
+		width: 100%;
+		color: #ccc;
+		p{
+			font-size: 14px;
+		}
+		}
+	}
 }	
 
-.user__my_comment{
-	.main-title{
+.main-title{
 		margin-top: 0px;
 		color: #49A39B
 	}
+
+.user__my_comment{
+	
 	.my-divider{
 		padding: 0 5px;
 		.my-line{
@@ -448,6 +485,31 @@
 		padding: 10px 40px;
 		.my-reply{
 			float: right;
+		}
+	}
+}
+.user__my_infos{
+	.title-text{
+		margin-bottom: 60px;
+	}
+	.content-text{
+		padding-bottom: 40px;
+		font-size: 18px;
+	}
+	.info-text{
+		padding-bottom: 20px;
+	}
+	.my-hover{
+		position: relative;
+		.hover-text{
+			display: none;
+			position: absolute;
+			bottom: 0;
+			background: rgba(0,0,0,0.5);
+			height: 35px;
+			width: 138px;
+			line-height: 35px;
+			color: #fff;
 		}
 	}
 }
