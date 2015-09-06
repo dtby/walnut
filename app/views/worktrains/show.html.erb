@@ -1,4 +1,4 @@
-<%=image_tag"workt-banner.png",width:"100%"%>
+<%=image_tag"work_banner.png",width:"100%"%>
 <div class="container">
 <!-- 培训简介 -->
 	<div class="row">
@@ -28,10 +28,10 @@
 				<p class="train-main">1.招生对象招生对象招生对象招生对象招生对象</p>
 				<p class="train-main">2.招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象</p>
 				<div class="col-md-6 text-left col-text">
-					<button class="btn btn-default my-btn mybtn1" id="mybtn1">一键报名</button>
+					<button class="btn my-btn mybtn1" id="mybtn1">一键报名</button>
 				</div>
 				<div class="col-md-6 text-left">
-					<button class="btn btn-default my-btn mybtn2">在线咨询</button>
+					<button class="btn my-btn mybtn2">在线咨询</button>
 				</div>
 				
 			</div>
@@ -209,8 +209,7 @@
 <script type="text/javascript">
 	$(function(){
 		$("#mybtn1").click(function(){
-			(this).removeClass("mybtn1");
-			(this).addClass("mybtn3");
+			$("#mybtn1").removeClass("mybtn1").addClass("mybtn3").text("取消报名");
 		})
-	})	
+	});	
 </script>
