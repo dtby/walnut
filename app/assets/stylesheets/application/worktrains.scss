@@ -22,12 +22,11 @@
 			background: #797a7a;
 		}
 	}
-}
-.infos {
-	padding: 10px 15px;
-	color: #9b9b9b;
-	span {
-		color: #19b29f;
+		.infos {
+		color: #9b9b9b;
+		span {
+			color: #19b29f;
+		}		
 	}
 }
 .worktrains__index{
@@ -67,6 +66,9 @@
 		border:1px solid #D4D4D4;
 	}
 	// 培训简介
+	.my-infos{
+		padding: 10px 0;
+	}
 	.media-left{
 		padding-right: 40px;
 	}
@@ -78,6 +80,7 @@
 		font-weight: 500;
 		padding-right: 20px;
 		font-size: 16px;
+		color: #838383
 	}
 	.my-btn{
 		padding: 12px 70px;
