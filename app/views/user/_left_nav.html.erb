@@ -15,7 +15,7 @@
   <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "我的简历",my_resumes_user_index_path %></li><li><hr class="divesi1"></li>
   <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的消息", my_messages_user_index_path %></li><li><hr class="divesi1"></li>
   <li class="<%= "active" if params[:controller] == 'user' && (params[:action] == 'show' ||  params[:action] == 'update')%>"><%=link_to "个人信息",user_path(current_user) %></li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_resumes'%>"><%=link_to "印象评价",my_resumes_user_index_path %></li><li><hr class="divesi1"></li>
-  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_messages'%>"><%=link_to "我的培训", my_messages_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_impression'%>"><%=link_to "印象评价",my_impression_user_index_path %></li><li><hr class="divesi1"></li>
+  <li class="<%= "active" if params[:controller] == 'user' && params[:action] == 'my_trains'%>"><%=link_to "我的培训", my_trains_user_index_path %></li><li><hr class="divesi1"></li>
 </ul>
               

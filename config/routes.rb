@@ -39,6 +39,8 @@ Rails.application.routes.draw do
       get :my_home
       get :my_comment
       get :my_infos
+      get :my_trains
+      get :my_impression
     end
   end
 

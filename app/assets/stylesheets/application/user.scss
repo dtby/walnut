@@ -485,6 +485,7 @@
 		}
 	}
 }
+
 .user__my_infos{
 	.title-text{
 		margin-bottom: 60px;
@@ -510,3 +511,118 @@
 		}
 	}
 }
+
+
+.user__my_resumes {
+	.user-pic > img {
+		border: 3px solid #5BC2B6;
+		border-radius: 5px;
+	}
+	.resumes-title {
+		color: #5BC2B6;
+		span {
+			background-color: #fff;
+			padding: 0 15px;
+			position: relative;
+				top: 32px;
+		}
+
+	}
+	.col {
+		font-weight: bold;
+		line-height: 30px;
+	}
+	.user-resumes {
+		border-color: #5BC2B6;
+		margin-bottom: 30px;
+	} 
+}
+
+.user__my_impression {
+	.user-impression {
+		border: 2px solid #797B7A;
+		margin-bottom: 20px;
+	}
+	.impression-tab {
+		padding-left: 20px;
+		.tab {
+		margin: 0 10px 10px 10px;
+		}
+	}
+	.impression-t {
+		margin-bottom: 20px;
+		.impression-title {
+			position: relative;
+				bottom: -30px;
+			span {
+				background-color: #fff;
+				padding: 0 20px;
+			}
+		}
+	}
+	.evaluate {
+		padding: 0 40px;
+		.eva-bg {
+			background-color: #EFEFEF;
+			padding: 8px 15px;
+			
+		}
+		.eva-col {
+			color: #999798;
+			font-size: 15px;
+			margin-bottom: 20px;
+		}
+		.impression-hr {
+			border: 1px solid #EFEFEF;
+		}
+		img {
+			border-radius: 50%;
+			width: 50px;
+		}
+	}
+}
+
+.my__trains {
+	.trains-title {
+		padding-bottom: 20px;
+		.title {
+			span {
+				padding: 0 10px;
+				font-size: 30px;
+				background-color: #fff;
+				position: relative;
+				top: 35px;
+			}
+		}
+	}
+	.trains-lines {
+		border: 2px solid #797B7A;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> add some page
