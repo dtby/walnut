@@ -2,12 +2,14 @@
 	<% @applies.each_with_index do |apply, index| %>
 		<div class="frame margin-b-10">
 			<div class="clearfix text-center">
-				<div class="col-xs-4 no-padding train-name">
-					<span><%= index + 1%>. <%= apply.train_name %></span>
-				</div>
-				<div class="col-xs-4 no-padding">
-					<span><%= apply.updated_at.strftime("%F") %></span>
-				</div>
+				<%= link_to [:wechat, apply] do %>
+					<div class="col-xs-4 no-padding train-name">
+						<span><%= index + 1%>. <%= apply.train_name %></span>
+					</div>
+					<div class="col-xs-4 no-padding">
+						<span><%= apply.updated_at.strftime("%F") %></span>
+					</div>
+				<% end %>
 				<div class="col-xs-4 no-padding">
 					<%= link_to(wechat_apply_path(apply), method: :delete, remote: true, format: :js, data: { confirm: '您要取消报名该课程吗？' }) do %>
 						<button class="btn btn-danger btn-sm cancel-btn">取消报名</button>

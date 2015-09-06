@@ -4,7 +4,7 @@
 		<div class="text-center">
 			<%=image_tag"apply2.png",width:"90%"%>
 		</div>
-		<p class="text-center my-p">您好，<%= @apply.name %><br>你已经提交成功，请耐心等待<br>我们将尽快和您联系</p>
+		<%= render partial: "flash" %>
 		<!-- begin: 报名信息 -->
 		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.name %></div></div>		
 		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= Apply::SEX[@apply.sex.to_sym] %></div></div>
@@ -17,6 +17,11 @@
 		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.school_name %></div></div>
 		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.way %></div></div>
 		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= @apply.train_name %></div></div>
+		<div class="col-xs-12">
+			<%= link_to edit_wechat_apply_path(@apply) do %>
+				<button type="button" class="btn btn-lg btn-block my-lg new1">修改</button>
+			<% end %>
+		</div>
 		<!-- end: 报名信息 -->
 	</div>
 	<div class="col-xs-12 turn-back"><%= link_to("返回报名页面", wechat_root_path(openid: session[:openid])) %></div>
