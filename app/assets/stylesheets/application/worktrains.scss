@@ -22,12 +22,12 @@
 			background: #797a7a;
 		}
 	}
-	.infos {
-		padding: 30px 0;
-		color: #9b9b9b;
-		span {
-			color: #19b29f;
-		}
+}
+.infos {
+	padding: 10px 15px;
+	color: #9b9b9b;
+	span {
+		color: #19b29f;
 	}
 }
 .worktrains__index{
@@ -48,6 +48,9 @@
 		}
 		.mt-10 {
 			margin-top: 10px;
+		}
+		a{
+			color: #000;
 		}
 	}
 	.next-btn{
@@ -85,6 +88,9 @@
 	}
 	.mybtn1{
 		background: #D82425;
+	}
+	.mybtn3{
+		background: #ccc;
 	}
 	.mybtn2{
 		background: #0F8C8E;
