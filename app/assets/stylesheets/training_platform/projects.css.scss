@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .main-bg{
-  padding: 20px 0;
+  padding: 10px 0;
   color: #fff;
   .main{
     margin:0 0px 15px 0px;
@@ -312,5 +312,36 @@ input.form_datetime {
 #commentForm {
   .form-actions {
     margin: 0px;
+  }
+}
+
+.project-search-condition {
+  padding-top: 46px;
+  .search-row {
+    padding-bottom: 10px;
+  }
+  .search-title {
+    padding-top: 5px;
+    strong {
+      font-size: 16px;
+    }
+  }
+
+  .search-condition{
+    li {
+      a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: #000;
+      }
+      &.active {
+        a {
+          padding-top: 5px;
+          padding-bottom: 5px;
+          color: #fff;
+          background-color: #2EC8BA;
+        }
+      }
+    }
   }
 }

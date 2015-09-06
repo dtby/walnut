@@ -2,7 +2,8 @@
 <%= simple_form_for(@project, url: is_edit_or_update? ? training_platform_project_path(@project) : training_platform_projects_path(@project), remote: true, format: :js, wrapper: :horizontal_form_col210 ,html: {id: "projectFormModal", class: "form-horizontal"}) do |f| %>
 
   <%= f.input :name, as: :string, required: false, autofocus: true %>
-  <%= f.input :description, as: :text, required: false, input_html: {cols: 6} %>
+  <%= f.input :description, as: :text, required: false, input_html: {cols: 6, rows: 4} %>
+  <%= f.input :project_type, collection: Project::ProjectType.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
   <%= f.input :is_public, collection: Project::IsPublic.invert, as: :radio_buttons, wrapper: "horizontal_radio_and_checkboxes210", item_wrapper_class: "radio-inline" %>
 
   <div class="row tp_m">
