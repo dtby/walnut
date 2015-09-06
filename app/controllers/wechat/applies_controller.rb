@@ -4,7 +4,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	def home
 		log = Logger.new(File.join Rails.root, 'log/client_weixin.log')
 		log.info $client
-		$client = WeixinAuthorize::Client.new("wxe3605f6d3f8d52e1", "a5fde3f35e9ee6ade3e12b6eaeecaa70")
+		$client = WeixinAuthorize::Client.new("wx3e31dd477d4c537b", "66c799d0cc42a282d4d79e596f96b0ec")
 		log.info "————————————————————————————————————————————"
 		log.info $client
 	end
