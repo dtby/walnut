@@ -25,6 +25,9 @@ class Project < ActiveRecord::Base
   enum is_public: { open: true, close: false }
   IsPublic = { open: '公开', close: '私密' }
 
+  enum project_type: { default: 0, follow: 1, together: 2 }
+  ProjectType = { default: '默认', follow: '跟我练', together: '一起来搞' }
+
   validates :name, presence: true
 
 
@@ -60,7 +63,7 @@ class Project < ActiveRecord::Base
       when "pigeonhole"
         current_user.votes.up.for_type(Project).where(vote_scope: "pigeonhole").votables
       else
-        includes(:user_projects).where(user_projects: {user_id: current_user.id})
+        where(is_public: true)
       end
     else
       search(include: [:user_projects]) do 
