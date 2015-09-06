@@ -4,6 +4,13 @@
 		border-width: 3px 0 0; 
 		margin-top: 30px;
 	}
+	a{
+		text-decoration: none !important;
+	}
+	.thumbnail{
+		padding:4px 0;
+		height: 350px;
+	}
 	.caption{
 		h3{
 			color: #00C0B6;
@@ -12,6 +19,21 @@
 			text-indent: 2em;
 		}
 	}	
+	.hover-info{
+	position: relative;
+	.hover1{
+		display: none;
+		position: absolute;
+		bottom: 0;
+		background: rgba(0,0,0,0.5);
+		padding:0 20px 20px;
+		height: 350px;
+		width: 100%;
+		line-height: 350px;
+		color: #fff;
+		font-size: 24px;
+		}
+	}
 }
 
 .evaluations__show{
