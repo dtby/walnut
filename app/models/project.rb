@@ -46,7 +46,7 @@ class Project < ActiveRecord::Base
 
   #根据当前登录用户以及列表需显示的数据显示相关项目
   #type: 需要显示项目的种类
-  def self.list_projects type, query
+  def self.list_projects type, query = nil
     if query.blank?
       case type
       when "self"
