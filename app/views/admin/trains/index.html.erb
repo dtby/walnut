@@ -1,0 +1,38 @@
+<%= content_for :nav do%>
+  <li>
+    <a href="#{admin_root_path}">后台</a>
+  </li>
+  <li class="active">培训列表</li>
+<%end%>
+
+<%= content_for :toolbar do %>
+  <div class="col-xs-12">
+    <%= link_to new_admin_train_path, class: 'btn btn-success' do %>
+      <span class="glyphicon glyphicon-plus-sign">新建</span>
+    <%end%>
+    <div class="col-xs-3 pull-right">
+      <div class="form-group">
+        <%= render partial: 'admin/common/keyword', locals: {path: ""} %>
+      </div>
+    </div>
+  </div>
+<%end%>
+
+<hr></hr>
+<table class="table table-hover table-bordered text-center table-condensed">
+  <thead>
+    <tr>
+      <th class="text-center">课程名称</th>
+      <th class="text-center">课程主图</th>
+      <th class="text-center">课程介绍</th>
+      <th class="text-center">访问量</th>
+      <th class="text-center" colspan="2">操作</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= render "trains" %>
+  </tbody>
+</table>
+<div class="col-xs-10 col-xs-offset-1">
+<%= paginate @trains %>
+</div>

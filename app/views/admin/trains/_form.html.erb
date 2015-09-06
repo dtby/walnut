@@ -1,0 +1,60 @@
+<%= simple_form_for([:admin, @train], html: {class: "form-horizontal"}) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title, '课程名称', class: 'col-sm-2 col-sm-offset-2 control-label' %>
+  <div class="col-sm-4">
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  </div>
+
+  <% if @train.picture_url.present? %>
+    <div class="form-group">
+      <%= label_tag :picture_url, '已上传图片', class: 'col-sm-2 col-sm-offset-2 control-label' %>
+      <div class="col-sm-4 container">
+        <%= image_tag @train.try(:picture_url), size: "340x200" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :picture_url, '培训海报', class: 'col-sm-2 col-sm-offset-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= f.file_field :picture_url, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :introduce, '课程介绍',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.kindeditor :introduce, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :syllabus, '课程安排',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.kindeditor :syllabus, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :prospect, '就业前景',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.kindeditor :prospect, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :characteristic, '课程特色',class: 'col-sm-2 col-sm-offset-2 control-label'%>
+    <div class="col-sm-4">
+    <%= f.kindeditor :characteristic, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="actions">
+  <hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<!--     <%= f.submit %> -->
+  </div>
+<% end %>

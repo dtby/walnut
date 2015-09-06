@@ -1,4 +1,4 @@
-<%= image_tag "workt-banner.png",width:"100%" %>
+<%= image_tag "work_banner.png",width:"100%" %>
 <div class="container">
 	<div class="row">
 		<div class="title-bar col-md-12">
@@ -7,36 +7,54 @@
 		</div>
 	</div>
 	<div class="row">
-	  <div class="col-md-4 courses_tent">
-      <div class="bordered">
-        <a href="#">
-          <%= image_tag("workt3.png", class: "img-responsive")%>
-          <div class="col-sm-12 mt-10">
-            <h4>我是课程名称</h4>
-            <p>我是一句话的描述一句话的描述一句话的描述.....</p>
+	  <!-- <div class="col-md-4 courses_tent"> -->
+    <div class="worktrain_col">
+    <% @trains.each do |train| %>
+      <%= link_to worktrain_path(train) do |i| %>
+        <div class="courses_tent">
+          <div class="bordered">
+            <%= image_tag( train.picture_url .present? ? train.picture_url : "workt1.png", width: "100%", class: "img-responsive")%>
+            <div class="col-sm-12 mt-10">
+              <h4><%= train.title.try(:truncate, 15) %></h4>
+              <p><%=raw train.introduce.try(:truncate, 20) %></p>
+            </div>
+            <div class="col-sm-12 infos">
+              <span class="glyphicon glyphicon-eye-open"></span> 1549
+              &nbsp;&nbsp;&nbsp;
+              <span class="glyphicon glyphicon-time"></span>&nbsp;<%= train.created_at.strftime("%F %H:%M:%S") %>
+            </div>
           </div>
-          <div class="col-sm-12 infos">
-            <span class="glyphicon glyphicon-eye-open"></span> 1549
-            &nbsp;&nbsp;&nbsp;
-            <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
-          </div>
-        </a>
-      </div>
-      <div class="bordered">
-        <a href="#">
-          <%= image_tag("workt1.png", class: "img-responsive")%>
-          <div class="col-sm-12 mt-10">
-            <h4>我是课程名称</h4>
-            <p>我是一句话的描述一句话的描述一句话的描述.....</p>
-          </div>
-          <div class="col-sm-12 infos">
-            <span class="glyphicon glyphicon-eye-open"></span> 1549
-            &nbsp;&nbsp;&nbsp;
-            <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
-          </div>
-        </a>
-      </div>
+        </div>
+      <% end %>
+    <% end %>
     </div>
+    
+    <!-- <div class="col-md-4 courses_tent">
+      <div class="bordered">
+        <%= image_tag("workt2.png", class: "img-responsive")%>
+        <div class="col-sm-12 mt-10">
+          <h4>我是课程名称</h4>
+          <p>我是一句话的描述一句话的描述一句话的描述.....</p>
+        </div>
+        <div class="col-sm-12 infos">
+          <span class="glyphicon glyphicon-eye-open"></span> 1549
+          &nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+        </div>
+      </div>
+      <div class="bordered">
+        <%= image_tag("workt3.png", class: "img-responsive")%>
+        <div class="col-sm-12 mt-10">
+          <h4>我是课程名称</h4>
+          <p>我是一句话的描述一句话的描述一句话的描述.....</p>
+        </div>
+        <div class="col-sm-12 infos">
+          <span class="glyphicon glyphicon-eye-open"></span> 1549
+          &nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-time"></span> 5月14日 17:30
+        </div>
+      </div>
+    </div> 
 		<div class="col-md-4 courses_tent">
       <div class="bordered">
         <a href="#">
@@ -96,7 +114,8 @@
           </div>
         </a>
       </div>
-    </div>
+    </div> -->
+
     <div class="col-md-12">
     	<button class="btn btn-default btn-lg next-btn">加载下一页...</button>
     </div>

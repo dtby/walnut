@@ -321,6 +321,23 @@ ActiveRecord::Schema.define(version: 20150906153842) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "trains", force: :cascade do |t|
+    t.string   "title",                    limit: 255
+    t.text     "introduce",                limit: 65535
+    t.text     "syllabus",                 limit: 65535
+    t.text     "prospect",                 limit: 65535
+    t.text     "characteristic",           limit: 65535
+    t.string   "picture_url",              limit: 255
+    t.text     "content",                  limit: 65535
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "picture_url_file_name",    limit: 255
+    t.string   "picture_url_content_type", limit: 255
+    t.integer  "picture_url_file_size",    limit: 4
+    t.datetime "picture_url_updated_at"
+    t.integer  "views_count",              limit: 4
+  end
+
   create_table "user_notifications", force: :cascade do |t|
     t.integer  "user_id",         limit: 4
     t.integer  "notification_id", limit: 4
@@ -407,6 +424,18 @@ ActiveRecord::Schema.define(version: 20150906153842) do
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+
+  create_table "worktrains", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.integer  "pv",             limit: 4
+    t.string   "introduce",      limit: 255
+    t.string   "syllabus",       limit: 255
+    t.string   "prospect",       limit: 255
+    t.string   "characteristic", limit: 255
+    t.string   "picture_url",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"

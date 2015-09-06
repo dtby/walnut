@@ -114,6 +114,3 @@ gem 'sunspot_solr'
 
 #导出成 .xls 文件
 gem "spreadsheet_on_rails"
-
-
-
