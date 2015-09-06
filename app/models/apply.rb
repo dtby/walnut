@@ -37,6 +37,20 @@ class Apply < ActiveRecord::Base
 		'安卓开发' => 'android',
 		'WEB全栈' => 'web'
 	}
+	#验证报名课程是否已存在
+	def self.valid_create(params)
+		apply = self.find_by_train_name(params[:train_name])
+		if apply.present?
+			return 'present'
+		elsif val == 0
+			self.new(params)
+		end
+	end
+
+	#验证更新报名课程是否已存在
+	def self.valid_update(params)
+		
+	end
 
 	#查询各班报名情况
 	def self.students train_name

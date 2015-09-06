@@ -1,6 +1,7 @@
 class Wechat::AppliesController < Wechat::ApplicationController
 	before_action :set_applies, only: [:index, :destroy]
 	before_action :set_apply, only: [:show, :edit, :update, :destroy]
+	before_action :valid_train_name, only: [:create, :update]
 	def home
 		log = Logger.new(File.join Rails.root, 'log/client_weixin.log')
 		log.info $client
@@ -14,8 +15,11 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def create
-		@apply = Apply.new(apply_params)
-		if @apply.save
+		@apply = Apply.valid_create(apply_params, 0)
+		if @apply == 'present'
+			redirect_to wechat_error_path
+			flash[:notice] = "您已报名过《#{params[:train_name]}》了<br>请不要重复报名或者报名其他课程"
+		elsif @apply.save
 			respond_to do |format|
 				format.js {render js: "location.href='#{ wechat_apply_path(@apply)}'"}
 			end
@@ -29,7 +33,11 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def update
-		if @apply.update(apply_params)
+		update_apply = @apply.valid_create_or_update(apply_params, 1)
+		if update_apply == 'present'
+			redirect_to wechat_error_path
+			flash[:notice] = "您已报名过《#{params[:train_name]}》了<br>请不要重复报名或者报名其他课程"
+		elsif update_apply
 			respond_to do |format|
 				format.js {render js: "location.href='#{ wechat_apply_path(@apply)}'"}
 			end
@@ -67,5 +75,13 @@ class Wechat::AppliesController < Wechat::ApplicationController
 
 		def set_apply
 			@apply = Apply.find(params[:id])
+		end
+
+		#判断是否已存在报名课程
+		def valid_train_name
+			if Apply.find_by_train_name(params[:train_name]).present?
+				redirect_to wechat_error_path
+				flash[:notice] = "您已报名过《#{params[:train_name]}》了<br>请不要重复报名或者报名其他课程"
+			end
 		end
 	end
