@@ -28,10 +28,10 @@
 				<p class="train-main">1.招生对象招生对象招生对象招生对象招生对象</p>
 				<p class="train-main">2.招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象</p>
 				<div class="col-md-6 text-left">
-					<button class="btn btn-default my-btn mybtn1">在线报名</button>
+					<button class="btn btn-default my-btn mybtn1" id="mybtn1">一键报名</button>
 				</div>
 				<div class="col-md-6 text-left">
-					<button class="btn btn-default my-btn mybtn2">试听/咨询</button>
+					<button class="btn btn-default my-btn mybtn2">在线咨询</button>
 				</div>
 				
 			</div>
@@ -70,7 +70,7 @@
 				    <div class="col-md-3 text-center">
 				    	 <%=image_tag"judy.png"%>
 				      <h4>Judy老师</h4>
-		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向<a href="#">更多></a></p>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向</a></p>
 				    </div>
 				    <div class="col-md-3 text-center">
 				    	 <%=image_tag"landy.png"%>
@@ -94,7 +94,7 @@
 				    <div class="col-md-3 text-center">
 				    	 <%=image_tag"judy.png"%>
 				      <h4>Judy老师</h4>
-		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向<a href="#">更多></a></p>
+		        	<p>核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向核桃网校留学方向</a></p>
 				    </div>
 				    <div class="col-md-3 text-center">
 				    	 <%=image_tag"landy.png"%>
@@ -205,3 +205,12 @@
 		<%=image_tag"special2.png",width:"100%"%>
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$("#mybtn1").click(function(){
+			(this).removeClass("mybtn1");
+			(this).addClass("mybtn3");
+		})
+	})	
+</script>
