@@ -17,7 +17,7 @@
 			<div class="media-body">
 				<h3 class="media-heading"><%= @train.title.try(:truncate, 15) %></h3>
 				<div class="infos">
-	          	<span class="glyphicon glyphicon-eye-open"></span> 1549 &nbsp;&nbsp;&nbsp;
+	          	<span class="glyphicon glyphicon-eye-open"></span> <%= @train.views_count_s %> &nbsp;&nbsp;&nbsp;
 	          	<span class="glyphicon glyphicon-time"></span> &nbsp;<%= @train.created_at.strftime("%F %H:%M:%S") %>
         		</div>
         		<h4>培训简介：</h4>

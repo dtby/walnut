@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906061905) do
-
+ActiveRecord::Schema.define(version: 20150906100802) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -325,7 +324,6 @@ ActiveRecord::Schema.define(version: 20150906061905) do
 
   create_table "trains", force: :cascade do |t|
     t.string   "title",                    limit: 255
-    t.integer  "pv",                       limit: 4
     t.text     "introduce",                limit: 65535
     t.text     "syllabus",                 limit: 65535
     t.text     "prospect",                 limit: 65535
@@ -338,6 +336,7 @@ ActiveRecord::Schema.define(version: 20150906061905) do
     t.string   "picture_url_content_type", limit: 255
     t.integer  "picture_url_file_size",    limit: 4
     t.datetime "picture_url_updated_at"
+    t.integer  "views_count",              limit: 4
   end
 
   create_table "user_notifications", force: :cascade do |t|

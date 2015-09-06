@@ -5,7 +5,7 @@ class WorktrainsController < ApplicationController
   end
 
   def show
-  		@train = Train.find(params[:id])
+      @train.update_views_count
   	end
 
   	private
