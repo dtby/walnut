@@ -161,6 +161,7 @@ Rails.application.routes.draw do
     resources :companies
     resources :recruitments
     resources :categories
+    resources :trains
     resources :courses do
       resources :sub_courses
     end

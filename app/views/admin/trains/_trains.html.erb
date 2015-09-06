@@ -1,0 +1,19 @@
+<% @trains.each do |train| %>
+<tr>
+  <td><%= train.title.try(:truncate, 15) %></td>
+  <td><%= image_tag train.picture_url.url(:thumb) %></td>
+  <td><%=raw train.introduce.try(:truncate, 35) %></td>
+  <td><%= train.pv %></td>
+  <td>
+    <%#= link_to [:admin, specialty], class: 'btn btn-xs btn-info', title: '查看' do %>
+     <!--  <span class="glyphicon glyphicon-eye-open"></span> -->
+    <%#end%>
+    <%= link_to edit_admin_train_path(train), class: 'btn btn-xs btn-default', title: '编辑' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <%end%>
+    <%= link_to admin_train_path(train), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <%end%>
+  </td>
+</tr>
+<% end %>
