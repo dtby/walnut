@@ -13,13 +13,12 @@
 	</div>
 	<%= f.input :phone, placeholder: "手机＊" %>
 	<%= f.input :qq, placeholder: "QQ＊" %>
-	<%= f.input :email, placeholder: "邮箱＊" %>
-	<%= f.input :address, placeholder: "地址＊" %>
+	<%= f.input :email, placeholder: "邮箱" %>
+	<%= f.input :school_name, placeholder: "所在院校＊" %>
 	<div class="row">
-		<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::SITUATION.invert["在职"], placeholder: "目前状态" %>
+		<%= f.input :situation, collection: Apply::SITUATION.invert, wrapper_html: {class: 'col-xs-6 rpadding'}, selected: Apply::SITUATION.invert["学生"], placeholder: "目前状态" %>
 		<%= f.input :degree, collection: Apply::DEGREE.invert, wrapper_html: {class: 'col-xs-6 lpadding'}, selected: Apply::DEGREE.invert["本科"], placeholder: "教育状况" %>
 	</div>
-	<%= f.input :school_name, placeholder: "最高院校" %>
 	<%= f.button :button, class: "my-btn" do %>
 	<%= content_tag(:div, "提交信息", class: "text-center") %>
 	<% end %>

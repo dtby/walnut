@@ -1,0 +1,22 @@
+<div class="container my-main" id="my_course" style="display:none">
+	<div class="my-row text-center clearfix">
+		<div class="text-center">
+			<%=image_tag"apply2.png",width:"90%"%>
+		</div>
+		<h3 class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写以下信息</h3>
+		<h3><strong>请选择一门意向课程</strong></h3>
+		<% Apply.train_names.keys.each do |train_name| %>
+			<% if train_names.include?(Apply.train_names[train_name]) %>
+				<div class="col-xs-12 frame"><%= train_name %>
+					<span class="text-primary">（已报名）</span>
+				</div>
+			<% else %>
+				<div class="col-xs-12 frame">
+					<div class="course"><%= train_name %></div>
+				</div>
+			<% end %>
+		<% end %>
+		<button type="button" class="btn btn-lg btn-block my-lg new2">下一步</button>
+	</div>
+	<div class="col-xs-12 turn-back"><a href="javascript: void(0);" id="back-way">返回上一页</a></div>
+</div>
