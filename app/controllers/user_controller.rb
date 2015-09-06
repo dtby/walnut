@@ -68,6 +68,12 @@ class UserController < ApplicationController
   def my_infos
     
   end
+  def my_trains
+    
+  end
+  def impression
+    
+  end
 
   private
   def user_params

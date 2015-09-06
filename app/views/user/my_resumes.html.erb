@@ -1,4 +1,4 @@
-<div class="waperbg">
+<div class="waperbg user__my_resumes">
   <div class="container">
     <div class="row">
     <div class="col-md-3">
@@ -13,15 +13,72 @@
         </div>
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane text-center active" id="joinProjects">
-            <%= image_tag "default-user.jpg",style:"width:100px;height:100px;" %>
+          <div class="col-md-12">
+            <p class="user-pic"><%= image_tag "default-user.jpg",style:"width:100px;height:100px;" %></p>
             <p>张某某</p>
             <p>个性签名：不忘初心，方得始终！</p>
             <p>北京大学&nbsp;&nbsp;&nbsp;计算机专业</p>
             <p>上海&nbsp;&nbsp;123456789@qq.com</p>
             <p>Java专业&nbsp;&nbsp;Java工程师</p>
           </div>
+          <div class="col-md-12">
+            <h3 class="resumes-title"><span>教育经历</span></h3>
+            <hr class="user-resumes">
+          </div>
+          <% (0..4).each do %>
+          <div class="col-md-12 resumes-table">
+            <div class="col-md-1 col">1、</div>
+            <div class="col-md-3 col">北京大学</div>
+            <div class="col-md-3 col">计算机专业</div>
+            <div class="col-md-2 col">博士</div>
+            <div class="col-md-3 col">2011-07～2015-07</div>
+          </div>
+          <% end %>
+          <div class="col-md-12">
+            <h3 class="resumes-title"><span>实习经历</span></h3>
+            <hr class="user-resumes">
+          </div>
+          <% (0..4).each do %>
+          <div class="col-md-12 resumes-table">
+            <div class="col-md-1 col">1、</div>
+            <div class="col-md-4 col">大唐邦彦（上海）信息技术有限公司</div>
+            <div class="col-md-2 col">上海&nbsp;嘉定</div>
+            <div class="col-md-2 col">工程师</div>
+            <div class="col-md-3 col">2011-07～2015-07</div>
+          </div>
+          <% end %>
+          <div class="col-md-12">
+            <h3 class="resumes-title"><span>项目经验</span></h3>
+            <hr class="user-resumes">
+          </div>
+          <% (0..4).each do %>
+          <div class="col-md-12 resumes-table">
+            <div class="col-md-1 col">1、</div>
+            <div class="col-md-4 col">项目名称项目名称项目名称</div>
+            <div class="col-md-2 col">程序开发</div>
+            <div class="col-md-2 col">凭证：<span>附件</span></div>
+            <div class="col-md-3 col">2011-07～2015-07</div>
+          </div>
+          <div class="col-md-12 col">我是项目内容我是项目内容我是项目内容我是项目内容我是项目内容我是项目内容我是项目内容</div>
+          <% end %>
+          <div class="col-md-12">
+            <h3 class="resumes-title"><span>技能储备</span></h3>
+            <hr class="user-resumes">
+          </div>
+          <% (0..4).each do %>
+          <div class="col-md-12 resumes-table">
+            <div class="col-md-1 col">1、</div>
+            <div class="col-md-3 col">技能体系／职业路径</div>
+            <div class="col-md-3 col">完成度：80%</div>
+            <div class="col-md-3 col">经验值：300</div>
+            <div class="col-md- col2">核桃教育网</div>
+          </div>
+          <% end %>
+
+          </div>
 
           <div role="tabpanel" class="tab-pane" id="createProjects">
+            <%=render "resumes_form" %>
           </div>
 
         </div>

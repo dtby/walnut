@@ -1,0 +1,41 @@
+<div class="user__my_impression">
+	<div class="waperbg">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<%=render "left_nav" %>
+				</div>
+				<div class="col-md-9 right_nav_c">
+					<div class="col-md-12 impression-t">
+			            <h4 class="impression-title text-center"><span>大家对我的印象</span></h4>
+			            <hr class="user-impression">
+			        </div>
+			        <div class="col-md-12 impression-tab">
+			        <% (0..7).each do %>
+			        	<button class="btn btn-success tab" type="button">帮帮哒！<span class="badge">20</span></button>
+			        <% end %>
+			        </div>
+			        <div class="col-md-12 impression-t">
+			            <h4 class="impression-title text-center"><span>大家对我的评价</span></h4>
+			            <hr class="user-impression">
+			        </div>
+			        <% (0..5).each do %>
+			        <div class="col-md-12 evaluate">
+			        	<div class="col-md-1">
+			        	<%=image_tag "default-user.jpg", class:"member_pic" %>
+			        	</div>
+			        	<div class="col-md-11">
+			        	<p><span>第六日</span><span class="eva-col">说：</span></p>
+			        	<p>回过头看，觉得夸张，哈哈，那时候迷的不要不要d</p>
+			        	<p class="eva-bg"><span class="eva-col">Mocie:</span><span>回过头看，觉得夸张，哈哈，那时候迷的不要不要d回过头看，觉得夸张，那时候迷的不要不要d</span></p>
+			        	<p><span class="eva-col">22小时前</span><span class="eva-col pull-right">回复</span></p>
+			        	</div>
+			        	<hr class="impression-hr">
+			        </div>
+			        <% end %>
+					<div class="text-center"><%#= paginate @user_notifications %></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
