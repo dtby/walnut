@@ -75,10 +75,10 @@
           <% else %>
             <% @search.each do |project| %>
               <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 project-title-show">
-                <div class="row blue-bg main">
+                <div class="row main <%= project_bc(project) %>">
                   <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12 text-right">
                     <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?, project, vote_scope: "collect") ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}", scope: "collect") do %>
-                      <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %> yellow-start" aria-hidden="true"></span>
+                      <span class="glyphicon <%= (current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "glyphicon-star" : "glyphicon-star-empty" %>" aria-hidden="true"></span>
                     <% end %>
                     <div class="dropdown project-set-btn">
                       <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -107,12 +107,7 @@
                   <%= link_to training_platform_project_announces_path(project_id: project.id) do %>
                     <div class="col-xs-8 col-md-9 col-sm-9 col-lg-9">
                       <h4><%= project.name %></h4>
-                      <p>
-                        （总任务：<%= project.tasks.count %>
-                        已完成：<%= project.tasks.completes.count %>
-                        待办中：<%= project.tasks.waits.count %>
-                        验收通过：<%= project.tasks.acceprances.count %> ）
-                      </p>
+                      <p><%= show_project_desc(project) %></p>
                     </div>
                   <% end %>
                 </div>
