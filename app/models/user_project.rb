@@ -14,6 +14,7 @@
 class UserProject < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
+
   #创建者、管理者、成员、访客
   enum role: { creator: 1, admin: 2, member: 3 }
   Role = { creator: "创建者", admin: "管理者", member: "成员" }
@@ -27,5 +28,4 @@ class UserProject < ActiveRecord::Base
   def self.get_user_project(user, project)
     UserProject.find_by(user_id: user.id, project_id: project.id)
   end
-
 end

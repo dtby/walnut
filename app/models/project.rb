@@ -46,20 +46,27 @@ class Project < ActiveRecord::Base
 
   #根据当前登录用户以及列表需显示的数据显示相关项目
   #type: 需要显示项目的种类
-  def self.list_projects type
-    case type
-    when "self"
-      Project.includes(:user_projects).where(user_projects: {user_id: current_user.id})
-    when "create"
-      Project.joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role = 1")
-    when "join"
-      Project.joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role <> 1")
-    when "collect"
-      current_user.votes.up.for_type(Project).where(vote_scope: "collect").votables
-    when "pigeonhole"
-      current_user.votes.up.for_type(Project).where(vote_scope: "pigeonhole").votables
+  def self.list_projects type, query
+    if query.blank?
+      case type
+      when "self"
+        includes(:user_projects).where(user_projects: {user_id: current_user.id})
+      when "create"
+        joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role = 1")
+      when "join"
+        joins(:user_projects).where("user_projects.user_id = #{current_user.id} and user_projects.role <> 1")
+      when "collect"
+        joins(:votes_for).where(votes: { vote_scope: "collect", vote_flag: true, voter_id: current_user.id, voter_type: current_user.class})
+      when "pigeonhole"
+        current_user.votes.up.for_type(Project).where(vote_scope: "pigeonhole").votables
+      else
+        includes(:user_projects).where(user_projects: {user_id: current_user.id})
+      end
     else
-      Project.includes(:user_projects).where(user_projects: {user_id: current_user.id})
+      search(include: [:user_projects]) do 
+        fulltext query # 模糊检索
+        with :is_public, true
+      end.results
     end
   end
 
@@ -71,5 +78,6 @@ class Project < ActiveRecord::Base
   #solr搜索
   searchable do
     text :name, :description
+    boolean :is_public
   end
 end
