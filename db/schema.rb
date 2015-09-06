@@ -425,18 +425,6 @@ ActiveRecord::Schema.define(version: 20150906153842) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
-  create_table "worktrains", force: :cascade do |t|
-    t.string   "title",          limit: 255
-    t.integer  "pv",             limit: 4
-    t.string   "introduce",      limit: 255
-    t.string   "syllabus",       limit: 255
-    t.string   "prospect",       limit: 255
-    t.string   "characteristic", limit: 255
-    t.string   "picture_url",    limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
 end
