@@ -14,7 +14,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 		@apply = Apply.new(apply_params)
 		if @apply.save
 			respond_to do |format|
-				format.js {render js: "location.href='#{ wechat_apply_path(@apply)}'"}
+				format.js {render js: "location.href='#{ success_wechat_applies_path(id: @apply.id)}'"}
 			end
 			flash[:notice] = "您好，#{@apply.name} <br>你已经提交成功，请耐心等待<br>我们将尽快和您联系"
 		else
@@ -52,6 +52,10 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def error
+	end
+
+	def success
+		flash[:notice] = "以下是你的报名详细信息<br>如有错误，可点击修改"
 	end
 
 	private

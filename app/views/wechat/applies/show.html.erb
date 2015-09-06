@@ -10,8 +10,7 @@
 		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= Apply::SEX[@apply.sex.to_sym] %></div></div>
 		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= @apply.phone %></div></div>
 		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= @apply.qq %></div></div>
-		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.email %></div></div>
-		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.address %></div></div>
+		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.email.present? ? @apply.email : "未填写邮箱" %></div></div>
 		<div class="col-xs-6 mgin-b-10 rpadding"><div class="frame"><%= Apply::SITUATION[@apply.situation.to_sym] %></div></div>
 		<div class="col-xs-6 mgin-b-10 lpadding"><div class="frame"><%= Apply::DEGREE[@apply.degree.to_sym] %></div></div>
 		<div class="col-xs-12 mgin-b-10"><div class="frame"><%= @apply.school_name %></div></div>

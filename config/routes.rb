@@ -174,6 +174,7 @@ Rails.application.routes.draw do
     resources :applies do
       collection do
         get :home
+        get :success
       end
     end
     resources :oauths do
