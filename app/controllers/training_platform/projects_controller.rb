@@ -2,10 +2,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
   before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects = Project.list_projects params[:type]
-    @search = @projects.search do
-      keywords(params[:q])
-    end
+    @search = Project.list_projects(params[:type], params[:q])
   end
 
   def show
