@@ -1,0 +1,137 @@
+<!-- begin: 选择了解渠道 -->
+<div class="container my-main"  id="my_way">
+	<div class="my-row text-center clearfix">
+		<div class="text-center">
+			<%=image_tag"apply2.png",width:"90%" %>
+		</div>
+		<h3 class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真修改报名信息</h3>
+		<h3 class="text-center"><strong>您是如何知道我们的 ？</strong></h3>
+		<div class="col-xs-12 frame">
+			<div class="way">老师推荐</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="way">校园宣讲</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="way">朋友介绍</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="way">邦彦网站</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="way">其他</div>
+		</div>
+		<button type="button" class="btn btn-lg btn-block my-lg new1">下一步</button>
+	</div>
+	<div class="col-xs-12 turn-back"><a href="javascript: void(0);" onclick="javascript:history.back(-1);">返回上一页</a></div>
+</div><!-- end: 选择了解渠道 -->
+
+<!-- begin: 选择报名的课程 -->
+<div class="container my-main" id="my_course" style="display:none">
+	<div class="my-row text-center clearfix">
+		<div class="text-center">
+			<%=image_tag"apply2.png",width:"90%"%>
+		</div>
+		<h3 class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真修改报名信息</h3>
+		<h3><strong>请选择一门意向课程</strong></h3>
+		<div class="col-xs-12 frame">
+			<div class="course">ios开发</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="course">安卓开发</div>
+		</div>
+		<div class="col-xs-12 frame">
+			<div class="course">WEB全栈</div>
+		</div>	
+		<button type="button" class="btn btn-lg btn-block my-lg new2">下一步</button>
+	</div>
+	<div class="col-xs-12 turn-back"><a href="javascript: void(0);" id="back-way">返回上一页</a></div>
+</div><!-- end: 选择报名的课程 -->
+
+<!-- begin: 填写个人信息 -->
+<div class="container my-main" id="my_info" style="display:none">
+	<div class="my-row text-center clearfix">
+		<div class="text-center">
+			<%=image_tag"apply2.png",width:"90%"%>
+		</div>
+		<h3><strong>报名信息修改</strong></h3>
+		<!-- begin: 报名表单 -->
+		<div id="apply_form">
+			<%= render partial: "form" %>
+		</div><!-- end: 报名表单 -->
+		<div class="col-xs-12 turn-back"><a href="javascript: void(0);" id="back-course">返回上一页</a></div>
+	</div>
+</div><!-- end: 填写个人信息 -->
+
+<!-- js -->
+<script type="text/javascript">
+	// 设置背景图
+	$(function(){
+		$.backstretch("<%= image_url "apply_info3.png"%>");
+	});
+	// 显示不同步骤
+	$(function(){
+		$(".new1").click(function(){
+			if($(".way.selected").length>0){
+				$("#my_course").show();
+				$("#my_way").hide( );
+			}
+			else{
+				alert("请选择了解渠道");
+			}
+		});
+		$(".new2").click(function(){
+			if($(".course.selected").length>0){
+				$("#my_info").show();
+				$("#my_course").hide();
+			}
+			else{
+				alert("请选择意向课程");
+			}		
+		});
+		$("#back-way").click(function(){
+			$("#my_course").hide();
+			$("#my_way").show();
+		});
+		$("#back-course").click(function(){
+			$("#my_info").hide();
+			$("#my_course").show();
+		})
+	});
+	//了解渠道的显示与点击效果
+	$(function(){
+		//显示
+		var way_info = $("#apply_way").val();
+		$(".way").each(function(){
+			if($(this).text() == way_info){
+				$(this).addClass("selected");
+			}
+		});
+		//修改
+		$(".way").click(function(){
+			$(".way").removeClass("selected");
+			$(this).addClass("selected");
+			var way = $(this).text();
+			$("#apply_way").val(way);
+		});
+	});
+	//选择课程的显示与点击效果
+	$(function(){
+		//显示
+		var course_info = $("#apply_train_name").val();
+		$(".course").each(function(){
+			if($(this).text() == course_info){
+				$(this).addClass("selected");
+			}
+		});
+		//修改
+		$(".course").click(function(){
+			$(".course").removeClass("selected");
+			$(this).addClass("selected");
+			var course = $(this).text();
+			$("#apply_train_name").val(course);
+		});
+	});
+</script>
+
+

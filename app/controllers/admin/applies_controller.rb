@@ -12,7 +12,15 @@ module Admin
 			end
 		end
 
+		def destroy
+			if @apply = Apply.find_by(id: params[:id])
+				@apply.destroy
+			end
+			redirect_to admin_applies_path
+		end
+
 		private
+		#xls文件格式内容
 		def xls_content_for(objs)
 			xls_report = StringIO.new
 			book = Spreadsheet::Workbook.new

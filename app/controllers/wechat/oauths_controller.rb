@@ -28,7 +28,6 @@ module Wechat
     private
     def store_reurl
       session[:recurl] = params[:recurl] if params[:recurl].present?
-      session[:recurl] += "#{(session[:recurl].include? '?') ? '&' : '?'}body=#{URI.escape(params[:body])}" if params[:body].present?
       session[:target_url] = params[:target_url] if params[:target_url].present?
     end
   end

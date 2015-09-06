@@ -16,11 +16,12 @@
 		margin-top: 10px;
 		text-align: center;
 		a, a:hover{
-			color: #fff;
+			color: #fff !important;
 			text-decoration: underline;
 		}
 	}
 	.frame{
+		margin-bottom: 5px;
 		margin-bottom: 5px;
 		height: 36px;
 		line-height: 36px;
@@ -32,6 +33,9 @@
 			margin-bottom: 5px;
 			background-color: #FE3434;
 			border: none;
+		}
+		a{
+			color: #333;
 		}
 	}
 	.rpadding{
@@ -93,6 +97,10 @@
 	.my-main{
 		.my-row{
 			padding: 15px 15px 0;
+			a{
+				color: #333;
+				text-decoration: none;
+			}
 			.my-p{
 				color:#fff;
 				margin: 15px 0;
@@ -101,6 +109,7 @@
 			}
 			.my-lg{
 				padding:6px 0;
+				margin: 5px 0;
 				border-radius: 0;
 				background-color: #E5BF13;
 				border:1px solid #DBA40A;
