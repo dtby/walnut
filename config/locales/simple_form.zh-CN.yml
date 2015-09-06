@@ -46,6 +46,7 @@ zh-CN:
         name: '名称'
         description: '描述'
         is_public: '属性'
+        project_type: '项目类型'
       task_category:
         name: '名称'
         description: '描述'

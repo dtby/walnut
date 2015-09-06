@@ -40,7 +40,7 @@ class TrainingPlatform::ProjectsController < TrainingPlatform::ApplicationContro
 
   private
     def project_params
-      params.require(:project).permit(:name, :description, :is_public)
+      params.require(:project).permit(:name, :description, :is_public, :project_type)
     end
 
     def set_project
