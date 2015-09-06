@@ -9,17 +9,17 @@ class Apply < ActiveRecord::Base
 	SEX = { man: '男', woman: '女' }
 	#现状
 	enum situation: {
-		work: 's1',
-		diswork: 's2',
-		student: 's3'
+		work: '0',
+		diswork: '1',
+		student: '2'
 	}
 	SITUATION = { work: '在职', diswork: '待业', student: '学生' }
 	#教育状况
 	enum degree: {
-		master: 'd1',
-		university: 'd2',
-		vocation: 'd3',
-		other: 'd4'
+		master: '3',
+		university: '4',
+		vocation: '5',
+		other: '6'
 	}
 	DEGREE = { master: '研究生', university: '本科', vocation: '高职', other: '其他' }
 	#了解渠道
