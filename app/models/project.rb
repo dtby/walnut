@@ -61,7 +61,7 @@ class Project < ActiveRecord::Base
       when "collect"
         joins(:votes_for).where(votes: { vote_scope: "collect", vote_flag: true, voter_id: current_user.id, voter_type: current_user.class})
       when "pigeonhole"
-        current_user.votes.up.for_type(Project).where(vote_scope: "pigeonhole").votables
+        joins(:votes_for).where(votes: { vote_scope: "pigeonhole", vote_flag: true, voter_id: current_user.id, voter_type: current_user.class})
       else
         where(is_public: true)
       end

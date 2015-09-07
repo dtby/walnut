@@ -22,4 +22,10 @@ module TrainingPlatform::ApplicationHelper
       dropdown[0] << dropdown[1] << dropdown[2] << dropdown[4]
     end
   end
+
+
+  # 当前用户是否是项目成员
+  def project_member?(project)
+    UserProject.where(user_id: current_user.id, project_id: project.id, invite: true).present?
+  end
 end

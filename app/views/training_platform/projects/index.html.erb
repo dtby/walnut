@@ -81,22 +81,24 @@
                     <%= link_to("javascript:void(0);", title: current_user.try(:voted_up_on?, project, vote_scope: "collect") ? "取消收藏" : "收藏", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-list", id: "projectListShowLink#{project.id}", scope: "collect") do %>
                       <%= image_tag((current_user.try(:voted_up_on?,project, vote_scope: "collect")) ? "iconfont-star.svg" : "iconfont-star-empty.svg", width: "20px") %>
                     <% end %>
-                    <div class="dropdown project-set-btn">
-                      <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <%= image_tag("iconfont-set.svg", width: "20px") %>
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="dLabel">
-                        <li><%= link_to "打开项目", training_platform_project_announces_path(project_id: project.id) %></li>
-                        <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
-                        </li>
-                        <li>
-                          <%= link_to("javascript:void(0);", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-pigeonhole", scope: "pigeonhole") do %>
-                            <%= (current_user.try(:voted_up_on?, project, vote_scope: "pigeonhole")) ? "取消归档" : "归档项目" %>
-                          <% end %>
-                        </li>
-                        <li><%= link_to "删除项目", training_platform_project_path(project), method: :delete, remote: true, format: :js, id: "deleteProjectLink#{project.id}",data: { confirm: "确定删除选择的项目？" } %></li>
-                      </ul>
-                    </div>
+                    <% if project_member?(project) %>
+                      <div class="dropdown project-set-btn">
+                        <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <%= image_tag("iconfont-set.svg", width: "20px") %>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                          <li><%= link_to "打开项目", training_platform_project_announces_path(project_id: project.id) %></li>
+                          <li><%= link_to "编辑项目", edit_training_platform_project_path(project), remote: true, format: :js %>
+                          </li>
+                          <li>
+                            <%= link_to("javascript:void(0);", class: "vote-create-a", voteable_id: project.id, voteable_type: project.class, style_type: "project-pigeonhole", scope: "pigeonhole") do %>
+                              <%= (current_user.try(:voted_up_on?, project, vote_scope: "pigeonhole")) ? "取消归档" : "归档项目" %>
+                            <% end %>
+                          </li>
+                          <li><%= link_to "删除项目", training_platform_project_path(project), method: :delete, remote: true, format: :js, id: "deleteProjectLink#{project.id}",data: { confirm: "确定删除选择的项目？" } %></li>
+                        </ul>
+                      </div>
+                    <% end %>
                   </div>
                   <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 text-center">
                     <div class="easy-pie-chart percentage" data-percent="<%= project.task_percentage %>" data-color="#fff">
