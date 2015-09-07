@@ -21,12 +21,17 @@
 	          	<span class="glyphicon glyphicon-time"></span> &nbsp;<%= @train.created_at.strftime("%F %H:%M:%S") %>
         		</div>
         		<h4>培训简介：</h4>
-				<p class="train-main"><%=raw @train.introduce.try(:truncate, 70) %>	</p>
+				<p class="train-main"><%=raw @train.introduce %>	</p>
 				<!-- <h4>招生对象：</h4>
 				<p class="train-main">1.招生对象招生对象招生对象招生对象招生对象</p>
 				<p class="train-main">2.招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象招生对象</p> -->
 				<div class="col-md-6 text-left">
-					<button class="btn btn-default my-btn mybtn1">在线报名</button>
+					<% if current_user.present? && current_user.apply_train?(@train) %>
+						<%=link_to "取消报名", 'javascript:void(0);', class: "btn my-btn mybtn3 btn-success" %>
+					<% else %>
+						<%=link_to "在线报名", user_trains_path, class: "btn btn-default my-btn mybtn1", remote: true, format: :js %>
+					<% end %>
+					<!-- <button class="btn btn-default my-btn mybtn1">在线报名</button> -->
 				</div>
 				<div class="col-md-6 text-left">
 					<button class="btn my-btn mybtn2">在线咨询</button>

@@ -1,7 +1,7 @@
 <% @trains.each do |train| %>
 <tr>
   <td><%= train.title.try(:truncate, 15) %></td>
-  <td><%= image_tag(train.try(:image).try(:avatar)) %></td>
+  <td><%= image_tag(train.try(:image).try(:avatar), size:"100x100") %></td>
   <td><%= raw train.introduce.try(:truncate, 35) %></td>
   <td><%= train.views_count_s %></td>
   <td>

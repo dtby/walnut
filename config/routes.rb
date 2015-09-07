@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :user_trains, only: [:create] 
+
   resources :sms, only: [:create]
 
   resources :user, only:[:show, :update] do

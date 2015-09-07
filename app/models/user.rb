@@ -43,6 +43,9 @@ class User < ActiveRecord::Base
   has_many :user_tasks, dependent: :destroy 
   has_many :tasks, through: :user_tasks
 
+  has_many :user_trains, dependent: :destroy 
+  has_many :trains, through: :user_trains
+
   has_many :announces, dependent: :destroy 
   
   has_many :user_notifications, dependent: :destroy 
@@ -101,6 +104,12 @@ class User < ActiveRecord::Base
   def unread_notifications_group_by_project project_id
     self.user_notifications.includes(:notification)
     .where(notifications: {project_id: project_id}).unread.count
+  end
+
+  # 用户是否报名培训
+  # 参数：train，报名的培训　 
+  def apply_train?(train)
+    UserTrain.where(user_id: id, train_id: train.id).first.present?
   end
 
   #current_user在model中使用

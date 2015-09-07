@@ -1,0 +1,11 @@
+<% unless @user_train.errors.blank? %>
+  alert("操作失败，请刷新重试");
+<% else %>
+  <% case params[:style_type] %>
+  <% when "train-list" %>
+    $("#deliverTrain<%= @user_train.train_id%>").replaceWith('<button type="button" class="btn btn-lg btn-success" disabled="disabled">已报名</button>');
+  <% when "train-show" %>
+    $("#deliverTrain<%= @user_train.train_id%>").replaceWith('<%=link_to "报名成功", 'javascript:void(0);' ,class: "btn btn-default my-btn mybtn1", disabled: true %>');
+  <% end %>
+  alert("报名成功，敬请关注！");
+<% end %>
