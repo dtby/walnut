@@ -1,10 +1,14 @@
 <div class="wrap">
 	<div class="row">
 		<div class="col-xs-12 text-center content">
-			<%= link_to "/wechat/oauths?recurl=/wechat/applies/new" do %>
-				<botton class="btn btn-default my-btn"><div class="text-left">&nbsp;&nbsp;我要报名</div></botton>
-			<% end %>	
-			<div class="col-xs-12 turn-back"><%= link_to("历史报名情况", wechat_applies_path ) %></div>
+			<% if @applied.present? %>
+				<botton class="btn btn-default my-btn">已报名</botton>
+			<% else %>
+				<%= link_to wechat_oauths_path(recurl: '/wechat/applies/new') do %>
+					<botton class="btn btn-default my-btn"><div class="text-left">&nbsp;&nbsp;我要报名</div></botton>
+				<% end %>	
+			<% end %>
+			<div class="col-xs-12 turn-back"><%= link_to("查看报名情况", wechat_applies_path ) %></div>
 		</div>	
 	</div>
 </div>

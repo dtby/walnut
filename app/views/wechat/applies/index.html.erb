@@ -2,13 +2,15 @@
 	<div class="text-center">
 		<%=image_tag"apply2.png",width:"90%"%>
 	</div>
-	<h3 class="my-title text-center">您的历史报名纪录</h3>
+	<h3 class="my-title text-center">您的报名纪录</h3>
 	<!-- 加载当前学生的报名记录 -->
+	<br>
 	<div id="apply_list">
 		<%= render partial: "apply_list" %>
 	</div>
-	<div class="col-xs-12 turn-back"><a href="javascript: void(0);" onclick="javascript:history.back(-1);">返回上一页</a></div>
 </div>	
+
+<div class="col-xs-12 turn-back" style="position: absolute; bottom: 30px; left: 0;"><%= link_to("返回上一页", wechat_root_path(openid: session[:openid])) %></div>
 
 <script>
 	$(function(){

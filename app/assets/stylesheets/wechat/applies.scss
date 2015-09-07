@@ -120,6 +120,10 @@
 				line-height: 36px;
 				font-size: 16px;
 			}
+			.edit > a,a:hover{
+				color: #333;
+				text-decoration: none;
+			}
 		}
 		.my-frame{
 			@extend .frame;

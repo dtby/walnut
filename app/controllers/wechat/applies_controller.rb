@@ -1,6 +1,7 @@
 class Wechat::AppliesController < Wechat::ApplicationController
 	before_action :set_applies, only: [:index, :destroy]
 	before_action :set_apply, only: [:show, :edit, :update, :destroy]
+	before_action :set_applied, only: [:home, :new]
 	def home
 	end
 
@@ -69,5 +70,12 @@ class Wechat::AppliesController < Wechat::ApplicationController
 
 		def set_apply
 			@apply = Apply.find(params[:id])
+		end
+
+		def set_applied
+			@applied = Apply.find_by_openid(session[:openid])
+			if @applied.present?
+				render :home
+			end
 		end
 	end

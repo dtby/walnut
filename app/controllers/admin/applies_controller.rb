@@ -29,7 +29,7 @@ module Admin
 			blue = Spreadsheet::Format.new :color => :blue, :weight => :bold, :size => 10
 			sheet1.row(0).default_format = blue
 
-			sheet1.row(0).concat %w{序号 姓名 性别 报名课程 手机号码 QQ 邮箱 地址 就业状况 教育状况 最高毕业院校 了解渠道}
+			sheet1.row(0).concat %w{序号 姓名 性别 报名课程 手机号码 QQ 邮箱 就业状况 教育状况 所在院校 了解渠道 报名时间}
 			count_row = 1
 			objs.each do |obj|
 				sheet1[count_row, 0] = count_row
@@ -39,11 +39,11 @@ module Admin
 				sheet1[count_row, 4] = obj.phone
 				sheet1[count_row, 5] = obj.qq
 				sheet1[count_row, 6] = obj.email
-				sheet1[count_row, 7] = obj.address
-				sheet1[count_row, 8] = Apply::SITUATION[obj.situation.to_sym]
-				sheet1[count_row, 9] = Apply::DEGREE[obj.degree.to_sym]
-				sheet1[count_row,10] = obj.school_name
-				sheet1[count_row, 11] = obj.way
+				sheet1[count_row, 7] = Apply::SITUATION[obj.situation.to_sym]
+				sheet1[count_row, 8] = Apply::DEGREE[obj.degree.to_sym]
+				sheet1[count_row,9] = obj.school_name
+				sheet1[count_row, 10] = obj.way
+				sheet1[count_row, 11] = obj.created_at.strftime("%F %H:%M")
 				count_row += 1
 			end
 
