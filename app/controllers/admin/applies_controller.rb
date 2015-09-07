@@ -42,7 +42,7 @@ module Admin
 		end
 
 		def set_applies
-			@applies = Apply.students(params[:train_name])
+			@applies = Apply.students(params[:train_name]).order(created_at: :asc)
 		end
 		#xls文件格式内容
 		def xls_content_for(objs)
