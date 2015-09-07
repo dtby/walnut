@@ -21,10 +21,12 @@
 						<div class="profile-activity clearfix">
 							<div class="row">
 								<div class="col-sm-1">
-									<%= image_tag(comment.try(:user).try(:show_image) , class: "pull-left") %>
+									<%= link_to(home_user_path(comment.try(:user))){
+										image_tag(comment.try(:user).try(:show_image) , class: "pull-left")
+									} %>
 								</div>
 								<div class="col-sm-11">
-									<a class="user" href="#"><%= comment.try(:user).try(:show_name) %> </a>
+									<%= link_to(comment.try(:user).try(:show_name), home_user_path(comment.try(:user)) , class: "user") %>
 									<%= comment.body %>
 									<div class="time">
 										<i class="icon-time bigger-110"></i>

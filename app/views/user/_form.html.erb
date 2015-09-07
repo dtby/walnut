@@ -1,6 +1,6 @@
 <%= simple_form_for @user, url: user_path(@user),wrapper: :horizontal_form,  html: { class: "form-horizontal" } do |f| %>
+	<%= f.input :name, label: "姓名" %>
 	<%= f.input :nickname %>
-
 	<% if @user.image.present? %>
 		<div class="form-group">
 			<%= label_tag :image, '已上传头像', class: 'col-sm-2 col-sm-offset-2 control-label' %>
@@ -15,10 +15,8 @@
 			<%= f.file_field :image %>
 		</div>
 	</div>
-
-	<%= f.input :name, label: "姓名" %>
-	<%= f.input :department, collection: User.departments, prompt: "请选择院系", label: "所属院系" %>
-	<%= f.input :major, collection: User.majors, prompt: "请选择专业", label: "所属专业" %>
+	<%= f.input :department, label: "所属院系" %>
+	<%= f.input :major, label: "所属专业" %>
 	<%= f.input :mobile, required: false %>
 	<%= f.input :email, placeholder: 'user@domain.com'%>
 	<div class="form-group">

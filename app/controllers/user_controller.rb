@@ -57,26 +57,28 @@ class UserController < ApplicationController
     @create_projects = Project.list_projects "create"
   end
 
-  def my_home
-    
+  def home
+    @user = User.where(id: params[:id]).first
   end
 
-  def my_comment
-    
+  def comment
+    @user = User.where(id: params[:id]).first
   end
   
-  def my_infos
-    
+  def infos
+    @user = User.where(id: params[:id]).first
   end
+
   def my_trains
     
   end
+
   def impression
     
   end
 
   private
-  def user_params
+    def user_params
       params.require(:user).permit(:nickname, :name, :department, :major, :mobile, :email, :gender, :signature, :password)
     end
 end

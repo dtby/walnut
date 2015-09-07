@@ -3,10 +3,16 @@
 		<div class="row">
 			<div class="col-md-offset-1 col-md-10 my-shadow">
 				<div class="info-pic text-center">
-					<%= image_tag"my_photo.png"%>
-					<h2>张三丰</h2>
-					<p>大唐邦彦信息学院  &nbsp;&nbsp; &nbsp;&nbsp; 计算机信息专业</p>
-					<p>印象评价   &nbsp;&nbsp; ｜  &nbsp;&nbsp;  个人资料</p>
+					<%= link_to(home_user_path(@user)) do %>
+						<%= image_tag @user.show_image, class: "img-circle" %>
+					<% end %>
+					<h2><%= link_to(@user.show_name, home_user_path(@user))%></h2>
+					<p><%= @user.department %>  &nbsp;&nbsp; &nbsp;&nbsp; <%= @user.major %></p>
+					<p>
+						<%= link_to("印象评价", @user == current_user ? my_impression_user_index_path : comment_user_path(@user)) %>
+					  &nbsp;&nbsp; ｜  &nbsp;&nbsp;  
+					  <%= link_to("个人资料", @user == current_user ? user_path(@user) : infos_user_path(@user)) %>
+					</p>
 				</div>
 			</div>
 		</div>

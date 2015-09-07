@@ -324,6 +324,9 @@
 		.info-pic{
 			color: #fff;
 			padding: 20px;
+			a {
+				color: #fff;
+			}
 		}
 	}
 }
@@ -346,7 +349,7 @@
 	margin-bottom: 20px;
 }
 
-.user__my_home{		
+.user__home{		
 	h3{
 		margin-top: 0px;
 		color: #49A39B
@@ -441,7 +444,7 @@
 		color: #49A39B
 	}
 
-.user__my_comment{
+.user__comment{
 	
 	.my-divider{
 		padding: 0 5px;
@@ -486,7 +489,7 @@
 	}
 }
 
-.user__my_infos{
+.user__infos{
 	.title-text{
 		margin-bottom: 60px;
 	}

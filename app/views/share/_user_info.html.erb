@@ -13,7 +13,7 @@
     </ul>
 	</li>
 	<li>
-		<%= link_to(my_courses_user_index_path) do %>
+		<%= link_to(home_user_path(current_user)) do %>
 			<i class="icon-user"></i>&nbsp;&nbsp;<%= current_user.show_name %>
 		<% end %>
 	</li>
