@@ -8,10 +8,9 @@
 				<th>手机号码</th>
 				<th>QQ</th>
 				<th>邮箱</th>
-				<th>地址</th>
 				<th>就业状况</th>
 				<th>教育状况</th>
-				<th>最高毕业院校</th>
+				<th>所在院校</th>
 				<th>了解渠道</th>
 				<th>报名课程</th>
 				<th>操作</th>
@@ -31,7 +30,6 @@
 						<td><%= apply.phone %></td>
 						<td><%= apply.qq %></td>
 						<td><%= apply.email %></td>
-						<td><%= apply.address %></td>
 						<td><%= Apply::SITUATION[apply.situation.to_sym] %></td>
 						<td><%= Apply::DEGREE[apply.degree.to_sym] %></td>
 						<td><%= apply.school_name %></td>
