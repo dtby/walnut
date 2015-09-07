@@ -11,7 +11,7 @@
 		<div class="media">
 			<div class="media-left">
 				<a href="#">
-					<%= image_tag( @train.picture_url.present? ? @train.picture_url : "workt1.png")%>
+					<%= image_tag( @train.try(:image).try(:avatar).present? ? @train.try(:image).try(:avatar) : "workt2.png")%>
 				</a>
 			</div>
 			<div class="media-body">

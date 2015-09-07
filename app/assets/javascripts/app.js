@@ -21,3 +21,5 @@
 //= require app/wow
 //= require admin/fileinput
 //= require_tree ./ace/.
+//= require jquery.lazyload.min
+//= require blocksit
