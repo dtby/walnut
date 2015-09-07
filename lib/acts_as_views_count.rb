@@ -2,7 +2,8 @@
 module ActsAsViewsCount 
     
   def self.included(base)
-    base.extend ClassMethods  
+    base.extend ClassMethods 
+    base.send(:include, InstanceMethods) 
   end
   
   module ClassMethods
@@ -12,7 +13,6 @@ module ActsAsViewsCount
       cattr_accessor :views_count_delay,:views_count_delay_cache_key
       self.views_count_delay = options[:delay] || 20
       self.views_count_delay_cache_key = "acts_as_views_count/#{self.table_name}/"      
-      include ActsAsViewsCount::InstanceMethods
     end
   end
 

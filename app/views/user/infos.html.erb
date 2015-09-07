@@ -6,23 +6,23 @@
 				<h3 class="main-title title-text">个人资料</h3>
 				<div class="col-md-offset-1 col-md-2">
 					<div class="my-hover">
-						<%= image_tag"user_mypic.png"%>
-						<div class="hover-text text-center">我是昵称</div>
+						<%= image_tag @user.show_image, width: "138px" %>
+						<div class="hover-text text-center"><%= @user.nickname %></div>
 					</div>	
 				</div>
 				<div class="col-md-9">
 					<div class="col-md-6 info-text">
-						姓名：张沫沫<br>
+						姓名：<%= @user.name %><br>
 											<br>
-						院系：艺术设计系
+						院系：<%= @user.department %>
 					</div>
 					<div class="col-md-6">
-						性别：男<br>
+						性别：<%= @user.gender ? "男" : "女" %><br>
 									 <br>
-						专业：设计
+						专业：<%= @user.major %>
 					</div>
 					<div class="col-md-12">
-						个性签名：我就是我，颜色不一样的烟火！
+						个性签名：<%= @user.signature %>
 					</div>
 				</div>
 			</div>
