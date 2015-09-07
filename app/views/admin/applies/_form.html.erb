@@ -37,6 +37,12 @@
 		</div>
 	</div>
 	<div class="form-group">
+		<%= f.label :school_name, '所在院校 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :school_name, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
 		<%= f.label :situation, '就业状况 * ', class: 'col-sm-2 control-label' %>
 		<div class="col-sm-4 clearfix">
 			<%= f.input :situation, collection: Apply::SITUATION.invert, label: false %>
@@ -48,12 +54,6 @@
 			<%= f.input :degree, collection: Apply::DEGREE.invert, label: false %>
 		</div>
 	</div>	
-	<div class="form-group">
-		<%= f.label :school_name, '所在院校 * ', class: 'col-sm-2 control-label' %>
-		<div class="col-sm-4">
-			<%= f.input :school_name, class: 'form-control', label: false %>
-		</div>
-	</div>
 	<div class="form-group">
 		<%= f.label :way, '了解渠道 * ', class: 'col-sm-2 control-label' %>
 		<div class="col-sm-4">

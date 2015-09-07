@@ -14,14 +14,13 @@
 				<th>所在院校</th>
 				<th>了解渠道</th>
 				<th>报名时间</th>
-				<th>状态</th>
 				<th>操作</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% if applies.empty? %>
 				<tr>
-					<td colspan="14" class="text-center">暂时还没有报名的学生</td>
+					<td colspan="13" class="text-center">暂时还没有报名的学生</td>
 				</tr>
 			<% else %>
 				<% applies.each_with_index do |apply, index| %>
@@ -39,11 +38,6 @@
 						<td><%= Apply::WAY[apply.way.to_sym] %></td>
 						<td><%= apply.created_at.strftime("%m-%d %H:%M") %></td>
 						<td>
-							<%= link_to "#", class: 'btn btn-xs btn-danger', title: '是否联系' do %>
-								<span class="glyphicon glyphicon-earphone"></span>
-							<% end %>
-						</td>
-						<td>
 							<%= link_to edit_admin_apply_path(apply), data:{ confirm: '确定要修改该条报名记录吗？'}, class: 'btn btn-xs btn-default', title: '编辑' do %>
 								<span class="glyphicon glyphicon-edit"></span>
 							<%end%>
@@ -54,7 +48,6 @@
 					</tr>
 				<% end %>
 			<% end %>
-
 		</tbody>
 	</table>
 </div>
