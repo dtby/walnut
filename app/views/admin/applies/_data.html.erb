@@ -21,7 +21,7 @@
 		<tbody>
 			<% if applies.empty? %>
 				<tr>
-					<td colspan="13" class="text-center">暂时还没有报名的学生</td>
+					<td colspan="14" class="text-center">暂时还没有报名的学生</td>
 				</tr>
 			<% else %>
 				<% applies.each_with_index do |apply, index| %>
@@ -29,14 +29,14 @@
 						<th><%= index + 1 %></th>
 						<td><%= apply.name %></td>
 						<td><%= Apply::SEX[apply.sex.to_sym] %></td>
-						<td><%= apply.train_name %></td>
+						<td><%= Apply::TRAIN_NAME[apply.train_name.to_sym] %></td>
 						<td><%= apply.phone %></td>
 						<td><%= apply.qq %></td>
 						<td><%= apply.email %></td>
 						<td><%= Apply::SITUATION[apply.situation.to_sym] %></td>
 						<td><%= Apply::DEGREE[apply.degree.to_sym] %></td>
 						<td><%= apply.school_name %></td>
-						<td><%= apply.way %></td>
+						<td><%= Apply::WAY[apply.way.to_sym] %></td>
 						<td><%= apply.created_at.strftime("%m-%d %H:%M") %></td>
 						<td>
 							<%= link_to "#", class: 'btn btn-xs btn-danger', title: '是否联系' do %>
@@ -44,10 +44,10 @@
 							<% end %>
 						</td>
 						<td>
-							<%= link_to admin_apply_path(apply), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-default', title: '编辑' do %>
+							<%= link_to edit_admin_apply_path(apply), data:{ confirm: '确定要修改该条报名记录吗？'}, class: 'btn btn-xs btn-default', title: '编辑' do %>
 								<span class="glyphicon glyphicon-edit"></span>
 							<%end%>
-							<%= link_to admin_apply_path(apply), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-warning', title: '删除' do %>
+							<%= link_to admin_apply_path(apply), data:{ confirm: '确定要删除该条报名记录吗？'},method: :delete, class: 'btn btn-xs btn-warning', title: '删除' do %>
 								<span class="glyphicon glyphicon-trash"></span>
 							<%end%>
 						</td>

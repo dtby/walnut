@@ -1,0 +1,71 @@
+
+<%= simple_form_for([:admin, @apply], html: {class: "form-horizontal"}) do |f| %>
+	<div class="form-group">
+		<%= f.label :name, '姓名 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :name, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :sex, '性别 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.collection_radio_buttons :sex, [['man', '男'] ,['woman', '女']], :first, :last, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :train_name, '报名课程 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :train_name, collection: Apply::TRAIN_NAME.invert, label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :phone, '手机号码 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :phone, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :qq, 'QQ * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :qq, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :email, '邮箱', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :email, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :situation, '就业状况 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4 clearfix">
+			<%= f.input :situation, collection: Apply::SITUATION.invert, label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :degree, '教育状况 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :degree, collection: Apply::DEGREE.invert, label: false %>
+		</div>
+	</div>	
+	<div class="form-group">
+		<%= f.label :school_name, '所在院校 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :school_name, class: 'form-control', label: false %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :way, '了解渠道 * ', class: 'col-sm-2 control-label' %>
+		<div class="col-sm-4">
+			<%= f.input :way, collection: Apply::WAY.invert, label: false %>
+		</div>
+	</div>
+	<hr></hr>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button class="btn btn-success" type="submit">
+				<span class="glyphicon glyphicon-floppy-save">保存</span>
+			</button>
+		</div>
+	</div>
+<% end %>

@@ -65,7 +65,7 @@
 		$(".way").click(function(){
 			$(".way").removeClass("selected");
 			$(this).addClass("selected");
-			var way = $(this).text();
+			var way = $(this).attr("data-value");
 			$("#apply_way").val(way);
 		});
 	});
@@ -74,7 +74,7 @@
 		$(".course").click(function(){
 			$(".course").removeClass("selected");
 			$(this).addClass("selected");
-			var course = $(this).text();
+			var course = $(this).attr("data-value");
 			$("#apply_train_name").val(course);
 		});
 	});

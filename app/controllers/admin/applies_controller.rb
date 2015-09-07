@@ -1,7 +1,9 @@
 module Admin
 	class AppliesController < Admin::ApplicationController
+		before_action :apply_params, only: [:update]
+		before_action :set_apply, only: [:edit, :update, :destroy]
+		before_action :set_applies, only: [:index, :update]
 		def index
-			@applies = Apply.students(params[:train_name])
 			respond_to do |format|
 				format.xls {
 					send_data( xls_content_for(@applies),
@@ -12,14 +14,36 @@ module Admin
 			end
 		end
 
+		def edit
+		end
+
+		def update
+			if @apply.update(apply_params)
+				redirect_to admin_applies_path
+			else
+				render :edit
+			end
+		end
+
 		def destroy
-			if @apply = Apply.find_by(id: params[:id])
+			if @apply.present?
 				@apply.destroy
 			end
 			redirect_to admin_applies_path
 		end
 
 		private
+		def apply_params
+			params.require(:apply).permit(:openid, :name,  :sex, :phone, :email, :qq, :address, :situation, :degree, :way, :train_name, :school_name)
+		end
+
+		def set_apply
+			@apply = Apply.find(params[:id])
+		end
+
+		def set_applies
+			@applies = Apply.students(params[:train_name])
+		end
 		#xls文件格式内容
 		def xls_content_for(objs)
 			xls_report = StringIO.new

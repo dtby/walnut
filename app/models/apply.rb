@@ -24,19 +24,20 @@ class Apply < ActiveRecord::Base
 	DEGREE = { master: '研究生', university: '本科', vocation: '高职', other: '其他' }
 	#了解渠道
 	enum way: {
-		'老师推荐' => 'teacher',
-		'校园宣讲' => 'school',
-		'朋友介绍' => 'friend',
-		'邦彦网站' => 'buoyantec',
-		'其他' => 'another'
+		teacher: '7',
+		school: '8',
+		friend: '9',
+		buoyantec: '10',
+		another: '11'
 	}
+	WAY = { teacher: '老师推荐', school: '校园宣讲', friend: '朋友介绍', buoyantec: '邦彦网站', another: '其他' }
 	#培训课程
 	enum train_name: {
-		'ios开发' => 'ios',
-		'安卓开发' => 'android',
-		'WEB全栈' => 'web'
+		ios: '12',
+		android: '13',
+		web: '14'
 	}
-
+	TRAIN_NAME = { ios: 'ios开发', android: '安卓开发', web: 'WEB全栈' }
 	#查询各班报名情况
 	def self.students train_name
 		if train_name.nil?

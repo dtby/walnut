@@ -5,14 +5,14 @@
 		</div>
 		<h3 class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写以下信息</h3>
 		<h3><strong>请选择一门意向课程</strong></h3>
-		<% Apply.train_names.keys.each do |train_name| %>
-			<% if train_names.include?(Apply.train_names[train_name]) %>
-				<div class="col-xs-12 frame"><%= train_name %>
+		<% Apply::TRAIN_NAME.each do |key, value| %>
+			<% if train_names.include?(key) %>
+				<div class="col-xs-12 frame"><%= value %>
 					<span class="text-primary">（已报名）</span>
 				</div>
 			<% else %>
 				<div class="col-xs-12 frame">
-					<div class="course"><%= train_name %></div>
+					<div class="course" data-value="<%= key%>"><%= value %></div>
 				</div>
 			<% end %>
 		<% end %>

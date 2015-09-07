@@ -32,7 +32,7 @@
 		//显示
 		var way_info = $("#apply_way").val();
 		$(".way").each(function(){
-			if($(this).text() == way_info){
+			if($(this).attr("data-value") == way_info){
 				$(this).addClass("selected");
 			}
 		});
@@ -40,7 +40,7 @@
 		$(".way").click(function(){
 			$(".way").removeClass("selected");
 			$(this).addClass("selected");
-			var way = $(this).text();
+			var way = $(this).attr("data-value");
 			$("#apply_way").val(way);
 		});
 	});
@@ -49,7 +49,7 @@
 		//显示
 		var course_info = $("#apply_train_name").val();
 		$(".course").each(function(){
-			if($(this).text() == course_info){
+			if($(this).attr("data-value") == course_info){
 				$(this).addClass("selected");
 			};
 		});
@@ -57,7 +57,7 @@
 		$(".course").click(function(){
 			$(".course").removeClass("selected");
 			$(this).addClass("selected");
-			var course = $(this).text();
+			var course = $(this).attr("data-value");
 			$("#apply_train_name").val(course);
 		});
 		// 显示不同步骤

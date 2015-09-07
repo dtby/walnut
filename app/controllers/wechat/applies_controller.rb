@@ -34,7 +34,7 @@ class Wechat::AppliesController < Wechat::ApplicationController
 			end
 			flash[:notice] = "您好，#{@apply.name} <br>你已经修改成功，请耐心等待<br>我们将尽快和您联系"
 		else
-			render edit_wechat_apply_path
+			respond_with @apply
 		end
 	end
 

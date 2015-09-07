@@ -169,7 +169,7 @@ Rails.application.routes.draw do
     resources :courses do
       resources :sub_courses
     end
-    resources :applies, only: [:index, :destroy]
+    resources :applies, only: [:index, :edit, :update, :destroy]
   end
   #微信平台培训报名
   namespace :wechat do

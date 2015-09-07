@@ -5,9 +5,9 @@
 		</div>
 		<h3 class="text-center my-p">您好，欢迎参加全栈工程师的培训<br>为了让你能更好的参加培训<br>请认真填写以下信息</h3>
 		<h3 class="text-center"><strong>您是如何知道我们的 ？</strong></h3>
-		<% Apply.ways.keys.each do |way| %>
+		<% Apply::WAY.each do |key, value| %>
 			<div class="col-xs-12 frame">
-				<div class="way"><%= way %></div>
+				<div class="way" data-value="<%= key %>"><%= value %></div>
 			</div>
 		<% end %>
 		<button type="button" class="btn btn-lg btn-block my-lg new1">下一步</button>
