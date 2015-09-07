@@ -33,12 +33,12 @@
 			(parseInt($("#comment_praise_<%= params[:voteable_id]%>").text()) + 1)+'</span>');
 	<% when "project-list"%>
 		<% unless @is_like %>
-			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "取消收藏")
-			$("#projectListShowLink<%= params[:voteable_id]%> span").removeClass("glyphicon-star-empty").addClass("glyphicon-star");
+			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "取消收藏");
+			$("#projectListShowLink<%= params[:voteable_id]%>").html('<%= escape_javascript(image_tag("iconfont-star.svg", width: "20px")) %>');
 			alert("收藏成功");
 		<% else %>
-			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "收藏")
-			$("#projectListShowLink<%= params[:voteable_id]%> span").removeClass("glyphicon-star").addClass("glyphicon-star-empty");
+			$("#projectListShowLink<%= params[:voteable_id]%>").attr("title", "收藏");
+			$("#projectListShowLink<%= params[:voteable_id]%>").html('<%= escape_javascript(image_tag("iconfont-star-empty.svg", width: "20px")) %>');
 			alert("取消收藏成功");
 		<% end %>
 	<% when "project-pigeonhole"%>
