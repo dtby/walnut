@@ -16,23 +16,18 @@
 		wx.ready(function () {
 			// 设置“分享给朋友”按钮点击状态及自定义分享内容
 			wx.onMenuShareAppMessage({
-				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
-				desc: "",
+				title: "全栈工程师 梦想训练营",
+				desc: "我参加了大唐信息学院组织的“全栈工程师 梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
 				link: "<%= wechat_root_url %>",
 				imgUrl: "<%= image_url "apply_share.png" %>"
 			});
 			// 设置“分享到朋友圈”按钮点击状态及自定义分享内容
 			wx.onMenuShareTimeline({
-				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
+				title: "我参加了大唐信息学院组织的“全栈工程师 梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
+				desc: "你好",
 				link: "<%= wechat_root_url %>",
 				imgUrl: "<%= image_url "apply_share.png" %>"
 			});
-			wx.onMenuShareQQ({
-				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
-				desc: "",
-				link: "<%= wechat_root_url %>",
-				imgUrl: "<%= image_url "apply_share.png" %>"
-			 });
 		});
 	</script>
 

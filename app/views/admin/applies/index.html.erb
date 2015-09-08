@@ -8,9 +8,9 @@
 <%= content_for :toolbar do %>
 	<div class="col-xs-12">
 		<a href="<%= admin_applies_path %>" class="btn btn-<%= params[:train_name].nil? ? "success" : "default"%>">全部</a>
-		<a href="<%= admin_applies_path(train_name: 'ios') %>" class="btn btn-<%= params[:train_name] == "ios" ? "success" : "default" %>">ios开发</a>
-		<a href="<%= admin_applies_path(train_name: 'android') %>" class="btn btn-<%= params[:train_name] == "android" ? "success" : "default" %>">安卓开发</a>
-		<a href="<%= admin_applies_path(train_name: 'web') %>" class="btn btn-<%= params[:train_name] == "web" ? "success" : "default" %>">WEB全栈</a>
+		<a href="<%= admin_applies_path(train_name: '1') %>" class="btn btn-<%= params[:train_name] == "1" ? "success" : "default" %>">ios开发</a>
+		<a href="<%= admin_applies_path(train_name: '2') %>" class="btn btn-<%= params[:train_name] == "2" ? "success" : "default" %>">安卓开发</a>
+		<a href="<%= admin_applies_path(train_name: '3') %>" class="btn btn-<%= params[:train_name] == "3" ? "success" : "default" %>">WEB全栈</a>
 		<%= link_to("导出为Excel", admin_applies_path(train_name: params[:train_name], format: 'xls'), class: "btn btn-success pull-right") %>
 	</div>
 	<p>&nbsp;</p>
