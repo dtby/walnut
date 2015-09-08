@@ -50,6 +50,8 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	def index
 		if params[:source] == 'applied'
 			flash.now[:notice] = "您已经报过名啦！"
+		else
+			flash.now[:notice] = ""
 		end
 	end
 

@@ -4,7 +4,7 @@
 			<div class="clearfix text-center">
 				<%= link_to wechat_apply_path(apply, source: 'index') do %>
 					<div class="col-xs-4 no-padding train-name">
-						<span><%= index + 1%>. <%= apply.train_name %></span>
+						<span><%= index + 1%>. <%= Apply::TRAIN_NAME[apply.train_name.to_sym] %></span>
 					</div>
 					<div class="col-xs-4 no-padding">
 						<span><%= apply.updated_at.strftime("%F") %></span>
