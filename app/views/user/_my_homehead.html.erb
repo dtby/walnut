@@ -4,7 +4,7 @@
 			<div class="col-md-offset-1 col-md-10 my-shadow">
 				<div class="info-pic text-center">
 					<%= link_to(home_user_path(@user)) do %>
-						<%= image_tag @user.show_image, class: "img-circle" %>
+						<%= image_tag @user.show_image, class: "img-circle", width: "150", height: "150"%>
 					<% end %>
 					<h2><%= link_to(@user.show_name, home_user_path(@user))%></h2>
 					<p><%= @user.department %>  &nbsp;&nbsp; &nbsp;&nbsp; <%= @user.major %></p>

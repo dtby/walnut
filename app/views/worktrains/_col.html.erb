@@ -1,0 +1,18 @@
+<% @trains.each do |train| %>
+  <%= link_to worktrain_path(train) do |i| %>
+      <div class="bordered">
+        <div class="imgholder">
+        <%= image_tag(train.try(:image).try(:avatar).present? ? train.try(:image).try(:avatar) : "workt2.png", width: "100%", class: "lazy")%>
+        </div>
+        <div class="col-sm-12 mt-10">
+          <h4><%= train.title.try(:truncate, 15) %></h4>
+          <p><%=raw train.introduce.try(:truncate, 20) %></p>
+        </div>
+        <div class="col-sm-12 infos">
+          <span class="glyphicon glyphicon-eye-open"></span> <%= train.views_count_s %>
+          &nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-time"></span>&nbsp;<%= train.created_at.strftime("%F %H:%M:%S") %>
+        </div>
+      </div>
+  <% end %>
+<% end %>

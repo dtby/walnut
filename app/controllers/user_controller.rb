@@ -10,7 +10,6 @@ class UserController < ApplicationController
   end
 
   def create
-    
   end
 
   def update
@@ -63,6 +62,24 @@ class UserController < ApplicationController
 
   def comment
     @user = User.where(id: params[:id]).first
+    @comments = @user.root_comments
+                .order(created_at: :DESC)
+                .page(params[:page])
+  end
+
+  def comment_user
+    @user = User.where(id: params[:id]).first
+
+    @comment = Comment.build_from(@user, current_user.id, params[:body])
+    
+    @comment.save
+
+     if params[:parent_id].present?
+      parent_comment = Comment.where(id: params[:parent_id]).first
+      @comment.move_to_child_of(parent_comment) 
+    end
+    
+    redirect_to comment_user_path(@user)
   end
   
   def infos

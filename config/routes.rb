@@ -44,6 +44,7 @@ Rails.application.routes.draw do
     member do
       get :home
       get :comment
+      post :comment_user
       get :infos
     end
   end

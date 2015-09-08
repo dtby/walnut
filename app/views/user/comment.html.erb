@@ -41,10 +41,12 @@
 						<hr class="my-line">
 					</div>
 					<div class="col-md-12 my-text">
-						<textarea class="form-control" rows="3" placeholder=" 请输入您的描述，超过10个字"></textarea>
-					</div>
-					<div class="my-confire">
-						<button class="btn btn-default my-btn">确定</button>
+						<%= form_tag  comment_user_user_path(@user), method: :post do |f|%>
+							<%= text_area_tag "body", "", class: "comment_text form-control", rows: 3, placeholder: "请输入您的描述，超过10个字" %>
+							<div class="my-confire">
+								<%= submit_tag "确定", class: "btn btn-default my-btn"%>
+							</div>
+						<% end %>
 					</div>
 					<div class="col-md-12">
 						<hr class="my-dotted">
@@ -54,62 +56,35 @@
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
 						<div class="my-comment">
-							<%= image_tag"user_comment2.png"%>  第六日 
+						<% @comments.each do |comment| %>
+							<%= link_to(home_user_path(@user)) do %>
+								<%= image_tag comment.user.show_image, class: "img-circle", width: "50", height: "50" %>
+							<% end %>
+							<%= comment.try(:user).try(:nickname) %>
 							<span class="gray-text">说：</span><br>
 							<div class="comment-text">								
-								回过头来看，觉得夸张，哈哈，那时候迷的不要不要的<br>
+								<%= comment.body %><br>
 							</div>
 							<div class="gray-bg">
-								<span class="gray-text">Mocie：</span>手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款
+								<span class="gray-text"><%= comment.current_user.nickname %>：</span><%#= @replay.body %>
 							</div>
 							<p class="gray-text comment-text">
-								<span>22小时前</span>
-								<span class="my-reply">回复</span>
+								<span><%= time_interval(comment) %></span>
+									<%= form_tag  comment_user_user_path(@user), method: :post do |f|%>
+										<%= text_area_tag "body", "", class: "reply_text form-control", rows: 1, placeholder: "请输入您的描述!" %>
+										<%= hidden_field_tag "parent_id", comment.id %>
+										<span class="my-reply">
+											<%= submit_tag "回复" %>
+										</span>
+									<% end %>
+								<!-- <span class="my-reply">回复</span> -->
 							</p>
 							<hr>
-						</div>
-						<div class="my-comment">
-							<%= image_tag"user_comment1.png"%>  第六日 
-							<span class="gray-text">说：</span><br>
-							<div class="comment-text">								
-								回过头来看，觉得夸张，哈哈，那时候迷的不要不要的<br>
-							</div>
-							<div class="gray-bg">
-								<span class="gray-text">Mocie：</span>手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款
-							</div>
-							<p class="gray-text comment-text">
-								<span>22小时前</span>
-								<span class="my-reply">回复</span>
-							</p>
-							<%= image_tag"user_comment2.png"%>  第六日 
-							<span class="gray-text">说：</span><br>
-							<div class="comment-text">								
-								回过头来看，觉得夸张，哈哈，那时候迷的不要不要的<br>
-							</div>
-							<div class="gray-bg">
-								<span class="gray-text">Mocie：</span>手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款
-							</div>
-							<p class="gray-text comment-text">
-								<span>22小时前</span>
-								<span class="my-reply">回复</span>
-							</p>
-							<hr>
-						</div>
-						<%= image_tag"user_comment1.png"%>  第六日 
-							<span class="gray-text">说：</span><br>
-							<div class="comment-text">								
-								回过头来看，觉得夸张，哈哈，那时候迷的不要不要的<br>
-							</div>
-							<div class="gray-bg">
-								<span class="gray-text">Mocie：</span>手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款手机还是诺基亚经典款
-							</div>
-							<p class="gray-text comment-text">
-								<span>22小时前</span>
-								<span class="my-reply">回复</span>
-							</p>						
+						<% end %>
+						</div>	
 					</div>
 				</div>
-				<h3 class="text-center">此处有分页</h3>
+				<h3 class="text-center"><%= paginate  @comments, remote: true %></h3>
 			</div>
 		</div>
 	</div>

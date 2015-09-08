@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :sms #短信验证码
   acts_as_voter
+  acts_as_commentable
   
   has_many :user_recruitments, dependent: :destroy
   has_many :recruitments, through: :user_recruitments
@@ -119,6 +120,22 @@ class User < ActiveRecord::Base
 
   def self.current=(user)
     Thread.current[:user] = user
+  end
+
+   def self.save_comment_return_comments user, params
+    user = User.find(params[:user_id])
+    if user.blank?
+      nil
+    else
+       #新评论保存
+       if user.present? && params[:user_comment].present?
+        comment = Comment.build_from( user, user.id, params[:user_comment] )
+        comment.save
+       end
+
+      #返回所有评论
+      user.root_comments.order("created_at DESC").page(params[:page])
+    end
   end
 
 end
