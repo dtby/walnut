@@ -2,7 +2,7 @@
 	<% @applies.each_with_index do |apply, index| %>
 		<div class="frame margin-b-10">
 			<div class="clearfix text-center">
-				<%= link_to [:wechat, apply] do %>
+				<%= link_to wechat_apply_path(apply, source: 'index') do %>
 					<div class="col-xs-4 no-padding train-name">
 						<span><%= index + 1%>. <%= apply.train_name %></span>
 					</div>

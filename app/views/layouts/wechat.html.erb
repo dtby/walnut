@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>报名入口</title>
+	<title>在线报名</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
 	<%= stylesheet_link_tag    'wechat', media: 'all', 'data-turbolinks-track' => true %>
 	<%= javascript_include_tag 'wechat', 'data-turbolinks-track' => true %>
@@ -10,5 +10,31 @@
 
 <body class="<%= controller.controller_path.gsub('/','__') %>" >
 	<%= yield %>
+
+	<%= render partial: "wechat/common/wechat_js" %>
+	<script type="text/javascript">
+		wx.ready(function () {
+			// 设置“分享给朋友”按钮点击状态及自定义分享内容
+			wx.onMenuShareAppMessage({
+				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
+				desc: "",
+				link: "<%= wechat_root_url %>",
+				imgUrl: "<%= image_url "apply_share.png" %>"
+			});
+			// 设置“分享到朋友圈”按钮点击状态及自定义分享内容
+			wx.onMenuShareTimeline({
+				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
+				link: "<%= wechat_root_url %>",
+				imgUrl: "<%= image_url "apply_share.png" %>"
+			});
+			wx.onMenuShareQQ({
+				title: "我参加了大唐信息学院组织的“全栈工程师梦想训练营”，为毕业生就业量身打造，关键还是免费免费免费哦～～你也一起来参加吧",
+				desc: "",
+				link: "<%= wechat_root_url %>",
+				imgUrl: "<%= image_url "apply_share.png" %>"
+			 });
+		});
+	</script>
+
 </body>
 </html>

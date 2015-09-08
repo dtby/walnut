@@ -8,6 +8,7 @@
 	<div id="apply_list">
 		<%= render partial: "apply_list" %>
 	</div>
+	<%= render partial: "flash" %>
 </div>	
 
 <div class="col-xs-12 turn-back bottom-link"><%= link_to("返回上一页", wechat_root_path(openid: session[:openid])) %></div>

@@ -1,14 +1,17 @@
 class Wechat::AppliesController < Wechat::ApplicationController
 	before_action :set_applies, only: [:index, :destroy]
 	before_action :set_apply, only: [:show, :edit, :update, :destroy]
-	before_action :set_applied, only: [:home, :new]
 	def home
 	end
 
 	def new
-		@apply = Apply.new
 		#查询已报名课程
 		@train_names = Apply.where(openid: session[:openid]).pluck(:train_name)
+		if @train_names.present?
+			redirect_to wechat_applies_path(source: 'applied')
+		else
+			@apply = Apply.new
+		end
 	end
 
 	def create
@@ -17,7 +20,6 @@ class Wechat::AppliesController < Wechat::ApplicationController
 			respond_to do |format|
 				format.js {render js: "location.href='#{ success_wechat_applies_path(id: @apply.id)}'"}
 			end
-			flash[:notice] = "您好，#{@apply.name} <br>你已经提交成功，请耐心等待<br>我们将尽快和您联系"
 		else
 			respond_with @apply
 		end
@@ -30,19 +32,25 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	def update
 		if @apply.update(apply_params)
 			respond_to do |format|
-				format.js {render js: "location.href='#{ wechat_apply_path(@apply)}'"}
+				format.js {render js: "location.href='#{ wechat_apply_path(@apply, source: 'edit')}'"}
 			end
-			flash[:notice] = "您好，#{@apply.name} <br>你已经修改成功，请耐心等待<br>我们将尽快和您联系"
 		else
 			respond_with @apply
 		end
 	end
 
 	def show
+		if params[:source] == 'edit'
+			flash.now[:notice] = "您好，#{@apply.name} <br>你已经修改成功，请耐心等待<br>我们将尽快和您联系"
+		else
+			flash.now[:notice] = "以下是你的报名详细信息<br>如有错误，可点击修改"
+		end
 	end
 
 	def index
-		flash[:notice] = "以下是你的报名详细信息<br>如有错误，可点击修改"
+		if params[:source] == 'applied'
+			flash.now[:notice] = "您已经报过名啦！"
+		end
 	end
 
 	def destroy
@@ -56,7 +64,6 @@ class Wechat::AppliesController < Wechat::ApplicationController
 	end
 
 	def success
-		flash[:notice] = "以下是你的报名详细信息<br>如有错误，可点击修改"
 	end
 
 	private
@@ -70,12 +77,5 @@ class Wechat::AppliesController < Wechat::ApplicationController
 
 		def set_apply
 			@apply = Apply.find(params[:id])
-		end
-
-		def set_applied
-			@applied = Apply.find_by_openid(session[:openid])
-			if @applied.present?
-				render :home
-			end
 		end
 	end
