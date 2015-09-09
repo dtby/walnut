@@ -502,7 +502,7 @@
 		color: #49A39B
 	}
 
-.user__comment{
+.user__comment {
 	
 	.my-divider{
 		padding: 0 5px;
@@ -525,7 +525,7 @@
 	}
 	.my-confire{
 		float: right;
-		padding-right: 40px;
+		padding-top: 20px;
 	}
 	.my-dotted{
 		border:1px dashed #ccc;
@@ -537,12 +537,21 @@
 	.gray-bg{
 		background: #F2F2F2;
 		padding: 10px;
-		margin-left: 40px;
+		margin: 0 40px;
 	}
 	.comment-text{
 		padding: 10px 40px;
-		.my-reply{
-			float: right;
+		.child-form {
+			margin-right: -16px;
+		}
+		.time-tip {
+			line-height: 35px;
+		}
+		.reply_text{
+			width: 80%;
+			border: 2px solid #F2F2F2;
+			padding: 5px;
+			margin: 0 10px 0 20px;
 		}
 	}
 }
@@ -640,6 +649,18 @@
 			border-radius: 50%;
 			width: 50px;
 		}
+	}
+	.child-form {
+		margin-right: -15px;
+	}
+	.time-tip {
+		line-height: 35px;
+	}
+	.reply_text{
+		width: 80%;
+		border: 2px solid #F2F2F2;
+		padding: 5px;
+		margin: 0 10px 0 20px;
 	}
 }
 

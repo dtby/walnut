@@ -19,21 +19,32 @@
 			            <h4 class="impression-title text-center"><span>大家对我的评价</span></h4>
 			            <hr class="user-impression">
 			        </div>
-			        <% (0..5).each do %>
-			        <div class="col-md-12 evaluate">
-			        	<div class="col-md-1">
-			        	<%=image_tag "default-user.jpg", class:"member_pic" %>
-			        	</div>
-			        	<div class="col-md-11">
-			        	<p><span>第六日</span><span class="eva-col">说：</span></p>
-			        	<p>回过头看，觉得夸张，哈哈，那时候迷的不要不要d</p>
-			        	<p class="eva-bg"><span class="eva-col">Mocie:</span><span>回过头看，觉得夸张，哈哈，那时候迷的不要不要d回过头看，觉得夸张，那时候迷的不要不要d</span></p>
-			        	<p><span class="eva-col">22小时前</span><span class="eva-col pull-right">回复</span></p>
-			        	</div>
-			        	<hr class="impression-hr">
-			        </div>
-			        <% end %>
-					<div class="text-center"><%#= paginate @user_notifications %></div>
+			        	<div class="col-md-12 evaluate">
+						<% @comments.each do |comment| %>
+							<div class="col-md-1">
+							<%= link_to(home_user_path(comment.user.id)) do %>
+								<%= image_tag comment.user.show_image, class: "img-circle", width: "50", height: "50" %>
+							<% end %>
+							</div>
+							<div class="col-md-11">
+							<p><span><%= comment.try(:user).try(:nickname) %></span><span class="eva-col">说：</span></p>
+			        		<p><%= comment.body %></p>
+							<% comment.children.each do |children| %>
+								<p class="eva-bg"><span class="eva-col"><%= children.user.nickname %>:</span><span><%= children.body %></span></p>
+							<% end %>
+							<div class="gray-text comment-text">
+								<span class="pull-left time-tip"><%= time_interval(comment) %></span>
+								<%= form_tag  comment_user_user_path(@user), method: :post, class: "child-form" do |f|%>
+									<%= text_area_tag "body", "", class: "reply_text form-control navbar-form navbar-left", rows: 1, placeholder: "请输入您的描述!" %>
+									<%= hidden_field_tag "parent_id", comment.id %>
+									<%= submit_tag "回复", class: "btn btn-info" %>
+								<% end %>
+							</div>
+							<hr>
+							</div>
+						<% end %>
+						</div>	
+					<div class="text-center"><%= paginate  @comments, remote: true %></div>
 				</div>
 			</div>
 		</div>

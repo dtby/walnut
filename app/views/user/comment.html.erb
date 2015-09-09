@@ -57,7 +57,7 @@
 					<div class="col-md-offset-1 col-md-10">
 						<div class="my-comment">
 						<% @comments.each do |comment| %>
-							<%= link_to(home_user_path(@user)) do %>
+							<%= link_to(home_user_path(comment.user)) do %>
 								<%= image_tag comment.user.show_image, class: "img-circle", width: "50", height: "50" %>
 							<% end %>
 							<%= comment.try(:user).try(:nickname) %>
@@ -65,20 +65,19 @@
 							<div class="comment-text">								
 								<%= comment.body %><br>
 							</div>
-							<div class="gray-bg">
-								<span class="gray-text"><%= comment.current_user.nickname %>：</span><%#= @replay.body %>
+							<% comment.children.each do |children| %>
+								<div class="gray-bg">
+									<span class="gray-text"><%= children.user.nickname %>：</span><%= children.body %>
+								</div>
+							<% end %>
+							<div class="gray-text comment-text">
+								<span class="pull-left time-tip"><%= time_interval(comment) %></span>
+								<%= form_tag  comment_user_user_path(@user), method: :post, class: "child-form" do |f|%>
+									<%= text_area_tag "body", "", class: "reply_text form-control navbar-form navbar-left", rows: 1, placeholder: "请输入您的描述!" %>
+									<%= hidden_field_tag "parent_id", comment.id %>
+									<%= submit_tag "回复", class: "btn btn-info" %>
+								<% end %>
 							</div>
-							<p class="gray-text comment-text">
-								<span><%= time_interval(comment) %></span>
-									<%= form_tag  comment_user_user_path(@user), method: :post do |f|%>
-										<%= text_area_tag "body", "", class: "reply_text form-control", rows: 1, placeholder: "请输入您的描述!" %>
-										<%= hidden_field_tag "parent_id", comment.id %>
-										<span class="my-reply">
-											<%= submit_tag "回复" %>
-										</span>
-									<% end %>
-								<!-- <span class="my-reply">回复</span> -->
-							</p>
 							<hr>
 						<% end %>
 						</div>	

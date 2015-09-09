@@ -50,6 +50,13 @@ class UserController < ApplicationController
     @user_notifications = current_user.user_notifications.includes(:notification).order("created_at DESC").page(params[:page])
   end
 
+  def my_impression
+    @user = User.where(id: current_user.id).first
+    @comments = @user.root_comments
+              .order(created_at: :DESC)
+              .page(params[:page])
+  end
+
   #我项目
   def my_projects
     @join_projects = Project.list_projects "join"
@@ -63,8 +70,8 @@ class UserController < ApplicationController
   def comment
     @user = User.where(id: params[:id]).first
     @comments = @user.root_comments
-                .order(created_at: :DESC)
-                .page(params[:page])
+              .order(created_at: :DESC)
+              .page(params[:page])
   end
 
   def comment_user
