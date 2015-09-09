@@ -222,7 +222,31 @@
 				background-color: #f16c70;
 			}
 		.my_btn2{
-				background-color: #8bd4cc;
+				background-color: #42B19E;
+			}
+			a{
+				color: #42B19E;
+				text-decoration: none;
+			}
+			.add1{
+				position: relative;
+				.my-add1{
+					position: absolute;
+					bottom: 10px;
+					right: 20px;
+
+				}
+			}
+			.input-set{
+				padding: 0 15px;
+			}
+			.my-addon{
+				background: #0F8C8E;
+				padding: 6px;
+				border: 1px solid #0F8C8E;
+				a {
+					color: #fff;
+				}
 			}
 	}
 }
