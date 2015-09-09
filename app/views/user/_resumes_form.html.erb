@@ -1,0 +1,215 @@
+<div class="wrapper">
+	<div class="content">
+		<div class="row">
+		<!-- 基本信息 -->
+			<div class="my-col col-md-12">
+				<h3>基本信息</h3>
+			</div>
+			<div class="my-col col-md-7">
+				<div class="my-col col-md-12">
+					<form class="form-horizontal">
+					  <div class="form-group my-group">
+					    <label for="inputName" class="my-col col-md-2 control-label">真实姓名</label>
+ 					    <div class="my-col col-md-10">
+					      <input type="text" class="form-control" id="inputName" >
+					    </div>
+					  </div>
+					  <div class="form-group my-group">
+					    <label for="inputText" class="my-col col-md-2 control-label">学院学历</label>
+					    <div class="my-col col-md-5">
+					      <input type="text" class="form-control" id="inputText" >
+					    </div>
+					    <div class="my-col col-md-5">
+					      <input type="text" class="form-control" id="inputText" >
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+			<div class="my-col col-md-5">
+				<div class="my-col col-md-4">
+					<h4>头像选择</h4>
+				</div>
+				<div class="my-col col-md-6">
+					<%= image_tag"user_mypic.png",width:"60%"%>
+				</div>		
+			</div>
+
+			<div class="my-col col-md-7">
+				<div class="my-col col-md-12">
+					<form class="form-horizontal">
+					  <div class="form-group my-group">
+					    <label for="inputName" class="my-col col-md-2 control-label">技能方向</label>
+ 					    <div class="my-col col-md-10">
+					      <input type="text" class="form-control" id="inputName" >
+					    </div>
+					  </div>
+					  <div class="form-group my-group">
+					    <label for="inputText" class="my-col col-md-2 control-label">居住城市</label>
+					    <div class="my-col col-md-5">
+					      <div class="dropdown">
+								  <button class="btn btn-default my-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								    省份
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								    <li><a href="#">Action</a></li>
+								    <li><a href="#">Another</a></li>
+								    <li><a href="#">Something</a></li>
+								    <li><a href="#">Separated</a></li>
+								  </ul>
+								</div>
+					    </div>
+					    <div class="my-col col-md-5">
+					      <div class="dropdown">
+								  <button class="btn btn-default my-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								    城市
+								    <span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								    <li><a href="#">Action</a></li>
+								    <li><a href="#">Another</a></li>
+								    <li><a href="#">Something</a></li>
+								    <li><a href="#">Separated</a></li>
+								  </ul>
+								</div>
+					    </div>
+					  </div>
+					</form>
+				</div>
+			</div>
+			<div class="my-col col-md-5">
+				<form class="form-horizontal">
+				  <div class="form-group my-group">
+				    <label for="inputEmail" class="my-col col-md-3 control-label">电子邮箱</label>
+					    <div class="my-col col-md-9">
+				      <input type="text" class="form-control" id="inputEmail" >
+				    </div>
+				  </div>
+				  <div class="form-group my-group">
+				    <label for="inputEmail" class="my-col col-md-3 control-label">求职意向</label>
+					    <div class="my-col col-md-9">
+				      <input type="text" class="form-control" id="inputEmail" >
+				    </div>
+				  </div>
+				</form>
+			</div>
+		<!-- 教育经历 -->
+			<div class="my-col col-md-12">
+				<h3>教育经历</h3>
+			</div>
+			<div class="my-col col-md-12">
+				<form class="form-horizontal">
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">毕业院校</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">起止时间</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">所学专业</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">所获学历</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				</form>
+			</div>
+		<!-- 实习经历 -->
+			<div class="my-col col-md-12">
+				<h3>实习经历</h3>
+			</div>
+			<div class="my-col col-md-12">
+				<form class="form-horizontal">
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">公司名称</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">起止时间</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">所学地址</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">所任职务</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				</form>
+			</div>
+		<!-- 项目经验 -->
+			<div class="my-col col-md-12">
+				<h3>项目经验</h3>
+			</div>
+			<div class="my-col col-md-12">
+				<form class="form-horizontal">
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">项目名称</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">起止时间</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				  <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">所任角色</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				    <label for="inputText" class="col-md-2 control-label">项目凭证</label>
+				    <div class="col-md-4">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+				  </div>
+				   <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">自定义内容</label>
+				    <div class="col-md-10">
+				      <textarea class="form-control" rows="3"></textarea>
+				    </div>
+				  </div>
+				</form>
+			</div>
+		<!-- 自定义模块 -->
+			<div class="my-col col-md-12">
+				<h3>自定义模块</h3>
+			</div>
+			<div class="my-col col-md-12">
+				<form class="form-horizontal">
+					<div class="form-group my-group">
+						<label for="inputText" class="col-md-2 control-label">自定义标题</label>
+			    	<div class="col-md-10">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+					</div>
+			    <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">自定义内容</label>
+				    <div class="col-md-10">
+				      <textarea class="form-control" rows="5"></textarea>
+				    </div>
+				  </div>
+				</form>
+			</div>
+			<div class="col-sm-offset-3 col-sm-2">
+        <botton class="btn btn-default mybtn my_btn1">确认提交</botton>
+      </div>
+      <div class="col-sm-offset-3 col-sm-2">
+        <botton class="btn btn-default mybtn  my_btn2">取消编辑</botton>
+      </div>
+		</div>
+	</div>
+</div>
