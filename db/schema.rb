@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907073800) do
+ActiveRecord::Schema.define(version: 20150908102924) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -185,6 +185,22 @@ ActiveRecord::Schema.define(version: 20150907073800) do
   add_index "notifications", ["project_id"], name: "index_notifications_on_project_id", using: :btree
   add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
+  create_table "profession_stages", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.text     "discribe",      limit: 65535
+    t.integer  "profession_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "profession_stages", ["profession_id"], name: "index_profession_stages_on_profession_id", using: :btree
+
+  create_table "professions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "project_courses", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "course_id",  limit: 4
@@ -321,6 +337,22 @@ ActiveRecord::Schema.define(version: 20150907073800) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "technologies", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "technology_stages", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.text     "discribe",      limit: 65535
+    t.integer  "technology_id", limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "technology_stages", ["technology_id"], name: "index_technology_stages_on_technology_id", using: :btree
+
   create_table "trains", force: :cascade do |t|
     t.string   "title",                    limit: 255
     t.text     "introduce",                limit: 65535
@@ -432,6 +464,8 @@ ActiveRecord::Schema.define(version: 20150907073800) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "profession_stages", "professions"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
+  add_foreign_key "technology_stages", "technologies"
 end
