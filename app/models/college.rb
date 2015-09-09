@@ -11,5 +11,7 @@
 
 class College < ActiveRecord::Base
 	has_one :image, as: :imageable, dependent: :destroy
-	has_many :courses, dependent: :destroy
+
+	has_many :stage_courses, as: :stage_courseable, dependent: :destroy
+	has_many :courses, through: :stage_courses
 end

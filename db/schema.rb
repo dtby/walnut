@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908102924) do
+ActiveRecord::Schema.define(version: 20150909020139) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -263,6 +263,16 @@ ActiveRecord::Schema.define(version: 20150908102924) do
 
   add_index "sms", ["mobile"], name: "index_sms_on_mobile", unique: true, using: :btree
 
+  create_table "stage_courses", force: :cascade do |t|
+    t.integer  "course_id",             limit: 4
+    t.integer  "stage_courseable_id",   limit: 4
+    t.string   "stage_courseable_type", limit: 255
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  add_index "stage_courses", ["course_id"], name: "index_stage_courses_on_course_id", using: :btree
+
   create_table "sub_courses", force: :cascade do |t|
     t.string   "title",       limit: 255
     t.text     "description", limit: 65535
@@ -465,6 +475,7 @@ ActiveRecord::Schema.define(version: 20150908102924) do
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
   add_foreign_key "profession_stages", "professions"
+  add_foreign_key "stage_courses", "courses"
   add_foreign_key "teacher_courses", "courses"
   add_foreign_key "teacher_courses", "teachers"
   add_foreign_key "technology_stages", "technologies"
