@@ -59,14 +59,14 @@ module Admin
 				sheet1[count_row, 0] = count_row
 				sheet1[count_row, 1] = obj.name
 				sheet1[count_row, 2] = Apply::SEX[obj.sex.to_sym]
-				sheet1[count_row, 3] = obj.train_name
+				sheet1[count_row, 3] = Apply::TRAIN_NAME[obj.train_name.to_sym]
 				sheet1[count_row, 4] = obj.phone
 				sheet1[count_row, 5] = obj.qq
 				sheet1[count_row, 6] = obj.email
 				sheet1[count_row, 7] = Apply::SITUATION[obj.situation.to_sym]
 				sheet1[count_row, 8] = Apply::DEGREE[obj.degree.to_sym]
 				sheet1[count_row,9] = obj.school_name
-				sheet1[count_row, 10] = obj.way
+				sheet1[count_row, 10] = Apply::WAY[obj.way.to_sym]
 				sheet1[count_row, 11] = obj.created_at.strftime("%F %H:%M")
 				count_row += 1
 			end
