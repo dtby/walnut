@@ -1,4 +1,4 @@
-<div class="col-md-2 my-impression text-center">
+<!-- <div class="col-md-2 my-impression text-center">
 	<span class="my-comment">棒棒哒(20)</span>
 </div>
 <div class="col-md-2 my-impression text-center">
@@ -21,14 +21,20 @@
 </div>
 <div class="col-md-2 my-impression text-center">
 	<span class="my-comment">棒棒哒(20)</span>
-</div>
-<div class="tags tags-list">
-	<% @user.tag_list.each do |tag| %>
-	<span class="tag"><%= tag %>
-		<%= link_to("x", remove_user_path(@user, tag: tag) , class: "close", remote: true, format: :js) %>
-	</span>
+</div> -->
+<div class="col-md-12 impression-tab">
+	<% if @user.tag_list.blank? %>
+	<div class="text-center tag-blank">
+		<p>其他人对这个小伙伴还木有印象，赶快给小伙伴添加印象吧！</p>
+		<input type="input" name="tags" id="addTag" class="text-center tag-input" value="" placeholder="点击添加印象吧！" >
+	</div>
+	<% else %>
+		<% @user.tag_list.each do |tag| %>
+			<button class="btn btn-success tab" type="button"><%= tag %>&nbsp;&nbsp;<span class="badge">20</span></button>
+			<%#= link_to("x", remove_user_path(@user, tag: tag) , class: "close", remote: true, format: :js) %>
+		<% end %>
+		<input type="input" name="tags" id="addTag" value="" class="text-center tag-input" placeholder="请输入标签" >
 	<% end %>
-	<input type="input" name="tags" id="addTag" value="" placeholder="请输入标签" >
 </div>
 
 <script type="text/javascript">
@@ -37,7 +43,7 @@
 		$("#addTag").blur(function(){
 			if($(this).val() != ""){
 				$.ajax({
-					url: "<%= tag_user_path(@user, @comment)%>.js",
+					url: "<%= tag_user_path(@user)%>.js",
 					type: "post",
 					data: {tag: $(this).val()}
 				});

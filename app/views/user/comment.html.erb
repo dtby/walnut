@@ -2,7 +2,7 @@
 <div class="main">
 	<div class="container">
 		<div class="row">
-			<div id="tagshow" class="col-md-offset-1 col-md-10 main-content">
+			<div class="col-md-offset-1 col-md-10 main-content">
 				<h3 class="main-title">印象评价</h3>
 				<div class="row">
 					<div class="col-md-5 my-divider">
@@ -15,8 +15,10 @@
 						<hr class="my-line">
 					</div>
 				</div>
+				<div id="tagshow">
 				<%= render partial: "user_comment" %>
-				<div class="col-md-12 my-form">
+				</div>
+				<!-- <div class="col-md-12 my-form">
 					<form class="form-horizontal">
 					  <div class="form-group">
 					    <div class="col-md-5">
@@ -27,7 +29,7 @@
 					    </div>
 					  </div>
 					</form>
-				</div>
+				</div> -->
 			</div>
 			<div class="col-md-offset-1 col-md-10 main-content">
 				<div class="row">
@@ -41,7 +43,7 @@
 						<hr class="my-line">
 					</div>
 					<div class="col-md-12 my-text">
-						<%= form_tag  comment_user_user_path(@user), method: :post do |f|%>
+						<%= form_tag  comment_user_user_path(@user), method: :post, remote: true, format: :js do |f|%>
 							<%= text_area_tag "body", "", class: "comment_text form-control", rows: 3, placeholder: "请输入您的描述，超过10个字" %>
 							<div class="my-confire">
 								<%= submit_tag "确定", class: "btn btn-default my-btn"%>
@@ -55,35 +57,12 @@
 				<!-- 评论 -->
 				<div class="row">
 					<div class="col-md-offset-1 col-md-10">
-						<div class="my-comment">
-						<% @comments.each do |comment| %>
-							<%= link_to(home_user_path(comment.user)) do %>
-								<%= image_tag comment.user.show_image, class: "img-circle", width: "50", height: "50" %>
-							<% end %>
-							<%= comment.try(:user).try(:nickname) %>
-							<span class="gray-text">说：</span><br>
-							<div class="comment-text">								
-								<%= comment.body %><br>
-							</div>
-							<% comment.children.each do |children| %>
-								<div class="gray-bg">
-									<span class="gray-text"><%= children.user.nickname %>：</span><%= children.body %>
-								</div>
-							<% end %>
-							<div class="gray-text comment-text">
-								<span class="pull-left time-tip"><%= time_interval(comment) %></span>
-								<%= form_tag  comment_user_user_path(@user), method: :post, class: "child-form" do |f|%>
-									<%= text_area_tag "body", "", class: "reply_text form-control navbar-form navbar-left", rows: 1, placeholder: "请输入您的描述!" %>
-									<%= hidden_field_tag "parent_id", comment.id %>
-									<%= submit_tag "回复", class: "btn btn-info" %>
-								<% end %>
-							</div>
-							<hr>
-						<% end %>
+						<div id="my_comment" class="my-comment">
+						<%= render partial: "comment_show" %>
 						</div>	
 					</div>
 				</div>
-				<h3 class="text-center"><%= paginate  @comments, remote: true %></h3>
+				<h3 class="text-center"><%= paginate  @comments %></h3>
 			</div>
 		</div>
 	</div>

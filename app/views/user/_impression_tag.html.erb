@@ -1,0 +1,8 @@
+<% if @user.tag_list.blank? %>
+<div class="text-center tag-blank">亲，你的光闪的还不够明显，别人对你还木有啥印象！努力吧，骚年！</div>
+<% else %>
+    <% @user.tag_list.each do |tag| %>
+		<button class="btn btn-success tab" type="button"><%= tag %>&nbsp;&nbsp;<span class="badge">20</span>
+		<span><%= link_to("x", remove_user_path(@user, tag: tag) , class: "close", remote: true, format: :js) %></span></button>
+	<% end %>
+<% end %>

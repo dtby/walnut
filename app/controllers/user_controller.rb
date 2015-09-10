@@ -72,6 +72,7 @@ class UserController < ApplicationController
     @comments = @user.root_comments
               .order(created_at: :DESC)
               .page(params[:page])
+
   end
 
   def comment_user
@@ -86,7 +87,12 @@ class UserController < ApplicationController
       @comment.move_to_child_of(parent_comment) 
     end
     
-    redirect_to comment_user_path(@user)
+    # redirect_to comment_user_path(@user)
+    @comments = @user.root_comments
+              .order(created_at: :DESC)
+              .page(params[:page])
+              
+    respond_with(@comments)
   end
   
   #添加标签
@@ -107,7 +113,7 @@ class UserController < ApplicationController
       @user.tag_list.remove(params[:tag] ) 
       @user.save
     end
-    
+    # redirect_to my_impression_user_index_path
     respond_with @user
   end
 
@@ -125,6 +131,6 @@ class UserController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:nickname, :name, :department, :major, :mobile, :email, :gender, :signature, :password)
+      params.require(:user).permit(:nickname, :name, :department, :major, :mobile, :email, :gender, :signature, :password, :tag_list)
     end
 end

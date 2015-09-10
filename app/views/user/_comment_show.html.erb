@@ -1,0 +1,24 @@
+<% @comments.each do |comment| %>
+	<%= link_to(home_user_path(comment.user)) do %>
+		<%= image_tag comment.user.show_image, class: "img-circle", width: "50", height: "50" %>
+	<% end %>
+	<%= comment.try(:user).try(:nickname) %>
+	<span class="gray-text">说：</span><br>
+	<div class="comment-text">								
+		<%= comment.body %><br>
+	</div>
+	<% comment.children.each do |children| %>
+		<div id="gray_bg" class="gray-bg">
+			<span class="gray-text"><%= children.user.nickname %>：</span><%= children.body %>
+		</div>
+	<% end %>
+	<div class="gray-text comment-text">
+		<span class="pull-left time-tip"><%= time_interval(comment) %></span>
+		<%= form_tag  comment_user_user_path(@user), method: :post, remote: true, format: :js, class: "child-form" do |f|%>
+			<%= text_area_tag "body", "", class: "reply_text form-control navbar-form navbar-left", rows: 1, placeholder: "请输入您的描述!" %>
+			<%= hidden_field_tag "parent_id", comment.id %>
+			<%= submit_tag "回复", class: "btn btn-info btn-reply" %>
+		<% end %>
+	</div>
+	<hr>
+<% end %>

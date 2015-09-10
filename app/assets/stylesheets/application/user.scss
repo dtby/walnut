@@ -503,23 +503,6 @@
 	}
 
 
-.tags-list {
-        background-color: #fbffff;
-        border: none;
-        padding-bottom: 10px;
-        width: 100%;
-          .tag{
-            background-color: #2EC8BA;
-            border-radius: 0px;
-          }
-        a {
-          color: #fff;
-          &.close:hover {
-            color: red;
-          }
-        }
-      }
-
 .user__comment {
 	.my-divider{
 		padding: 0 5px;
@@ -553,7 +536,7 @@
 	}
 	.gray-bg{
 		background: #F2F2F2;
-		padding: 10px;
+		padding: 3px 10px;
 		margin: 0 40px;
 	}
 	.comment-text{
@@ -563,12 +546,13 @@
 		}
 		.time-tip {
 			line-height: 35px;
+			width: 64px;
 		}
 		.reply_text{
-			width: 80%;
+			width: 79.5%;
 			border: 2px solid #F2F2F2;
 			padding: 5px;
-			margin: 0 10px 0 20px;
+			margin: 0 10px 0 0;
 		}
 	}
 }
@@ -625,15 +609,38 @@
 	} 
 }
 
-.user__my_impression {
+.user__my_impression, .user__comment, .user__home {
 	.user-impression {
 		border: 2px solid #797B7A;
 		margin-bottom: 20px;
 	}
 	.impression-tab {
 		padding-left: 20px;
+		a {
+			background-color: #797B7A;
+			color: #fff;
+			padding: 0 5px;
+			border-radius: 50%;
+			position: relative;
+			top: -20px;
+			left: 20px;
+			z-index: 2;
+          &.close:hover {
+            color: red;
+          }
+        }
+		.tag-blank {
+			color: #CCCCD3;
+			font-size: 20px;
+			margin-top: 20px;
+		}
 		.tab {
-		margin: 0 10px 10px 10px;
+			background-color: #44A49B;
+			margin: 10px 10px 10px 10px;
+		}
+		.tag-input {
+			border-color: #44A49B;
+			line-height: 25px;
 		}
 	}
 	.impression-t {
@@ -671,13 +678,16 @@
 		margin-right: -15px;
 	}
 	.time-tip {
-		line-height: 35px;
+		color: #CCCCD3;
+	}
+	.btn-reply {
+		background-color: #44A49B;
 	}
 	.reply_text{
-		width: 80%;
+		width: 79.2%;
 		border: 2px solid #F2F2F2;
 		padding: 5px;
-		margin: 0 10px 0 20px;
+		margin: 0 10px 0 0;
 	}
 }
 

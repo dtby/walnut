@@ -1,6 +1,6 @@
 <% @trains.each do |train| %>
   <%= link_to worktrain_path(train) do |i| %>
-      <div class="bordered">
+      <div id="borderid" class="bordered">
         <div class="imgholder">
         <%= image_tag(train.try(:image).try(:avatar).present? ? train.try(:image).try(:avatar) : "workt2.png", width: "100%", class: "lazy")%>
         </div>
