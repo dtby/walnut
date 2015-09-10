@@ -502,8 +502,25 @@
 		color: #49A39B
 	}
 
+
+.tags-list {
+        background-color: #fbffff;
+        border: none;
+        padding-bottom: 10px;
+        width: 100%;
+          .tag{
+            background-color: #2EC8BA;
+            border-radius: 0px;
+          }
+        a {
+          color: #fff;
+          &.close:hover {
+            color: red;
+          }
+        }
+      }
+
 .user__comment {
-	
 	.my-divider{
 		padding: 0 5px;
 		.my-line{

@@ -22,3 +22,26 @@
 <div class="col-md-2 my-impression text-center">
 	<span class="my-comment">棒棒哒(20)</span>
 </div>
+<div class="tags tags-list">
+	<% @user.tag_list.each do |tag| %>
+	<span class="tag"><%= tag %>
+		<%= link_to("x", remove_user_path(@user, tag: tag) , class: "close", remote: true, format: :js) %>
+	</span>
+	<% end %>
+	<input type="input" name="tags" id="addTag" value="" placeholder="请输入标签" >
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		//标签
+		$("#addTag").blur(function(){
+			if($(this).val() != ""){
+				$.ajax({
+					url: "<%= tag_user_path(@user, @comment)%>.js",
+					type: "post",
+					data: {tag: $(this).val()}
+				});
+			}
+		});
+	});
+</script>

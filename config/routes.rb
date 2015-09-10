@@ -46,6 +46,8 @@ Rails.application.routes.draw do
       get :comment
       post :comment_user
       get :infos
+      post :tag
+      get :remove
     end
   end
 

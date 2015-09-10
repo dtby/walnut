@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
   attr_accessor :sms #短信验证码
   acts_as_voter
   acts_as_commentable
+  acts_as_taggable # Alias for acts_as_taggable_on :tags
+  acts_as_taggable_on :skills, :interests
   
   has_many :user_recruitments, dependent: :destroy
   has_many :recruitments, through: :user_recruitments

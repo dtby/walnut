@@ -89,6 +89,28 @@ class UserController < ApplicationController
     redirect_to comment_user_path(@user)
   end
   
+  #添加标签
+  def tag
+    if params[:tag].present?
+      @user = User.where(id: params[:id]).first
+      @user.tag_list.add(params[:tag] ) 
+      @user.save
+    end
+     
+    respond_with @user
+  end
+
+  #删除标签
+  def remove
+    if params[:tag].present?
+      @user = User.where(id: params[:id]).first
+      @user.tag_list.remove(params[:tag] ) 
+      @user.save
+    end
+    
+    respond_with @user
+  end
+
   def infos
     @user = User.where(id: params[:id]).first
   end
