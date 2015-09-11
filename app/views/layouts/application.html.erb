@@ -13,8 +13,9 @@
 	<%= render partial: 'share/header' %>
 	<%= yield :banner %>
 	<%= yield %>
+	<% unless params[:controller] == 'worktrains' && params[:action] == 'index' %> 
 	<%= render partial: 'share/footer' %>
-
+	<% end %>
   <%= render partial: 'share/devise_form' %>
   <%= yield :scripts %>
 </body>
