@@ -163,7 +163,13 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "home#index"
-    resources :colleges
+    resources :colleges do
+      member do
+        get :courses
+        get :new_courses
+        post :create_courses
+      end
+    end
     resources :teachers
     resources :companies
     resources :recruitments

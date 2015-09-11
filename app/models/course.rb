@@ -21,7 +21,6 @@ class Course < ActiveRecord::Base
 	#has_many_kindeditor_assets :attachments, :dependent => :destroy
 	belongs_to :teacher
 	belongs_to :category
-	belongs_to :college
 	has_many :project_courses
 
   #子课程最后更新时间

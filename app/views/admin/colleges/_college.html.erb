@@ -1,6 +1,7 @@
 <tr>
   <td><%= image_tag(college.try(:image).try(:avatar)) %></td>
   <td><%= college.name %></td>
+  <td><%= link_to "课程列表", courses_admin_college_path(college) %></td>
   <td>
     <%#= link_to [:admin, specialty], class: 'btn btn-xs btn-info', title: '查看' do %>
      <!--  <span class="glyphicon glyphicon-eye-open"></span> -->

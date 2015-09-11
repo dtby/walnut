@@ -1,5 +1,9 @@
 <tr>
-  <td><%= image_tag(course.try(:image).try(:avatar)) %></td>
+  <td>
+    <%#= image_tag(course.try(:image).try(:avatar)) %>
+    <%= course.id %>
+  </td>
+  <td><%= course.title %></td>
   <td>
     <% if course.teacher_id %>
       <%= course.teacher.name %>
@@ -9,7 +13,6 @@
       <%= course.category.name %>
     <% end %>
   </td>
-  <td><%= course.title %></td>
   <td><%= course.view_count %></td>
   <td><%= link_to "创建子课程", admin_course_sub_courses_path(course.id) %></td>
   <td>

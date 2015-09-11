@@ -1,0 +1,35 @@
+<%= content_for :nav do%>
+	<li><a href="#{admin_root_path}">后台</a></li>
+	<li><%= link_to "院校列表", admin_colleges_path %></li>
+	<li class="active"><%= @college.name %></li>
+	<li><%= link_to "课程列表", courses_admin_college_path %></li>
+	<li class="active">添加</li>
+<%end%>
+
+<%= form_tag(create_courses_admin_college_path) do |f| %>
+
+<%= hidden_field_tag :stage_courseable_id, params[:id].to_i %>
+<%= hidden_field_tag :stage_courseable_type, "College" %>
+<div class="form-group clearfix">
+	<label class="col-sm-2 control-label text-right">选择课程</label>
+	<div class="col-sm-8">
+		<table class="table table-hover table-bordered text-center table-condensed">
+			<% @courses.each do |course| %>
+				<tr>
+					<td><%= check_box_tag "course_id[]", course[0] %></td>
+					<td><%= label :course_id, course[1] %></td>
+				</tr>			
+			<% end %>
+		</table>
+	</div>
+</div>
+<hr>
+<div class="form-group">
+	<div class="col-sm-offset-2 col-sm-10">
+		<button class="btn btn-success" type="submit">
+			<span class="glyphicon glyphicon-floppy-save"></span> 添加
+		</button>
+	</div>
+</div>
+
+<% end %>

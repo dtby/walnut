@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909020139) do
+ActiveRecord::Schema.define(version: 20150911012341) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -106,7 +106,6 @@ ActiveRecord::Schema.define(version: 20150909020139) do
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "teacher_id",  limit: 4
-    t.integer  "college_id",  limit: 4
     t.integer  "category_id", limit: 4
     t.text     "detail",      limit: 65535
   end

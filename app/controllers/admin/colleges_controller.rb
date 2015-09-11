@@ -1,6 +1,6 @@
 module Admin
 	class CollegesController < Admin::ApplicationController
-		before_action :set_college, only: [:edit, :update, :destroy]
+		before_action :set_college, only: [:edit, :update, :destroy, :courses, :new_courses]
 		def index
 			@colleges = College.page(params[:page]).per(10)
 		end
@@ -12,8 +12,8 @@ module Admin
 		def create
 			@college = College.new(college_params)
 			#存入学院logo
-      @college.image = Image.new if @college.image.blank?
-      @college.image.avatar = params[:college][:image]
+		      @college.image = Image.new if @college.image.blank?
+		      @college.image.avatar = params[:college][:image]
 
 			if @college.save
 				flash.now[:notice] = "创建成功"
@@ -45,13 +45,32 @@ module Admin
 		def show
 		end
 
-		private
+		#显示具体学校的全部课程
+		def courses
+			@college_courses = @college.courses.page(params[:page]).per(10)
+		end
 
-		def college_params
-			params.require(:college).permit(:name, :deleted_at)
+		#为学校添加课程页面
+		def new_courses
+			@courses = Course.all.pluck(:id, :title)
 		end
-		def set_college
-			@college = College.find(params[:id])
+
+		#创建学校课程
+		def create_courses
+			params[:course_id].each do |course_id|
+				StageCourse.find_or_create_by!(stage_courseable_id: params[:stage_courseable_id], 
+					stage_courseable_type: params[:stage_courseable_type], 
+					course_id: course_id)
+			end
+			redirect_to courses_admin_college_path
 		end
+
+		private
+			def college_params
+				params.require(:college).permit(:name, :deleted_at)
+			end
+			def set_college
+				@college = College.find(params[:id])
+			end
 	end
 end
