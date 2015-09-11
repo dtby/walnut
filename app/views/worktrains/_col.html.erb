@@ -1,8 +1,8 @@
 <div id="scoll-data">
 <% @trains.each do |train| %>
   <%= link_to worktrain_path(train) do |i| %>
-        <div id="course-data" class="sr-only">
-          <div class="pic"><span class="train-image"><%= train.try(:image).try(:avatar) %></span></div>
+        <div id="course-data">
+          <div class="pic"><span class="train-image"><%= image_tag train.try(:image).try(:avatar) %></span></div>
           <div class="title">
             <span class="train-title">
               <h4><%= train.title.try(:truncate, 15) %></h4>

@@ -1,55 +1,3 @@
-<%= image_tag "work_banner.png",width:"100%" %>
-<div class="container worktrain-content">
-	<div class="row">
-		<div class="title-bar col-md-12">
-			<h4 class="text-center title">职前培训</h4>
-			<div class="line"></div>
-		</div>
-    <div id="wrap">
-      <% @trains.each do |train| %>
-      <div class="box">
-        <div class="info">
-          <%= link_to worktrain_path(train) do |i| %>
-            <div id="course-data">
-              <div class="pic"><span class="train-image"><%= image_tag train.try(:image).try(:avatar) %></span></div>
-              <div class="title">
-                <span class="train-title">
-                  <h4><%= train.title.try(:truncate, 15) %></h4>
-                  <p><%=raw train.introduce.try(:truncate, 20) %></p>
-                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                  <%= train.views_count_s %>
-                  <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                  <%= train.created_at.strftime("%F %H:%M:%S") %>
-                </span>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div> 
-      <% end %>
-    </div>
-	</div>
-</div>
-
-
-
-<script type="text/javascript">
-
-window.onload = function(){
-  //运行瀑布流主函数
-  PBL('wrap','box');
-
-  //设置滚动加载
-  window.onscroll = function(){
-    if ($(document).scrollTop() + $(window).height() >= $(document).height()) {
-      $.ajax({
-        url: "<%= worktrains_path %>.js",
-        type: "GET",
-        data: "page=<%= params[:page].present? ? (params[:page] + 1) : 2 %>"
-      });
-    }
-  }
-}
 /**
 * 瀑布流主函数
 * @param  wrap  [Str] 外层元素的ID
@@ -122,4 +70,43 @@ function getStyle(box,top,left,index){
     },999);
     getStartNum = index;//更新请求数据的条数位置
 }
-</script>
+
+var data = [];
+<% @trains.each do |train| %>
+	var title = "<h4>" + "<%= train.title.try(:truncate, 15) %>" + "</h4>";
+	data.push({
+		"src": "<%= train.try(:image).try(:avatar) %>",
+		"title": title
+	})
+<% end %>
+
+var wrap = document.getElementById('wrap');
+  for(var i in data){
+    //创建box
+    var box = document.createElement('div');
+    box.className = 'box';
+    wrap.appendChild(box);
+    //创建info
+    var info = document.createElement('div');
+    info.className = 'info';
+    box.appendChild(info);
+    //创建pic
+    var pic = document.createElement('div');
+    pic.className = 'pic';
+    info.appendChild(pic);
+    //创建img
+    var img = document.createElement('img');
+    img.src = data[i].src;
+    img.style.height = 'auto';
+    pic.appendChild(img);
+    //创建title
+    var title = document.createElement('div');
+    title.className = 'title';
+    info.appendChild(title);
+    //创建a标记
+    var a = document.createElement('a');
+    a.innerHTML = data[i].title;
+    title.appendChild(a);
+  }
+
+PBL('wrap','box');
