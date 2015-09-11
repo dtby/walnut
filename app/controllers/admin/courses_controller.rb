@@ -57,7 +57,6 @@ module Admin
 
     def association_variables
       @categories = Category.all
-      @colleges = College.all
       @teachers = Teacher.all
     end
 

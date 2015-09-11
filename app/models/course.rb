@@ -22,6 +22,7 @@ class Course < ActiveRecord::Base
 	belongs_to :teacher
 	belongs_to :category
 	has_many :project_courses
+	has_many :stage_courses, dependent: :destroy
 
   #子课程最后更新时间
 	def last_update_time
@@ -48,10 +49,10 @@ class Course < ActiveRecord::Base
 	end
 
 	#solr搜索
-	searchable do
-		text :title, :description
-		integer :teacher_id
-		integer :college_id
-	end
+	# searchable do
+	# 	text :title, :description
+	# 	integer :teacher_id
+	# 	#integer :college_id
+	# end
 
 end
