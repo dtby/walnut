@@ -170,6 +170,9 @@ Rails.application.routes.draw do
         post :create_courses
       end
     end
+    resources :technologies
+    resources :professions
+    
     resources :teachers
     resources :companies
     resources :recruitments

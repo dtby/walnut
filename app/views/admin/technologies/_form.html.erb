@@ -1,0 +1,36 @@
+<%= simple_form_for([:admin, @technology], html: {class: "form-horizontal"}) do |f| %>
+  <% if @technology.image.present? %>
+    <div class="form-group">
+      <%= label_tag :image, '已上传图片', class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4 container">
+        <%= image_tag(@technology.try(:image).try(:avatar)) %>
+      </div>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :image, '展示图', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4 container">
+      <%= f.file_field :image %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :name, '体系名称', class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+  <hr></hr>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button class="btn btn-success" type="submit">
+        <span class="glyphicon glyphicon-floppy-save">保存</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $(function(){
+    $("#technology_image").fileinput();
+  });
+</script>
