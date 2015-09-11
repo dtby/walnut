@@ -7,8 +7,6 @@
   <td>
     <% if course.teacher_id %>
       <%= course.teacher.name %>
-    <% elsif course.college_id %>
-      <%= course.college.name %>
     <% elsif course.category_id %>
       <%= course.category.name %>
     <% end %>
