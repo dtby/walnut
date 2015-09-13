@@ -175,8 +175,8 @@ Rails.application.routes.draw do
         post :create_courses
       end
     end
-    resources :technologies
-    resources :professions
+    resources :technologies, except: [:show]
+    resources :professions, except: [:show]
     
     resources :teachers
     resources :companies
