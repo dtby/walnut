@@ -36,6 +36,7 @@ class UserController < ApplicationController
     end
     @departments = [ "艺术设计系", "商务管理系", "商务管理系" ]
     @majors = [ "设计", "艺术", "艺术设计" ]
+
   end
 
   def my_recruits
@@ -61,6 +62,12 @@ class UserController < ApplicationController
   def my_projects
     @join_projects = Project.list_projects "join"
     @create_projects = Project.list_projects "create"
+  end
+
+  def my_resumes
+    @user = current_user
+    @basic_info = BasicInfo.first
+    # redirect_to  my_resumes_user_index_path
   end
 
   def home

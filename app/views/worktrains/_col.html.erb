@@ -17,3 +17,8 @@
   <% end %>
 <% end %>
 </div>
++ "<p>" + "<%=raw train.introduce.try(:truncate, 20) %>" + "</p>"
+            + "<span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>"
+            + "<%= train.views_count_s %>"
+            + "<span class="glyphicon glyphicon-time" aria-hidden="true"></span>"
+            + "<%= train.created_at.strftime("%F %H:%M:%S") %>";

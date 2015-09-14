@@ -22,14 +22,14 @@
 	<div class="form-group">
 		<label class="col-sm-2 col-sm-offset-2 control-label">性别</label>
 		<div class="col-sm-6">
-			<%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last, class: "col-xs-2"%>
+			<%=f.collection_radio_buttons :gender, [[true, '男'] ,[false, '女']], :first, :last, class: "col-xs-2" %>
 		</div>
 	</div>
 	<%= f.input :signature ,label: '个性签名'%>
 	<div class="form-group modify-btn">
 		<div class="col-sm-offset-4 col-sm-6">
-			<%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1"%>
-			<%= f.button :submit , '取消修改', class:"btn btn-default mybtn my_btn2 pull-right"%>
+			<%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1" %>
+			<%= f.button :submit , '取消修改', class:"btn btn-default mybtn my_btn2 pull-right" %>
 		</div>
 	</div>
 <% end %>

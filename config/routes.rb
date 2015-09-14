@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount ChinaCity::Engine => '/china_city'
   mount WeixinRailsMiddleware::Engine, at: "/"
   root "home#index"
   
@@ -38,6 +39,7 @@ Rails.application.routes.draw do
       get :my_messages
       get :my_recruits
       get :my_resumes
+      resources :basic_infos
       get :my_trains
       get :my_impression
     end

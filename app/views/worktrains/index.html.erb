@@ -17,10 +17,9 @@
                   <h4><%= train.title.try(:truncate, 15) %></h4>
                   <p><%=raw train.introduce.try(:truncate, 20) %></p>
                   <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
-                  <%= train.views_count_s %>
+                  <span class="view"><%= train.views_count_s %></span>
                   <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                  <%= train.created_at.strftime("%F %H:%M:%S") %>
-                </span>
+                  <span class="time"><%= train.created_at.strftime("%F %H:%M:%S") %></span>
               </div>
             </div>
           <% end %>
@@ -34,7 +33,7 @@
 
 
 <script type="text/javascript">
-
+alert("<%= @trains.last_page? %>");
 window.onload = function(){
   //运行瀑布流主函数
   PBL('wrap','box');
@@ -45,7 +44,7 @@ window.onload = function(){
       $.ajax({
         url: "<%= worktrains_path %>.js",
         type: "GET",
-        data: "page=<%= params[:page].present? ? (params[:page] + 1) : 2 %>"
+        data: "page=<%= @trains.next_page %>"
       });
     }
   }

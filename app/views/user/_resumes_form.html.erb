@@ -5,95 +5,76 @@
 			<div class="my-col col-md-12">
 				<h3>基本信息</h3>
 			</div>
+			<%= simple_form_for @basic_info, url: basic_infos_path(@user),wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
 			<div class="my-col col-md-7">
-				<div class="my-col col-md-12">
-					<form class="form-horizontal">
-					  <div class="form-group my-group">
-					    <label for="inputName" class="my-col col-md-2 control-label">真实姓名</label>
- 					    <div class="my-col col-md-10">
-					      <input type="text" class="form-control" id="inputName" >
-					    </div>
-					  </div>
-					  <div class="form-group my-group">
-					    <label for="inputText" class="my-col col-md-2 control-label">学院学历</label>
-					    <div class="my-col col-md-5">
-					      <input type="text" class="form-control" id="inputText" >
-					    </div>
-					    <div class="my-col col-md-5">
-					      <input type="text" class="form-control" id="inputText" >
-					    </div>
-					  </div>
-					</form>
+				<!-- 	<div class="form-group my-group">
+				<label for="inputName" class="my-col col-md-2 control-label">真实姓名</label>
+					<div class="col-md-10">
+				    	<input type="text" class="form-control" id="inputName" >
+				    </div>
+				</div> -->
+				<div class="form-group my-group">
+					<%= f.label :name, '姓名', class: 'col-md-3 control-label' %>
+					<div class="my-col col-md-9">
+						<%= f.input :name %>
+					</div>
+				</div>
+				<div class="form-group my-group">
+					<%= f.label :college, '学院学历', class: 'col-md-3 control-label' %>
+					<div class="my-col col-md-5">
+						<%= f.input :college %>
+					</div>
+					<div class="my-col col-md-4">
+						<%= f.input :education %>
+					</div>
+				</div>
+				<div class="form-group my-group">
+					<%= f.label :skill, '技能方向', class: 'col-md-3 control-label' %>
+					<div class="my-col col-md-9">
+						<%= f.input :skill %>
+					</div>
+				</div>
+			  	<div class='rails-helper city-group'>
+					<%= select_tag "p", options_for_select(ChinaCity.list) , prompt: '--省份--', class: ['city-select'] %>
+					<%= select_tag "c", options_for_select([]), prompt: '--城市--', class: ['city-select'] %>
+				</div>
+				<%= hidden_field_tag "user_id", current_user.id %>
+				<div class="form-group my-group text-center">
+					<%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1" %>
 				</div>
 			</div>
 			<div class="my-col col-md-5">
 				<div class="my-col col-md-4">
 					<h4>头像选择</h4>
 				</div>
+				<% if @user.image.present? %>
 				<div class="my-col col-md-6">
-					<%= image_tag"user_mypic.png",width:"60%"%>
-				</div>		
+					<%= image_tag(@basic_info.try(:image).try(:avatar), size: "110x150") %>
+				</div>	
+				<div class="form-group">
+					<div class="col-sm-6 container">
+						<%= f.file_field :image %>
+					</div>
+				</div>
+				<% end %>
 			</div>
 
-			<div class="my-col col-md-7">
-				<div class="my-col col-md-12">
-					<form class="form-horizontal">
-					  <div class="form-group my-group">
-					    <label for="inputName" class="my-col col-md-2 control-label">技能方向</label>
- 					    <div class="my-col col-md-10">
-					      <input type="text" class="form-control" id="inputName" >
-					    </div>
-					  </div>
-					  <div class="form-group my-group">
-					    <label for="inputText" class="my-col col-md-2 control-label">居住城市</label>
-					    <div class="my-col col-md-5">
-					      <div class="dropdown">
-								  <button class="btn btn-default my-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								    省份
-								    <span class="caret"></span>
-								  </button>
-								  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <li><a href="#">Action</a></li>
-								    <li><a href="#">Another</a></li>
-								    <li><a href="#">Something</a></li>
-								    <li><a href="#">Separated</a></li>
-								  </ul>
-								</div>
-					    </div>
-					    <div class="my-col col-md-5">
-					      <div class="dropdown">
-								  <button class="btn btn-default my-btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-								    城市
-								    <span class="caret"></span>
-								  </button>
-								  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								    <li><a href="#">Action</a></li>
-								    <li><a href="#">Another</a></li>
-								    <li><a href="#">Something</a></li>
-								    <li><a href="#">Separated</a></li>
-								  </ul>
-								</div>
-					    </div>
-					  </div>
-					</form>
+
+			<div class="my-col col-md-5 pull-right">
+				<div class="form-group my-group">
+					<%= f.label :email, '电子邮箱', class: 'col-md-4 control-label' %>
+					<div class="my-col col-md-8">
+						<%= f.input :email, value: "example@xxx.com" %>
+					</div>
+				</div>
+				<div class="form-group my-group">
+					<%= f.label :intention, '求职意向', class: 'col-md-4 control-label' %>
+					<div class="my-col col-md-8">
+						<%= f.input :intention %>
+					</div>
 				</div>
 			</div>
-			<div class="my-col col-md-5">
-				<form class="form-horizontal">
-				  <div class="form-group my-group">
-				    <label for="inputEmail" class="my-col col-md-3 control-label">电子邮箱</label>
-					    <div class="my-col col-md-9">
-				      <input type="text" class="form-control" id="inputEmail" >
-				    </div>
-				  </div>
-				  <div class="form-group my-group">
-				    <label for="inputEmail" class="my-col col-md-3 control-label">求职意向</label>
-					    <div class="my-col col-md-9">
-				      <input type="text" class="form-control" id="inputEmail" >
-				    </div>
-				  </div>
-				</form>
-			</div>
+			<% end %>
 		<!-- 教育经历 -->
 			<div class="my-col col-md-12 add1">
 				<h3>教育经历</h3>
@@ -102,28 +83,32 @@
 				</span>
 			</div>
 			<div class="my-col col-md-12">
-				<form class="form-horizontal">
-				  <div class="form-group my-group">
-				    <label for="inputText" class="col-md-2 control-label">毕业院校</label>
-				    <div class="col-md-4">
-				      <input type="text" class="form-control" id="inputText">
-				    </div>
-				    <label for="inputText" class="col-md-2 control-label">起止时间</label>
-				    <div class="col-md-4">
-				      <input type="text" class="form-control" id="inputText">
-				    </div>
-				  </div>
-				  <div class="form-group my-group">
-				    <label for="inputText" class="col-md-2 control-label">所学专业</label>
-				    <div class="col-md-4">
-				      <input type="text" class="form-control" id="inputText">
-				    </div>
-				    <label for="inputText" class="col-md-2 control-label">所获学历</label>
-				    <div class="col-md-4">
-				      <input type="text" class="form-control" id="inputText">
-				    </div>
-				  </div>
-				</form>
+				<%= simple_form_for @edu_experience, url: edu_experiences_path(@user),wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
+					<div class="form-group my-group">
+					  	<%= f.label :school, '毕业院校', class: 'col-md-2 control-label' %>
+					    <div class="col-md-4">
+					      <%= f.input :school %>
+					    </div>
+					</div>
+					<div class="form-group my-group">
+						<%= f.label :time, '起止时间', class: 'col-md-2 control-label' %>
+					    <div class="col-md-4">
+					      <%= f.input :time %>
+					    </div>
+					</div>
+					<div class="form-group my-group">
+						<%= f.label :major, '所学专业', class: 'col-md-2 control-label' %>
+					    <div class="col-md-4">
+					      <%= f.input :major %>
+					    </div>
+					</div>
+					<div class="form-group my-group">
+						<%= f.label :education, '所获学历', class: 'col-md-2 control-label' %>
+					    <div class="col-md-4">
+					      <%= f.input :education %>
+					    </div>
+					</div>
+				<% end %>
 			</div>
 		<!-- 实习经历 -->
 			<div class="my-col col-md-12 add1">
@@ -233,3 +218,8 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+  $(function(){
+    $("#user_image").fileinput();
+  });
+</script>

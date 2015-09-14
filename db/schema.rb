@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150911012341) do
+ActiveRecord::Schema.define(version: 20150914101227) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -50,6 +50,18 @@ ActiveRecord::Schema.define(version: 20150911012341) do
     t.string   "attachmentable_type",  limit: 255
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+  end
+
+  create_table "basic_infos", force: :cascade do |t|
+    t.string   "education",  limit: 255
+    t.string   "intention",  limit: 255
+    t.string   "skill",      limit: 255
+    t.string   "city",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "college",    limit: 255
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
   end
 
   create_table "categories", force: :cascade do |t|
@@ -130,6 +142,15 @@ ActiveRecord::Schema.define(version: 20150911012341) do
 
   add_index "diymenus", ["key"], name: "index_diymenus_on_key", using: :btree
   add_index "diymenus", ["parent_id"], name: "index_diymenus_on_parent_id", using: :btree
+
+  create_table "edu_experiences", force: :cascade do |t|
+    t.string   "school",     limit: 255
+    t.string   "time",       limit: 255
+    t.string   "major",      limit: 255
+    t.string   "education",  limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "images", force: :cascade do |t|
     t.string   "avatar_file_name",    limit: 255
@@ -472,6 +493,18 @@ ActiveRecord::Schema.define(version: 20150911012341) do
 
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+
+  create_table "worktrains", force: :cascade do |t|
+    t.string   "title",          limit: 255
+    t.integer  "pv",             limit: 4
+    t.string   "introduce",      limit: 255
+    t.string   "syllabus",       limit: 255
+    t.string   "prospect",       limit: 255
+    t.string   "characteristic", limit: 255
+    t.string   "picture_url",    limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
 
   add_foreign_key "profession_stages", "professions"
   add_foreign_key "stage_courses", "courses"

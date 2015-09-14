@@ -50,6 +50,10 @@ class User < ActiveRecord::Base
   has_many :trains, through: :user_trains
 
   has_many :announces, dependent: :destroy 
+
+  has_many :basic_infos, dependent: :destroy 
+
+  has_many :edu_experience, dependent: :destroy 
   
   has_many :user_notifications, dependent: :destroy 
   has_many :notifications, through: :user_notifications

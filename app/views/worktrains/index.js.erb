@@ -73,10 +73,17 @@ function getStyle(box,top,left,index){
 
 var data = [];
 <% @trains.each do |train| %>
-	var title = "<h4>" + "<%= train.title.try(:truncate, 15) %>" + "</h4>";
+	var title = "<h4>" + "<%= train.title.try(:truncate, 15) %>" + "</h4>" 
+            + "<p>" + "<%=raw train.introduce.try(:truncate, 20) %>" + "</p>";
+  var view = "<%= train.views_count_s %>";
+  var time = "<%= train.created_at.strftime("%F %H:%M:%S") %>"
 	data.push({
 		"src": "<%= train.try(:image).try(:avatar) %>",
-		"title": title
+		"title": title,
+    "view_icon": "",
+    "view": view,
+    "time_icon": "",
+    "time": time
 	})
 <% end %>
 
@@ -107,6 +114,22 @@ var wrap = document.getElementById('wrap');
     var a = document.createElement('a');
     a.innerHTML = data[i].title;
     title.appendChild(a);
+    //创建view_icon
+    var view_icon = document.createElement('span');
+    view_icon.className = 'glyphicon glyphicon-eye-open';
+    title.appendChild(view_icon);
+    //创建view
+    var view = document.createElement('span');
+    view.className = 'view';
+    title.appendChild(view);
+    //创建time_icon
+    var time_icon = document.createElement('span');
+    time_icon.className = 'glyphicon glyphicon-time';
+    title.appendChild(time_icon);
+    //创建view
+    var time = document.createElement('span');
+    time.className = 'time';
+    title.appendChild(time);
   }
 
 PBL('wrap','box');

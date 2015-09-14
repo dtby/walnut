@@ -23,3 +23,4 @@
 //= require_tree ./ace/.
 //= require jquery.lazyload.min
 //= require blocksit
+//= require china_city/jquery.china_city

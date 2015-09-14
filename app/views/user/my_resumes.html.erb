@@ -15,11 +15,11 @@
           <div role="tabpanel" class="tab-pane text-center active" id="joinProjects">
             <div class="col-md-12">
               <p class="user-pic"><%= image_tag "default-user.jpg",style:"width:100px;height:100px;" %></p>
-              <p>张某某</p>
-              <p>个性签名：不忘初心，方得始终！</p>
-              <p>北京大学&nbsp;&nbsp;&nbsp;计算机专业</p>
-              <p>上海&nbsp;&nbsp;123456789@qq.com</p>
-              <p>Java专业&nbsp;&nbsp;Java工程师</p>
+                <p><%= @basic_info.name %></p>
+                <p>个性签名：<%= @user.signature %></p>
+                <p><%= @basic_info.college %>&nbsp;&nbsp;&nbsp;<%= @basic_info.education %></p>
+                <p><%= @basic_info.name %>&nbsp;&nbsp;<%= @basic_info.email %></p>
+                <p><%= @basic_info.skill %>&nbsp;&nbsp;<%= @basic_info.intention %></p>
             </div>
             <div class="col-md-12">
               <h3 class="resumes-title"><span>教育经历</span></h3>
