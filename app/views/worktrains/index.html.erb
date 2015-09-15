@@ -41,7 +41,7 @@ window.onload = function(){
       $.ajax({
         url: "<%= worktrains_path %>.js",
         type: "GET",
-        data: "page=<%= @trains.next_page %>"
+        data: "page=<%= @trains.present? ? @trains.next_page : 1 %>"
       });
     }
   }
