@@ -44,7 +44,6 @@ class BasicInfosController < ApplicationController
 				params.require(:basic_info).permit(:title, :classify, :content, :picture_url)
 		end
 
-	end
 
 
 end

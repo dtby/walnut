@@ -83,32 +83,32 @@
 				</span>
 			</div>
 			<div class="my-col col-md-12">
-				<%= simple_form_for @edu_experience, url: edu_experiences_path(@user),wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
+				<form>
 					<div class="form-group my-group">
-					  	<%= f.label :school, '毕业院校', class: 'col-md-2 control-label' %>
+					  	<%#= f.label :school, '毕业院校', class: 'col-md-2 control-label' %>
 					    <div class="col-md-4">
-					      <%= f.input :school %>
+					      <%#= f.input :school %>
 					    </div>
 					</div>
 					<div class="form-group my-group">
-						<%= f.label :time, '起止时间', class: 'col-md-2 control-label' %>
+						<%#= f.label :time, '起止时间', class: 'col-md-2 control-label' %>
 					    <div class="col-md-4">
-					      <%= f.input :time %>
+					      <%#= f.input :time %>
 					    </div>
 					</div>
 					<div class="form-group my-group">
-						<%= f.label :major, '所学专业', class: 'col-md-2 control-label' %>
+						<%#= f.label :major, '所学专业', class: 'col-md-2 control-label' %>
 					    <div class="col-md-4">
-					      <%= f.input :major %>
+					      <%#= f.input :major %>
 					    </div>
 					</div>
 					<div class="form-group my-group">
-						<%= f.label :education, '所获学历', class: 'col-md-2 control-label' %>
+						<%#= f.label :education, '所获学历', class: 'col-md-2 control-label' %>
 					    <div class="col-md-4">
-					      <%= f.input :education %>
+					      <%#= f.input :education %>
 					    </div>
 					</div>
-				<% end %>
+				</form>
 			</div>
 		<!-- 实习经历 -->
 			<div class="my-col col-md-12 add1">
