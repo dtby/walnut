@@ -1,7 +1,7 @@
 class WorktrainsController < ApplicationController
 	before_action :set_train, only: [:edit, :show, :update, :destroy]
   def index
-  	@trains = Train.all.page(params[:page]).per(4)
+  	@trains = Train.all.page(params[:page]).per(6)
     pp @trains
     respond_with @trains
   end
