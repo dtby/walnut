@@ -53,7 +53,11 @@ class User < ActiveRecord::Base
 
   has_many :basic_infos, dependent: :destroy 
 
-  has_many :edu_experience, dependent: :destroy 
+  has_many :edu_experiences, dependent: :destroy 
+
+  has_many :iternships, dependent: :destroy 
+
+  has_many :projects_exps, dependent: :destroy 
   
   has_many :user_notifications, dependent: :destroy 
   has_many :notifications, through: :user_notifications

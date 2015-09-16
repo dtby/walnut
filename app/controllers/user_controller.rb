@@ -66,8 +66,16 @@ class UserController < ApplicationController
 
   def my_resumes
     @user = current_user
-    @basic_info = BasicInfo.first
+    @basic_info = BasicInfo.where(id: current_user.id).new
+    @edu_experience = EduExperience.where(id: current_user.id).new
+    @edu_experiences = EduExperience.all
+    @iternship = Iternship.where(id: current_user.id).new
+    @iternships = Iternship.all
+    @projects_exp = ProjectsExp.where(id: current_user.id).new
+    @projects_exps = ProjectsExp.all
+    
     # redirect_to  my_resumes_user_index_path
+
   end
 
   def home

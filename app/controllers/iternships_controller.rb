@@ -1,18 +1,18 @@
-class BasicInfosController < ApplicationController
+class IternshipsController < ApplicationController
 	def index
-		@basic_infos = basic_info.all.page(params[:page]).per(10)
+		@iternships = Iternship.all.page(params[:page]).per(10)
 	end
 
 	def show
 	end
 
 	def new
-		@basic_info = BasicInfo.new
+		@iternship = Iternship.new
 	end
 
 	def create
-		@basic_info = BasicInfo.new(basic_info_params)
-		if @basic_info.save
+		@iternship = Iternship.new(iternship_params)
+		if @iternship.save
 			flash[:notice] = "创建成功"
 			return redirect_to my_resumes_user_index_path
 		else
@@ -25,12 +25,12 @@ class BasicInfosController < ApplicationController
 	end
 
 	def destroy
-		@basic_info.destroy
+		@iternship.destroy
 		redirect_to my_resumes_user_index_path
 	end
 
 	def update
-		if @basic_info.update(basic_info_params)
+		if @iternship.update(iternship_params)
 			flash[:notice] = "更新成功"
 			return redirect_to my_resumes_user_index_path
 		else
@@ -40,10 +40,8 @@ class BasicInfosController < ApplicationController
 	end
 
 	private
-		def basic_info_params
-				params.require(:basic_info).permit(:college, :education, :intention, :skill, :city, :name, :image, :email)
+		def iternship_params
+				params.require(:iternship).permit(:company, :time, :address, :job)
 		end
-
-
 
 end

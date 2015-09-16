@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150914101227) do
+ActiveRecord::Schema.define(version: 20150916065840) do
 
   create_table "announces", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -176,6 +176,15 @@ ActiveRecord::Schema.define(version: 20150914101227) do
 
   add_index "interviews", ["iv_category_id"], name: "index_interviews_on_iv_category_id", using: :btree
 
+  create_table "iternships", force: :cascade do |t|
+    t.string   "company",    limit: 255
+    t.string   "time",       limit: 255
+    t.string   "address",    limit: 255
+    t.string   "job",        limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "iv_categories", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "sort_no",    limit: 4,   default: 1000
@@ -238,6 +247,16 @@ ActiveRecord::Schema.define(version: 20150914101227) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.integer  "project_type", limit: 4,   default: 0
+  end
+
+  create_table "projects_exps", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "time",        limit: 255
+    t.string   "role",        limit: 255
+    t.string   "certificate", limit: 255
+    t.string   "custom",      limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "recruitments", force: :cascade do |t|

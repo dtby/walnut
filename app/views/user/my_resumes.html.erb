@@ -7,12 +7,12 @@
       <div class="col-md-9 right_nav_c">
         <div class="my-nav">
           <ul class="nav nav-tabs right_nav">
-            <li role="presentation" class="active"><a href="#joinProjects" aria-controls="joinProjects" role="tab" data-toggle="tab">电子简历</a></li>
-            <li role="presentation"><a href="#createProjects" aria-controls="createProjects" role="tab" data-toggle="tab">编辑简历</a></li>
+            <li role="presentation" class="active"><a href="#joinProjects" aria-controls="joinProjects" role="tab" data-toggle="tab">编辑简历</a></li>
+            <li role="presentation"><a href="#createProjects" aria-controls="createProjects" role="tab" data-toggle="tab">电子简历</a></li>
           </ul>
         </div>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane text-center active" id="joinProjects">
+          <div role="tabpanel" class="tab-pane text-center" id="joinProjects">
             <div class="col-md-12">
               <p class="user-pic"><%= image_tag "default-user.jpg",style:"width:100px;height:100px;" %></p>
                 <p><%= @basic_info.name %></p>
@@ -77,8 +77,8 @@
 
           </div>
 
-          <div role="tabpanel" class="tab-pane" id="createProjects">
-            <%=render "resumes_form" %>
+          <div role="tabpanel" class="tab-pane active" id="createProjects">
+            <%=render "user/resumes_form/resumes_form" %>
           </div>
 
         </div>

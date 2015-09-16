@@ -1,0 +1,57 @@
+<div class="wrapper">
+	<div class="content">
+		<div class="row">
+		<!-- 基本信息 -->
+		<div class="my-col col-md-12">
+			<h3>基本信息</h3>
+			<%= render partial: "user/resumes_form/basic_info_form" %>
+		</div>
+		<!-- 教育经历 -->
+		<div class="my-col col-md-12">
+			<%= render partial: "user/resumes_form/edu_experience_form" %>
+		</div>
+		<!-- 实习经历 -->
+		<div class="my-col col-md-12">
+			<%= render partial: "user/resumes_form/internship_form" %>
+		</div>
+		<!-- 项目经验 -->
+		<div class="my-col col-md-12" id="my_project_exp">
+			<%= render partial: "user/resumes_form/projects_exp_form" %>
+		</div>
+		<!-- 自定义模块 -->
+			<!-- <div class="my-col col-md-12 add1">
+				<h3>自定义模块</h3>
+				<span class="my-add1">
+					<a href="#"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> 添加技能</a>
+				</span>
+			</div>
+			<div class="my-col col-md-12">
+				<form class="form-horizontal">
+					<div class="form-group my-group">
+						<label for="inputText" class="col-md-2 control-label">自定义标题</label>
+			    	<div class="col-md-10">
+				      <input type="text" class="form-control" id="inputText">
+				    </div>
+					</div>
+			    <div class="form-group my-group">
+				    <label for="inputText" class="col-md-2 control-label">自定义内容</label>
+				    <div class="col-md-10">
+				      <textarea class="form-control" rows="5"></textarea>
+				    </div>
+				  </div>
+				</form>
+			</div> -->
+			<!-- <div class="col-sm-offset-3 col-sm-2">
+		        <botton class="btn btn-default mybtn my_btn1">确认提交</botton>
+		    </div>
+		    <div class="col-sm-offset-3 col-sm-2">
+		        <botton class="btn btn-default mybtn  my_btn2">取消编辑</botton>
+		    </div> -->
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+  $(function(){
+    $("#user_image").fileinput();
+  });
+</script>

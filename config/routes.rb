@@ -33,13 +33,16 @@ Rails.application.routes.draw do
   resources :sms, only: [:create]
 
   resources :user, only:[:show, :update] do
+    resources :basic_infos
+    resources :edu_experiences
+    resources :iternships
+    resources :projects_exps
     collection do
       get :my_projects
       get :my_courses
       get :my_messages
       get :my_recruits
       get :my_resumes
-      resources :basic_infos
       get :my_trains
       get :my_impression
     end

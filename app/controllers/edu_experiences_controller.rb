@@ -1,18 +1,18 @@
-class BasicInfosController < ApplicationController
+class EduExperiencesController < ApplicationController
 	def index
-		@basic_infos = basic_info.all.page(params[:page]).per(10)
+		@edu_experiences = edu_experience.all.page(params[:page]).per(10)
 	end
 
 	def show
 	end
 
 	def new
-		@basic_info = BasicInfo.new
+		@edu_experience = EduExperience.new
 	end
 
 	def create
-		@basic_info = BasicInfo.new(basic_info_params)
-		if @basic_info.save
+		@edu_experience = EduExperience.new(edu_experience_params)
+		if @edu_experience.save
 			flash[:notice] = "创建成功"
 			return redirect_to my_resumes_user_index_path
 		else
@@ -25,12 +25,12 @@ class BasicInfosController < ApplicationController
 	end
 
 	def destroy
-		@basic_info.destroy
+		@edu_experience.destroy
 		redirect_to my_resumes_user_index_path
 	end
 
 	def update
-		if @basic_info.update(basic_info_params)
+		if @edu_experience.update(edu_experience_params)
 			flash[:notice] = "更新成功"
 			return redirect_to my_resumes_user_index_path
 		else
@@ -40,10 +40,7 @@ class BasicInfosController < ApplicationController
 	end
 
 	private
-		def basic_info_params
-				params.require(:basic_info).permit(:college, :education, :intention, :skill, :city, :name, :image, :email)
+		def edu_experience_params
+				params.require(:edu_experience).permit(:school, :time, :major, :education)
 		end
-
-
-
 end

@@ -1,0 +1,68 @@
+<%= simple_form_for @basic_info, url: user_basic_infos_path(@user), method: :post, wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
+	<div class="my-col col-md-7">
+		<!-- 	<div class="form-group my-group">
+		<label for="inputName" class="my-col col-md-2 control-label">真实姓名</label>
+			<div class="col-md-10">
+		    	<input type="text" class="form-control" id="inputName" >
+		    </div>
+		</div> -->
+		<div class="form-group my-group">
+			<%= f.label :name, '姓名', class: 'col-md-3 control-label' %>
+			<div class="my-col col-md-9">
+				<%= f.input :name %>
+			</div>
+		</div>
+		<div class="form-group my-group">
+			<%= f.label :college, '学院学历', class: 'col-md-3 control-label' %>
+			<div class="my-col col-md-5">
+				<%= f.input :college %>
+			</div>
+			<div class="my-col col-md-4">
+				<%= f.input :education %>
+			</div>
+		</div>
+		<div class="form-group my-group">
+			<%= f.label :skill, '技能方向', class: 'col-md-3 control-label' %>
+			<div class="my-col col-md-9">
+				<%= f.input :skill %>
+			</div>
+		</div>
+	  	<div class='rails-helper city-group'>
+			<%= select_tag "p", options_for_select(ChinaCity.list) , prompt: '--省份--', class: ['city-select'] %>
+			<%= select_tag "c", options_for_select([]), prompt: '--城市--', class: ['city-select'] %>
+		</div>
+		<%= hidden_field_tag "user_id", current_user.id %>
+	<!-- 	<div class="form-group my-group text-center">
+			<%= f.button :submit , '提交修改', class:"btn btn-default mybtn my_btn1" %>
+		</div> -->
+	</div>
+	<div class="my-col col-md-5">
+		<div class="my-col col-md-4">
+			<h4>头像选择</h4>
+		</div>
+		<% if @basic_info.image.present? %>
+		<div class="my-col col-md-6">
+			<%= image_tag(@basic_info.try(:image).try(:avatar), size: "110x150") %>
+		</div>	
+		<div class="form-group">
+			<div class="col-sm-6 container">
+				<%= f.file_field :image %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div class="my-col col-md-5 pull-right">
+		<div class="form-group my-group">
+			<%= f.label :email, '电子邮箱', class: 'col-md-4 control-label' %>
+			<div class="my-col col-md-8">
+				<%= f.input :email, value: "example@xxx.com" %>
+			</div>
+		</div>
+		<div class="form-group my-group">
+			<%= f.label :intention, '求职意向', class: 'col-md-4 control-label' %>
+			<div class="my-col col-md-8">
+				<%= f.input :intention %>
+			</div>
+		</div>
+	</div>
+<% end %>
