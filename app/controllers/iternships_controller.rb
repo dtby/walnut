@@ -1,6 +1,5 @@
 class IternshipsController < ApplicationController
 	def index
-		@iternships = Iternship.all.page(params[:page]).per(10)
 	end
 
 	def show
@@ -11,13 +10,15 @@ class IternshipsController < ApplicationController
 	end
 
 	def create
+		@user = current_user
+		@iternships = Iternship.all
 		@iternship = Iternship.new(iternship_params)
 		if @iternship.save
 			flash[:notice] = "创建成功"
-			return redirect_to my_resumes_user_index_path
+			respond_with(@iternships)
 		else
 			flash[:notice] = "创建失败"
-			return redirect_to my_resumes_user_index_path
+			respond_with(@iternships)
 		end
 	end
 
@@ -25,17 +26,19 @@ class IternshipsController < ApplicationController
 	end
 
 	def destroy
+		@user = current_user
+		@iternships = Iternship.all
 		@iternship.destroy
-		redirect_to my_resumes_user_index_path
+		respond_with(@iternships)
 	end
 
 	def update
 		if @iternship.update(iternship_params)
 			flash[:notice] = "更新成功"
-			return redirect_to my_resumes_user_index_path
+			respond_with(@iternships)
 		else
 			flash[:notice] = "更新失败"
-			return redirect_to my_resumes_user_index_path
+			respond_with(@iternships)
 		end
 	end
 

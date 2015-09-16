@@ -1,10 +1,26 @@
-<%= simple_form_for @iternship, url: user_iternships_path(@user), method: :post, wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
+<%= simple_form_for @iternship, url: user_iternships_path(@user), method: :post, remote: true, format: :js, wrapper: :resumes_form,  html: { class: "resumes_form" } do |f| %>
 	<div class="my-col col-md-12 add1">
 		<h3>实习经历</h3>
 		<span class="my-add1">
 			<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span><%= f.button :submit , '添加经历' %>
 		</span>
 	</div>
+	<% @iternships.each do |iternship| %>
+		<div class="col-md-2"><%= iternship.company.try(:truncate, 4) %></div>
+		<div class="col-md-3"><%= iternship.time %></div>
+		<div class="col-md-3"><%= iternship.address.try(:truncate, 10) %></div>
+		<div class="col-md-2"><%= iternship.job %></div>
+		<div class="col-md-1">
+			<%= link_to edit_user_iternship_path(@user, iternship.id), class: 'btn btn-xs btn-default', title: '编辑' do %>
+	      		<span class="glyphicon glyphicon-edit"></span>
+	    	<%end%>
+		</div>
+		<div class="col-md-1">
+			<%= link_to user_iternship_path(@user, iternship.id), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
+      			<span class="glyphicon glyphicon-trash"></span>
+    		<%end%>
+		</div>
+	<% end %>
 	<div class="form-group my-group">
 	  	<%= f.label :company, '公司名称', class: 'col-md-2 control-label' %>
 	    <div class="col-md-4">
