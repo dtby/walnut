@@ -19,7 +19,7 @@
 				<li class="<%= "active" if params[:controller] == 'courses' && params[:action] == 'index'%>"><a href="<%= courses_path %>">课程中心
 					 <ul class="dropdown-menu sub_menu" >
 					  	<li><a href="<%= courses_path %>">在线学习</a></li>
-					   	<li><a href="<%= list_courses_path %>">大学课程</a></li>
+					   	<li><a href="<%= colleges_path %>">大学课程</a></li>
 					  </ul>
 				</a></li>
 				<li class="<%= "active" if params[:controller] == 'training_platform/home'%>">

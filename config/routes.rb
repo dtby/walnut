@@ -74,17 +74,14 @@ Rails.application.routes.draw do
   resources :votes, only: [:create]
   resources :ints, only: [:create]
 
-  #get "/courses/list", to: "courses#list", as: :list_courses
   resources :courses, only: [:index, :show] do
-    collection do
-      get :list
-    end
     member do
       get :detail
     end
     resources :sub_courses, only: [:index, :show, :create]
   end
   
+  resources :colleges, only: [:index, :show]
   resources :system, only: [:index, :show]
   resources :career, only: [:index, :show]
 

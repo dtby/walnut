@@ -11,9 +11,9 @@
 			<div class="line"></div>
 		</div>
 		<div class="col-xs-12" id="CollegeList">
-		<%(0..8).each do |f| %>
+		<% @colleges.each do |college| %>
 			<div class="col-xs-3 college-list">
-				<%= image_tag "course_college.png", width:"100%", class:"college_img" %>
+				<%= link_to(image_tag(college.try(:image).try(:avatar).try(:url, :c_250_190), class: "college_img img-responsive"), college)%>
 			</div>
 		<% end %>
 		</div>
