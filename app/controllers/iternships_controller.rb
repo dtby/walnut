@@ -23,12 +23,14 @@ class IternshipsController < ApplicationController
 	end
 
 	def edit
+		@user = current_user
+		respond_with(@iternships)
 	end
 
 	def destroy
+		@iternship.destroy
 		@user = current_user
 		@iternships = Iternship.all
-		@iternship.destroy
 		respond_with(@iternships)
 	end
 

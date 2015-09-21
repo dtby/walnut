@@ -6,15 +6,15 @@
 		</span>
 	</div>
 	<% @iternships.each do |iternship| %>
-		<div class="col-md-2"><%= iternship.company.try(:truncate, 4) %></div>
+		<div class="col-md-3"><%= iternship.company.try(:truncate, 4) %></div>
 		<div class="col-md-3"><%= iternship.time %></div>
 		<div class="col-md-3"><%= iternship.address.try(:truncate, 10) %></div>
 		<div class="col-md-2"><%= iternship.job %></div>
-		<div class="col-md-1">
-			<%= link_to edit_user_iternship_path(@user, iternship.id), class: 'btn btn-xs btn-default', title: '编辑' do %>
+		<!-- <div class="col-md-1">
+			<%= link_to edit_user_iternship_path(@user, iternship.id), remote: true, format: :js, class: 'btn btn-xs btn-default', title: '编辑' do %>
 	      		<span class="glyphicon glyphicon-edit"></span>
 	    	<%end%>
-		</div>
+		</div> -->
 		<div class="col-md-1">
 			<%= link_to user_iternship_path(@user, iternship.id), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
       			<span class="glyphicon glyphicon-trash"></span>
