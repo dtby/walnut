@@ -2,14 +2,13 @@
   <li>
     <a href="#{admin_root_path}">后台</a>
   </li>
-  <li><%= link_to "院校列表", admin_colleges_path %></li>
-  <li class="active"><%= @college.name %></li>
+  <li><%= link_to "职业阶段: #{@profession_stage.name}", admin_profession_profession_stages_path %></li>
   <li class="active">课程列表</li>
 <%end%>
 
 <%= content_for :toolbar do %>
   <div class="col-xs-12">
-    <%= link_to new_course_admin_college_path, 'data-no-turbolink' => true, class: 'btn btn-success' do %>
+    <%= link_to new_course_admin_profession_profession_stage_path, 'data-no-turbolink' => true, class: 'btn btn-success' do %>
       <span class="glyphicon glyphicon-plus-sign"></span> 添加
     <%end%>
     <div class="col-xs-3 pull-right">
@@ -33,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-  <%= render @college_courses %>
+  <%= render @profession_stage_courses %>
   </tbody>
 </table>
-<%= paginate @college_courses %>
+<%= paginate @profession_stage_courses %>

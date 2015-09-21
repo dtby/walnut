@@ -165,19 +165,36 @@ Rails.application.routes.draw do
   resources :projects
   resources :cooperations, only: [:index]
 
-
+  #后台管理
   namespace :admin do
     root "home#index"
     resources :colleges do
       member do
         get :courses
-        get :new_courses
-        post :create_courses
+        get :new_course
+        post :create_course
       end
     end
-    resources :technologies, except: [:show]
-    resources :professions, except: [:show]
-    
+    #技术体系及其阶段
+    resources :technologies, except: [:show] do
+      resources :technology_stages, except: [:show] do
+        member do
+          get :courses
+          get :new_course
+          post :create_course
+        end
+      end
+    end
+    #职业路径及其阶段
+    resources :professions, except: [:show] do
+      resources :profession_stages, except: [:show] do
+         member do
+          get :courses
+          get :new_course
+          post :create_course
+        end
+      end
+    end
     resources :teachers
     resources :companies
     resources :recruitments
@@ -188,6 +205,7 @@ Rails.application.routes.draw do
     end
     resources :applies, only: [:index, :edit, :update, :destroy]
   end
+
   #微信平台培训报名
   namespace :wechat do
     root "applies#home"

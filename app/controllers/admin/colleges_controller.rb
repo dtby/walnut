@@ -1,6 +1,6 @@
 module Admin
 	class CollegesController < Admin::ApplicationController
-		before_action :set_college, only: [:edit, :update, :destroy, :courses, :new_courses]
+		before_action :set_college, only: [:edit, :update, :destroy, :courses, :new_course]
 		def index
 			@colleges = College.page(params[:page]).per(10)
 		end
@@ -51,12 +51,12 @@ module Admin
 		end
 
 		#为学校添加课程页面
-		def new_courses
+		def new_course
 			@courses = Course.all.pluck(:id, :title)
 		end
 
 		#创建学校课程
-		def create_courses
+		def create_course
 			params[:course_id].each do |course_id|
 				StageCourse.find_or_create_by!(stage_courseable_id: params[:stage_courseable_id], 
 					stage_courseable_type: params[:stage_courseable_type], 

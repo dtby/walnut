@@ -2,7 +2,7 @@
   <td><%= profession.id %></td>
   <td><%= profession.name %></td>
   <td><%= image_tag(profession.try(:image).try(:avatar), size: "130x70") %></td>
-  <td><%= link_to "课程列表", "#" %></td>
+  <td><%= link_to "阶段列表", admin_profession_profession_stages_path(profession) %></td>
   <td>
     <%= link_to edit_admin_profession_path(profession), class: 'btn btn-xs btn-default', title: '编辑' do %>
       <span class="glyphicon glyphicon-edit"></span>

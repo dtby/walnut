@@ -1,0 +1,14 @@
+<tr>
+  <td><%= technology_stage.id %></td>
+  <td><%= technology_stage.name %></td>
+  <td><%= technology_stage.discribe %></td>
+  <td><%= link_to "课程列表", courses_admin_technology_technology_stage_path(params[:technology_id], @technology) %></td>
+  <td>
+    <%= link_to edit_admin_technology_technology_stage_path(params[:technology_id], technology_stage), class: 'btn btn-xs btn-default', title: '编辑' do %>
+      <span class="glyphicon glyphicon-edit"></span>
+    <%end%>
+    <%= link_to admin_technology_technology_stage_path(params[:technology_id], technology_stage), data:{ confirm: 'Are you sure?'},method: :delete, class: 'btn btn-xs btn-danger', title: '删除' do %>
+      <span class="glyphicon glyphicon-trash"></span>
+    <%end%>
+  </td>
+</tr>

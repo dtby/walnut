@@ -2,7 +2,7 @@
   <td><%= technology.id %></td>
   <td><%= technology.name %></td>
   <td><%= image_tag(technology.try(:image).try(:avatar), size: "130x70") %></td>
-  <td><%= link_to "阶段列表", "#" %></td>
+  <td><%= link_to "阶段列表", admin_technology_technology_stages_path(technology) %></td>
   <td>
     <%= link_to edit_admin_technology_path(technology), class: 'btn btn-xs btn-default', title: '编辑' do %>
       <span class="glyphicon glyphicon-edit"></span>
