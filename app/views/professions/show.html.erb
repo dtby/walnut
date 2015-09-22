@@ -1,0 +1,41 @@
+<div class="container">
+	<ol class="courses-bread breadcrumb">
+	<span><i class="iconfont">&#xe60a;</i></span>
+	<li><%= link_to "课程中心", courses_path %></li>
+	<li><%= link_to "职业路径 ", professions_path %></li>
+	<li class="active"><%= @profession.name %></li>
+	</ol>
+	<div class="row category">
+		<div class="title-bar">
+			<h4 class="text-center title">路径简介</h4>
+			<div class="line"></div>
+		</div>
+		<div class="system-intro col-sm-12"><%= @profession.introduce %></div>
+
+	</div>
+	<div class="row">
+		<div class="title-bar">
+			<h4 class="text-center title">课程中心</h4>
+			<div class="line"></div>
+		</div>
+		<div class="col-xs-12">
+			<% @profession_stages.each_with_index do|profession_stage, index| %>
+				<div class="col-xs-12 system-bordered">
+					<p>
+					<% if index == 0 %>
+						<i class="system-dtsgixinyuan iconfont">&#xe605;</i>
+					<% else %>
+						<i class="system-dtsgixinyuan iconfont">&#xe604;</i>
+					<% end %>
+					<span><%= profession_stage.name %></span>
+					（<%= profession_stage.description %>）</p>
+					<!-- 阶段课程 -->
+					<%= render profession_stage.courses %>
+				</div>
+			<% end %>
+			<div class="col-xs-12">
+				<p><i class="system-xinyuan iconfont">&#xe605;</i></p>
+			</div>
+		</div>
+	</div>
+</div>

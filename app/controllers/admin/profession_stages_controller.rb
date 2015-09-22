@@ -59,7 +59,7 @@ class Admin::ProfessionStagesController < Admin::ApplicationController
 
 	private
 	def profession_stage_params
-		params.require(:profession_stage).permit(:name, :discribe)
+		params.require(:profession_stage).permit(:name, :description)
 	end
 
 	def set_profession

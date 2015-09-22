@@ -42,7 +42,7 @@ module Admin
 
 		private
 			def technology_params
-				params.require(:technology).permit(:name)
+				params.require(:technology).permit(:name, :introduce)
 			end
 
 			def set_technology

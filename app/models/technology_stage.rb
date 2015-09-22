@@ -1,5 +1,5 @@
 class TechnologyStage < ActiveRecord::Base
-	validates :name, :discribe, presence: true
+	validates :name, :description, presence: true
 	
 	belongs_to :technology
 

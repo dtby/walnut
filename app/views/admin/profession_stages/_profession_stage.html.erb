@@ -2,7 +2,7 @@
   <td><%= profession_stage.id %></td>
   <td><%= profession_stage.name %></td>
   <td><%= profession_stage.description %></td>
-  <td><%= link_to "课程列表", "#" %></td>
+  <td><%= link_to "课程列表", courses_admin_profession_profession_stage_path(params[:profession_id], profession_stage) %></td>
   <td>
     <%= link_to edit_admin_profession_profession_stage_path(params[:profession_id], profession_stage), class: 'btn btn-xs btn-default', title: '编辑' do %>
       <span class="glyphicon glyphicon-edit"></span>

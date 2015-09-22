@@ -42,7 +42,7 @@ module Admin
 
 		private
 			def profession_params
-				params.require(:profession).permit(:name)
+				params.require(:profession).permit(:name, :introduce)
 			end
 
 			def set_profession

@@ -18,7 +18,7 @@
 	}
 }
 
-.courses__index, .system__show {
+.courses__index, .technologies__show {
 	.show-more {
 		border: solid 1px #e3e3e3;
 		width: 100%;
@@ -30,16 +30,16 @@
 	}
 }
 
-.system__index, .system__show {
+.technologies__index, .professions__index, .technologies__show {
 	.system {
 		padding: 0;
 		img:hover { 
-				transition:All 1s;
-			   	transform:scale(1.2);    
-				-webkit-transform:scale(1.2);    
-				-moz-transform:scale(1.2);    
-				-o-transform:scale(1.2);    
-				-ms-transform:scale(1.2);
+			transition:All 1s;
+		   	transform:scale(1.2);    
+			-webkit-transform:scale(1.2);    
+			-moz-transform:scale(1.2);    
+			-o-transform:scale(1.2);    
+			-ms-transform:scale(1.2);
 		}
 		.system-list {
 			padding: 0 15px;
@@ -152,7 +152,7 @@
 	}
 }
 
-.system__show, .career__show {
+.technologies__show, .professions__show {
 	.system-bordered {
 		border-left: 8px solid #36B39E;
 		span {
@@ -193,7 +193,7 @@
 	}
 }
 
-.career__show {
+.professions__show {
 	.career-title {
 		background-color: #fff;
 		width: 160px;

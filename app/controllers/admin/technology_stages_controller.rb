@@ -59,7 +59,7 @@ class Admin::TechnologyStagesController < Admin::ApplicationController
 
 	private
 	def technology_stage_params
-		params.require(:technology_stage).permit(:name, :discribe)
+		params.require(:technology_stage).permit(:name, :description)
 	end
 	def set_technology
 		@technology = Technology.find(params[:technology_id])
