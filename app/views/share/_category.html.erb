@@ -5,22 +5,22 @@
 	</div>
 	<div id="search-band" class="search-course">
 		<div class="col-sm-3">
-			<%= link_to courses_path, class: "link-lg active", param: "" do %>
+			<%= link_to courses_path, class: "link-lg #{"active" if params[:controller] == "courses"}", param: "" do %>
 			<i class="courses-iconfont iconfont">&#xe603;</i><span class="courses-cate">全部课程</span>
 			<% end %>
 		</div>
 		<div class="col-sm-3">
-			<%= link_to colleges_path, class: "link-lg" do %>
+			<%= link_to colleges_path, class: "link-lg #{"active" if params[:controller] == "colleges"}" do %>
 			  <i class="courses-iconfont iconfont">&#xe607;</i><span class="courses-cate">大学课程</span>
 			<% end %>
 		</div>
 		<div class="col-sm-3">
-			<%= link_to technologies_path, class: "link-lg" do %>
+			<%= link_to technologies_path, class: "link-lg #{"active" if params[:controller] == "technologies"}" do %>
 			  <i class="courses-iconfont iconfont">&#xe60c;</i><span class="courses-cate">技术体系</span>
 			<% end %>
 		</div>
 		<div class="col-sm-3">
-			<%= link_to professions_path, class: "link-lg" do %>
+			<%= link_to professions_path, class: "link-lg #{"active" if params[:controller] == "professions"}" do %>
 			  <i class="courses-iconfont iconfont">&#xe608;</i><span class="courses-cate">职业路径</span>
 			<% end %>
 		</div>
